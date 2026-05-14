@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculators | Reka Creative Labs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="noise-overlay"></div>
+
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="logo">REKA<span>.</span></a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="case-studies.html" class="nav-link">Case Studies</a>
+                <a href="calculators.html" class="nav-link active">Calculators</a>
+                <a href="preview.html" class="nav-link">Preview</a>
+                <a href="mailto:rekacreativelabs@gmail.com" class="nav-cta">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <span class="tag">ROI Tools</span>
+            <h1 class="title">Ad Forecasting<br><span class="gradient-text">Calculators</span></h1>
+            <p class="desc">Calculate your projected growth and ROI before you spend a single rupee on ads.</p>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div class="calculator-container">
+                <div class="calc-tabs">
+                    <button class="calc-tab active" data-tab="meta" onclick="switchCalc('meta')">Meta Ads</button>
+                    <button class="calc-tab" data-tab="youtube" onclick="switchCalc('youtube')">YouTube Ads</button>
+                    <button class="calc-tab" data-tab="google" onclick="switchCalc('google')">Google Ads</button>
+                </div>
+
+                <div class="calc-body">
+                    <!-- Meta Calculator -->
+                    <div class="calc-panel active" id="meta-panel">
+                        <div class="calc-inputs">
+                            <div class="input-group">
+                                <label>Monthly Budget (₹)</label>
+                                <input type="number" id="meta-budget" value="50000">
+                            </div>
+                            <div class="input-group">
+                                <label>Industry</label>
+                                <select id="meta-industry">
+                                    <option value="ecommerce">E-Commerce</option>
+                                    <option value="real_estate">Real Estate</option>
+                                    <option value="education">Education</option>
+                                    <option value="healthcare">Healthcare</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label>Target CTR (%): <span id="meta-ctr-val">1.5%</span></label>
+                                <input type="range" min="0.5" max="5" step="0.1" value="1.5" id="meta-ctr" oninput="updateCtrValue(this.value)">
+                            </div>
+                        </div>
+                        <button class="btn btn-primary calculate-btn" onclick="calculateMeta()">Run Simulation</button>
+                        <div class="calc-results" id="meta-results"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Reka Creative Labs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        function updateCtrValue(val) {
+            document.getElementById('meta-ctr-val').innerText = val + '%';
+        }
+        function switchCalc(id) {
+            // Logic to switch between meta, youtube, google if needed
+            // Currently only Meta is fully implemented as per the original turn's logic
+        }
+    </script>
+</body>
+</html>
