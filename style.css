@@ -2572,7 +2572,7 @@
 .quote-modal {
     position: fixed;
     inset: 0;
-    z-index: 9999;
+    z-index: 999999 !important; /* Sit on top of all canvas elements, cursor followers, and other widgets */
     background: rgba(7, 14, 10, 0.85);
     backdrop-filter: blur(16px);
     display: flex;
@@ -2586,7 +2586,11 @@
 
 .quote-modal.active {
     opacity: 1;
-    pointer-events: all;
+    pointer-events: auto !important; /* Critical fix: standard CSS value is 'auto', 'all' is invalid for HTML and causes touch/click failure */
+}
+
+.quote-modal.active * {
+    pointer-events: auto !important; /* Ensure all form inputs, labels, and textareas receive click events correctly */
 }
 
 .quote-modal-content {
