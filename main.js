@@ -354,8 +354,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ═══════════════════════════════════════════════════
-   GET QUOTE MODAL CONTROLLER
-═══════════════════════════════════════════════════ */
+   GET QUOTE MODAL CONTROLLER — DYNAMIC & SERVICE-AWARE
+   ═══════════════════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('quoteModal');
     const closeBtn = document.getElementById('closeQuoteModal');
@@ -365,15 +365,269 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!modal) return;
 
-    // Open Modal
+    // Custom form fields tailored to each service/package to maximize UX and conversion
+    const serviceFieldsMap = {
+        "Web Development": [
+            {
+                type: "select",
+                id: "webType",
+                label: "What type of website do you need?",
+                options: ["Corporate / Business Website", "E-commerce Store", "Portfolio / Personal Website", "Landing Page", "Custom Web Application"]
+            },
+            {
+                type: "select",
+                id: "webHosting",
+                label: "Do you already have a domain & hosting?",
+                options: ["Yes, both are ready", "Only Domain is ready", "No, I need help with both"]
+            },
+            {
+                type: "textarea",
+                id: "webDetails",
+                label: "Describe features you need (e.g. blog, booking, chat):",
+                placeholder: "e.g. Need an elegant e-commerce site with online payments and booking calendar..."
+            }
+        ],
+        "Digital Marketing": [
+            {
+                type: "select",
+                id: "mktGoal",
+                label: "What is your primary marketing goal?",
+                options: ["Lead Generation", "Brand Awareness", "Increase Sales / E-commerce Conversions", "Social Media Growth", "All of the above"]
+            },
+            {
+                type: "select",
+                id: "mktBudget",
+                label: "What is your monthly ad budget?",
+                options: ["Under ₹10,000", "₹10,000 - ₹30,000", "₹30,000 - ₹75,000", "₹75,000 - ₹1,50,000", "₹1,50,000+"]
+            },
+            {
+                type: "textarea",
+                id: "mktDetails",
+                label: "Describe your target audience / current channels:",
+                placeholder: "e.g. Targeting health-conscious people in metropolitan cities via Meta Ads..."
+            }
+        ],
+        "Brand Design": [
+            {
+                type: "select",
+                id: "brandScope",
+                label: "What deliverables do you need?",
+                options: ["Full Brand Identity (Logo + Brand Book + Collaterals)", "Logo Design Only", "Packaging / Label Design", "Marketing Collateral (Banners, Cards)", "Re-branding / Identity Refresh"]
+            },
+            {
+                type: "text",
+                id: "brandNiche",
+                label: "What is your business industry / niche?",
+                placeholder: "e.g. Organic health food startup..."
+            },
+            {
+                type: "textarea",
+                id: "brandStyle",
+                label: "Describe the brand style you prefer:",
+                placeholder: "e.g. Clean, minimalist, futuristic, vibrant, eco-friendly..."
+            }
+        ],
+        "Content & Video": [
+            {
+                type: "select",
+                id: "videoType",
+                label: "What video service do you need?",
+                options: ["Instagram Reels / YouTube Shorts / TikToks", "Product Showcase / Commercial", "Brand Promo / Explainer Video", "Corporate Video Editing", "Daily Content Batching"]
+            },
+            {
+                type: "select",
+                id: "videoVolume",
+                label: "Average expected video output per month?",
+                options: ["1 to 5 Videos", "5 to 15 Videos", "15 to 30 Videos", "30+ Videos / Daily content"]
+            },
+            {
+                type: "textarea",
+                id: "videoRef",
+                label: "Share reference videos or current social links:",
+                placeholder: "e.g. We want short-form reels like @competitor, here's our link: instagram.com/..."
+            }
+        ],
+        "Growth Strategy": [
+            {
+                type: "select",
+                id: "growthChallenge",
+                label: "What is the biggest challenge blocking your growth?",
+                options: ["Low Website Traffic / Lack of Visitors", "High Traffic but Low Conversions", "High CAC (Cost of Acquisition)", "Scaling Current Marketing Channels", "Need robust sales funnels & strategy"]
+            },
+            {
+                type: "text",
+                id: "growthRevenue",
+                label: "Current monthly revenue / target revenue:",
+                placeholder: "e.g. Current ₹2L, target is ₹10L/month..."
+            },
+            {
+                type: "textarea",
+                id: "growthCompetitors",
+                label: "Describe your products and major competitors:",
+                placeholder: "e.g. Premium hemp wellness drops, competitor is XYZ..."
+            }
+        ],
+        "AI Integration": [
+            {
+                type: "select",
+                id: "aiProcess",
+                label: "What processes do you want to automate?",
+                options: ["Customer Support Chatbot", "Lead Qualification & Booking", "Data Analytics & CRM Automations", "Content Creation & Marketing", "Workflow Automation (Zapier/Make)"]
+            },
+            {
+                type: "select",
+                id: "aiChannel",
+                label: "Where should the AI chatbot deploy?",
+                options: ["WhatsApp Business API", "Website Chat Widget", "Instagram / Meta DMs", "Internal Slack / Discord", "Omnichannel (Multiple Channels)"]
+            },
+            {
+                type: "textarea",
+                id: "aiDetails",
+                label: "Describe your operations pain points:",
+                placeholder: "e.g. Support team takes too long to answer FAQs. Want to automate lead booking..."
+            }
+        ],
+        "Starter Boost - Growth Package": [
+            {
+                type: "text",
+                id: "pkg1Brand",
+                label: "Your Brand Name / Social Handles:",
+                placeholder: "e.g. HealthyLife Wellness, @healthylife"
+            },
+            {
+                type: "select",
+                id: "pkg1Platform",
+                label: "Primary platform to focus on:",
+                options: ["Instagram", "LinkedIn", "YouTube", "Omnichannel (Multiple)"]
+            },
+            {
+                type: "textarea",
+                id: "pkg1Goal",
+                label: "What are your immediate goals with Starter Boost?",
+                placeholder: "e.g. Launching in 2 weeks, need video editing & daily posts..."
+            }
+        ],
+        "Growth Accelerator - Growth Package": [
+            {
+                type: "text",
+                id: "pkg2Website",
+                label: "Your Website / Social Pages:",
+                placeholder: "e.g. www.mywellnessbrand.com"
+            },
+            {
+                type: "select",
+                id: "pkg2Ads",
+                label: "Have you run ads in the past?",
+                options: ["Yes, currently running ads", "Yes, in the past but paused", "No, this is my first time"]
+            },
+            {
+                type: "textarea",
+                id: "pkg2Focus",
+                label: "Main growth objectives for this accelerator package:",
+                placeholder: "e.g. Need high-quality leads for our fitness coaching, budget ₹20k/mo..."
+            }
+        ],
+        "Premium Domination - Growth Package": [
+            {
+                type: "text",
+                id: "pkg3BrandName",
+                label: "Your Business Name & Website URL:",
+                placeholder: "e.g. Global Wellness Ltd, globalwellness.com"
+            },
+            {
+                type: "select",
+                id: "pkg3Budget",
+                label: "Monthly ad budget allocation:",
+                options: ["₹30,000 - ₹75,000", "₹75,000 - ₹2,00,000", "₹2,00,000+"]
+            },
+            {
+                type: "textarea",
+                id: "pkg3Details",
+                label: "Operational automations or integrations required:",
+                placeholder: "e.g. Need full CRM synchronization, custom WhatsApp booking chatbot, and ad management..."
+            }
+        ]
+    };
+
+    // Render custom fields on the fly
+    const renderDynamicFields = (serviceName) => {
+        const container = document.getElementById('dynamicServiceFields');
+        if (!container) return;
+
+        container.innerHTML = ''; // Reset container
+
+        const fields = serviceFieldsMap[serviceName];
+        if (!fields) {
+            // Standard fallback details field
+            container.innerHTML = `
+                <div class="form-group" style="transition: all 0.3s ease;">
+                    <label for="quoteDetails">Custom Requirements / Account Details</label>
+                    <textarea id="quoteDetails" placeholder="Tell us a bit about your brand or requirements..." rows="3"></textarea>
+                </div>
+            `;
+            return;
+        }
+
+        // Build HTML for each question
+        fields.forEach((field, i) => {
+            const formGroup = document.createElement('div');
+            formGroup.className = 'form-group';
+            formGroup.style.opacity = '0';
+            formGroup.style.transform = 'translateY(12px)';
+            formGroup.style.transition = 'all 0.35s cubic-bezier(0.23, 1, 0.32, 1)';
+            formGroup.style.transitionDelay = `${i * 0.05}s`;
+
+            const label = document.createElement('label');
+            label.setAttribute('for', field.id);
+            label.textContent = field.label;
+            formGroup.appendChild(label);
+
+            if (field.type === 'select') {
+                const select = document.createElement('select');
+                select.id = field.id;
+                select.required = true;
+
+                field.options.forEach(opt => {
+                    const option = document.createElement('option');
+                    option.value = opt;
+                    option.textContent = opt;
+                    select.appendChild(option);
+                });
+
+                formGroup.appendChild(select);
+            } else if (field.type === 'textarea') {
+                const textarea = document.createElement('textarea');
+                textarea.id = field.id;
+                textarea.placeholder = field.placeholder || '';
+                textarea.rows = 3;
+                textarea.required = true;
+                formGroup.appendChild(textarea);
+            } else if (field.type === 'text') {
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.id = field.id;
+                input.placeholder = field.placeholder || '';
+                input.required = true;
+                formGroup.appendChild(input);
+            }
+
+            container.appendChild(formGroup);
+
+            // Trigger animation frame
+            setTimeout(() => {
+                formGroup.style.opacity = '1';
+                formGroup.style.transform = 'translateY(0)';
+            }, 30);
+        });
+    };
+
+    // Open Modal and pre-fill selected service
     triggers.forEach(trigger => {
         trigger.addEventListener('click', (e) => {
             e.preventDefault();
             const serviceName = trigger.getAttribute('data-service');
             
-            // Prefill select if serviceName matches
             if (serviceName && serviceSelect) {
-                // Find matching option or select by value
                 let matched = false;
                 for (let option of serviceSelect.options) {
                     if (serviceName.toLowerCase().includes(option.value.toLowerCase()) || 
@@ -383,16 +637,22 @@ document.addEventListener('DOMContentLoaded', () => {
                         break;
                     }
                 }
-                if (!matched) {
-                    // Fallback to custom entry or default select value
-                    // Try to match or keep default
-                }
             }
             
+            // Set dynamic fields based on selection
+            renderDynamicFields(serviceSelect.value);
+
             modal.classList.add('active');
             document.body.style.overflow = 'hidden'; // Lock background scroll
         });
     });
+
+    // Handle service dropdown value changes in the form
+    if (serviceSelect) {
+        serviceSelect.addEventListener('change', () => {
+            renderDynamicFields(serviceSelect.value);
+        });
+    }
 
     // Close Modal Function
     const closeModal = () => {
@@ -412,7 +672,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Handle Form Submit and redirect to WhatsApp
+    // Handle Form Submit and redirect to WhatsApp SMS
     if (form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -420,7 +680,24 @@ document.addEventListener('DOMContentLoaded', () => {
             const name = document.getElementById('quoteName').value.trim();
             const phone = document.getElementById('quotePhone').value.trim();
             const service = serviceSelect.value;
-            const details = document.getElementById('quoteDetails').value.trim() || 'No custom details provided.';
+
+            // Compile dynamic answers based on active fields
+            let detailsMessage = '';
+            const fields = serviceFieldsMap[service];
+            if (fields) {
+                fields.forEach(field => {
+                    const el = document.getElementById(field.id);
+                    if (el) {
+                        const val = el.value.trim();
+                        detailsMessage += `\n*${field.label}*\n↳ ${val}\n`;
+                    }
+                });
+            } else {
+                const el = document.getElementById('quoteDetails');
+                if (el) {
+                    detailsMessage += `\n*Custom Requirements:*\n↳ ${el.value.trim()}\n`;
+                }
+            }
 
             // Format a beautifully structured WhatsApp message
             const formattedMessage = 
@@ -429,8 +706,10 @@ document.addEventListener('DOMContentLoaded', () => {
 📌 *Requested Service:* ${service}
 👤 *Client Name:* ${name}
 📞 *Contact Number:* ${phone}
-📝 *Custom Requirements / Info:* ${details}
-
+----------------------------------------
+📝 *Service-Specific Requirements:*
+${detailsMessage}
+----------------------------------------
 Looking forward to hearing from you!`;
 
             // WhatsApp link encoding
@@ -444,5 +723,3 @@ Looking forward to hearing from you!`;
         });
     }
 });
-
-
