@@ -1,241 +1,387 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services | Reka Creative Labs</title>
+    <meta name="description"
+        content="Complete digital services: Web Development, Digital Marketing, Brand Design, Content & Video, Growth Strategy, AI Integration. Packages from ₹15,000/month.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
+    <div class="cursor-follower"></div>
     <div class="noise-overlay"></div>
 
-    <nav id="navbar">
-        <div class="nav-inner">
-            <a href="index.html" class="logo">REKA<span>.</span></a>
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo-text-brand" data-value="Reka Creative Labs">Reka Creative Labs</a>
             <div class="nav-links">
                 <a href="index.html" class="nav-link">Home</a>
-                <a href="about.html" class="nav-link">About Us</a>
                 <a href="services.html" class="nav-link active">Services</a>
-                <a href="case-studies.html" class="nav-link">Case Studies</a>
-                <a href="calculators.html" class="nav-link">Calculators</a>
-                <a href="preview.html" class="nav-link">Preview</a>
-                <a href="mailto:rekacreativelabs@gmail.com" class="nav-cta">Get Started</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="case-studies.html" class="nav-link">Cases</a>
+                <a href="tools.html" class="nav-link">Tools</a>
+                <a href="https://wa.me/918368508556?text=Hi%20Reka%20Creative%20Labs!%20I%27m%20interested%20in%20growing%20my%20brand.%20Can%20we%20connect%3F"
+                    class="nav-cta btn-glow" target="_blank" rel="noopener">Get Started</a>
             </div>
             <button class="mobile-toggle" id="mobileToggle">
                 <span></span><span></span><span></span>
             </button>
         </div>
     </nav>
-
+    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <div class="mobile-links">
             <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
             <a href="services.html">Services</a>
-            <a href="case-studies.html">Case Studies</a>
-            <a href="calculators.html">Calculators</a>
-            <a href="preview.html">Preview</a>
+            <a href="about.html">About</a>
+            <a href="case-studies.html">Cases</a>
+            <a href="tools.html">Tools</a>
         </div>
     </div>
 
-    <header class="page-header">
-        <div class="container">
-            <span class="tag">Expertise</span>
-            <h1 class="title">Comprehensive Digital<br><span class="gradient-text">Solutions</span></h1>
-            <p class="desc">From web design to digital marketing, we offer everything you need to succeed online.</p>
-        </div>
-    </header>
 
-    <!-- Pricing Section -->
-    <section class="section">
+    <section class="page-header">
         <div class="container">
             <div class="section-header">
-                <span class="tag">Growth Plans</span>
-                <h2 class="title">AI Growth Engagement Plans</h2>
-                <p class="desc">Modern content + AI systems to scale your brand 🚀</p>
+                <span class="section-tag">SERVICE SUITE</span>
+                <h1 style="font-size: clamp(2.5rem, 6vw, 3.5rem);">Complete Digital Solutions</h1>
+                <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 700px; margin: 1rem auto 0;">From
+                    strategy to execution, we provide everything you need to scale your brand.</p>
             </div>
+        </div>
+    </section>
 
-            <div class="pricing-grid">
-                <!-- Starter -->
-                <div class="pricing-card reveal">
-                    <h3>Starter Boost</h3>
-                    <div class="price">₹15,000<span>/mo</span></div>
-                    <p class="price-desc">Content + AI-powered basic growth support</p>
-                    <ul class="price-features">
-                        <li>ReelCraft™ Video Editing Suite</li>
-                        <li>PixelPerfect™ Photo Enhancement</li>
-                        <li>AI Caption + Hashtag Engine</li>
-                        <li>Weekly Content Direction Plan</li>
+    <section style="padding: 100px 0;">
+        <div class="container">
+            <div class="services-grid-detailed">
+                <div class="service-module glass-effect reveal">
+                    <div class="module-icon"><i class="ph ph-laptop"></i></div>
+                    <h2>Web Development</h2>
+                    <p>High-performance websites that convert visitors into customers</p>
+                    <ul class="module-list">
+                        <li>Custom responsive design</li>
+                        <li>E-commerce solutions</li>
+                        <li>CMS implementation</li>
+                        <li>Performance optimization</li>
+                        <li>SEO-ready architecture</li>
+                        <li>Mobile-first approach</li>
                     </ul>
-                    <a href="mailto:rekacreativelabs@gmail.com" class="btn btn-outline">Get Started</a>
+                    <div class="module-cta">
+                        <span class="price">Starting from ₹50,000</span>
+                        <a href="#" class="btn btn-primary open-quote-modal" data-service="Web Development">Get
+                            Quote</a>
+                    </div>
                 </div>
 
-                <!-- Growth -->
-                <div class="pricing-card featured reveal">
-                    <div class="popular-badge">Most Popular</div>
-                    <h3>Growth Accelerator</h3>
-                    <div class="price">₹25,000<span>/mo</span></div>
-                    <p class="price-desc">Leads + AI brand scaling systems</p>
-                    <ul class="price-features">
-                        <li>AdReels Pro™ Short-Form Ads</li>
-                        <li>LeadFlow™ Funnel Strategy Setup</li>
-                        <li>AI Audience Targeting Blueprint</li>
-                        <li>Conversion Boost Support</li>
-                        <li>Sales Follow-Up Optimization</li>
+                <div class="service-module glass-effect reveal">
+                    <div class="module-icon"><i class="ph ph-chart-bar"></i></div>
+                    <h2>Digital Marketing</h2>
+                    <p>Data-driven campaigns that deliver measurable ROI</p>
+                    <ul class="module-list">
+                        <li>Meta Ads & Google Ads</li>
+                        <li>Lead generation campaigns</li>
+                        <li>Email marketing funnels</li>
+                        <li>Content strategy</li>
+                        <li>Conversion optimization</li>
+                        <li>Analytics & reporting</li>
                     </ul>
-                    <a href="mailto:rekacreativelabs@gmail.com" class="btn btn-primary">Get Started</a>
+                    <div class="module-cta">
+                        <span class="price">From ₹15,000/month</span>
+                        <a href="#" class="btn btn-primary open-quote-modal" data-service="Digital Marketing">Get
+                            Quote</a>
+                    </div>
                 </div>
 
-                <!-- Premium -->
-                <div class="pricing-card reveal">
-                    <h3>Premium Domination</h3>
-                    <div class="price">₹40,000<span>/mo</span></div>
-                    <p class="price-desc">End-to-end AI growth & content machine</p>
-                    <ul class="price-features">
-                        <li>Full Content Engine + Ads Support</li>
-                        <li>AI Script Writing & Viral Hooks Lab</li>
-                        <li>CreatorShoot™ Lighting & Shooting Training</li>
-                        <li>Sales Conversion Optimization System</li>
-                        <li>Smart Retargeting Growth Strategy</li>
+                <div class="service-module glass-effect reveal">
+                    <div class="module-icon"><i class="ph ph-palette"></i></div>
+                    <h2>Brand Design</h2>
+                    <p>Creative identities that resonate with your target audience</p>
+                    <ul class="module-list">
+                        <li>Logo & brand identity</li>
+                        <li>Visual design systems</li>
+                        <li>Brand guidelines</li>
+                        <li>Packaging design</li>
+                        <li>Marketing collateral</li>
+                        <li>Brand positioning</li>
                     </ul>
-                    <a href="mailto:rekacreativelabs@gmail.com" class="btn btn-outline">Get Started</a>
+                    <div class="module-cta">
+                        <span class="price">Starting from ₹30,000</span>
+                        <a href="#" class="btn btn-primary open-quote-modal" data-service="Brand Design">Get Quote</a>
+                    </div>
                 </div>
 
-                <!-- Custom -->
-                <div class="pricing-card reveal">
-                    <h3>Custom Empire</h3>
-                    <div class="price">Contact Us</div>
-                    <p class="price-desc">High-end business automation + AI consulting</p>
-                    <ul class="price-features">
-                        <li>Custom SEO Website Development</li>
-                        <li>AI Automation & Business Workflows</li>
-                        <li>Personal Brand Scaling Masterplan</li>
-                        <li>Dedicated Growth Manager Support</li>
-                        <li>Advanced Ads + Funnel Architecture</li>
-                        <li>1-on-1 Consulting & Team Training</li>
+                <div class="service-module glass-effect reveal">
+                    <div class="module-icon"><i class="ph ph-clapperboard"></i></div>
+                    <h2>Content & Video</h2>
+                    <p>Compelling stories that drive engagement and growth</p>
+                    <ul class="module-list">
+                        <li>Reel editing & optimization</li>
+                        <li>Product videos</li>
+                        <li>Motion graphics</li>
+                        <li>Promotional content</li>
+                        <li>Photography direction</li>
+                        <li>Script writing</li>
                     </ul>
-                    <a href="mailto:rekacreativelabs@gmail.com" class="btn btn-outline">Contact Us</a>
+                    <div class="module-cta">
+                        <span class="price">From ₹20,000</span>
+                        <a href="#" class="btn btn-primary open-quote-modal" data-service="Content & Video">Get
+                            Quote</a>
+                    </div>
+                </div>
+
+                <div class="service-module glass-effect reveal">
+                    <div class="module-icon"><i class="ph ph-trend-up"></i></div>
+                    <h2>Growth Strategy</h2>
+                    <p>Strategic roadmaps for sustainable business growth</p>
+                    <ul class="module-list">
+                        <li>Market analysis</li>
+                        <li>Growth planning</li>
+                        <li>Competitor research</li>
+                        <li>Sales funnel design</li>
+                        <li>Performance tracking</li>
+                        <li>Monthly optimization</li>
+                    </ul>
+                    <div class="module-cta">
+                        <span class="price">From ₹40,000</span>
+                        <a href="#" class="btn btn-primary open-quote-modal" data-service="Growth Strategy">Get
+                            Quote</a>
+                    </div>
+                </div>
+
+                <div class="service-module glass-effect reveal">
+                    <div class="module-icon"><i class="ph ph-robot"></i></div>
+                    <h2>AI Integration</h2>
+                    <p>Smart automation to scale your operations effortlessly</p>
+                    <ul class="module-list">
+                        <li>AI chatbots</li>
+                        <li>Marketing automation</li>
+                        <li>Smart workflows</li>
+                        <li>Data analysis</li>
+                        <li>Predictive analytics</li>
+                        <li>Custom AI solutions</li>
+                    </ul>
+                    <div class="module-cta">
+                        <span class="price">Custom pricing</span>
+                        <a href="#" class="btn btn-primary open-quote-modal" data-service="AI Integration">Get Quote</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Core Services Detailed -->
-    <section class="section dark-bg">
+    <!-- Pricing Plans -->
+    <section style="padding: 100px 0; background: linear-gradient(180deg, rgba(140, 246, 101, 0.02), transparent);">
         <div class="container">
             <div class="section-header">
-                <span class="tag">Core Services</span>
-                <h2 class="title">Our Full Service Suite</h2>
+                <span class="section-tag">ENGAGEMENT PLANS</span>
+                <h2>Growth Packages</h2>
+                <p>Flexible plans designed for businesses at every stage</p>
             </div>
 
-            <div class="services-detailed-grid">
-                <!-- Web Design -->
-                <div class="service-detail reveal">
-                    <div class="service-icon">💻</div>
-                    <h4>Web Design & Development</h4>
-                    <p>High-performance, responsive websites that convert visitors into customers.</p>
-                    <ul>
-                        <li>Custom Website Design</li>
-                        <li>Responsive Mobile-First Development</li>
-                        <li>E-commerce Solutions</li>
-                        <li>Content Management Systems</li>
-                        <li>Website Maintenance & Support</li>
+            <div class="pricing-grid-premium">
+                <div class="pricing-card-premium glass-effect reveal">
+                    <div class="plan-header">
+                        <h3>Starter Boost</h3>
+                        <p class="plan-subtitle">Perfect for new brands</p>
+                    </div>
+                    <div class="plan-price">₹15,000<span>/month</span></div>
+                    <ul class="plan-features">
+                        <li>✓ Video content editing</li>
+                        <li>✓ Photo enhancement</li>
+                        <li>✓ Social media strategy</li>
+                        <li>✓ Monthly 4 posts</li>
+                        <li>✓ Email support</li>
                     </ul>
+                    <a href="#" class="btn btn-outline open-quote-modal" data-service="Starter Boost - Growth Package"
+                        style="width: 100%; text-align: center;">Get Started</a>
                 </div>
 
-                <!-- Digital Marketing -->
-                <div class="service-detail reveal">
-                    <div class="service-icon">🚀</div>
-                    <h4>Digital Marketing & SEO</h4>
-                    <p>Data-driven strategies to increase your online visibility and drive qualified traffic.</p>
-                    <ul>
-                        <li>Search Engine Optimization (SEO)</li>
-                        <li>Google Ads & PPC Campaigns</li>
-                        <li>Content Marketing Strategy</li>
-                        <li>Email Marketing Campaigns</li>
-                        <li>Analytics & Reporting</li>
+                <div class="pricing-card-premium glass-effect featured reveal">
+                    <div class="plan-badge">MOST POPULAR</div>
+                    <div class="plan-header">
+                        <h3>Growth Accelerator</h3>
+                        <p class="plan-subtitle">For scaling brands</p>
+                    </div>
+                    <div class="plan-price">₹25,000<span>/month</span></div>
+                    <ul class="plan-features">
+                        <li>✓ Ad campaign management</li>
+                        <li>✓ Lead generation funnel</li>
+                        <li>✓ Content creation</li>
+                        <li>✓ Weekly optimization</li>
+                        <li>✓ Performance reporting</li>
+                        <li>✓ Phone support</li>
                     </ul>
+                    <a href="#" class="btn btn-primary open-quote-modal"
+                        data-service="Growth Accelerator - Growth Package" style="width: 100%; text-align: center;">Get
+                        Started</a>
                 </div>
 
-                <!-- Social Media -->
-                <div class="service-detail reveal">
-                    <div class="service-icon">📱</div>
-                    <h4>Social Media Marketing</h4>
-                    <p>Engaging content and campaigns that build your brand and grow your audience.</p>
-                    <ul>
-                        <li>Social Media Strategy</li>
-                        <li>Content Creation & Scheduling</li>
-                        <li>Community Management</li>
-                        <li>Influencer Partnerships</li>
-                        <li>Paid Social Advertising</li>
+                <div class="pricing-card-premium glass-effect reveal">
+                    <div class="plan-header">
+                        <h3>Premium Domination</h3>
+                        <p class="plan-subtitle">For market leaders</p>
+                    </div>
+                    <div class="plan-price">₹40,000<span>/month</span></div>
+                    <ul class="plan-features">
+                        <li>✓ Full growth automation</li>
+                        <li>✓ Advanced ad strategy</li>
+                        <li>✓ Dedicated manager</li>
+                        <li>✓ AI integrations</li>
+                        <li>✓ Sales optimization</li>
+                        <li>✓ 24/7 premium support</li>
                     </ul>
-                </div>
-
-                <!-- Branding -->
-                <div class="service-detail reveal">
-                    <div class="service-icon">🎨</div>
-                    <h4>Branding & Graphic Design</h4>
-                    <p>Creative designs that reflect your brand identity and resonate with your audience.</p>
-                    <ul>
-                        <li>Logo & Brand Identity Design</li>
-                        <li>Marketing Collateral</li>
-                        <li>Packaging Design</li>
-                        <li>Brand Guidelines</li>
-                        <li>Print & Digital Design</li>
-                    </ul>
-                </div>
-
-                <!-- Video Editing -->
-                <div class="service-detail reveal">
-                    <div class="service-icon">🎬</div>
-                    <h4>Video Editing & Creative Content</h4>
-                    <p>Compelling videos and visuals that tell your brand story.</p>
-                    <ul>
-                        <li>Promotional Videos</li>
-                        <li>Social Media Content</li>
-                        <li>Product Demonstrations</li>
-                        <li>Motion Graphics</li>
-                        <li>Video Ads</li>
-                    </ul>
-                </div>
-
-                <!-- Growth Strategy -->
-                <div class="service-detail reveal">
-                    <div class="service-icon">📈</div>
-                    <h4>Lead Gen & Growth Strategy</h4>
-                    <p>Strategic planning and execution to accelerate your business growth.</p>
-                    <ul>
-                        <li>Growth Strategy Development</li>
-                        <li>Lead Generation Campaigns</li>
-                        <li>Conversion Rate Optimization</li>
-                        <li>Sales Funnel Design</li>
-                        <li>Marketing Automation</li>
-                    </ul>
+                    <a href="#" class="btn btn-outline open-quote-modal"
+                        data-service="Premium Domination - Growth Package" style="width: 100%; text-align: center;">Get
+                        Started</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="cta">
+    <!-- Process Section -->
+    <section style="padding: 100px 0;">
         <div class="container">
-            <div class="cta-card">
-                <h2>Ready to Get Started?</h2>
-                <p>Let's discuss which services are right for your business.</p>
-                <div class="cta-actions" style="margin-top: 2rem;">
-                    <a href="mailto:rekacreativelabs@gmail.com" class="btn btn-primary">Request a Consultation</a>
+            <div class="section-header">
+                <span class="section-tag">HOW WE WORK</span>
+                <h2>Our Proven Process</h2>
+            </div>
+
+            <div class="process-grid">
+                <div class="process-step reveal">
+                    <div class="step-number">01</div>
+                    <h3>Discovery & Strategy</h3>
+                    <p>We deep-dive into your business, market, and goals to build a winning strategy.</p>
+                </div>
+                <div class="process-step reveal">
+                    <div class="step-number">02</div>
+                    <h3>Design & Planning</h3>
+                    <p>Creative concepts and detailed plans tailored to your brand and audience.</p>
+                </div>
+                <div class="process-step reveal">
+                    <div class="step-number">03</div>
+                    <h3>Development & Creation</h3>
+                    <p>Our team executes with precision, delivering high-quality digital assets.</p>
+                </div>
+                <div class="process-step reveal">
+                    <div class="step-number">04</div>
+                    <h3>Launch & Optimization</h3>
+                    <p>We deploy your solution and continuously optimize for maximum performance.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
+    <!-- CTA -->
+    <section class="cta-final">
         <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Scale Your Brand?</h2>
+                <p>Let's discuss which service package is right for your business</p>
+                <div class="cta-actions">
+                    <a href="#" class="btn btn-primary btn-large open-quote-modal" data-service="Growth Strategy">Book
+                        Free Consultation</a>
+                    <a href="tel:+918368508556" class="btn btn-outline btn-large">Call +91 8368508556</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo-text-brand" style="margin-bottom:1rem;display:inline-block;"
+                        data-value="Reka Creative Labs">Reka Creative Labs</a>
+                    <p>Building digital futures for brands that dare to scale.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Quick Links</h5>
+                    <a href="services.html">Services</a>
+                    <a href="case-studies.html">Case Studies</a>
+                    <a href="about.html">About Us</a>
+                    <a href="tools.html">Free Tools</a>
+                </div>
+                <div class="footer-col">
+                    <h5>Connect</h5>
+                    <a href="https://www.instagram.com/reka.creativelabs/?hl=en" target="_blank" rel="noopener"><i
+                            class="ph ph-instagram-logo" style="margin-right:6px;"></i>Instagram</a>
+                    <a href="https://share.google/vaAEbVTaSsD50Etsc" target="_blank" rel="noopener"><i
+                            class="ph ph-linkedin-logo" style="margin-right:6px;"></i>LinkedIn</a>
+                    <a href="mailto:abhinash@rekacreativelabs.com"><i class="ph ph-envelope"
+                            style="margin-right:6px;"></i>abhinash@rekacreativelabs.com</a>
+                    <a href="tel:+918368508556"><i class="ph ph-phone" style="margin-right:6px;"></i>+91 83685 08556</a>
+                </div>
+                <div class="footer-col">
+                    <h5>Visit Us</h5>
+                    <a href="https://maps.google.com/?q=A+Block+Pocket+A+Sector+19+Noida+UP+201301" target="_blank"
+                        rel="noopener"><i class="ph ph-map-pin" style="margin-right:6px;"></i>A Block, Pocket A, Sector
+                        19<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Noida, UP 201301</a>
+                    <a href="https://g.co/kgs/rekacreativelabs" target="_blank" rel="noopener"
+                        style="color:var(--primary);font-weight:600;"><i class="ph ph-google-logo"
+                            style="margin-right:6px;"></i>⭐ 4.2 · Google Reviews</a>
+                    <span style="color:var(--text-secondary);font-size:0.82rem;display:block;margin-top:4px;"><i
+                            class="ph ph-clock" style="margin-right:6px;"></i>Open 24 Hours</span>
+                </div>
+            </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Reka Creative Labs. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Get Quote Modal -->
+    <div id="quoteModal" class="quote-modal">
+        <div class="quote-modal-content glass-effect">
+            <button class="quote-modal-close" id="closeQuoteModal" aria-label="Close modal">&times;</button>
+            <div class="quote-modal-header">
+                <h3>Get a Custom <span class="gradient-text">Quote</span></h3>
+                <p>Fill in a brief detail to instantly connect with us on WhatsApp</p>
+            </div>
+            <form id="quoteForm" class="quote-form">
+                <div class="form-group">
+                    <label for="quoteName">Your Name</label>
+                    <input type="text" id="quoteName" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="quotePhone">Phone Number / WhatsApp</label>
+                    <input type="tel" id="quotePhone" placeholder="Enter your mobile number" required>
+                </div>
+                <div class="form-group">
+                    <label for="quoteService">Select Service</label>
+                    <select id="quoteService" required>
+                        <option value="Web Development">Web Development</option>
+                        <option value="Digital Marketing">Digital Marketing</option>
+                        <option value="Brand Design">Brand Design</option>
+                        <option value="Content & Video">Content & Video</option>
+                        <option value="Growth Strategy">Growth Strategy</option>
+                        <option value="AI Integration">AI Integration</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="quoteDetails">Custom Requirements / Account Details</label>
+                    <textarea id="quoteDetails" placeholder="Tell us a bit about your brand or requirements..."
+                        rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full btn-glow">
+                    <span>Send via WhatsApp</span> <i class="ph ph-whatsapp-logo"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
     <script src="main.js"></script>
+
 </body>
+
 </html>

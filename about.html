@@ -1,63 +1,117 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Reka Creative Labs</title>
+    <meta name="description"
+        content="Meet the team behind India's fastest-growing digital agency. Founded by Abhinash Singh, Reka Creative Labs has helped 750+ brands scale digitally.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
+    <div class="cursor-follower"></div>
     <div class="noise-overlay"></div>
 
-    <nav id="navbar">
-        <div class="nav-inner">
-            <a href="index.html" class="logo">REKA<span>.</span></a>
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo-text-brand" data-value="Reka Creative Labs">Reka Creative Labs</a>
             <div class="nav-links">
                 <a href="index.html" class="nav-link">Home</a>
-                <a href="about.html" class="nav-link active">About Us</a>
                 <a href="services.html" class="nav-link">Services</a>
-                <a href="case-studies.html" class="nav-link">Case Studies</a>
-                <a href="calculators.html" class="nav-link">Calculators</a>
-                <a href="preview.html" class="nav-link">Preview</a>
-                <a href="mailto:rekacreativelabs@gmail.com" class="nav-cta">Get Started</a>
+                <a href="about.html" class="nav-link active">About</a>
+                <a href="case-studies.html" class="nav-link">Cases</a>
+                <a href="tools.html" class="nav-link">Tools</a>
+                <a href="https://wa.me/918368508556?text=Hi%20Reka%20Creative%20Labs!%20I%27m%20interested%20in%20growing%20my%20brand.%20Can%20we%20connect%3F" class="nav-cta btn-glow" target="_blank" rel="noopener">Get Started</a>
             </div>
             <button class="mobile-toggle" id="mobileToggle">
                 <span></span><span></span><span></span>
             </button>
         </div>
     </nav>
-
+    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <div class="mobile-links">
             <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
             <a href="services.html">Services</a>
-            <a href="case-studies.html">Case Studies</a>
-            <a href="calculators.html">Calculators</a>
-            <a href="preview.html">Preview</a>
+            <a href="about.html">About</a>
+            <a href="case-studies.html">Cases</a>
+            <a href="tools.html">Tools</a>
         </div>
     </div>
 
-    <header class="page-header">
+
+    <section class="page-header">
         <div class="container">
-            <span class="tag">The Reka Story</span>
-            <h1 class="title">We Build Success Stories,<br><span class="gradient-text">Not Just Websites</span></h1>
-            <p class="desc">Reka Creative Labs is more than a digital agency—we're your growth partner in the digital landscape.</p>
+            <div class="section-header">
+                <span class="section-tag">The Reka Story</span>
+                <h1 style="font-size: clamp(2.5rem, 6vw, 3.5rem);">We Build Success Stories,<br><span
+                        class="gradient-text">Not Just Websites</span></h1>
+                <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 700px; margin: 1rem auto 0;">Reka
+                    Creative Labs is more than a digital agency—we're your growth partner in the digital landscape.</p>
+            </div>
         </div>
-    </header>
+    </section>
 
     <!-- Founder Section -->
     <section class="section">
         <div class="container">
             <div class="founder-card reveal">
-                <div class="founder-img" style="background: linear-gradient(135deg, #8CF665, #036A3A);"></div>
+
+                <div class="founder-img-wrapper">
+                    <div class="founder-glow-ring"></div>
+                    <div class="founder-carousel">
+                        <img src="images/founder-1.jpg" alt="Abhinash Singh" class="f-img active">
+                        <img src="images/founder-2.jpg" alt="Abhinash Singh" class="f-img">
+                        <img src="images/founder-3.jpg" alt="Abhinash Singh" class="f-img">
+                    </div>
+                    <div class="f-dots">
+                        <div class="f-dot active"></div>
+                        <div class="f-dot"></div>
+                        <div class="f-dot"></div>
+                    </div>
+
+                    <div class="founder-live-badge">
+                        <span class="pulse-dot"></span>
+                        CEO · Reka Creative Labs
+                    </div>
+
+                    <div class="f-chip chip-1">
+                        <i class="ph ph-trend-up"></i>
+                        <div><span>78+ Brands</span><small>Scaled</small></div>
+                    </div>
+                    <div class="f-chip chip-2">
+                        <i class="ph ph-star-fill"></i>
+                        <div><span>96%</span><small>Success Rate</small></div>
+                    </div>
+                </div>
+
                 <div class="founder-info">
                     <span class="tag">Founder & Growth Strategist</span>
                     <h2>Abhinash Singh</h2>
                     <p class="role">CEO & Co-Founder</p>
-                    <p>Abhinash Singh is an entrepreneur, business strategist, and wellness-focused leader with experience across finance, sales, digital growth, and brand development. As the CEO and Co-Founder of Reka Creative Labs, he specializes in helping businesses scale through modern marketing, website development, and growth-focused digital strategies.</p>
-                    <p style="margin-top: 1rem;">With a strong background in sales leadership and financial analysis, Abhinash has worked with leading organizations including <strong>Paytm</strong>, <strong>BYJU'S</strong>, <strong>Testbook</strong>, and <strong>1West Finance</strong>. Alongside his entrepreneurial ventures, he is also the Managing Director of <strong>Shyan Health</strong>, an Ayurvedic wellness brand focused on sustainable health transformation.</p>
-                    <p style="margin-top: 1rem;">He holds certifications in finance and business analysis from <strong>Yale University</strong>, <strong>Harvard Business School Online</strong>, and the National Institute of Securities Markets. His academic background in Computer Science further strengthens his analytical and technology-driven approach to building impactful, customer-centric brands.</p>
+                    <p>Abhinash Singh is an entrepreneur, business strategist, and wellness-focused leader with
+                        experience across finance, sales, digital growth, and brand development. As the CEO and
+                        Co-Founder of Reka Creative Labs, he specializes in helping businesses scale through modern
+                        marketing, website development, and growth-focused digital strategies.</p>
+                    <p style="margin-top: 1rem;">With a strong background in sales leadership and financial analysis,
+                        Abhinash has worked with leading organizations including <strong>Paytm</strong>,
+                        <strong>BYJU'S</strong>, <strong>Testbook</strong>, and <strong>1West Finance</strong>.
+                        Alongside his entrepreneurial ventures, he is also the Managing Director of <strong>Shyan
+                            Health</strong>, an Ayurvedic wellness brand focused on sustainable health transformation.
+                    </p>
+                    <p style="margin-top: 1rem;">He holds certifications in finance and business analysis from
+                        <strong>Yale University</strong>, <strong>Harvard Business School Online</strong>, and the
+                        National Institute of Securities Markets. His academic background in Computer Science further
+                        strengthens his analytical and technology-driven approach to building impactful,
+                        customer-centric brands.</p>
                 </div>
             </div>
         </div>
@@ -67,9 +121,9 @@
     <section class="section dark-bg">
         <div class="container">
             <div class="section-header">
-                <span class="tag">Experts</span>
-                <h2 class="title">Our Core Team</h2>
-                <p class="desc">The brilliant minds behind every successful transformation.</p>
+                <span class="section-tag">Experts</span>
+                <h2>Our Core Team</h2>
+                <p>The brilliant minds behind every successful transformation.</p>
             </div>
             <div class="team-grid">
                 <div class="team-card reveal">
@@ -133,13 +187,18 @@
                 <div class="reveal">
                     <span class="tag">Our Story</span>
                     <h3>From Vision to Reality</h3>
-                    <p>Founded with a vision to help businesses thrive in the digital age, Reka Creative Labs has grown into one of India's most trusted digital agencies. We started with a simple belief: great design and smart technology can transform businesses.</p>
-                    <p style="margin-top: 1rem;">Today, we've helped over 50+ businesses achieve their digital goals, from startups taking their first steps online to established brands looking to scale their digital presence.</p>
+                    <p>Founded with a vision to help businesses thrive in the digital age, Reka Creative Labs has grown
+                        into one of India's most trusted digital agencies. We started with a simple belief: great design
+                        and smart technology can transform businesses.</p>
+                    <p style="margin-top: 1rem;">Today, we've helped over 50+ businesses achieve their digital goals,
+                        from startups taking their first steps online to established brands looking to scale their
+                        digital presence.</p>
                 </div>
                 <div class="reveal">
                     <span class="tag">Our Mission</span>
                     <h3>Empowering Growth</h3>
-                    <p>To empower businesses with innovative digital solutions that drive real growth, build authentic connections with their audience, and create lasting impact in their industries.</p>
+                    <p>To empower businesses with innovative digital solutions that drive real growth, build authentic
+                        connections with their audience, and create lasting impact in their industries.</p>
                 </div>
             </div>
         </div>
@@ -149,8 +208,8 @@
     <section class="section dark-bg">
         <div class="container">
             <div class="section-header">
-                <span class="tag">Philosophy</span>
-                <h2 class="title">Our Solution to the Problem</h2>
+                <span class="section-tag">Philosophy</span>
+                <h2>Our Solution to the Problem</h2>
             </div>
             <div class="grid-2">
                 <div class="philosophy-box problem reveal">
@@ -177,20 +236,23 @@
     <section class="section">
         <div class="container">
             <div class="section-header">
-                <h2 class="title">What Makes Us Different</h2>
+                <h2>What Makes Us Different</h2>
             </div>
             <div class="grid-3">
                 <div class="service-card reveal">
                     <h4>Results-Focused</h4>
-                    <p>We measure our success by your growth. Every strategy is designed to deliver measurable results and ROI.</p>
+                    <p>We measure our success by your growth. Every strategy is designed to deliver measurable results
+                        and ROI.</p>
                 </div>
                 <div class="service-card reveal">
                     <h4>Innovation-Driven</h4>
-                    <p>We stay ahead of trends, using cutting-edge tools and strategies to give you a competitive advantage.</p>
+                    <p>We stay ahead of trends, using cutting-edge tools and strategies to give you a competitive
+                        advantage.</p>
                 </div>
                 <div class="service-card reveal">
                     <h4>Client-Centric</h4>
-                    <p>Your vision is our mission. We listen, understand, and deliver solutions tailored to your unique needs.</p>
+                    <p>Your vision is our mission. We listen, understand, and deliver solutions tailored to your unique
+                        needs.</p>
                 </div>
             </div>
         </div>
@@ -200,8 +262,8 @@
     <section class="section dark-bg">
         <div class="container">
             <div class="section-header">
-                <span class="tag">Values</span>
-                <h2 class="title">Our Core Values</h2>
+                <span class="section-tag">Values</span>
+                <h2>Our Core Values</h2>
             </div>
             <div class="values-grid">
                 <div class="value-item reveal">
@@ -236,20 +298,50 @@
         </div>
     </section>
 
+    <!-- CTA -->
     <section class="cta">
         <div class="container">
             <div class="cta-card">
                 <h2>Ready to Work Together?</h2>
                 <p>Let's discuss how we can help your business grow.</p>
                 <div class="cta-actions" style="margin-top: 2rem;">
-                    <a href="mailto:rekacreativelabs@gmail.com" class="btn btn-primary">Get in Touch</a>
+                    <a href="mailto:abhinash@rekacreativelabs.com" class="btn btn-primary">Get in Touch</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
+
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo-text-brand" style="margin-bottom:1rem;display:inline-block;"
+                        data-value="Reka Creative Labs">Reka Creative Labs</a>
+                    <p>Building digital futures for brands that dare to scale.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Quick Links</h5>
+                    <a href="services.html">Services</a>
+                    <a href="case-studies.html">Case Studies</a>
+                    <a href="about.html">About Us</a>
+                    <a href="tools.html">Free Tools</a>
+                </div>
+                <div class="footer-col">
+                    <h5>Connect</h5>
+                    <a href="https://www.instagram.com/reka.creativelabs/?hl=en" target="_blank" rel="noopener"><i class="ph ph-instagram-logo" style="margin-right:6px;"></i>Instagram</a>
+                    <a href="https://share.google/vaAEbVTaSsD50Etsc" target="_blank" rel="noopener"><i class="ph ph-linkedin-logo" style="margin-right:6px;"></i>LinkedIn</a>
+                    <a href="mailto:abhinash@rekacreativelabs.com"><i class="ph ph-envelope" style="margin-right:6px;"></i>abhinash@rekacreativelabs.com</a>
+                    <a href="tel:+918368508556"><i class="ph ph-phone" style="margin-right:6px;"></i>+91 83685 08556</a>
+                </div>
+                <div class="footer-col">
+                    <h5>Visit Us</h5>
+                    <a href="https://maps.google.com/?q=A+Block+Pocket+A+Sector+19+Noida+UP+201301" target="_blank" rel="noopener"><i class="ph ph-map-pin" style="margin-right:6px;"></i>A Block, Pocket A, Sector 19<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Noida, UP 201301</a>
+                    <a href="https://g.co/kgs/rekacreativelabs" target="_blank" rel="noopener" style="color:var(--primary);font-weight:600;"><i class="ph ph-google-logo" style="margin-right:6px;"></i>⭐ 4.2 · Google Reviews</a>
+                    <span style="color:var(--text-secondary);font-size:0.82rem;display:block;margin-top:4px;"><i class="ph ph-clock" style="margin-right:6px;"></i>Open 24 Hours</span>
+                </div>
+            </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Reka Creative Labs. All rights reserved.</p>
             </div>
@@ -257,5 +349,7 @@
     </footer>
 
     <script src="main.js"></script>
+
 </body>
+
 </html>

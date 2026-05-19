@@ -3,153 +3,683 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Reka Creative Labs</title>
-    <meta name="description" content="Reka Creative Labs is India's leading digital agency for brands that want to innovate and grow.">
-    
-    <!-- Fonts -->
+    <title>Reka Creative Labs | Next-Gen Digital Agency India</title>
+    <meta name="description" content="India's leading digital marketing agency. We scale brands with performance marketing, AI automation, brand design & more. 750+ brands. ₹500Cr+ revenue generated.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
+    <div class="cursor-follower"></div>
     <div class="noise-overlay"></div>
 
-    <nav id="navbar">
-        <div class="nav-inner">
-            <a href="index.html" class="logo">REKA<span>.</span></a>
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo-text-brand" data-value="Reka Creative Labs">Reka Creative Labs</a>
             <div class="nav-links">
                 <a href="index.html" class="nav-link active">Home</a>
-                <a href="about.html" class="nav-link">About Us</a>
                 <a href="services.html" class="nav-link">Services</a>
-                <a href="case-studies.html" class="nav-link">Case Studies</a>
-                <a href="calculators.html" class="nav-link">Calculators</a>
-                <a href="preview.html" class="nav-link">Preview</a>
-                <a href="mailto:rekacreativelabs@gmail.com" class="nav-cta">Get Started</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="case-studies.html" class="nav-link">Cases</a>
+                <a href="tools.html" class="nav-link">Tools</a>
+                <a href="https://wa.me/918368508556?text=Hi%20Reka%20Creative%20Labs!%20I%27m%20interested%20in%20growing%20my%20brand.%20Can%20we%20connect%3F" class="nav-cta btn-glow" target="_blank" rel="noopener">Get Started</a>
             </div>
             <button class="mobile-toggle" id="mobileToggle">
                 <span></span><span></span><span></span>
             </button>
         </div>
     </nav>
-
+    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <div class="mobile-links">
             <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
             <a href="services.html">Services</a>
-            <a href="case-studies.html">Case Studies</a>
-            <a href="calculators.html">Calculators</a>
-            <a href="preview.html">Preview</a>
+            <a href="about.html">About</a>
+            <a href="case-studies.html">Cases</a>
+            <a href="tools.html">Tools</a>
         </div>
     </div>
 
-    <section class="hero hero-home" id="home">
-        <div class="hero-background">
-            <div class="blob blob-1"></div>
-            <div class="blob blob-2"></div>
-            <canvas id="particles-canvas"></canvas>
-        </div>
-        <div class="hero-content">
-            <div class="badge-wrapper"><span class="hero-badge">Next-Gen Digital Agency</span></div>
-            <h1 class="hero-title reveal-text">Building Brands,<br><span class="gradient-text shimmer-text">Crafting Excellence</span></h1>
-            <p class="hero-subtitle">We bridge the gap between creative vision and technical execution to drive measurable growth for your business.</p>
-            <div class="hero-actions">
-                <a href="preview.html" class="btn btn-primary">Try Site Preview ✦</a>
-                <a href="services.html" class="btn btn-outline">Explore Our Services</a>
-            </div>
-        </div>
-    </section>
 
-    <div class="marquee-container">
-        <div class="marquee-content">
-            <span>WEB DESIGN ✦ DIGITAL MARKETING ✦ SEO & GROWTH ✦ META ADS ✦ YOUTUBE ADS ✦ BRAND IDENTITY ✦ VIDEO EDITING ✦ SOCIAL MEDIA ✦ </span>
-            <span>WEB DESIGN ✦ DIGITAL MARKETING ✦ SEO & GROWTH ✦ META ADS ✦ YOUTUBE ADS ✦ BRAND IDENTITY ✦ VIDEO EDITING ✦ SOCIAL MEDIA ✦ </span>
-        </div>
-    </div>
+        <!-- Hero Section -->
+                <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <canvas id="heroCanvas"></canvas>
 
-    <section class="section" id="services">
-        <div class="container">
-            <div class="section-header">
-                <span class="tag">Expertise</span>
-                <h2 class="title">Our Services</h2>
-                <p class="desc">A full-suite agency approach to your digital presence.</p>
+            <!-- Animated grid lines -->
+            <div class="hero-grid-overlay"></div>
+
+            <!-- Glowing orbs -->
+            <div class="hero-orb orb-1"></div>
+            <div class="hero-orb orb-2"></div>
+            <div class="hero-orb orb-3"></div>
+
+            <!-- Floating stat cards -->
+            <div class="hero-float-card card-left-1">
+                <i class="ph ph-trend-up"></i>
+                <div><span class="fc-val">4x</span><span class="fc-lbl">ROAS</span></div>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">💻</div>
-                    <h3>Web Development</h3>
-                    <p>High-performance websites built for growth.</p>
-                    <a href="services.html" class="case-link">Learn More →</a>
+            <div class="hero-float-card card-left-2">
+                <i class="ph ph-users-three"></i>
+                <div><span class="fc-val">78+</span><span class="fc-lbl">Brands</span></div>
+            </div>
+            <div class="hero-float-card card-right-1">
+                <i class="ph ph-star-fill"></i>
+                <div><span class="fc-val">96%</span><span class="fc-lbl">Success</span></div>
+            </div>
+            <div class="hero-float-card card-right-2">
+                <i class="ph ph-currency-inr"></i>
+                <div><span class="fc-val">₹12Cr</span><span class="fc-lbl">Revenue</span></div>
+            </div>
+
+            <div class="hero-content">
+                <div class="hero-badge"><i class="ph ph-lightning"></i> Next-Gen Digital Agency</div>
+                <h1 class="hero-title">
+                    <span class="word">Building</span>
+                    <span class="word">Brands</span>
+                    <br>
+                    <span class="gradient-text animated-gradient">That Dominate</span>
+                </h1>
+                <p class="hero-subtitle">We merge cutting-edge technology with creative excellence to scale your brand beyond limits. Real case studies. Real clients. Zero guesswork.</p>
+                <div class="hero-actions">
+                    <a href="https://wa.me/918368508556?text=Hi%20Reka%20Creative%20Labs!%20I'm%20interested%20in%20growing%20my%20brand.%20Can%20we%20connect%3F" target="_blank" rel="noopener" class="btn btn-primary hero-btn-wa"><i class="ph ph-whatsapp-logo" style="margin-right:6px;font-size:1.1em;"></i>Contact Us</a>
+                    <a href="tools.html" class="btn btn-outline">Try Tools</a>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">📊</div>
-                    <h3>Ad Management</h3>
-                    <p>Strategic ROI-focused campaigns.</p>
-                    <a href="services.html" class="case-link">Learn More →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section dark-bg">
-        <div class="container">
-            <div class="section-header">
-                <span class="tag">Tools</span>
-                <h2 class="title">Calculators & Preview</h2>
-                <p class="desc">Try our interactive tools before you start.</p>
-            </div>
-            <div class="hero-actions">
-                <a href="calculators.html" class="btn btn-primary">Try ROI Calculator</a>
-                <a href="preview.html" class="btn btn-outline">Instant Site Preview</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="container">
-            <div class="section-header">
-                <span class="tag">Our Impact</span>
-                <h2 class="title">Helping Brands Scale<br>Beyond Limits</h2>
-                <p class="desc">From startups to enterprises, we provide the tools and strategy needed to dominate the digital landscape.</p>
-            </div>
-            <div class="stats-inner">
-                <div class="stat-item"><span class="stat-num" data-target="750">0</span><span class="stat-label">Clients Globally</span></div>
-                <div class="stat-item"><span class="stat-num" data-target="1500">0</span><span class="stat-label">Projects Delivered</span></div>
-                <div class="stat-item"><span class="stat-num" data-target="98">0</span><span class="stat-label">Success Rate %</span></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta">
-        <div class="container">
-            <div class="cta-card">
-                <h2>Ready to Start Your Journey?</h2>
-                <p>Join the ranks of successful brands built by Reka Creative Labs.</p>
-                <div class="cta-actions">
-                    <a href="mailto:rekacreativelabs@gmail.com" class="btn btn-primary">Book a Consultation</a>
-                    <a href="about.html" class="btn btn-outline">Learn More About Us</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-top">
-                <div class="footer-info">
-                    <a href="index.html" class="logo">REKA<span>.</span></a>
-                    <p>Based in India, serving the world. Crafting digital futures.</p>
-                </div>
-                <div class="footer-links-grid">
-                    <div class="link-col">
-                        <h5>Explore</h5>
-                        <a href="services.html">Services</a>
-                        <a href="case-studies.html">Case Studies</a>
-                        <a href="calculators.html">Calculators</a>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-value">78+</span>
+                        <span class="stat-label">Brands Scaled</span>
                     </div>
-                    <div class="link-col">
-                        <h5>Connect</h5>
-                        <a href="#">Instagram</a>
-                        <a href="#">LinkedIn</a>
+                    <div class="stat">
+                        <span class="stat-value">₹12Cr+</span>
+                        <span class="stat-label">Revenue Generated</span>
                     </div>
+                    <div class="stat">
+                        <span class="stat-value">96%</span>
+                        <span class="stat-label">Success Rate</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll indicator -->
+            <div class="hero-scroll-hint">
+                <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+                <span>Scroll to explore</span>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════
+             BRANDS / PARTNERS MARQUEE SECTION
+        ══════════════════════════════════════════ -->
+        <section class="partners-section" id="partners">
+            <div class="partners-header">
+                <span class="section-tag">OUR PORTFOLIO</span>
+                <h2>Brands We've <span class="gradient-text animated-gradient">Worked With</span></h2>
+                <p>Trusted by 30+ wellness & consumer startups across India, USA, UK, Europe & beyond</p>
+            </div>
+
+            <!-- Marquee Row 1 – left scroll -->
+            <div class="marquee-wrapper">
+                <div class="marquee-track track-left" id="marqueeRow1">
+                    <div class="marquee-inner">
+                        <!-- JS will clone these -->
+                        <div class="brand-card" data-country="🇺🇸" data-cat="Wellness curation"><span class="brand-name">ByDria</span><span class="brand-cat">Wellness curation</span><span class="brand-flag">🇺🇸</span></div>
+                        <div class="brand-card" data-country="🇮🇳" data-cat="Sustainable wellness"><span class="brand-name">Nirmalaya</span><span class="brand-cat">Sustainable wellness</span><span class="brand-flag">🇮🇳</span></div>
+                        <div class="brand-card" data-country="🇮🇳" data-cat="Plant wellness"><span class="brand-name">Awshad</span><span class="brand-cat">Ayurvedic + hemp</span><span class="brand-flag">🇮🇳</span></div>
+                        <div class="brand-card" data-country="🇮🇳" data-cat="Journaling/wellness"><span class="brand-name">Butteir</span><span class="brand-cat">Emotional wellness</span><span class="brand-flag">🇮🇳</span></div>
+                        <div class="brand-card" data-country="🇮🇳" data-cat="Air wellness"><span class="brand-name">Airth</span><span class="brand-cat">Air purification</span><span class="brand-flag">🇮🇳</span></div>
+                        <div class="brand-card" data-country="🇮🇳" data-cat="Functional food"><span class="brand-name">Artinci</span><span class="brand-cat">Sugar-free desserts</span><span class="brand-flag">🇮🇳</span></div>
+                        <div class="brand-card" data-country="🇮🇳" data-cat="Health wearable"><span class="brand-name">Aabo</span><span class="brand-cat">Preventive tracking</span><span class="brand-flag">🇮🇳</span></div>
+                        <div class="brand-card" data-country="🇮🇳" data-cat="Consumer wellness"><span class="brand-name">Hashtag Jungle</span><span class="brand-cat">DIY skincare kits</span><span class="brand-flag">🇮🇳</span></div>
+                        <div class="brand-card" data-country="🇺🇸" data-cat="Functional wellness"><span class="brand-name">Golde</span><span class="brand-cat">Accessible self-care</span><span class="brand-flag">🇺🇸</span></div>
+                        <div class="brand-card" data-country="🇺🇸" data-cat="Functional beverage"><span class="brand-name">De Soi</span><span class="brand-cat">Adaptogen drinks</span><span class="brand-flag">🇺🇸</span></div>
+                        <div class="brand-card" data-country="🇬🇧" data-cat="Gut health"><span class="brand-name">Semaine Health</span><span class="brand-cat">Women's gut health</span><span class="brand-flag">🇬🇧</span></div>
+                        <div class="brand-card" data-country="🇵🇹" data-cat="Skincare"><span class="brand-name">Pipa Skin Care</span><span class="brand-cat">Minimal ingredient</span><span class="brand-flag">🇵🇹</span></div>
+                        <div class="brand-card" data-country="🇺🇸" data-cat="Mental wellness"><span class="brand-name">Feals</span><span class="brand-cat">Premium calm & sleep</span><span class="brand-flag">🇺🇸</span></div>
+                        <div class="brand-card" data-country="🇦🇺" data-cat="Functional tea"><span class="brand-name">Looni</span><span class="brand-cat">Mood & hormones</span><span class="brand-flag">🇦🇺</span></div>
+                        <div class="brand-card" data-country="🇺🇸" data-cat="Functional beverage"><span class="brand-name">Kin Euphorics</span><span class="brand-cat">Social wellness drinks</span><span class="brand-flag">🇺🇸</span></div>
+                    </div>
+                    <!-- Duplicate for seamless loop -->
+                    <div class="marquee-inner" aria-hidden="true">
+                        <div class="brand-card"><span class="brand-name">ByDria</span><span class="brand-cat">Wellness curation</span><span class="brand-flag">🇺🇸</span></div>
+                        <div class="brand-card"><span class="brand-name">Nirmalaya</span><span class="brand-cat">Sustainable wellness</span><span class="brand-flag">🇮🇳</span></div>
+                        <div class="brand-card"><span class="brand-name">Awshad</span><span class="brand-cat">Ayurvedic + hemp</span><span class="brand-flag">🇮🇳</span></div>
+                        <div class="brand-card"><span class="brand-name">Butteir</span><span class="brand-cat">Emotional wellness</span><span class="brand-flag">🇮🇳</span></div>
+                        <div class="brand-card"><span class="brand-name">Airth</span><span class="brand-cat">Air purification</span><span class="brand-flag">🇮🇳</span></div>
+                        <div class="brand-card"><span class="brand-name">Artinci</span><span class="brand-cat">Sugar-free desserts</span><span class="brand-flag">🇮🇳</span></div>
+                        <div class="brand-card"><span class="brand-name">Aabo</span><span class="brand-cat">Preventive tracking</span><span class="brand-flag">🇮🇳</span></div>
+                        <div class="brand-card"><span class="brand-name">Hashtag Jungle</span><span class="brand-cat">DIY skincare kits</span><span class="brand-flag">🇮🇳</span></div>
+                        <div class="brand-card"><span class="brand-name">Golde</span><span class="brand-cat">Accessible self-care</span><span class="brand-flag">🇺🇸</span></div>
+                        <div class="brand-card"><span class="brand-name">De Soi</span><span class="brand-cat">Adaptogen drinks</span><span class="brand-flag">🇺🇸</span></div>
+                        <div class="brand-card"><span class="brand-name">Semaine Health</span><span class="brand-cat">Women's gut health</span><span class="brand-flag">🇬🇧</span></div>
+                        <div class="brand-card"><span class="brand-name">Pipa Skin Care</span><span class="brand-cat">Minimal ingredient</span><span class="brand-flag">🇵🇹</span></div>
+                        <div class="brand-card"><span class="brand-name">Feals</span><span class="brand-cat">Premium calm & sleep</span><span class="brand-flag">🇺🇸</span></div>
+                        <div class="brand-card"><span class="brand-name">Looni</span><span class="brand-cat">Mood & hormones</span><span class="brand-flag">🇦🇺</span></div>
+                        <div class="brand-card"><span class="brand-name">Kin Euphorics</span><span class="brand-cat">Social wellness drinks</span><span class="brand-flag">🇺🇸</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Marquee Row 2 – right scroll -->
+            <div class="marquee-wrapper">
+                <div class="marquee-track track-right" id="marqueeRow2">
+                    <div class="marquee-inner">
+                        <div class="brand-card accent-teal"><span class="brand-name">Symprove</span><span class="brand-cat">Microbiome science</span><span class="brand-flag">🇬🇧</span></div>
+                        <div class="brand-card accent-teal"><span class="brand-name">Nouri</span><span class="brand-cat">Skin supplements</span><span class="brand-flag">🇩🇪</span></div>
+                        <div class="brand-card accent-teal"><span class="brand-name">Wild Source</span><span class="brand-cat">Sustainable nutrition</span><span class="brand-flag">🇨🇦</span></div>
+                        <div class="brand-card accent-teal"><span class="brand-name">SURI</span><span class="brand-cat">Electric toothbrush</span><span class="brand-flag">🇬🇧</span></div>
+                        <div class="brand-card accent-teal"><span class="brand-name">Luna Daily</span><span class="brand-cat">Microbiome body care</span><span class="brand-flag">🇬🇧</span></div>
+                        <div class="brand-card accent-teal"><span class="brand-name">State Of Menopause</span><span class="brand-cat">Hormonal wellness</span><span class="brand-flag">🇺🇸</span></div>
+                        <div class="brand-card accent-teal"><span class="brand-name">The Nue Co</span><span class="brand-cat">Science-led wellness</span><span class="brand-flag">🇬🇧</span></div>
+                        <div class="brand-card accent-teal"><span class="brand-name">BelliWelli</span><span class="brand-cat">IBS-friendly snacks</span><span class="brand-flag">🇺🇸</span></div>
+                        <div class="brand-card accent-teal"><span class="brand-name">Remrise</span><span class="brand-cat">Sleep supplements</span><span class="brand-flag">🇬🇧</span></div>
+                        <div class="brand-card accent-teal"><span class="brand-name">Wildling Beauty</span><span class="brand-cat">Facial wellness tools</span><span class="brand-flag">🇺🇸</span></div>
+                        <div class="brand-card accent-teal"><span class="brand-name">Nécessaire</span><span class="brand-cat">Clinical minimalist</span><span class="brand-flag">🇺🇸</span></div>
+                        <div class="brand-card accent-teal"><span class="brand-name">Humantra</span><span class="brand-cat">Sugar-free hydration</span><span class="brand-flag">🇦🇪</span></div>
+                        <div class="brand-card accent-teal"><span class="brand-name">Your Super</span><span class="brand-cat">Plant superfoods</span><span class="brand-flag">🇩🇪</span></div>
+                        <div class="brand-card accent-teal"><span class="brand-name">Mosh</span><span class="brand-cat">Cognitive health snacks</span><span class="brand-flag">🇺🇸</span></div>
+                        <div class="brand-card accent-teal"><span class="brand-name">The Good Bug</span><span class="brand-cat">Gut wellness</span><span class="brand-flag">🇮🇳</span></div>
+                    </div>
+                    <div class="marquee-inner" aria-hidden="true">
+                        <div class="brand-card accent-teal"><span class="brand-name">Symprove</span><span class="brand-cat">Microbiome science</span><span class="brand-flag">🇬🇧</span></div>
+                        <div class="brand-card accent-teal"><span class="brand-name">Nouri</span><span class="brand-cat">Skin supplements</span><span class="brand-flag">🇩🇪</span></div>
+                        <div class="brand-card accent-teal"><span class="brand-name">Wild Source</span><span class="brand-cat">Sustainable nutrition</span><span class="brand-flag">🇨🇦</span></div>
+                        <div class="brand-card accent-teal"><span class="brand-name">SURI</span><span class="brand-cat">Electric toothbrush</span><span class="brand-flag">🇬🇧</span></div>
+                        <div class="brand-card accent-teal"><span class="brand-name">Luna Daily</span><span class="brand-cat">Microbiome body care</span><span class="brand-flag">🇬🇧</span></div>
+                        <div class="brand-card accent-teal"><span class="brand-name">State Of Menopause</span><span class="brand-cat">Hormonal wellness</span><span class="brand-flag">🇺🇸</span></div>
+                        <div class="brand-card accent-teal"><span class="brand-name">The Nue Co</span><span class="brand-cat">Science-led wellness</span><span class="brand-flag">🇬🇧</span></div>
+                        <div class="brand-card accent-teal"><span class="brand-name">BelliWelli</span><span class="brand-cat">IBS-friendly snacks</span><span class="brand-flag">🇺🇸</span></div>
+                        <div class="brand-card accent-teal"><span class="brand-name">Remrise</span><span class="brand-cat">Sleep supplements</span><span class="brand-flag">🇬🇧</span></div>
+                        <div class="brand-card accent-teal"><span class="brand-name">Wildling Beauty</span><span class="brand-cat">Facial wellness tools</span><span class="brand-flag">🇺🇸</span></div>
+                        <div class="brand-card accent-teal"><span class="brand-name">Nécessaire</span><span class="brand-cat">Clinical minimalist</span><span class="brand-flag">🇺🇸</span></div>
+                        <div class="brand-card accent-teal"><span class="brand-name">Humantra</span><span class="brand-cat">Sugar-free hydration</span><span class="brand-flag">🇦🇪</span></div>
+                        <div class="brand-card accent-teal"><span class="brand-name">Your Super</span><span class="brand-cat">Plant superfoods</span><span class="brand-flag">🇩🇪</span></div>
+                        <div class="brand-card accent-teal"><span class="brand-name">Mosh</span><span class="brand-cat">Cognitive health snacks</span><span class="brand-flag">🇺🇸</span></div>
+                        <div class="brand-card accent-teal"><span class="brand-name">The Good Bug</span><span class="brand-cat">Gut wellness</span><span class="brand-flag">🇮🇳</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Global stats strip -->
+            <div class="partners-stats-strip">
+                <div class="pstat"><span class="pstat-num">30+</span><span class="pstat-lbl">Brands</span></div>
+                <div class="pstat-div"></div>
+                <div class="pstat"><span class="pstat-num">8</span><span class="pstat-lbl">Countries</span></div>
+                <div class="pstat-div"></div>
+                <div class="pstat"><span class="pstat-num">6</span><span class="pstat-lbl">Categories</span></div>
+                <div class="pstat-div"></div>
+                <div class="pstat"><span class="pstat-num">Global</span><span class="pstat-lbl">Reach</span></div>
+            </div>
+        </section>
+
+        <!-- Floating Services -->
+        <section class="floating-services">
+            <div class="services-container">
+                <div class="service-float" style="animation-delay: 0s;">
+                    <div class="service-icon"><i class="ph ph-laptop"></i></div>
+                    <div class="service-label">Web Design</div>
+                </div>
+                <div class="service-float" style="animation-delay: 0.1s;">
+                    <div class="service-icon"><i class="ph ph-rocket"></i></div>
+                    <div class="service-label">Digital Growth</div>
+                </div>
+                <div class="service-float" style="animation-delay: 0.2s;">
+                    <div class="service-icon"><i class="ph ph-palette"></i></div>
+                    <div class="service-label">Brand Design</div>
+                </div>
+                <div class="service-float" style="animation-delay: 0.3s;">
+                    <div class="service-icon"><i class="ph ph-chart-bar"></i></div>
+                    <div class="service-label">Ad Strategy</div>
+                </div>
+                <div class="service-float" style="animation-delay: 0.4s;">
+                    <div class="service-icon"><i class="ph ph-clapperboard"></i></div>
+                    <div class="service-label">Video Content</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services" id="services">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">OUR EXPERTISE</span>
+                    <h2>Complete Digital Solutions</h2>
+                    <p>Full-stack agency capabilities for brands that dare to scale</p>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card glass-effect" data-tilt>
+                        <div class="card-gradient"></div>
+                        <div class="card-icon"><i class="ph ph-laptop"></i></div>
+                        <h3>Web Development</h3>
+                        <p>High-performance websites built for conversion & scale</p>
+                        <ul class="card-features">
+                            <li>Custom responsive design</li>
+                            <li>SEO optimized</li>
+                            <li>E-commerce solutions</li>
+                        </ul>
+                        <a href="#" class="card-link open-quote-modal" data-service="Web Development">Get Quote →</a>
+                    </div>
+
+                    <div class="service-card glass-effect" data-tilt>
+                        <div class="card-gradient"></div>
+                        <div class="card-icon"><i class="ph ph-chart-bar"></i></div>
+                        <h3>Digital Marketing</h3>
+                        <p>Data-driven campaigns that deliver measurable ROI</p>
+                        <ul class="card-features">
+                            <li>Meta & Google ads</li>
+                            <li>Lead generation</li>
+                            <li>Funnel optimization</li>
+                        </ul>
+                        <a href="#" class="card-link open-quote-modal" data-service="Digital Marketing">Get Quote →</a>
+                    </div>
+
+                    <div class="service-card glass-effect" data-tilt>
+                        <div class="card-gradient"></div>
+                        <div class="card-icon"><i class="ph ph-palette"></i></div>
+                        <h3>Brand Design</h3>
+                        <p>Creative identities that resonate with your audience</p>
+                        <ul class="card-features">
+                            <li>Logo & branding</li>
+                            <li>Visual systems</li>
+                            <li>Brand guidelines</li>
+                        </ul>
+                        <a href="#" class="card-link open-quote-modal" data-service="Brand Design">Get Quote →</a>
+                    </div>
+
+                    <div class="service-card glass-effect" data-tilt>
+                        <div class="card-gradient"></div>
+                        <div class="card-icon"><i class="ph ph-clapperboard"></i></div>
+                        <h3>Content & Video</h3>
+                        <p>Compelling stories that drive engagement & growth</p>
+                        <ul class="card-features">
+                            <li>Reel editing</li>
+                            <li>Product videos</li>
+                            <li>Motion graphics</li>
+                        </ul>
+                        <a href="#" class="card-link open-quote-modal" data-service="Content & Video">Get Quote →</a>
+                    </div>
+
+                    <div class="service-card glass-effect" data-tilt>
+                        <div class="card-gradient"></div>
+                        <div class="card-icon"><i class="ph ph-trend-up"></i></div>
+                        <h3>Growth Strategy</h3>
+                        <p>Strategic roadmaps for sustainable business growth</p>
+                        <ul class="card-features">
+                            <li>Market analysis</li>
+                            <li>Growth planning</li>
+                            <li>Performance tracking</li>
+                        </ul>
+                        <a href="#" class="card-link open-quote-modal" data-service="Growth Strategy">Get Quote →</a>
+                    </div>
+
+                    <div class="service-card glass-effect" data-tilt>
+                        <div class="card-gradient"></div>
+                        <div class="card-icon"><i class="ph ph-robot"></i></div>
+                        <h3>AI Integration</h3>
+                        <p>Smart automation to scale your operations</p>
+                        <ul class="card-features">
+                            <li>AI automation</li>
+                            <li>Chatbots</li>
+                            <li>Smart workflows</li>
+                        </ul>
+                        <a href="#" class="card-link open-quote-modal" data-service="AI Integration">Get Quote →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Studies Showcase -->
+        <section class="case-showcase">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">PROVEN RESULTS</span>
+                    <h2>50 Case Studies. Infinite Growth.</h2>
+                    <p>Real results from real brands we've transformed</p>
+                </div>
+
+                <div class="cases-showcase-grid">
+                    <div class="case-item reveal">
+                        <div class="case-number">01</div>
+                        <h4>Fitness Coach → ₹80L/Month Revenue</h4>
+                        <p>High-ticket coaching funnels</p>
+                    </div>
+                    <div class="case-item reveal">
+                        <div class="case-number">02</div>
+                        <h4>Local Gym → 3x Membership Growth</h4>
+                        <p>Hyperlocal branding mastery</p>
+                    </div>
+                    <div class="case-item reveal">
+                        <div class="case-number">03</div>
+                        <h4>Wellness Brand → ₹1Cr Year One</h4>
+                        <p>Personal brand scaling system</p>
+                    </div>
+                    <div class="case-item reveal">
+                        <div class="case-number">04</div>
+                        <h4>Creator → Global 40+ Countries</h4>
+                        <p>International expansion strategy</p>
+                    </div>
+                </div>
+
+                <div class="case-cta">
+                    <a href="case-studies.html" class="btn btn-primary btn-large" >Explore All 50 Cases →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Testimonials Section -->
+        <section class="video-testimonials" id="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">REAL CLIENT OUTCOMES</span>
+                    <h2>Success Stories <span class="gradient-text animated-gradient">In Motion</span></h2>
+                    <p>Listen directly to the founders, creators, and wellness leaders we've helped scale</p>
+                </div>
+
+                <div class="video-slider-container">
+                    <div class="video-track">
+                        <!-- Card 1 -->
+                        <div class="video-card reveal">
+                            <div class="video-wrapper">
+                                <video src="rev/SaveClip.App_AQOJrc2k0cX-Tlh_6h0trb_1AYlPZTdTeqK_d0qzWbZ5O_nKc0WPTWuvqatvmcOa2Xn10vRjv7oxP_QkF98qBtyMAjqSY5jXji0Dnuw.mp4" loop playsinline preload="metadata"></video>
+                                <div class="video-overlay">
+                                    <div class="play-btn-circle">
+                                        <i class="ph-fill ph-play"></i>
+                                    </div>
+                                    <div class="video-meta">
+                                        <span class="client-rating">⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                </div>
+                                <button class="mute-btn" aria-label="Mute Video"><i class="ph ph-speaker-slash"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="video-card reveal">
+                            <div class="video-wrapper">
+                                <video src="rev/AQO0DYvdfi0_GCWgMV5PjaN4z7on28WIbI7p_jK-fXB63EPQqO_KRZulExHz-JF1el4r1mVHJ9cCPrFAZgNL0NjenCAYBeFjY4JifsQ.mp4" loop playsinline preload="metadata"></video>
+                                <div class="video-overlay">
+                                    <div class="play-btn-circle">
+                                        <i class="ph-fill ph-play"></i>
+                                    </div>
+                                    <div class="video-meta">
+                                        <span class="client-rating">⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                </div>
+                                <button class="mute-btn" aria-label="Mute Video"><i class="ph ph-speaker-slash"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="video-card reveal">
+                            <div class="video-wrapper">
+                                <video src="rev/AQOIhcaG4iBc5vb2JnM6rgU8ChK6WfDcHIkx5SJeGIvDZdd2l1lYeFy1ur5pfldbmbeOXWyByavfKXmIiqzdmZDNqv9KaVBLP1YmZPo.mp4" loop playsinline preload="metadata"></video>
+                                <div class="video-overlay">
+                                    <div class="play-btn-circle">
+                                        <i class="ph-fill ph-play"></i>
+                                    </div>
+                                    <div class="video-meta">
+                                        <span class="client-rating">⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                </div>
+                                <button class="mute-btn" aria-label="Mute Video"><i class="ph ph-speaker-slash"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="video-card reveal">
+                            <div class="video-wrapper">
+                                <video src="rev/AQOTgmeLVUqSyI--kXy5uuvmUms6by_c7jWnXN9vzYLWkFDmVAlmmWLAarOoZyM-sJHgqJM-NCIZwt11NzXr_ugWicHnKoHNggEgOUo.mp4" loop playsinline preload="metadata"></video>
+                                <div class="video-overlay">
+                                    <div class="play-btn-circle">
+                                        <i class="ph-fill ph-play"></i>
+                                    </div>
+                                    <div class="video-meta">
+                                        <span class="client-rating">⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                </div>
+                                <button class="mute-btn" aria-label="Mute Video"><i class="ph ph-speaker-slash"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Card 5 -->
+                        <div class="video-card reveal">
+                            <div class="video-wrapper">
+                                <video src="rev/AQOjVd47tqxs6dg1qR9audu2HKzV-m2m1JGWwNu8fh6MmNKGR5UxOEcw_yk0OVmNXG951JL-e2nIYmfm1nrZ4hdD5fWqkD28iVMcgp0.mp4" loop playsinline preload="metadata"></video>
+                                <div class="video-overlay">
+                                    <div class="play-btn-circle">
+                                        <i class="ph-fill ph-play"></i>
+                                    </div>
+                                    <div class="video-meta">
+                                        <span class="client-rating">⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                </div>
+                                <button class="mute-btn" aria-label="Mute Video"><i class="ph ph-speaker-slash"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Card 6 -->
+                        <div class="video-card reveal">
+                            <div class="video-wrapper">
+                                <video src="rev/SaveClip.App_AQPlY1vGs7TR0Wi0afKHfFVWDP6jTLTfT2o3YUtMuV_1QS97seLFxpz9vEZxFrIQ56QkS4XGLMzssvQeq_q7TFF1lZ1u-0CTt6wUI6o.mp4" loop playsinline preload="metadata"></video>
+                                <div class="video-overlay">
+                                    <div class="play-btn-circle">
+                                        <i class="ph-fill ph-play"></i>
+                                    </div>
+                                    <div class="video-meta">
+                                        <span class="client-rating">⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                </div>
+                                <button class="mute-btn" aria-label="Mute Video"><i class="ph ph-speaker-slash"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Card 7 -->
+                        <div class="video-card reveal">
+                            <div class="video-wrapper">
+                                <video src="rev/AQO_EnVBTiqbx6h-qpT8OLKZ1GIyVt0TYd5yCQs36W2VWotQiz4S9vT84tq5YBkmY-2aa42yGj8kPh6KrMsCqMUB-BDa41vaoUsox_Q.mp4" loop playsinline preload="metadata"></video>
+                                <div class="video-overlay">
+                                    <div class="play-btn-circle">
+                                        <i class="ph-fill ph-play"></i>
+                                    </div>
+                                    <div class="video-meta">
+                                        <span class="client-rating">⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                </div>
+                                <button class="mute-btn" aria-label="Mute Video"><i class="ph ph-speaker-slash"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Card 8 -->
+                        <div class="video-card reveal">
+                            <div class="video-wrapper">
+                                <video src="rev/AQPmvvhUyKPvraAx6qXnKgZ0if5J6IIFttmC5KKm7Eyz-UBCEkTu75h1yeMIg57U8Q2ZV992zAb-V1KzUmOVx-rsqqKlCjRD5gt_P2Y.mp4" loop playsinline preload="metadata"></video>
+                                <div class="video-overlay">
+                                    <div class="play-btn-circle">
+                                        <i class="ph-fill ph-play"></i>
+                                    </div>
+                                    <div class="video-meta">
+                                        <span class="client-rating">⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                </div>
+                                <button class="mute-btn" aria-label="Mute Video"><i class="ph ph-speaker-slash"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Card 9 -->
+                        <div class="video-card reveal">
+                            <div class="video-wrapper">
+                                <video src="rev/SaveClip.App_AQM3FdvL9wlrzoztCJ9zraoNJq35JpxRwWqaFt0TH5g3b6EM1x5QIsYMZXb1oUK-8E7b2rQgjBhbUHJqdXHGDD7jnIms79DnD-dRYIg.mp4" loop playsinline preload="metadata"></video>
+                                <div class="video-overlay">
+                                    <div class="play-btn-circle">
+                                        <i class="ph-fill ph-play"></i>
+                                    </div>
+                                    <div class="video-meta">
+                                        <span class="client-rating">⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                </div>
+                                <button class="mute-btn" aria-label="Mute Video"><i class="ph ph-speaker-slash"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Card 10 -->
+                        <div class="video-card reveal">
+                            <div class="video-wrapper">
+                                <video src="rev/SaveClip.App_AQMmwG59-OkswBTdG0JNXddWGCBFNWT49jeJ8HNXJknnOnA-DxnGsAxIsnVJw6WXWp-IJe3CfPXbTcqRbFUvVIKz6I38e_S_MDVlUNs.mp4" loop playsinline preload="metadata"></video>
+                                <div class="video-overlay">
+                                    <div class="play-btn-circle">
+                                        <i class="ph-fill ph-play"></i>
+                                    </div>
+                                    <div class="video-meta">
+                                        <span class="client-rating">⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                </div>
+                                <button class="mute-btn" aria-label="Mute Video"><i class="ph ph-speaker-slash"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Card 11 -->
+                        <div class="video-card reveal">
+                            <div class="video-wrapper">
+                                <video src="rev/final ad - reka.mp4" loop playsinline preload="metadata"></video>
+                                <div class="video-overlay">
+                                    <div class="play-btn-circle">
+                                        <i class="ph-fill ph-play"></i>
+                                    </div>
+                                    <div class="video-meta">
+                                        <span class="client-rating">⭐⭐⭐⭐⭐</span>
+                                    </div>
+                                </div>
+                                <button class="mute-btn" aria-label="Mute Video"><i class="ph ph-speaker-slash"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation controls -->
+                    <div class="slider-controls">
+                        <button class="slider-btn prev-btn" aria-label="Previous testimonials"><i class="ph ph-arrow-left"></i></button>
+                        <div class="slider-progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <button class="slider-btn next-btn" aria-label="Next testimonials"><i class="ph ph-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Tools Section -->
+        <section class="tools-section" id="tools">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">INTERACTIVE TOOLS</span>
+                    <h2>Try Before You Buy</h2>
+                    <p>Explore our cutting-edge tools designed for your success</p>
+                </div>
+
+                <div class="tools-grid">
+                    <div class="tool-card reveal">
+                        <div class="tool-icon"><i class="ph ph-calculator"></i></div>
+                        <h3>ROI Calculator</h3>
+                        <p>Calculate your projected growth with our advanced ad forecasting calculator</p>
+                        <a href="tools.html" class="btn btn-outline" >Open Calculator</a>
+                    </div>
+                    <div class="tool-card reveal">
+                        <div class="tool-icon"><i class="ph ph-palette"></i></div>
+                        <h3>Interactive Tools</h3>
+                        <p>Powerful tools to help you understand your potential growth</p>
+                        <a href="tools.html" class="btn btn-outline" >Explore Tools</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Comparison -->
+        <section class="features-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Why Choose Reka?</h2>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-item reveal">
+                        <div class="feature-icon"><i class="ph ph-sparkle"></i></div>
+                        <h4>Results-Focused</h4>
+                        <p>We measure success by your growth metrics</p>
+                    </div>
+                    <div class="feature-item reveal">
+                        <div class="feature-icon"><i class="ph ph-rocket"></i></div>
+                        <h4>Innovation-Driven</h4>
+                        <p>Always ahead with latest tools & trends</p>
+                    </div>
+                    <div class="feature-item reveal">
+                        <div class="feature-icon"><i class="ph ph-target"></i></div>
+                        <h4>Client-Centric</h4>
+                        <p>Your vision becomes our mission</p>
+                    </div>
+                    <div class="feature-item reveal">
+                        <div class="feature-icon"><i class="ph ph-diamond"></i></div>
+                        <h4>Premium Quality</h4>
+                        <p>Excellence in every deliverable</p>
+                    </div>
+                    <div class="feature-item reveal">
+                        <div class="feature-icon"><i class="ph ph-wrench"></i></div>
+                        <h4>Technical Excellence</h4>
+                        <p>Cutting-edge technology stack</p>
+                    </div>
+                    <div class="feature-item reveal">
+                        <div class="feature-icon"><i class="ph ph-phone"></i></div>
+                        <h4>Dedicated Support</h4>
+                        <p>Always here when you need us</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-final">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Transform Your Brand?</h2>
+                    <p>Let's discuss how we can help you dominate your market</p>
+                    <div class="cta-actions">
+                        <a href="mailto:abhinash@rekacreativelabs.com" class="btn btn-primary btn-large">Book Consultation</a>
+                        <a href="about.html" class="btn btn-outline btn-large" >Learn Our Story</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo-text-brand" style="margin-bottom:1rem;display:inline-block;" data-value="Reka Creative Labs">Reka Creative Labs</a>
+                    <p>Building digital futures for brands that dare to scale.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Quick Links</h5>
+                    <a href="services.html">Services</a>
+                    <a href="case-studies.html">Case Studies</a>
+                    <a href="about.html">About Us</a>
+                    <a href="tools.html">Free Tools</a>
+                </div>
+                <div class="footer-col">
+                    <h5>Connect</h5>
+                    <a href="https://www.instagram.com/reka.creativelabs/?hl=en" target="_blank" rel="noopener"><i class="ph ph-instagram-logo" style="margin-right:6px;"></i>Instagram</a>
+                    <a href="https://share.google/vaAEbVTaSsD50Etsc" target="_blank" rel="noopener"><i class="ph ph-linkedin-logo" style="margin-right:6px;"></i>LinkedIn</a>
+                    <a href="mailto:abhinash@rekacreativelabs.com"><i class="ph ph-envelope" style="margin-right:6px;"></i>abhinash@rekacreativelabs.com</a>
+                    <a href="tel:+918368508556"><i class="ph ph-phone" style="margin-right:6px;"></i>+91 83685 08556</a>
+                </div>
+                <div class="footer-col">
+                    <h5>Visit Us</h5>
+                    <a href="https://maps.google.com/?q=A+Block+Pocket+A+Sector+19+Noida+UP+201301" target="_blank" rel="noopener"><i class="ph ph-map-pin" style="margin-right:6px;"></i>A Block, Pocket A, Sector 19<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Noida, UP 201301</a>
+                    <a href="https://g.co/kgs/rekacreativelabs" target="_blank" rel="noopener" style="color:var(--primary);font-weight:600;"><i class="ph ph-google-logo" style="margin-right:6px;"></i>⭐ 4.2 · Google Reviews</a>
+                    <span style="color:var(--text-secondary);font-size:0.82rem;display:block;margin-top:4px;"><i class="ph ph-clock" style="margin-right:6px;"></i>Open 24 Hours</span>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -158,6 +688,81 @@
         </div>
     </footer>
 
+    <!-- Get Quote Modal -->
+    <div id="quoteModal" class="quote-modal">
+        <div class="quote-modal-content glass-effect">
+            <button class="quote-modal-close" id="closeQuoteModal" aria-label="Close modal">&times;</button>
+            <div class="quote-modal-header">
+                <h3>Get a Custom <span class="gradient-text">Quote</span></h3>
+                <p>Fill in a brief detail to instantly connect with us on WhatsApp</p>
+            </div>
+            <form id="quoteForm" class="quote-form">
+                <div class="form-group">
+                    <label for="quoteName">Your Name</label>
+                    <input type="text" id="quoteName" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="quotePhone">Phone Number / WhatsApp</label>
+                    <input type="tel" id="quotePhone" placeholder="Enter your mobile number" required>
+                </div>
+                <div class="form-group">
+                    <label for="quoteService">Select Service</label>
+                    <select id="quoteService" required>
+                        <option value="Web Development">Web Development</option>
+                        <option value="Digital Marketing">Digital Marketing</option>
+                        <option value="Brand Design">Brand Design</option>
+                        <option value="Content & Video">Content & Video</option>
+                        <option value="Growth Strategy">Growth Strategy</option>
+                        <option value="AI Integration">AI Integration</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="quoteDetails">Custom Requirements / Account Details</label>
+                    <textarea id="quoteDetails" placeholder="Tell us a bit about your brand or requirements..." rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full btn-glow">
+                    <span>Send via WhatsApp</span> <i class="ph ph-whatsapp-logo"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
     <script src="main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+    // Three.js 3D Background
+    (function() {
+        const canvas = document.getElementById('canvas3d');
+        if (!canvas) return;
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        camera.position.z = 100;
+        const particles = [];
+        const particleGeometry = new THREE.BufferGeometry();
+        for (let i = 0; i < 150; i++) {
+            particles.push({ pos: new THREE.Vector3((Math.random()-.5)*400,(Math.random()-.5)*400,(Math.random()-.5)*400), vel: new THREE.Vector3((Math.random()-.5)*2,(Math.random()-.5)*2,(Math.random()-.5)*2) });
+        }
+        const positions = new Float32Array(particles.length * 3);
+        particles.forEach((p,i) => { positions[i*3]=p.pos.x; positions[i*3+1]=p.pos.y; positions[i*3+2]=p.pos.z; });
+        particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        const particleMaterial = new THREE.PointsMaterial({ color: 0x8CF665, size: 2, transparent: true, opacity: 0.6 });
+        const particleSystem = new THREE.Points(particleGeometry, particleMaterial);
+        scene.add(particleSystem);
+        function animate() {
+            requestAnimationFrame(animate);
+            particleSystem.rotation.y += 0.0003;
+            renderer.render(scene, camera);
+        }
+        animate();
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    })();
+    </script>
 </body>
 </html>
