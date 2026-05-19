@@ -365,14 +365,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!modal) return;
 
-    // Custom form fields tailored to each service/package to maximize UX and conversion
+    // Custom form fields precisely tailored to each service/package options to maximize conversion
     const serviceFieldsMap = {
         "Web Development": [
             {
                 type: "select",
-                id: "webType",
-                label: "What type of website do you need?",
-                options: ["Corporate / Business Website", "E-commerce Store", "Portfolio / Personal Website", "Landing Page", "Custom Web Application"]
+                id: "webFocus",
+                label: "What is your main requirement?",
+                options: [
+                    "Custom responsive design (Starting from ₹50,000)",
+                    "E-commerce solutions",
+                    "CMS implementation & management",
+                    "Performance optimization",
+                    "SEO-ready architecture",
+                    "Mobile-first approach"
+                ]
             },
             {
                 type: "select",
@@ -383,16 +390,23 @@ document.addEventListener('DOMContentLoaded', () => {
             {
                 type: "textarea",
                 id: "webDetails",
-                label: "Describe features you need (e.g. blog, booking, chat):",
-                placeholder: "e.g. Need an elegant e-commerce site with online payments and booking calendar..."
+                label: "Describe features you need (e.g. blog, booking, checkout):",
+                placeholder: "e.g. Need a sleek e-commerce website with custom payment gateway..."
             }
         ],
         "Digital Marketing": [
             {
                 type: "select",
-                id: "mktGoal",
-                label: "What is your primary marketing goal?",
-                options: ["Lead Generation", "Brand Awareness", "Increase Sales / E-commerce Conversions", "Social Media Growth", "All of the above"]
+                id: "mktFocus",
+                label: "Primary service required (from ₹15,000/mo):",
+                options: [
+                    "Meta Ads & Google Ads",
+                    "Lead generation campaigns",
+                    "Email marketing funnels",
+                    "Content strategy",
+                    "Conversion optimization",
+                    "Analytics & reporting"
+                ]
             },
             {
                 type: "select",
@@ -404,15 +418,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 type: "textarea",
                 id: "mktDetails",
                 label: "Describe your target audience / current channels:",
-                placeholder: "e.g. Targeting health-conscious people in metropolitan cities via Meta Ads..."
+                placeholder: "e.g. Targeting fitness enthusiasts via Meta Ads..."
             }
         ],
         "Brand Design": [
             {
                 type: "select",
-                id: "brandScope",
-                label: "What deliverables do you need?",
-                options: ["Full Brand Identity (Logo + Brand Book + Collaterals)", "Logo Design Only", "Packaging / Label Design", "Marketing Collateral (Banners, Cards)", "Re-branding / Identity Refresh"]
+                id: "brandFocus",
+                label: "Deliverables needed (Starting from ₹30,000):",
+                options: [
+                    "Logo & brand identity",
+                    "Visual design systems",
+                    "Brand guidelines",
+                    "Packaging design",
+                    "Marketing collateral",
+                    "Brand positioning"
+                ]
             },
             {
                 type: "text",
@@ -424,35 +445,49 @@ document.addEventListener('DOMContentLoaded', () => {
                 type: "textarea",
                 id: "brandStyle",
                 label: "Describe the brand style you prefer:",
-                placeholder: "e.g. Clean, minimalist, futuristic, vibrant, eco-friendly..."
+                placeholder: "e.g. Clean, minimalist, futuristic, vibrant..."
             }
         ],
         "Content & Video": [
             {
                 type: "select",
-                id: "videoType",
-                label: "What video service do you need?",
-                options: ["Instagram Reels / YouTube Shorts / TikToks", "Product Showcase / Commercial", "Brand Promo / Explainer Video", "Corporate Video Editing", "Daily Content Batching"]
+                id: "videoFocus",
+                label: "Content format required (From ₹20,000):",
+                options: [
+                    "Reel editing & optimization",
+                    "Product videos",
+                    "Motion graphics",
+                    "Promotional content",
+                    "Photography direction",
+                    "Script writing"
+                ]
             },
             {
                 type: "select",
                 id: "videoVolume",
-                label: "Average expected video output per month?",
+                label: "Average expected output per month?",
                 options: ["1 to 5 Videos", "5 to 15 Videos", "15 to 30 Videos", "30+ Videos / Daily content"]
             },
             {
                 type: "textarea",
                 id: "videoRef",
                 label: "Share reference videos or current social links:",
-                placeholder: "e.g. We want short-form reels like @competitor, here's our link: instagram.com/..."
+                placeholder: "e.g. We want short-form reels like @competitor, here's our link..."
             }
         ],
         "Growth Strategy": [
             {
                 type: "select",
-                id: "growthChallenge",
-                label: "What is the biggest challenge blocking your growth?",
-                options: ["Low Website Traffic / Lack of Visitors", "High Traffic but Low Conversions", "High CAC (Cost of Acquisition)", "Scaling Current Marketing Channels", "Need robust sales funnels & strategy"]
+                id: "growthFocus",
+                label: "Strategic roadmap focus (From ₹40,000):",
+                options: [
+                    "Market analysis",
+                    "Growth planning",
+                    "Competitor research",
+                    "Sales funnel design",
+                    "Performance tracking",
+                    "Monthly optimization"
+                ]
             },
             {
                 type: "text",
@@ -464,27 +499,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 type: "textarea",
                 id: "growthCompetitors",
                 label: "Describe your products and major competitors:",
-                placeholder: "e.g. Premium hemp wellness drops, competitor is XYZ..."
+                placeholder: "e.g. Premium wellness brand, competitor is XYZ..."
             }
         ],
         "AI Integration": [
             {
                 type: "select",
-                id: "aiProcess",
-                label: "What processes do you want to automate?",
-                options: ["Customer Support Chatbot", "Lead Qualification & Booking", "Data Analytics & CRM Automations", "Content Creation & Marketing", "Workflow Automation (Zapier/Make)"]
+                id: "aiFocus",
+                label: "AI Solution requested (Custom Pricing):",
+                options: [
+                    "AI chatbots",
+                    "Marketing automation",
+                    "Smart workflows",
+                    "Data analysis",
+                    "Predictive analytics",
+                    "Custom AI solutions"
+                ]
             },
             {
                 type: "select",
                 id: "aiChannel",
                 label: "Where should the AI chatbot deploy?",
-                options: ["WhatsApp Business API", "Website Chat Widget", "Instagram / Meta DMs", "Internal Slack / Discord", "Omnichannel (Multiple Channels)"]
+                options: ["WhatsApp Business API", "Website Chat Widget", "Instagram / Meta DMs", "Omnichannel (Multiple Channels)", "Internal Workflows (Zapier/Make)"]
             },
             {
                 type: "textarea",
                 id: "aiDetails",
                 label: "Describe your operations pain points:",
-                placeholder: "e.g. Support team takes too long to answer FAQs. Want to automate lead booking..."
+                placeholder: "e.g. Support team takes too long to answer FAQs..."
             }
         ],
         "Starter Boost - Growth Package": [
@@ -492,19 +534,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 type: "text",
                 id: "pkg1Brand",
                 label: "Your Brand Name / Social Handles:",
-                placeholder: "e.g. HealthyLife Wellness, @healthylife"
+                placeholder: "e.g. HealthyLife, @healthylife"
             },
             {
                 type: "select",
-                id: "pkg1Platform",
-                label: "Primary platform to focus on:",
-                options: ["Instagram", "LinkedIn", "YouTube", "Omnichannel (Multiple)"]
+                id: "pkg1Feature",
+                label: "Starter Boost (₹15,000/mo) Includes:",
+                options: [
+                    "✓ All included (Video, Photo, Strategy, 4 Posts, Email support)",
+                    "Video content editing & optimization focus",
+                    "Photo enhancement & graphic design focus",
+                    "Social media strategy focus"
+                ]
             },
             {
                 type: "textarea",
                 id: "pkg1Goal",
                 label: "What are your immediate goals with Starter Boost?",
-                placeholder: "e.g. Launching in 2 weeks, need video editing & daily posts..."
+                placeholder: "e.g. Launching in 2 weeks, need social presence..."
             }
         ],
         "Growth Accelerator - Growth Package": [
@@ -516,15 +563,20 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             {
                 type: "select",
-                id: "pkg2Ads",
-                label: "Have you run ads in the past?",
-                options: ["Yes, currently running ads", "Yes, in the past but paused", "No, this is my first time"]
+                id: "pkg2Feature",
+                label: "Growth Accelerator (₹25,000/mo) Includes:",
+                options: [
+                    "✓ All included (Ads, Funnels, Content, Weekly optimization, Support)",
+                    "Ad campaign & lead generation funnel focus",
+                    "Content creation & weekly posts focus",
+                    "Performance reporting & weekly optimizations"
+                ]
             },
             {
                 type: "textarea",
                 id: "pkg2Focus",
                 label: "Main growth objectives for this accelerator package:",
-                placeholder: "e.g. Need high-quality leads for our fitness coaching, budget ₹20k/mo..."
+                placeholder: "e.g. Need high-quality leads for our fitness coaching..."
             }
         ],
         "Premium Domination - Growth Package": [
@@ -536,15 +588,19 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             {
                 type: "select",
-                id: "pkg3Budget",
-                label: "Monthly ad budget allocation:",
-                options: ["₹30,000 - ₹75,000", "₹75,000 - ₹2,00,000", "₹2,00,000+"]
+                id: "pkg3Feature",
+                label: "Premium Domination (₹40,000/mo) Includes:",
+                options: [
+                    "✓ Full growth automation & advanced ad strategy",
+                    "✓ Dedicated manager & 24/7 premium support",
+                    "✓ AI integrations & sales optimization"
+                ]
             },
             {
                 type: "textarea",
                 id: "pkg3Details",
                 label: "Operational automations or integrations required:",
-                placeholder: "e.g. Need full CRM synchronization, custom WhatsApp booking chatbot, and ad management..."
+                placeholder: "e.g. Need CRM synchronization, automated lead flow..."
             }
         ]
     };
