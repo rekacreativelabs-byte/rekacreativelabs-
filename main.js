@@ -371,220 +371,326 @@ document.addEventListener('DOMContentLoaded', () => {
             {
                 type: "text",
                 id: "webBusinessType",
-                label: "Business type / Niche",
-                placeholder: "e.g. E-commerce store, Corporate agency..."
+                label: "What type of business do you run?",
+                placeholder: "e.g. E-commerce, SaaS, agency, clinic..."
             },
             {
                 type: "text",
                 id: "webExisting",
-                label: "Existing website (If yes, share link)",
-                placeholder: "e.g. No, or www.mycurrentsite.com"
+                label: "Do you already have a website?",
+                placeholder: "e.g. No, or share link if yes..."
             },
             {
                 type: "select",
                 id: "webPages",
-                label: "Number of pages",
+                label: "Number of pages required?",
                 options: ["1 Page (Landing Page)", "2 to 5 Pages", "5 to 10 Pages", "10+ Pages / Enterprise"]
             },
             {
                 type: "select",
                 id: "webEcommerce",
-                label: "Ecommerce required or not?",
-                options: ["Yes, full E-commerce store", "No, showcase / service site only"]
+                label: "Need eCommerce functionality?",
+                options: ["No, showcase / brochure site only", "Yes, need full eCommerce"]
+            },
+            {
+                type: "textarea",
+                id: "webStyleRef",
+                label: "Preferred style/reference websites?",
+                placeholder: "e.g. Clean, premium glassmorphic, links..."
+            },
+            {
+                type: "select",
+                id: "webTimeline",
+                label: "Expected timeline?",
+                options: ["Standard (3 to 6 weeks)", "Urgent (Less than 2 weeks)", "Flexible (6+ weeks)"]
             }
         ],
         "Digital Marketing": [
             {
                 type: "select",
                 id: "mktAdSpend",
-                label: "Current monthly ad spend",
+                label: "Current monthly ad budget?",
                 options: ["₹0 (Not advertising yet)", "Under ₹15,000", "₹15,000 - ₹50,000", "₹50,000 - ₹1,50,000", "₹1,50,000+"]
             },
             {
                 type: "text",
                 id: "mktAudience",
-                label: "Target audience",
-                placeholder: "e.g. Health conscious professionals 25-45"
+                label: "Target audience?",
+                placeholder: "e.g. Fitness enthusiasts 20-35, local parents..."
             },
             {
                 type: "text",
                 id: "mktPlatforms",
-                label: "Platforms used",
-                placeholder: "e.g. Meta, Google, LinkedIn..."
+                label: "Main platform? (Meta/Google/etc.)",
+                placeholder: "e.g. Meta ads, Google ads, Omnichannel..."
             },
             {
                 type: "text",
                 id: "mktLeadGoal",
-                label: "Lead goal per month",
-                placeholder: "e.g. 50 new customer leads/month"
+                label: "Lead or sales goals?",
+                placeholder: "e.g. 50 consultation bookings per month..."
+            },
+            {
+                type: "select",
+                id: "mktExisting",
+                label: "Existing campaigns running?",
+                options: ["No campaigns run yet", "Yes, running ads currently", "No, have run ads in the past"]
+            },
+            {
+                type: "text",
+                id: "mktLinks",
+                label: "Website/social links?",
+                placeholder: "e.g. instagram.com/mybrand"
             }
         ],
         "Brand Design": [
             {
-                type: "select",
-                id: "brandFocus",
-                label: "Branding deliverables required",
-                options: [
-                    "Full Brand Identity (Logo + Brand Book + guidelines)",
-                    "Logo Design Only",
-                    "Packaging / Label Design",
-                    "Marketing Collateral & Banners",
-                    "Brand Positioning & Redesign"
-                ]
+                type: "text",
+                id: "brandNameInput",
+                label: "Brand/business name",
+                placeholder: "Enter your brand or business name"
             },
             {
                 type: "text",
-                id: "brandNiche",
-                label: "Business industry / Brand name",
-                placeholder: "e.g. Wellness brand, HealthyLife Inc..."
+                id: "brandIndustry",
+                label: "Industry",
+                placeholder: "e.g. Fashion, real estate, tech..."
             },
             {
-                type: "textarea",
+                type: "select",
+                id: "brandExisting",
+                label: "Existing branding?",
+                options: ["None (Starting from scratch)", "Yes, we need a complete redesign", "Yes, just need standard assets/updates"]
+            },
+            {
+                type: "text",
                 id: "brandStyle",
-                label: "Preferred brand design style",
-                placeholder: "e.g. Minimalist, premium, futuristic..."
+                label: "Preferred color/style",
+                placeholder: "e.g. Luxury minimalist black & gold..."
+            },
+            {
+                type: "text",
+                id: "brandCompetitors",
+                label: "Competitor brands",
+                placeholder: "e.g. Competitor A, Competitor B"
+            },
+            {
+                type: "select",
+                id: "brandDeliverables",
+                label: "Deliverables needed",
+                options: [
+                    "Full Brand Identity (Logo + guidelines)",
+                    "Logo Design Only",
+                    "Packaging / Label Design",
+                    "Marketing Collateral & Banners"
+                ]
             }
         ],
         "Content & Video": [
             {
                 type: "select",
-                id: "videoFocus",
-                label: "Video format required",
+                id: "contentFocus",
+                label: "Type of content needed",
                 options: [
-                    "Reel editing & short-form optimization",
-                    "Product showcase / commercial videos",
-                    "Motion graphics & branding promos",
-                    "Photography direction & scripts"
+                    "Reels / Shorts (Short-form content)",
+                    "Product Commercials / Videos",
+                    "Motion Graphics & Animation",
+                    "Promotional Content",
+                    "Custom Brand Mix"
                 ]
             },
             {
                 type: "select",
-                id: "videoVolume",
-                label: "Average expected output per month",
-                options: ["1 to 5 Videos", "5 to 15 Videos", "15 to 30 Videos", "30+ Videos / Daily content"]
+                id: "contentVolume",
+                label: "Number of videos/reels monthly",
+                options: ["1 to 5 videos", "5 to 15 videos", "15 to 30 videos", "30+ videos"]
+            },
+            {
+                type: "text",
+                id: "contentPlatforms",
+                label: "Platforms used",
+                placeholder: "e.g. Instagram, TikTok, YouTube..."
+            },
+            {
+                type: "select",
+                id: "contentShooting",
+                label: "Shooting required?",
+                options: ["No, require editing/stock/motion only", "Yes, local shooting in NCR", "No, we will provide all raw footage"]
+            },
+            {
+                type: "text",
+                id: "contentStyleRef",
+                label: "Editing style reference",
+                placeholder: "e.g. Alex Hormozi style, clean minimal..."
             },
             {
                 type: "textarea",
-                id: "videoRef",
-                label: "Share reference links / social pages",
-                placeholder: "e.g. instagram.com/ourbrand"
+                id: "contentGoals",
+                label: "Content goals",
+                placeholder: "e.g. Brand awareness, product conversions..."
             }
         ],
         "Growth Strategy": [
             {
-                type: "text",
-                id: "growthRevenue",
-                label: "Current monthly revenue / target revenue",
-                placeholder: "e.g. Current ₹2L/month, target is ₹10L/month..."
+                type: "select",
+                id: "growthCurrentRev",
+                label: "Current monthly revenue",
+                options: ["Starting up (₹0)", "Under ₹2L/month", "₹2L - ₹5L/month", "₹5L - ₹15L/month", "₹15L+ /month"]
+            },
+            {
+                type: "select",
+                id: "growthTargetRev",
+                label: "Target monthly revenue",
+                options: ["₹2L - ₹5L/month", "₹5L - ₹10L/month", "₹10L - ₹25L/month", "₹25L+/month"]
+            },
+            {
+                type: "select",
+                id: "growthModel",
+                label: "Business model",
+                options: ["E-commerce / D2C", "B2C (Products/Services directly)", "B2B (Selling to other businesses)", "SaaS / Digital Products"]
             },
             {
                 type: "text",
                 id: "growthCompetitors",
-                label: "Competitors",
-                placeholder: "e.g. ABC Competitor, XYZ Brand"
+                label: "Major competitors",
+                placeholder: "e.g. Competitor A, Competitor B"
             },
             {
                 type: "textarea",
-                id: "growthProductDetails",
-                label: "Product details",
-                placeholder: "e.g. High-ticket health wellness sessions at ₹5,000 each..."
+                id: "growthChallenge",
+                label: "Biggest growth challenge",
+                placeholder: "e.g. High customer acquisition costs..."
+            },
+            {
+                type: "text",
+                id: "growthChannels",
+                label: "Current sales channels",
+                placeholder: "e.g. Instagram organically, word of mouth..."
             }
         ],
         "AI Integration": [
             {
+                type: "textarea",
+                id: "aiWorkflows",
+                label: "Current workflows",
+                placeholder: "Briefly how support/sales are handled..."
+            },
+            {
                 type: "select",
-                id: "aiFocus",
-                label: "AI Solution requested",
+                id: "aiTeamSize",
+                label: "Team size",
+                options: ["1 (Solo founder)", "2 to 5 members", "5 to 15 members", "15+ members"]
+            },
+            {
+                type: "text",
+                id: "aiTasks",
+                label: "Tasks to automate",
+                placeholder: "e.g. FAQs, lead sorting, bookings..."
+            },
+            {
+                type: "text",
+                id: "aiTools",
+                label: "CRM/tools currently used",
+                placeholder: "e.g. Google Sheets, HubSpot, Zapier..."
+            },
+            {
+                type: "select",
+                id: "aiGoals",
+                label: "AI goals",
                 options: [
-                    "AI customer support chatbots",
-                    "Marketing & sales funnel automation",
-                    "Smart workflows & CRM automation",
-                    "Data analysis & predictive analytics"
+                    "Integrate AI chatbot on site/WhatsApp",
+                    "Automate sales/lead qualification",
+                    "Reduce support response time",
+                    "Complete custom workflow automation"
                 ]
             },
             {
-                type: "select",
-                id: "aiChannel",
-                label: "AI Chatbot deployment channel",
-                options: ["WhatsApp Business API", "Website Chat Widget", "Instagram / Meta DMs", "Omnichannel (Multiple Channels)", "Internal Workflows (Zapier/Make)"]
-            },
-            {
                 type: "textarea",
-                id: "aiDetails",
-                label: "Operational bottlenecks to automate",
-                placeholder: "e.g. Customer support is slow in responding to FAQs..."
+                id: "aiRequirements",
+                label: "Custom requirements",
+                placeholder: "Describe any specific AI setup needs..."
             }
         ],
         "Starter Boost - Growth Package": [
             {
                 type: "text",
-                id: "pkg1Brand",
-                label: "Brand Name & Social Handles",
-                placeholder: "e.g. WellnessLife, @wellnesslife"
+                id: "pkg1Socials",
+                label: "Primary Social Channels",
+                placeholder: "e.g. Instagram @handle, YouTube link"
             },
             {
                 type: "select",
-                id: "pkg1Feature",
-                label: "Starter Boost (₹15,000/mo) Includes",
+                id: "pkg1Focus",
+                label: "Main Content Focus",
                 options: [
-                    "✓ All included (Video, Photo, Strategy, 4 Posts, Email support)",
-                    "Video content editing & optimization focus",
-                    "Photo enhancement & graphic design focus"
+                    "Short form Reels/Shorts",
+                    "Photo graphics / Carousel posts",
+                    "Social Media Strategy development",
+                    "Standard balance of video & photo"
                 ]
             },
             {
                 type: "textarea",
-                id: "pkg1Goal",
+                id: "pkg1Goals",
                 label: "Goals with Starter Boost",
-                placeholder: "e.g. Launching in 2 weeks, need social presence..."
+                placeholder: "What do you want to achieve with this starter package?"
             }
         ],
         "Growth Accelerator - Growth Package": [
             {
-                type: "text",
-                id: "pkg2Website",
-                label: "Your Website / Social Pages",
-                placeholder: "e.g. www.mywellnessbrand.com"
+                type: "select",
+                id: "pkg2AdSpend",
+                label: "Current monthly ad spend",
+                options: ["No ad spend yet", "Under ₹10,000/mo", "₹10,000 - ₹30,000/mo", "₹30,000+/mo"]
             },
             {
-                type: "select",
-                id: "pkg2Feature",
-                label: "Growth Accelerator (₹25,000/mo) Includes",
-                options: [
-                    "✓ All included (Ads, Funnels, Content, Weekly optimization, Support)",
-                    "Ad campaign & lead generation funnel focus",
-                    "Content creation & weekly posts focus"
-                ]
+                type: "text",
+                id: "pkg2Product",
+                label: "Product/Service to promote",
+                placeholder: "Describe what you are selling or generating leads for"
+            },
+            {
+                type: "text",
+                id: "pkg2Customer",
+                label: "Ideal customer description",
+                placeholder: "e.g. Local business owners, gym goers..."
             },
             {
                 type: "textarea",
-                id: "pkg2Focus",
-                label: "Growth objectives for Accelerator Package",
-                placeholder: "e.g. Need high-quality leads for our fitness coaching..."
+                id: "pkg2Goals",
+                label: "Goals with Growth Accelerator",
+                placeholder: "e.g. Scale customer base and launch Meta Ads..."
             }
         ],
         "Premium Domination - Growth Package": [
             {
                 type: "text",
-                id: "pkg3BrandName",
-                label: "Business Name & Website URL",
-                placeholder: "e.g. Global Wellness Ltd, globalwellness.com"
+                id: "pkg3Volume",
+                label: "Current Sales / Lead Volume",
+                placeholder: "e.g. 200 orders/month, or 50 leads/month"
             },
             {
                 type: "select",
-                id: "pkg3Feature",
-                label: "Premium Domination (₹40,000/mo) Includes",
+                id: "pkg3Automations",
+                label: "AI or Automations required",
                 options: [
-                    "✓ Full growth automation & advanced ad strategy",
-                    "✓ Dedicated manager & 24/7 premium support",
-                    "✓ AI integrations & sales optimization"
+                    "Full automated sales funnel & nurturing",
+                    "CRM automation & lead flows",
+                    "WhatsApp API chatbot integrations",
+                    "Not sure, need strategy recommendation"
                 ]
             },
             {
+                type: "select",
+                id: "pkg3Budget",
+                label: "Target monthly ad budget",
+                options: ["₹50,000 - ₹1,50,000/mo", "Under ₹50,000/mo", "₹1,50,000+/mo"]
+            },
+            {
                 type: "textarea",
-                id: "pkg3Details",
-                label: "Automations or integrations required",
-                placeholder: "e.g. Need CRM synchronization, automated lead flow..."
+                id: "pkg3Custom",
+                label: "Custom Automations/Requirements",
+                placeholder: "Describe your specific integration or strategy requirements..."
             }
         ]
     };
@@ -712,6 +818,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Close on Escape key press
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+
     // Handle Form Submit and redirect to WhatsApp SMS
     if (form) {
         form.addEventListener('submit', (e) => {
@@ -719,6 +832,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const name = document.getElementById('quoteName').value.trim();
             const phone = document.getElementById('quotePhone').value.trim();
+            const business = document.getElementById('quoteBusiness').value.trim();
+            const email = document.getElementById('quoteEmail').value.trim();
             const service = serviceSelect.value;
 
             // Compile dynamic answers based on active fields
@@ -741,11 +856,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Format a beautifully structured WhatsApp message matching exactly the user's specs
             const formattedMessage = 
-`Name: ${name}
-Phone: ${phone}
-Service: ${service}${detailsMessage}
+`Hello, I want a quote.
 
-Looking forward to discussing further!`;
+Name: ${name}
+Phone: ${phone}
+Business: ${business}
+Email: ${email}
+Service: ${service}
+${detailsMessage}
+
+Please contact me.`;
 
             // WhatsApp link encoding
             const whatsappUrl = `https://wa.me/918368508556?text=${encodeURIComponent(formattedMessage)}`;

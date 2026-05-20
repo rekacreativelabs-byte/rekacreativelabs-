@@ -459,6 +459,7 @@
             background: radial-gradient(circle, rgba(140, 246, 101, 0.1), transparent);
             opacity: 0;
             transition: var(--transition);
+            pointer-events: none !important;
         }
 
         .glass-effect:hover {
@@ -480,6 +481,7 @@
             background: linear-gradient(135deg, rgba(140, 246, 101, 0.1), transparent);
             opacity: 0;
             transition: var(--transition);
+            pointer-events: none !important;
         }
 
         .glass-effect:hover .card-gradient {
@@ -2586,11 +2588,7 @@
 
 .quote-modal.active {
     opacity: 1;
-    pointer-events: auto !important; /* Critical fix: standard CSS value is 'auto', 'all' is invalid for HTML and causes touch/click failure */
-}
-
-.quote-modal.active * {
-    pointer-events: auto !important; /* Ensure all form inputs, labels, and textareas receive click events correctly */
+    pointer-events: auto !important;
 }
 
 .quote-modal-content {
@@ -2606,6 +2604,7 @@
     box-shadow: 0 24px 80px rgba(7, 14, 10, 0.8), 0 0 40px rgba(140, 246, 101, 0.05);
     transform: translateY(30px) scale(0.95);
     transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: default !important; /* Prevent pointer cursor inheritance from glass-effect */
 }
 
 /* Custom premium scrollbar for modal content */
@@ -2718,6 +2717,22 @@
     padding: 0.9rem;
     font-size: 0.95rem;
     font-weight: 700;
+}
+
+/* Responsive Modal for Mobile Viewports & Virtual Keyboards */
+@media (max-width: 480px) {
+    .quote-modal {
+        align-items: flex-start !important;
+        overflow-y: auto !important;
+        padding: 0.5rem !important;
+        -webkit-overflow-scrolling: touch;
+    }
+    .quote-modal-content {
+        max-height: none !important;
+        margin: 2rem auto !important;
+        border-radius: 16px !important;
+        padding: 1.25rem !important;
+    }
 }
 
 
