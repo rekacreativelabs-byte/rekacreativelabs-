@@ -878,3 +878,267 @@ Please contact me.`;
         });
     }
 });
+
+/* ═══════════════════════════════════════════════════
+   PREMIUM LEAD GENERATION POPUP (SMART GROWTH TOAST)
+   ═══════════════════════════════════════════════════ */
+(function () {
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Session state checks
+        const isReload = performance.getEntriesByType('navigation')[0]?.type === 'reload';
+        if (isReload) {
+            sessionStorage.removeItem('leadPopupDismissed');
+        }
+
+        const isDismissed = sessionStorage.getItem('leadPopupDismissed');
+        const isSubmitted = sessionStorage.getItem('leadPopupSubmitted');
+
+        // Do not show if dismissed or submitted in this session (unless reload cleared it)
+        if (isDismissed || isSubmitted) return;
+
+        // 2. Inject popup HTML into the document body
+        const toastHTML = `
+            <div id="leadToast" class="lead-toast">
+                <div class="lead-toast-progress-container">
+                    <div id="leadToastProgress" class="lead-toast-progress"></div>
+                </div>
+                <div class="lead-toast-header">
+                    <div class="lead-toast-header-text">
+                        <span class="lead-toast-title">Unlock Your <span class="gradient-text" style="color: #8CF665; background: linear-gradient(90deg, #8CF665, #ffffff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Growth Plan</span></span>
+                        <span class="lead-toast-subtitle">Exclusive offer for new visitors</span>
+                    </div>
+                    <button id="closeLeadToast" class="lead-toast-close" aria-label="Close popup">&times;</button>
+                </div>
+                <div class="lead-toast-body">
+                    <form id="leadToastForm" class="lead-toast-form">
+                        <div class="form-group">
+                            <label for="leadName">Your Name</label>
+                            <input type="text" id="leadName" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="leadPhone">WhatsApp Number</label>
+                            <input type="tel" id="leadPhone" placeholder="Enter WhatsApp number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="leadService">Select Service</label>
+                            <select id="leadService" required>
+                                <option value="" disabled selected>Choose a service...</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="Digital Marketing">Digital Marketing</option>
+                                <option value="Brand Design">Brand Design</option>
+                                <option value="Content & Video">Content & Video</option>
+                                <option value="Growth Strategy">Growth Strategy</option>
+                                <option value="AI Integration">AI Integration</option>
+                                <option value="Starter Boost - Growth Package">Starter Boost - ₹15k/mo</option>
+                                <option value="Growth Accelerator - Growth Package">Growth Accelerator - ₹25k/mo</option>
+                                <option value="Premium Domination - Growth Package">Premium Domination - ₹40k/mo</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Dynamic sub-question container -->
+                        <div id="leadDynamicContainer" class="lead-toast-dynamic-field"></div>
+                        
+                        <button type="submit" class="btn btn-primary btn-lead-submit">
+                            <span>Claim Free Strategy Call</span>
+                            <i class="ph ph-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        `;
+
+        // Append to body
+        const containerDiv = document.createElement('div');
+        containerDiv.innerHTML = toastHTML;
+        document.body.appendChild(containerDiv.firstElementChild);
+
+        const leadToast = document.getElementById('leadToast');
+        const leadProgress = document.getElementById('leadToastProgress');
+        const closeBtn = document.getElementById('closeLeadToast');
+        const form = document.getElementById('leadToastForm');
+        const serviceSelect = document.getElementById('leadService');
+        const dynamicContainer = document.getElementById('leadDynamicContainer');
+
+        let autoDismissTimer;
+
+        // 3. Dynamic Question Config
+        const questionsMap = {
+            "Web Development": {
+                label: "What type of website do you need?",
+                placeholder: "e.g. E-commerce, landing page, business site..."
+            },
+            "Digital Marketing": {
+                label: "What is your target monthly ad budget?",
+                options: ["Not advertising yet", "Under ₹25,000", "₹25,000 - ₹1,00,000", "₹1,00,000+"]
+            },
+            "Brand Design": {
+                label: "What industry is your brand in?",
+                placeholder: "e.g. Real Estate, Tech, Fashion, Food..."
+            },
+            "Content & Video": {
+                label: "How many videos do you need monthly?",
+                options: ["1 to 5 videos", "5 to 15 videos", "15 to 30 videos", "30+ videos"]
+            },
+            "Growth Strategy": {
+                label: "What is your target monthly revenue?",
+                options: ["Under ₹5L/mo", "₹5L - ₹15L/mo", "₹15L+/mo"]
+            },
+            "AI Integration": {
+                label: "What manual task do you want to automate?",
+                placeholder: "e.g. FAQ support, lead sorting, Zapier syncs..."
+            },
+            "Starter Boost - Growth Package": {
+                label: "What is your primary social channel?",
+                placeholder: "e.g. Instagram link or @username"
+            },
+            "Growth Accelerator - Growth Package": {
+                label: "What product/service do you want to promote?",
+                placeholder: "Describe what you sell or generate leads for"
+            },
+            "Premium Domination - Growth Package": {
+                label: "What CRM or tools do you currently use?",
+                placeholder: "e.g. HubSpot, Google Sheets, Salesforce..."
+            }
+        };
+
+        const renderDynamicQuestion = (service) => {
+            dynamicContainer.innerHTML = '';
+            dynamicContainer.classList.remove('visible');
+
+            const question = questionsMap[service];
+            if (!question) return;
+
+            const formGroup = document.createElement('div');
+            formGroup.className = 'form-group';
+
+            const label = document.createElement('label');
+            label.textContent = question.label;
+            formGroup.appendChild(label);
+
+            if (question.options) {
+                const select = document.createElement('select');
+                select.id = 'leadSubField';
+                select.required = true;
+                
+                const defaultOpt = document.createElement('option');
+                defaultOpt.value = '';
+                defaultOpt.disabled = true;
+                defaultOpt.selected = true;
+                defaultOpt.textContent = 'Select an option...';
+                select.appendChild(defaultOpt);
+
+                question.options.forEach(opt => {
+                    const option = document.createElement('option');
+                    option.value = opt;
+                    option.textContent = opt;
+                    select.appendChild(option);
+                });
+                formGroup.appendChild(select);
+            } else {
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.id = 'leadSubField';
+                input.placeholder = question.placeholder || '';
+                input.required = true;
+                formGroup.appendChild(input);
+            }
+
+            dynamicContainer.appendChild(formGroup);
+            
+            // Allow DOM to layout then animate
+            setTimeout(() => {
+                dynamicContainer.classList.add('visible');
+            }, 50);
+        };
+
+        if (serviceSelect) {
+            serviceSelect.addEventListener('change', () => {
+                renderDynamicQuestion(serviceSelect.value);
+            });
+        }
+
+        // 4. Function to close the popup
+        const closePopup = (dismissedByUser = false) => {
+            if (!leadToast) return;
+            leadToast.classList.remove('active');
+            if (dismissedByUser) {
+                sessionStorage.setItem('leadPopupDismissed', 'true');
+            }
+            clearTimeout(autoDismissTimer);
+            // Remove from DOM after transition finishes
+            setTimeout(() => {
+                leadToast.remove();
+            }, 600);
+        };
+
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => closePopup(true));
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && document.getElementById('leadToast')) {
+                closePopup(true);
+            }
+        });
+
+        // 5. Trigger popup after 3 seconds
+        setTimeout(() => {
+            if (!leadToast) return;
+            leadToast.classList.add('active');
+
+            // Trigger CSS transition for the 60s progress bar
+            setTimeout(() => {
+                if (leadProgress) {
+                    leadProgress.style.width = '0%';
+                }
+            }, 50);
+
+            // Auto dismiss after 60 seconds (60000ms)
+            autoDismissTimer = setTimeout(() => {
+                closePopup(false);
+            }, 60000);
+        }, 3000);
+
+        // 6. Submit handling with WhatsApp compilation
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const name = document.getElementById('leadName').value.trim();
+                const phone = document.getElementById('leadPhone').value.trim();
+                const service = serviceSelect.value;
+                const subField = document.getElementById('leadSubField');
+                const subValue = subField ? subField.value.trim() : '';
+                const question = questionsMap[service];
+
+                let customQuestionLine = '';
+                if (question && subValue) {
+                    customQuestionLine = `\n${question.label}: ${subValue}`;
+                }
+
+                // Beautiful formatted WhatsApp Message
+                const formattedMessage = 
+`Hello, I would like to claim my Free Strategy Call.
+
+Name: ${name}
+WhatsApp/Phone: ${phone}
+Selected Service: ${service}${customQuestionLine}
+
+Please connect with me.`;
+
+                // WhatsApp link encoding
+                const whatsappUrl = `https://wa.me/918368508556?text=${encodeURIComponent(formattedMessage)}`;
+
+                // Open in a new tab
+                window.open(whatsappUrl, '_blank');
+
+                // Set session storage state so they aren't prompted again
+                sessionStorage.setItem('leadPopupSubmitted', 'true');
+
+                // Close and destroy popup
+                closePopup(false);
+            });
+        }
+    });
+})();
