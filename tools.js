@@ -116,7 +116,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const sidebar = document.getElementById('toolsSidebar');
 
     if (toggleBtn && sidebar) {
-        toggleBtn.addEventListener('click', () => {
+        toggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // prevent bubbling to document
             sidebar.classList.toggle('open');
         });
 
@@ -124,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('click', (e) => {
             if (sidebar.classList.contains('open') &&
                 !sidebar.contains(e.target) &&
-                e.target !== toggleBtn) {
+                !toggleBtn.contains(e.target)) {
                 sidebar.classList.remove('open');
             }
         });
