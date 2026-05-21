@@ -73,26 +73,200 @@
     </div>
 </section>
 
-<!-- TOOLS HUB NAV -->
-<div class="tools-hub-nav">
-    <div class="hub-nav-inner">
-        <button class="hub-tab active" onclick="switchTool('audit')" data-tool="audit"><i class="ph ph-magnifying-glass"></i> Website Audit</button>
-        <button class="hub-tab" onclick="switchTool('chatbot')" data-tool="chatbot"><i class="ph ph-robot"></i> AI Chatbot</button>
-        <button class="hub-tab" onclick="switchTool('quiz')" data-tool="quiz"><i class="ph ph-chart-bar"></i> Strategy Quiz</button>
-        <button class="hub-tab" onclick="switchTool('adbudget')" data-tool="adbudget"><i class="ph ph-money"></i> Ad Budget Planner</button>
-        <button class="hub-tab" onclick="switchTool('landing')" data-tool="landing"><i class="ph ph-target"></i> Landing Page Analyzer</button>
-        <button class="hub-tab" onclick="switchTool('aicheck')" data-tool="aicheck"><i class="ph ph-brain"></i> AI Readiness Checker</button>
-        <button class="hub-tab" onclick="switchTool('social')" data-tool="social"><i class="ph ph-star"></i> Social Proof</button>
-        <button class="hub-tab" onclick="switchTool('booking')" data-tool="booking"><i class="ph ph-calendar"></i> Book a Call</button>
-        <button class="hub-tab" onclick="switchTool('dashboard')" data-tool="dashboard"><i class="ph ph-trend-up"></i> Marketing Dashboard</button>
-    </div>
-</div>
+<!-- MOBILE SIDEBAR TOGGLE -->
+<button class="sidebar-toggle-mobile" id="sidebarToggleMobile" style="display:none;" aria-label="Toggle Navigation Menu">
+    <i class="ph ph-list"></i>
+</button>
 
-<!-- MAIN CONTENT -->
-<div class="main-content">
+<div class="tools-layout-container">
+    <!-- Sleek sticky vertical navigation sidebar command panel -->
+    <aside class="tools-sidebar" id="toolsSidebar">
+        <div class="sidebar-header">
+            <button class="sidebar-back-btn" onclick="switchTool('hub')"><i class="ph ph-arrow-left"></i> Dashboard Hub</button>
+        </div>
+        <nav class="sidebar-nav">
+            <button class="sidebar-tab active" onclick="switchTool('hub')" data-tool="hub"><i class="ph ph-grid-four"></i> Dashboard</button>
+            <div class="sidebar-divider">Marketing Tools</div>
+            <button class="sidebar-tab" onclick="switchTool('audit')" data-tool="audit"><i class="ph ph-magnifying-glass"></i> Website Audit</button>
+            <button class="sidebar-tab" onclick="switchTool('chatbot')" data-tool="chatbot"><i class="ph ph-robot"></i> AI Chatbot</button>
+            <button class="sidebar-tab" onclick="switchTool('quiz')" data-tool="quiz"><i class="ph ph-chart-bar"></i> Strategy Quiz</button>
+            <button class="sidebar-tab" onclick="switchTool('adbudget')" data-tool="adbudget"><i class="ph ph-money"></i> Ad Budget Planner</button>
+            <button class="sidebar-tab" onclick="switchTool('landing')" data-tool="landing"><i class="ph ph-target"></i> Landing Page Analyzer</button>
+            <button class="sidebar-tab" onclick="switchTool('aicheck')" data-tool="aicheck"><i class="ph ph-brain"></i> AI Readiness Checker</button>
+            <button class="sidebar-tab" onclick="switchTool('social')" data-tool="social"><i class="ph ph-star"></i> Social Proof</button>
+            <button class="sidebar-tab" onclick="switchTool('booking')" data-tool="booking"><i class="ph ph-calendar"></i> Book a Call</button>
+            <button class="sidebar-tab" onclick="switchTool('dashboard')" data-tool="dashboard"><i class="ph ph-trend-up"></i> Marketing Dashboard</button>
+        </nav>
+    </aside>
 
-    <!-- ====== 1. WEBSITE AUDIT TOOL ====== -->
-    <div class="tool-panel active" id="panel-audit">
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+
+        <!-- ====== 0. TOOLS DASHBOARD HUB ====== -->
+        <div class="tool-panel active" id="panel-hub">
+            <div class="tool-section-header">
+                <div class="tag"><i class="ph ph-diamond"></i> Command Center</div>
+                <h2>Growth <span class="gradient-text">Toolkit</span></h2>
+                <p>Select any card below to launch a tool instantly — or tap the <strong style="color:var(--primary);">AI Assistant</strong> in the bottom-right to run everything conversationally.</p>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="hub-stats-bar">
+                <div class="hub-stat"><span class="hub-stat-num">9</span><span class="hub-stat-label">Tools</span></div>
+                <div class="hub-stat"><span class="hub-stat-num">Free</span><span class="hub-stat-label">No Sign-up</span></div>
+                <div class="hub-stat"><span class="hub-stat-num">24/7</span><span class="hub-stat-label">AI Agent</span></div>
+                <div class="hub-stat"><span class="hub-stat-num">Instant</span><span class="hub-stat-label">Results</span></div>
+            </div>
+
+            <div class="tools-grid">
+                <!-- 1. Website Audit -->
+                <div class="hub-card" onclick="switchTool('audit')" style="--card-delay:0;--card-accent:140,246,101;">
+                    <div class="hub-card-glow"></div>
+                    <div class="hub-card-scanline"></div>
+                    <div class="hub-card-top">
+                        <div class="hub-card-icon"><i class="ph-duotone ph-magnifying-glass"></i></div>
+                        <div class="hub-card-badge"><i class="ph ph-lightning"></i> Instant</div>
+                    </div>
+                    <h3>Website Audit</h3>
+                    <p>Scan speed, mobile UX, SEO gaps & Core Web Vitals — full report in seconds.</p>
+                    <div class="hub-card-footer">
+                        <span><i class="ph ph-play-circle"></i> Launch Tool</span>
+                        <i class="ph ph-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- 2. AI Chatbot -->
+                <div class="hub-card hub-card--featured" onclick="switchTool('chatbot')" style="--card-delay:1;--card-accent:74,222,128;">
+                    <div class="hub-card-glow"></div>
+                    <div class="hub-card-scanline"></div>
+                    <div class="hub-card-top">
+                        <div class="hub-card-icon"><i class="ph-duotone ph-robot"></i></div>
+                        <div class="hub-card-badge hub-card-badge--ai"><i class="ph ph-sparkle"></i> AI Agent</div>
+                    </div>
+                    <h3>AI Growth Agent</h3>
+                    <p>One chat to run all 9 tools — audit, budget, quiz, bookings & more conversationally.</p>
+                    <div class="hub-card-footer">
+                        <span><i class="ph ph-chat-centered-text"></i> Open Chat</span>
+                        <i class="ph ph-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- 3. Strategy Quiz -->
+                <div class="hub-card" onclick="switchTool('quiz')" style="--card-delay:2;--card-accent:160,130,255;">
+                    <div class="hub-card-glow"></div>
+                    <div class="hub-card-scanline"></div>
+                    <div class="hub-card-top">
+                        <div class="hub-card-icon"><i class="ph-duotone ph-chart-bar"></i></div>
+                        <div class="hub-card-badge"><i class="ph ph-clipboard-text"></i> 5 Steps</div>
+                    </div>
+                    <h3>Strategy Quiz</h3>
+                    <p>Answer 5 quick questions to get a tailored growth strategy for your brand.</p>
+                    <div class="hub-card-footer">
+                        <span><i class="ph ph-play-circle"></i> Launch Tool</span>
+                        <i class="ph ph-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- 4. Ad Budget Planner -->
+                <div class="hub-card" onclick="switchTool('adbudget')" style="--card-delay:3;--card-accent:255,200,50;">
+                    <div class="hub-card-glow"></div>
+                    <div class="hub-card-scanline"></div>
+                    <div class="hub-card-top">
+                        <div class="hub-card-icon"><i class="ph-duotone ph-money"></i></div>
+                        <div class="hub-card-badge"><i class="ph ph-trend-up"></i> Predictor</div>
+                    </div>
+                    <h3>Ad Budget Planner</h3>
+                    <p>Forecast reach, clicks, leads & revenue based on your budget and target ROAS.</p>
+                    <div class="hub-card-footer">
+                        <span><i class="ph ph-play-circle"></i> Launch Tool</span>
+                        <i class="ph ph-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- 5. Landing Page Analyzer -->
+                <div class="hub-card" onclick="switchTool('landing')" style="--card-delay:4;--card-accent:255,120,120;">
+                    <div class="hub-card-glow"></div>
+                    <div class="hub-card-scanline"></div>
+                    <div class="hub-card-top">
+                        <div class="hub-card-icon"><i class="ph-duotone ph-target"></i></div>
+                        <div class="hub-card-badge"><i class="ph ph-wrench"></i> CRO</div>
+                    </div>
+                    <h3>Landing Page Analyzer</h3>
+                    <p>Get a CRO score with actionable fixes for copy, CTA, trust elements & mobile UX.</p>
+                    <div class="hub-card-footer">
+                        <span><i class="ph ph-play-circle"></i> Launch Tool</span>
+                        <i class="ph ph-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- 6. AI Readiness Checker -->
+                <div class="hub-card" onclick="switchTool('aicheck')" style="--card-delay:5;--card-accent:0,200,255;">
+                    <div class="hub-card-glow"></div>
+                    <div class="hub-card-scanline"></div>
+                    <div class="hub-card-top">
+                        <div class="hub-card-icon"><i class="ph-duotone ph-brain"></i></div>
+                        <div class="hub-card-badge"><i class="ph ph-exam"></i> Score</div>
+                    </div>
+                    <h3>AI Readiness Checker</h3>
+                    <p>Assess your data, tech stack & team maturity to unlock AI-powered growth.</p>
+                    <div class="hub-card-footer">
+                        <span><i class="ph ph-play-circle"></i> Launch Tool</span>
+                        <i class="ph ph-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- 7. Social Proof -->
+                <div class="hub-card" onclick="switchTool('social')" style="--card-delay:6;--card-accent:255,180,80;">
+                    <div class="hub-card-glow"></div>
+                    <div class="hub-card-scanline"></div>
+                    <div class="hub-card-top">
+                        <div class="hub-card-icon"><i class="ph-duotone ph-star"></i></div>
+                        <div class="hub-card-badge"><i class="ph ph-pulse"></i> Live</div>
+                    </div>
+                    <h3>Social Proof</h3>
+                    <p>Live feed of client wins, bookings, reviews & campaign success notifications.</p>
+                    <div class="hub-card-footer">
+                        <span><i class="ph ph-play-circle"></i> Launch Tool</span>
+                        <i class="ph ph-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- 8. Book a Call -->
+                <div class="hub-card" onclick="switchTool('booking')" style="--card-delay:7;--card-accent:100,220,180;">
+                    <div class="hub-card-glow"></div>
+                    <div class="hub-card-scanline"></div>
+                    <div class="hub-card-top">
+                        <div class="hub-card-icon"><i class="ph-duotone ph-calendar"></i></div>
+                        <div class="hub-card-badge"><i class="ph ph-clock"></i> 30 Min</div>
+                    </div>
+                    <h3>Book a Call</h3>
+                    <p>Pick a date & time for a free strategy session with our growth team.</p>
+                    <div class="hub-card-footer">
+                        <span><i class="ph ph-play-circle"></i> Launch Tool</span>
+                        <i class="ph ph-arrow-right"></i>
+                    </div>
+                </div>
+
+                <!-- 9. Marketing Dashboard -->
+                <div class="hub-card" onclick="switchTool('dashboard')" style="--card-delay:8;--card-accent:200,140,255;">
+                    <div class="hub-card-glow"></div>
+                    <div class="hub-card-scanline"></div>
+                    <div class="hub-card-top">
+                        <div class="hub-card-icon"><i class="ph-duotone ph-trend-up"></i></div>
+                        <div class="hub-card-badge"><i class="ph ph-chart-line"></i> Live</div>
+                    </div>
+                    <h3>Marketing Dashboard</h3>
+                    <p>Simulate CAC, LTV, ROAS and visualize channel performance in real-time.</p>
+                    <div class="hub-card-footer">
+                        <span><i class="ph ph-play-circle"></i> Launch Tool</span>
+                        <i class="ph ph-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== 1. WEBSITE AUDIT TOOL ====== -->
+        <div class="tool-panel" id="panel-audit">
         <div class="tool-section-header">
             <div class="tag">Tool 01</div>
             <h2>Website Audit Tool</h2>
@@ -176,33 +350,33 @@
     <!-- ====== 2. AI CHATBOT ====== -->
     <div class="tool-panel" id="panel-chatbot">
         <div class="tool-section-header">
-            <div class="tag">Tool 02</div>
-            <h2>AI Marketing Chatbot</h2>
-            <p>24/7 lead capture, service questions, pricing & booking — all handled by Reka's AI assistant.</p>
+            <div class="tag">AI Growth Agent</div>
+            <h2>Reka AI Assistant</h2>
+            <p>Run Website Audits, Budget Forecasts, Strategy Quiz, Book Calls — all inside this AI chat. No forms, no redirects.</p>
         </div>
-        <div style="max-width:700px;margin:0 auto;">
+        <div style="max-width:780px;margin:0 auto;">
             <div class="chatbot-window glass-card" style="padding:0;">
                 <div class="chat-header">
                     <div class="chat-avatar"><i class="ph ph-robot"></i></div>
                     <div class="chat-status">
-                        <strong>Reka AI Assistant</strong>
-                        <span>● Online — typically replies instantly</span>
+                        <strong>Reka AI Growth Agent</strong>
+                        <span>● Online — runs all 9 tools conversationally</span>
                     </div>
+                    <div style="margin-left:auto;font-size:0.75rem;color:var(--text-secondary);background:rgba(140,246,101,0.08);border:1px solid rgba(140,246,101,0.2);padding:4px 10px;border-radius:20px;">9 Tools Inside</div>
                 </div>
                 <div class="chat-messages" id="chatMessages"></div>
-                <div class="quick-replies" id="quickReplies">
-                    <button class="quick-reply" onclick="sendQuick('What services do you offer?')">Services</button>
-                    <button class="quick-reply" onclick="sendQuick('What are your pricing plans?')">Pricing</button>
-                    <button class="quick-reply" onclick="sendQuick('I want to book a free strategy call')">Book a Call</button>
-                    <button class="quick-reply" onclick="sendQuick('How long does a project take?')">Timeline</button>
-                </div>
                 <div class="chat-input-area">
-                    <input type="text" id="chatInput" placeholder="Ask anything about our services..." onkeypress="handleChatKey(event)">
-                    <button class="send-btn" onclick="sendChat()">➤</button>
+                    <input type="text" id="chatInput" placeholder="Type: audit, budget, quiz, book a call..." onkeypress="handleChatKey(event)">
+                    <button class="send-btn" onclick="sendChat()"><i class="ph ph-paper-plane-tilt"></i></button>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Global AI Float Button -->
+    <button class="ai-float-btn" onclick="switchTool('chatbot')">
+        <i class="ph ph-chat-centered-text"></i>
+    </button>
 
     <!-- ====== 3. QUIZ FUNNEL ====== -->
     <div class="tool-panel" id="panel-quiz">
@@ -604,739 +778,134 @@
         </div>
     </div>
 
-    <!-- ====== 9. MARKETING DASHBOARD ====== -->
+    <!-- ====== 9. LIVE CAMPAIGN DASHBOARD ====== -->
     <div class="tool-panel" id="panel-dashboard">
         <div class="tool-section-header">
-            <div class="tag">Tool 09</div>
-            <h2>Marketing Dashboard</h2>
-            <p>Live performance metrics — ROAS, leads, ad spend & campaign health across all channels.</p>
+            <div class="tag" style="display:flex;align-items:center;gap:8px;justify-content:center;">
+                <span class="live-dot-pulse"></span> LIVE CAMPAIGN DASHBOARD
+            </div>
+            <h2>Real-Time <span class="gradient-text">Growth Intelligence</span></h2>
+            <p>Cinematic live feed of impressions, conversions, world activity & social buzz — updated every second.</p>
         </div>
 
-        <div class="glass-card" style="margin-bottom:2rem;">
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem;">
-                <h3><i class="ph ph-chart-bar"></i> Campaign Overview</h3>
-                <div style="display:flex;gap:8px;">
-                    <button class="btn btn-outline" style="padding:6px 16px;font-size:0.82rem;" onclick="setDashPeriod(7,this)">7D</button>
-                    <button class="btn btn-outline" style="padding:6px 16px;font-size:0.82rem;" onclick="setDashPeriod(30,this)">30D</button>
-                    <button class="btn btn-primary" style="padding:6px 16px;font-size:0.82rem;" onclick="setDashPeriod(90,this)">90D</button>
+        <!-- TOP KPI TICKER ROW -->
+        <div class="live-kpi-bar">
+            <div class="live-kpi-card" id="lkpi-impressions">
+                <div class="lkpi-icon"><i class="ph-duotone ph-eye"></i></div>
+                <div class="lkpi-data">
+                    <div class="lkpi-label">Impressions Today</div>
+                    <div class="lkpi-value" id="live-impressions">0</div>
+                    <div class="lkpi-trend"><i class="ph ph-arrow-up"></i> +2.4K/min</div>
+                </div>
+                <div class="lkpi-spark" id="spark-impressions"></div>
+            </div>
+            <div class="live-kpi-card" id="lkpi-conversions">
+                <div class="lkpi-icon" style="background:linear-gradient(135deg,rgba(74,222,128,0.2),rgba(74,222,128,0.05));border-color:rgba(74,222,128,0.4);color:#4ADE80;"><i class="ph-duotone ph-lightning"></i></div>
+                <div class="lkpi-data">
+                    <div class="lkpi-label">Live Conversions</div>
+                    <div class="lkpi-value" id="live-conversions" style="color:#4ADE80;">0</div>
+                    <div class="lkpi-trend" style="color:#4ADE80;"><i class="ph ph-arrow-up"></i> +18/hour</div>
+                </div>
+                <div class="lkpi-spark" id="spark-conversions"></div>
+            </div>
+            <div class="live-kpi-card" id="lkpi-roas">
+                <div class="lkpi-icon" style="background:linear-gradient(135deg,rgba(255,200,50,0.2),rgba(255,200,50,0.05));border-color:rgba(255,200,50,0.4);color:#FFC832;"><i class="ph-duotone ph-trend-up"></i></div>
+                <div class="lkpi-data">
+                    <div class="lkpi-label">Live ROAS</div>
+                    <div class="lkpi-value" id="live-roas" style="color:#FFC832;">4.8x</div>
+                    <div class="lkpi-trend" style="color:#FFC832;"><i class="ph ph-arrow-up"></i> +0.2x today</div>
+                </div>
+                <div class="lkpi-spark" id="spark-roas"></div>
+            </div>
+            <div class="live-kpi-card" id="lkpi-spend">
+                <div class="lkpi-icon" style="background:linear-gradient(135deg,rgba(160,130,255,0.2),rgba(160,130,255,0.05));border-color:rgba(160,130,255,0.4);color:#A082FF;"><i class="ph-duotone ph-money"></i></div>
+                <div class="lkpi-data">
+                    <div class="lkpi-label">Ad Spend (Live)</div>
+                    <div class="lkpi-value" id="live-spend" style="color:#A082FF;">₹0</div>
+                    <div class="lkpi-trend" style="color:#A082FF;"><i class="ph ph-arrow-up"></i> ₹3.2K/min</div>
+                </div>
+                <div class="lkpi-spark" id="spark-spend"></div>
+            </div>
+        </div>
+
+        <!-- WORLD MAP + LIVE FEED ROW -->
+        <div class="dash-cinema-row">
+
+            <!-- World Map -->
+            <div class="glass-card dash-map-card">
+                <div class="dash-card-header">
+                    <h3><i class="ph-duotone ph-globe-hemisphere-east"></i> World Activity</h3>
+                    <span class="live-pill"><span class="live-dot-pulse" style="width:7px;height:7px;"></span> Live</span>
+                </div>
+                <div class="world-map-wrap">
+                    <canvas id="worldMapCanvas"></canvas>
+                    <div class="map-pings" id="mapPings"></div>
+                    <div class="map-overlay-stats">
+                        <div><span class="map-stat-num" id="map-countries">38</span><span class="map-stat-label">Countries</span></div>
+                        <div><span class="map-stat-num" id="map-cities">142</span><span class="map-stat-label">Cities</span></div>
+                        <div><span class="map-stat-num" id="map-active">2.1K</span><span class="map-stat-label">Active Now</span></div>
+                    </div>
                 </div>
             </div>
-            <div class="dashboard-grid" id="dash-metrics"></div>
+
+            <!-- Live Conversions Ticker -->
+            <div class="glass-card dash-ticker-card">
+                <div class="dash-card-header">
+                    <h3><i class="ph-duotone ph-lightning"></i> Live Conversions</h3>
+                    <span class="live-pill"><span class="live-dot-pulse" style="width:7px;height:7px;background:#4ADE80;box-shadow:0 0 6px #4ADE80;"></span> Live</span>
+                </div>
+                <div class="conversion-ticker" id="conversionTicker"></div>
+            </div>
         </div>
 
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+        <!-- BOTTOM ROW: Channel Performance + Social Mentions -->
+        <div class="dash-cinema-row" style="margin-top:0;">
+
+            <!-- Channel Performance -->
             <div class="glass-card">
-                <h3 style="margin-bottom:1.5rem;"><i class="ph ph-trend-up"></i> Monthly Revenue Trend</h3>
-                <div style="display:flex;align-items:flex-end;gap:6px;height:140px;" id="dash-bar-chart"></div>
-                <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:0.75rem;color:var(--text-secondary);" id="dash-bar-labels"></div>
+                <div class="dash-card-header" style="margin-bottom:1.5rem;">
+                    <h3><i class="ph-duotone ph-chart-bar"></i> Channel Performance</h3>
+                    <div style="display:flex;gap:6px;">
+                        <button class="btn btn-outline" style="padding:4px 12px;font-size:0.75rem;" onclick="setDashPeriod(7,this)">7D</button>
+                        <button class="btn btn-outline" style="padding:4px 12px;font-size:0.75rem;" onclick="setDashPeriod(30,this)">30D</button>
+                        <button class="btn btn-primary" style="padding:4px 12px;font-size:0.75rem;" onclick="setDashPeriod(90,this)">90D</button>
+                    </div>
+                </div>
+                <div id="dash-channels" style="display:flex;flex-direction:column;gap:1.2rem;"></div>
             </div>
+
+            <!-- Social Mentions Feed -->
             <div class="glass-card">
-                <h3 style="margin-bottom:1.5rem;"><i class="ph ph-target"></i> Channel Performance</h3>
-                <div id="dash-channels" style="display:flex;flex-direction:column;gap:1rem;"></div>
+                <div class="dash-card-header" style="margin-bottom:1.2rem;">
+                    <h3><i class="ph-duotone ph-chats-circle"></i> Social Mentions</h3>
+                    <span class="live-pill"><span class="live-dot-pulse" style="width:7px;height:7px;background:#A082FF;box-shadow:0 0 6px #A082FF;"></span> Live</span>
+                </div>
+                <div class="social-mentions-feed" id="socialMentionsFeed"></div>
             </div>
         </div>
+
+        <!-- Hidden metrics grid still needed for setDashPeriod compatibility -->
+        <div id="dash-metrics" style="display:none;"></div>
+        <div id="dash-bar-chart" style="display:none;"></div>
+        <div id="dash-bar-labels" style="display:none;"></div>
     </div>
+    </div><!-- end main-content -->
+</div><!-- end tools-layout-container -->
 
-</div><!-- end main-content -->
+<!-- Floating AI Assistant Button -->
+<button class="reka-ai-fab" id="rekaAiFab" onclick="switchTool('chatbot')" aria-label="Open AI Growth Agent">
+    <div class="reka-ai-fab-ring"></div>
+    <div class="reka-ai-fab-ring reka-ai-fab-ring--2"></div>
+    <i class="ph-duotone ph-robot" style="font-size:1.7rem;"></i>
+    <span class="reka-ai-fab-label">AI Agent</span>
+</button>
 
 <!-- FOOTER -->
 
 
-<script>
-// =========================================
-// CURSOR FOLLOWER
-// =========================================
-const cursor = document.getElementById('cursor');
-document.addEventListener('mousemove', e => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-});
+<!-- All tool logic is handled by tools.js loaded at the bottom of this page -->
 
-// =========================================
-// ANTIGRAVITY PARTICLE SYSTEM
-// =========================================
-const canvas = document.getElementById('particles-bg');
-const ctx = canvas.getContext('2d');
-let particles = [];
 
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
-resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
-
-class Particle {
-    constructor() { this.reset(); }
-    reset() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 0.5;
-        this.speedX = (Math.random() - 0.5) * 0.4;
-        this.speedY = -(Math.random() * 0.4 + 0.1); // upward = antigravity
-        this.opacity = Math.random() * 0.5 + 0.1;
-        this.life = 0;
-        this.maxLife = Math.random() * 200 + 100;
-    }
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        this.life++;
-        if (this.y < -10 || this.life > this.maxLife) this.reset();
-    }
-    draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(140, 246, 101, ${this.opacity * (1 - this.life/this.maxLife)})`;
-        ctx.fill();
-    }
-}
-
-for (let i = 0; i < 80; i++) particles.push(new Particle());
-
-function animateParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(p => { p.update(); p.draw(); });
-    requestAnimationFrame(animateParticles);
-}
-animateParticles();
-
-// =========================================
-// TOOL SWITCHER
-// =========================================
-function switchTool(id) {
-    document.querySelectorAll('.tool-panel').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.hub-tab').forEach(t => t.classList.remove('active'));
-    document.getElementById('panel-' + id).classList.add('active');
-    document.querySelector(`[data-tool="${id}"]`).classList.add('active');
-
-    // Init tool-specific logic
-    if (id === 'chatbot' && !chatInitialized) initChat();
-    if (id === 'dashboard') initDashboard();
-    if (id === 'social') initSocialFeed();
-    if (id === 'booking') renderCalendar();
-    if (id === 'adbudget') calcBudget();
-}
-
-// =========================================
-// SOCIAL PROOF NOTIFICATIONS
-// =========================================
-const proofData = [
-    { icon: '<i class="ph ph-tray-arrow-down"></i>', msg: '<strong>Vikram R.</strong> just booked a strategy call', time: '2 min ago' },
-    { icon: '<i class="ph ph-trophy"></i>', msg: '<strong>Priya M.</strong> got a <strong>4.7x ROAS</strong> this month', time: '8 min ago' },
-    { icon: '<i class="ph ph-star"></i>', msg: '<strong>Rahul S.</strong> left a 5-star review', time: '12 min ago' },
-    { icon: '<i class="ph ph-target"></i>', msg: '<strong>UrbanKart</strong> generated <strong>247 leads</strong> this week', time: '18 min ago' },
-    { icon: '<i class="ph ph-tray-arrow-down"></i>', msg: '<strong>Ananya T.</strong> just ran a site audit', time: '23 min ago' },
-    { icon: '<i class="ph ph-rocket"></i>', msg: '<strong>StartupX</strong> launched campaign — <strong>+312% reach</strong>', time: '31 min ago' },
-    { icon: '<i class="ph ph-briefcase"></i>', msg: '<strong>Neha K.</strong> from Mumbai booked a call', time: '45 min ago' },
-    { icon: '<i class="ph ph-chart-bar"></i>', msg: '<strong>EduTech India</strong> scored <strong>89/100</strong> on audit', time: '1 hr ago' },
-];
-
-let proofIndex = 0;
-const proofBar = document.getElementById('socialProofBar');
-
-function showProofToast() {
-    const item = proofData[proofIndex % proofData.length];
-    proofIndex++;
-    const toast = document.createElement('div');
-    toast.className = 'proof-toast';
-    toast.innerHTML = `<span class="proof-dot"></span><span class="toast-icon">${item.icon}</span><div><div>${item.msg}</div><div style="font-size:0.75rem;opacity:0.6;margin-top:2px;">${item.time}</div></div>`;
-    proofBar.prepend(toast);
-    setTimeout(() => { toast.style.opacity = '0'; toast.style.transition = 'opacity 0.4s'; setTimeout(() => toast.remove(), 400); }, 5000);
-}
-
-showProofToast();
-setInterval(showProofToast, 7000);
-
-// =========================================
-// WEBSITE AUDIT
-// =========================================
-function runAudit() {
-    const url = document.getElementById('audit-url').value.trim();
-    if (!url) { alert('Please enter a URL'); return; }
-
-    document.getElementById('audit-placeholder').style.display = 'none';
-    document.getElementById('audit-results').style.display = 'none';
-    document.getElementById('audit-loading-wrap').style.display = 'block';
-
-    const fill = document.getElementById('audit-loading-fill');
-    let width = 0;
-    const interval = setInterval(() => {
-        width += Math.random() * 8;
-        if (width >= 100) { width = 100; clearInterval(interval); showAuditResults(); }
-        fill.style.width = width + '%';
-    }, 80);
-}
-
-function showAuditResults() {
-    document.getElementById('audit-loading-wrap').style.display = 'none';
-    document.getElementById('audit-results').style.display = 'block';
-    document.getElementById('audit-email-cta').style.display = 'block';
-
-    const score = Math.floor(Math.random() * 30 + 55);
-    const maxDash = 427;
-    const fill = maxDash - (maxDash * score / 100);
-    document.getElementById('scoreCircle').style.strokeDashoffset = fill;
-    document.getElementById('auditScoreNum').textContent = score;
-
-    const checks = [
-        { name: 'Page Speed', detail: 'LCP 2.4s — Good', status: 'pass' },
-        { name: 'Mobile Friendly', detail: 'Responsive design detected', status: 'pass' },
-        { name: 'SEO Meta Tags', detail: 'Missing OG tags & schema markup', status: 'warn' },
-        { name: 'HTTPS / SSL', detail: 'Secure connection active', status: 'pass' },
-        { name: 'Core Web Vitals', detail: 'CLS score needs improvement', status: 'warn' },
-        { name: 'Broken Links', detail: '3 broken links found', status: 'fail' },
-        { name: 'Image Optimization', detail: '12 images not compressed', status: 'fail' },
-        { name: 'CTA Clarity', detail: 'Clear primary CTA present', status: 'pass' },
-        { name: 'Sitemap', detail: 'Sitemap found & valid', status: 'pass' },
-        { name: 'Conversion Leaks', detail: 'Long form detected on mobile', status: 'warn' },
-    ];
-
-    const icons = { pass: '<i class="ph ph-check-circle"></i>', warn: '<i class="ph ph-warning-circle"></i>', fail: '<i class="ph ph-x-circle"></i>' };
-    const labels = { pass: 'PASS', warn: 'WARNING', fail: 'ISSUE' };
-
-    document.getElementById('auditChecks').innerHTML = checks.map(c => `
-        <div class="audit-check-item ${c.status}">
-            <span class="check-icon">${icons[c.status]}</span>
-            <div style="flex:1">
-                <div class="check-name">${c.name}</div>
-                <div class="check-detail">${c.detail}</div>
-            </div>
-            <span class="check-badge badge-${c.status}">${labels[c.status]}</span>
-        </div>
-    `).join('');
-}
-
-function showAuditSuccess() {
-    document.getElementById('audit-email-cta').innerHTML = `
-        <div class="success-box" style="padding:1.5rem;">
-            <div class="s-icon"><i class="ph ph-envelope"></i></div>
-            <h3>Report Sent!</h3>
-            <p>Check your inbox for the full PDF audit report.</p>
-        </div>`;
-}
-
-// =========================================
-// AI CHATBOT
-// =========================================
-let chatInitialized = false;
-
-const botResponses = {
-    'services': "We offer 6 core services: <i class="ph ph-target"></i> Performance Marketing, <i class="ph ph-magnifying-glass"></i> SEO & Content, <i class="ph ph-palette"></i> Brand Design, <i class="ph ph-robot"></i> AI Automation, <i class="ph ph-device-mobile"></i> Social Media, and <i class="ph ph-laptop"></i> Web Development. Which one interests you?",
-    'pricing': "Our packages start from ₹25,000/month for Starter, ₹75,000/month for Growth, and ₹1,50,000/month for Scale. All include strategy, execution & weekly reports. Want details on a specific plan?",
-    'book': "Amazing! Let's set up a call <i class="ph ph-calendar"></i> You can use our <a style='color:var(--primary)' href='javascript:switchTool(\"booking\")'>booking tool</a> to pick a slot, or just tell me your preferred time and I'll check availability.",
-    'timeline': "Typical timelines: <i class="ph ph-rocket"></i> Paid Ads — results in 2–4 weeks. <i class="ph ph-trend-up"></i> SEO — 3–6 months for organic growth. <i class="ph ph-palette"></i> Web projects — 2–6 weeks depending on scope. Want to know about a specific service?",
-    'hello': "Hey there! <i class="ph ph-hand-waving"></i> I'm Reka's AI assistant. I can help with pricing, services, timelines, or booking a free strategy call. What's on your mind?",
-    'default': "Great question! Our team specializes in data-driven digital marketing for Indian businesses. Want me to connect you with a strategist? I can book you a free 30-min call — completely no-obligation."
-};
-
-function getBotReply(msg) {
-    const m = msg.toLowerCase();
-    if (m.includes('service') || m.includes('offer') || m.includes('do')) return botResponses.services;
-    if (m.includes('price') || m.includes('cost') || m.includes('plan') || m.includes('budget')) return botResponses.pricing;
-    if (m.includes('book') || m.includes('call') || m.includes('schedule') || m.includes('meeting')) return botResponses.book;
-    if (m.includes('time') || m.includes('long') || m.includes('duration') || m.includes('result')) return botResponses.timeline;
-    if (m.includes('hi') || m.includes('hello') || m.includes('hey')) return botResponses.hello;
-    return botResponses.default;
-}
-
-function initChat() {
-    chatInitialized = true;
-    addBotMsg("Hey! <i class="ph ph-hand-waving"></i> I'm Reka AI. I can answer questions about our services, pricing & help you book a free strategy call. What can I help you with?");
-}
-
-function addBotMsg(text) {
-    const msgs = document.getElementById('chatMessages');
-    const div = document.createElement('div');
-    div.className = 'msg bot';
-    div.innerHTML = `<div class="msg-avatar"><i class="ph ph-robot"></i></div><div class="msg-bubble">${text}</div>`;
-    msgs.appendChild(div);
-    msgs.scrollTop = msgs.scrollHeight;
-}
-
-function addUserMsg(text) {
-    const msgs = document.getElementById('chatMessages');
-    const div = document.createElement('div');
-    div.className = 'msg user';
-    div.innerHTML = `<div class="msg-bubble">${text}</div><div class="msg-avatar"><i class="ph ph-user"></i></div>`;
-    msgs.appendChild(div);
-    msgs.scrollTop = msgs.scrollHeight;
-}
-
-function sendChat() {
-    const input = document.getElementById('chatInput');
-    const text = input.value.trim();
-    if (!text) return;
-    addUserMsg(text);
-    input.value = '';
-    setTimeout(() => addBotMsg(getBotReply(text)), 600 + Math.random() * 600);
-}
-
-function sendQuick(text) {
-    addUserMsg(text);
-    setTimeout(() => addBotMsg(getBotReply(text)), 600);
-}
-
-function handleChatKey(e) { if (e.key === 'Enter') sendChat(); }
-
-// =========================================
-// QUIZ
-// =========================================
-let quizStep = 1;
-let quizAnswers = {};
-let selectedOpt = null;
-
-function selectQ(step, val) {
-    document.querySelectorAll(`#qs${step} .quiz-option`).forEach(o => o.classList.remove('selected'));
-    event.currentTarget.classList.add('selected');
-    quizAnswers[step] = val;
-    selectedOpt = val;
-    document.getElementById('quizNextBtn').style.display = 'inline-block';
-}
-
-function nextQuiz() {
-    if (quizStep < 5) {
-        document.getElementById('qs' + quizStep).classList.remove('active');
-        quizStep++;
-        document.getElementById('qs' + quizStep).classList.add('active');
-        document.getElementById('quizStepLabel').textContent = `Question ${quizStep} of 5`;
-        document.getElementById('quizProgressBar').style.width = ((quizStep - 1) / 5 * 100) + '%';
-        document.getElementById('quizNextBtn').style.display = 'none';
-        selectedOpt = null;
-    } else {
-        showQuizResult();
-    }
-}
-
-const quizResults = {
-    startup_speed: { icon: '<i class="ph ph-rocket"></i>', title: 'Fast-Track Growth Package', desc: 'You need quick wins. We recommend a Meta Ads + Landing Page combo to start generating leads within 2–3 weeks. Budget: ₹50K–1.5L/month.' },
-    growth_leads: { icon: '<i class="ph ph-target"></i>', title: 'Lead Generation Machine', desc: 'You\'re ready to scale. A multi-channel paid ads strategy with a CRM automation layer will multiply your lead flow significantly.' },
-    established_convert: { icon: '<i class="ph ph-money"></i>', title: 'CRO + Retention Focus', desc: 'You have traffic but need better conversions. Focus on landing page optimization, retargeting & email sequences.' },
-    default: { icon: '<i class="ph ph-trend-up"></i>', title: 'Custom Growth Strategy', desc: 'Based on your profile, you need a tailored multi-channel approach. Book a free call to get a personalized 90-day growth plan.' }
-};
-
-function showQuizResult() {
-    document.getElementById('qs5').classList.remove('active');
-    document.getElementById('quizProgressBar').style.width = '100%';
-    document.getElementById('quizStepLabel').textContent = 'Your Result';
-    document.getElementById('quizNextBtn').style.display = 'none';
-
-    const key = `${quizAnswers[1]}_${quizAnswers[2]}`;
-    const result = quizResults[key] || quizResults.default;
-
-    document.getElementById('quizResultContent').innerHTML = `
-        <div class="quiz-result-icon">${result.icon}</div>
-        <div class="quiz-result-title">${result.title}</div>
-        <div class="quiz-result-desc">${result.desc}</div>
-        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;">
-            <button class="btn btn-primary" onclick="switchTool('booking')"><i class="ph ph-calendar"></i> Book Free Strategy Call</button>
-            <button class="btn btn-outline" onclick="resetQuiz()">Retake Quiz</button>
-        </div>`;
-
-    document.getElementById('qs-result').classList.add('active');
-}
-
-function resetQuiz() {
-    quizStep = 1;
-    quizAnswers = {};
-    selectedOpt = null;
-    document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
-    document.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
-    document.getElementById('qs1').classList.add('active');
-    document.getElementById('quizStepLabel').textContent = 'Question 1 of 5';
-    document.getElementById('quizProgressBar').style.width = '0%';
-    document.getElementById('quizNextBtn').style.display = 'none';
-}
-
-// =========================================
-// AD BUDGET PLANNER
-// =========================================
-function fmt(n) { return '₹' + Math.round(n).toLocaleString('en-IN'); }
-
-function updateBpBudget(v) {
-    document.getElementById('bp-budget-val').textContent = fmt(v);
-}
-
-function updateBpRoas(v) {
-    document.getElementById('bp-roas-val').textContent = v + 'x';
-}
-
-function calcBudget() {
-    const budget = parseFloat(document.getElementById('bp-budget').value);
-    const roas = parseFloat(document.getElementById('bp-roas').value);
-    const platform = document.getElementById('bp-platform').value;
-    const industry = document.getElementById('bp-industry').value;
-    const aov = parseFloat(document.getElementById('bp-aov').value) || 5000;
-
-    const cpmMap = { ecommerce: 120, saas: 200, realestate: 280, healthcare: 250, education: 160 };
-    const cpcMap = { meta: 8, google: 25, youtube: 6, mixed: 12 };
-
-    const cpm = cpmMap[industry] || 150;
-    const cpc = cpcMap[platform] || 10;
-
-    const reach = (budget / cpm) * 1000;
-    const clicks = budget / cpc;
-    const leads = clicks * 0.035;
-    const conv = leads * 0.12;
-    const revenue = budget * roas;
-    const cpl = budget / (leads || 1);
-
-    document.getElementById('bp-reach').textContent = Math.floor(reach).toLocaleString('en-IN');
-    document.getElementById('bp-clicks').textContent = Math.floor(clicks).toLocaleString('en-IN');
-    document.getElementById('bp-leads').textContent = Math.floor(leads);
-    document.getElementById('bp-conv').textContent = Math.floor(conv);
-    document.getElementById('bp-cpl').textContent = fmt(cpl);
-    document.getElementById('bp-revenue').textContent = fmt(revenue);
-
-    const splits = {
-        meta: '70% Meta (FB+IG) · 20% Retargeting · 10% Creative Testing',
-        google: '60% Search · 25% Display · 15% Performance Max',
-        youtube: '65% YouTube In-stream · 25% Discovery · 10% Bumper',
-        mixed: '40% Meta · 35% Google Search · 15% YouTube · 10% Buffer'
-    };
-    document.getElementById('bp-split').innerHTML = splits[platform] || splits.mixed;
-}
-
-// =========================================
-// LANDING PAGE ANALYZER
-// =========================================
-function analyzeLanding() {
-    const url = document.getElementById('lp-url').value.trim();
-    if (!url) { alert('Please enter your landing page URL'); return; }
-
-    document.getElementById('lp-placeholder').style.display = 'none';
-    document.getElementById('lp-results').style.display = 'none';
-    document.getElementById('lp-loading').style.display = 'block';
-
-    const fill = document.getElementById('lp-loading-fill');
-    let w = 0;
-    const iv = setInterval(() => {
-        w += Math.random() * 10;
-        if (w >= 100) { w = 100; clearInterval(iv); showLandingResults(); }
-        fill.style.width = w + '%';
-    }, 90);
-}
-
-function showLandingResults() {
-    document.getElementById('lp-loading').style.display = 'none';
-    document.getElementById('lp-results').style.display = 'block';
-
-    const score = Math.floor(Math.random() * 25 + 55);
-    document.getElementById('lp-score').textContent = score;
-    setTimeout(() => { document.getElementById('lp-score-bar').style.width = score + '%'; }, 100);
-
-    const categories = [
-        { name: '<i class="ph ph-target"></i> CTA Clarity', score: 72, issues: ['CTA button color could be more prominent', 'Add urgency text near CTA'] },
-        { name: '<i class="ph ph-shield-check"></i> Trust Elements', score: 58, issues: ['Missing client logos', 'No visible testimonials above fold', 'Add security badges'] },
-        { name: '<i class="ph ph-file-text"></i> Copy Quality', score: 81, issues: ['Headline is strong', 'Subtext slightly long for mobile'] },
-        { name: '<i class="ph ph-device-mobile"></i> Mobile UX', score: 63, issues: ['Form fields too small on mobile', 'Tap targets need spacing'] },
-        { name: '<i class="ph ph-lightning"></i> Page Speed', score: 48, issues: ['Slow LCP (3.8s)', 'Uncompressed hero image', 'Render-blocking JS'] },
-        { name: '<i class="ph ph-arrows-clockwise"></i> Conversion Flow', score: 70, issues: ['Good form length', 'Add progress indicator to multi-step forms'] },
-    ];
-
-    document.getElementById('lp-categories-list').innerHTML = categories.map(cat => `
-        <div class="lp-cat">
-            <div class="lp-cat-header">
-                <div class="lp-cat-name">${cat.name}</div>
-                <div class="lp-cat-score">${cat.score}/100</div>
-            </div>
-            <div class="lp-progress"><div class="lp-fill" style="width:0%" data-w="${cat.score}%"></div></div>
-            <div class="lp-issues">${cat.issues.map(i => `<div class="lp-issue"><span style="color:var(--primary)">›</span> ${i}</div>`).join('')}</div>
-        </div>
-    `).join('');
-
-    setTimeout(() => {
-        document.querySelectorAll('.lp-fill').forEach(el => {
-            el.style.width = el.dataset.w;
-        });
-    }, 100);
-}
-
-// =========================================
-// AI READINESS CHECKER
-// =========================================
-function checkAIReadiness() {
-    const size = document.getElementById('ai-size').value;
-    const tech = document.getElementById('ai-tech').value;
-    const data = document.getElementById('ai-data').value;
-
-    const techScore = { basic: 25, crm: 50, integrated: 70, advanced: 90 };
-    const dataScore = { poor: 20, fair: 45, good: 70, excellent: 95 };
-    const sizeBonus = { solo: 0, small: 5, mid: 10, large: 15, enterprise: 20 };
-
-    const base = (techScore[tech] + dataScore[data]) / 2 + sizeBonus[size];
-    const totalScore = Math.min(Math.round(base), 100);
-
-    document.getElementById('ai-placeholder').style.display = 'none';
-    document.getElementById('ai-results').style.display = 'block';
-    document.getElementById('ai-total-score').textContent = totalScore;
-
-    const grades = [
-        [80, '<i class="ph ph-trophy"></i> AI-Ready — Time to Automate at Scale'],
-        [60, '<i class="ph ph-trend-up"></i> Good Foundation — A Few Gaps to Close'],
-        [40, '<i class="ph ph-warning-circle"></i> Moderate Readiness — Foundational Work Needed'],
-        [0,  '<i class="ph ph-plant"></i> Early Stage — Start with Basic Automation'],
-    ];
-    const grade = grades.find(g => totalScore >= g[0]);
-    document.getElementById('ai-grade-label').textContent = grade[1];
-
-    const pillars = [
-        { icon: '<i class="ph ph-floppy-disk"></i>', name: 'Data Quality', score: dataScore[data] },
-        { icon: '<i class="ph ph-wrench"></i>', name: 'Tech Stack', score: techScore[tech] },
-        { icon: '<i class="ph ph-users"></i>', name: 'Team Readiness', score: Math.round(totalScore * 0.9 + Math.random() * 10) },
-        { icon: '<i class="ph ph-arrows-clockwise"></i>', name: 'Process Maturity', score: Math.round(totalScore * 0.85 + Math.random() * 15) },
-        { icon: '<i class="ph ph-lock"></i>', name: 'Security & Compliance', score: Math.round(totalScore * 0.95 + Math.random() * 5) },
-        { icon: '<i class="ph ph-brain"></i>', name: 'AI Adoption', score: Math.round(totalScore * 0.7 + Math.random() * 20) },
-    ];
-
-    document.getElementById('ai-pillars').innerHTML = pillars.map(p => {
-        const s = Math.min(p.score, 100);
-        return `<div class="pillar-card">
-            <div class="pillar-icon">${p.icon}</div>
-            <div class="pillar-name">${p.name}</div>
-            <div class="pillar-bar"><div class="pillar-fill" data-w="${s}%"></div></div>
-            <div class="pillar-score">${s}/100</div>
-        </div>`;
-    }).join('');
-
-    setTimeout(() => {
-        document.querySelectorAll('.pillar-fill').forEach(el => {
-            el.style.width = el.dataset.w;
-        });
-    }, 100);
-}
-
-// =========================================
-// SOCIAL PROOF DASHBOARD
-// =========================================
-const feedItems = [
-    { icon: '<i class="ph ph-tray-arrow-down"></i>', text: '<strong>Vikram R.</strong> from Delhi booked a strategy call', time: '2 min ago', type: 'booking' },
-    { icon: '<i class="ph ph-trophy"></i>', text: '<strong>ZestMart</strong> achieved <strong>4.7x ROAS</strong> on Meta Ads', time: '8 min ago', type: 'win' },
-    { icon: '<i class="ph ph-star"></i>', text: '<strong>Priya M.</strong> left a 5-star review — "Best agency in India!"', time: '14 min ago', type: 'review' },
-    { icon: '<i class="ph ph-target"></i>', text: '<strong>UrbanKart</strong> generated 247 leads this week', time: '22 min ago', type: 'lead' },
-    { icon: '<i class="ph ph-rocket"></i>', text: '<strong>StartupX</strong> launched their first campaign — 312% reach boost', time: '35 min ago', type: 'launch' },
-    { icon: '<i class="ph ph-trend-up"></i>', text: '<strong>EduSpark</strong> grew organic traffic by 189% in 60 days', time: '51 min ago', type: 'seo' },
-    { icon: '<i class="ph ph-money"></i>', text: '<strong>Nykaa Seller</strong> reduced CPL from ₹850 to ₹210', time: '1 hr ago', type: 'win' },
-    { icon: '<i class="ph ph-tray-arrow-down"></i>', text: '<strong>Ananya T.</strong> from Bangalore booked a strategy call', time: '1.5 hr ago', type: 'booking' },
-    { icon: '<i class="ph ph-trophy"></i>', text: '<strong>HealthFirst</strong> hit ₹12L in revenue from a single campaign', time: '2 hr ago', type: 'win' },
-    { icon: '<i class="ph ph-star"></i>', text: '<strong>Rahul S.</strong> left a review — "ROI was incredible"', time: '2.5 hr ago', type: 'review' },
-];
-
-const reviews = [
-    { name: 'Vikram Reddy', co: 'ZestMart · E-commerce', stars: 5, text: 'Our ROAS went from 1.8x to 4.7x in just 6 weeks. The team is exceptional.' },
-    { name: 'Priya Malhotra', co: 'EduSpark · EdTech', stars: 5, text: 'Best investment we made — 189% traffic growth and real leads.' },
-    { name: 'Arun Sharma', co: 'HealthFirst · Healthcare', stars: 5, text: 'They understood our niche perfectly. ₹12L in revenue from one campaign.' },
-];
-
-function initSocialFeed() {
-    const feed = document.getElementById('social-feed');
-    if (feed.children.length > 0) return;
-    feedItems.forEach((item, i) => {
-        setTimeout(() => {
-            const el = document.createElement('div');
-            el.className = 'audit-check-item pass';
-            el.style.cssText = 'animation: toastSlide 0.3s ease; cursor:default;';
-            el.innerHTML = `<span style="font-size:1.3rem">${item.icon}</span><div style="flex:1"><div style="font-size:0.88rem">${item.text}</div><div style="font-size:0.75rem;color:var(--text-secondary);margin-top:2px;">${item.time}</div></div>`;
-            feed.appendChild(el);
-        }, i * 150);
-    });
-
-    const reviewList = document.getElementById('reviews-list');
-    reviews.forEach(r => {
-        const el = document.createElement('div');
-        el.style.cssText = 'padding:1rem;background:rgba(255,255,255,0.02);border-radius:10px;border:1px solid var(--border-color);';
-        el.innerHTML = `
-            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
-                <div style="font-size:1.2rem">${'<i class="ph ph-star"></i>'.repeat(r.stars)}</div>
-            </div>
-            <div style="font-size:0.88rem;color:var(--text-secondary);margin-bottom:8px;">"${r.text}"</div>
-            <div style="font-size:0.82rem;font-weight:600;">${r.name} <span style="color:var(--text-secondary);font-weight:400;">· ${r.co}</span></div>
-        `;
-        reviewList.appendChild(el);
-    });
-}
-
-// =========================================
-// BOOKING CALENDAR
-// =========================================
-let calDate = new Date(2026, 4, 1); // May 2026
-let selectedDate = null;
-let selectedTime = null;
-
-const times = ['9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM'];
-const bookedSlots = ['10:00 AM', '2:00 PM'];
-
-function renderCalendar() {
-    const year = calDate.getFullYear();
-    const month = calDate.getMonth();
-    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    document.getElementById('cal-month-label').textContent = monthNames[month] + ' ' + year;
-
-    const grid = document.getElementById('cal-grid');
-    const days = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
-    const firstDay = new Date(year, month, 1).getDay();
-    const daysInMonth = new Date(year, month + 1, 0).getDate();
-    const today = new Date();
-
-    let html = days.map(d => `<div class="cal-day-label">${d}</div>`).join('');
-    for (let i = 0; i < firstDay; i++) html += `<div class="cal-day empty"></div>`;
-    for (let d = 1; d <= daysInMonth; d++) {
-        const date = new Date(year, month, d);
-        const isPast = date < new Date(today.getFullYear(), today.getMonth(), today.getDate());
-        const isToday = date.toDateString() === today.toDateString();
-        const isWeekend = date.getDay() === 0 || date.getDay() === 6;
-        const isSelected = selectedDate && date.toDateString() === selectedDate.toDateString();
-        let cls = 'cal-day';
-        if (isPast || isWeekend) cls += ' past';
-        if (isToday) cls += ' today';
-        if (isSelected) cls += ' selected';
-        const clickable = !isPast && !isWeekend;
-        html += `<div class="${cls}" ${clickable ? `onclick="selectCalDay(${d})"` : ''}>${d}</div>`;
-    }
-    grid.innerHTML = html;
-    renderTimeSlots();
-}
-
-function selectCalDay(d) {
-    selectedDate = new Date(calDate.getFullYear(), calDate.getMonth(), d);
-    selectedTime = null;
-    renderCalendar();
-}
-
-function renderTimeSlots() {
-    const wrap = document.getElementById('time-slots');
-    if (!selectedDate) { wrap.innerHTML = '<p style="color:var(--text-secondary);font-size:0.85rem;grid-column:1/-1;">Select a date to see available times</p>'; return; }
-    wrap.innerHTML = times.map(t => {
-        const booked = bookedSlots.includes(t);
-        const sel = selectedTime === t;
-        return `<div class="time-slot ${booked ? 'booked' : ''} ${sel ? 'selected' : ''}" ${!booked ? `onclick="selectTime('${t}')"` : ''}>${t}</div>`;
-    }).join('');
-}
-
-function selectTime(t) {
-    selectedTime = t;
-    renderTimeSlots();
-}
-
-function changeMonth(dir) {
-    calDate.setMonth(calDate.getMonth() + dir);
-    selectedDate = null; selectedTime = null;
-    renderCalendar();
-}
-
-function confirmBooking() {
-    const fname = document.getElementById('b-fname').value.trim();
-    const email = document.getElementById('b-email').value.trim();
-    if (!fname) { alert('Please enter your name'); return; }
-    if (!email) { alert('Please enter your email'); return; }
-    if (!selectedDate) { alert('Please select a date'); return; }
-    if (!selectedTime) { alert('Please select a time slot'); return; }
-
-    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    const dateStr = `${selectedDate.getDate()} ${months[selectedDate.getMonth()]} ${selectedDate.getFullYear()} at ${selectedTime} IST`;
-    document.getElementById('booking-date-confirm').textContent = dateStr;
-    document.getElementById('booking-form-wrap').style.display = 'none';
-    document.getElementById('booking-success').style.display = 'block';
-}
-
-function resetBooking() {
-    selectedDate = null; selectedTime = null;
-    document.getElementById('booking-form-wrap').style.display = 'block';
-    document.getElementById('booking-success').style.display = 'none';
-    renderCalendar();
-}
-
-// =========================================
-// MARKETING DASHBOARD
-// =========================================
-let dashPeriod = 90;
-
-const dashData = {
-    7:  { roas: '4.2x', leads: '84', spend: '₹82K', growth: '+18%', sessions: '4.2K' },
-    30: { roas: '4.7x', leads: '312', spend: '₹3.1L', growth: '+34%', sessions: '18K' },
-    90: { roas: '5.1x', leads: '987', spend: '₹9.4L', growth: '+67%', sessions: '58K' },
-};
-
-const barData = {
-    7:  { vals: [62,71,58,80,73,88,92], labels: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'] },
-    30: { vals: [45,52,60,58,70,65,78,82,76,88,92,85,90,94,88,96,100,92,98,105,112,108,115,120,118,122,130,125,128,135], labels: ['W1','W2','W3','W4'] },
-    90: { vals: [40,55,62,70,68,78,82,80,88,92,95,100], labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'] },
-};
-
-function setDashPeriod(p, btn) {
-    dashPeriod = p;
-    document.querySelectorAll('#panel-dashboard .btn').forEach(b => {
-        b.className = 'btn btn-outline'; b.style.cssText = 'padding:6px 16px;font-size:0.82rem;';
-    });
-    btn.className = 'btn btn-primary';
-    btn.style.cssText = 'padding:6px 16px;font-size:0.82rem;';
-    initDashboard();
-}
-
-function initDashboard() {
-    const d = dashData[dashPeriod] || dashData[90];
-    const metrics = [
-        { icon: '<i class="ph ph-money"></i>', label: 'Ad Spend', value: d.spend, delta: '+12%' },
-        { icon: '<i class="ph ph-target"></i>', label: 'Leads Generated', value: d.leads, delta: '+28%' },
-        { icon: '<i class="ph ph-trend-up"></i>', label: 'ROAS', value: d.roas, delta: '+0.4x' },
-        { icon: '<i class="ph ph-rocket"></i>', label: 'Revenue Growth', value: d.growth, delta: d.growth },
-        { icon: '<i class="ph ph-eye"></i>', label: 'Sessions', value: d.sessions, delta: '+41%' },
-        { icon: '<i class="ph ph-diamond"></i>', label: 'CTR Avg', value: '3.8%', delta: '+0.6%' },
-    ];
-
-    document.getElementById('dash-metrics').innerHTML = metrics.map(m => `
-        <div class="dash-metric">
-            <div class="dash-metric-icon">${m.icon}</div>
-            <div class="dash-metric-label">${m.label}</div>
-            <div class="dash-metric-value">${m.value}</div>
-            <div class="dash-metric-delta">${m.delta} vs prev. period</div>
-        </div>
-    `).join('');
-
-    // Bar chart
-    const bd = barData[dashPeriod] || barData[90];
-    const maxV = Math.max(...bd.vals);
-    const chartEl = document.getElementById('dash-bar-chart');
-    chartEl.innerHTML = bd.vals.map(v => {
-        const h = (v / maxV * 120);
-        return `<div style="flex:1;background:rgba(140,246,101,0.15);border-radius:4px 4px 0 0;height:${h}px;transition:height 0.8s ease;position:relative;" title="${v}%"><div style="position:absolute;bottom:100%;left:50%;transform:translateX(-50%);font-size:0.65rem;color:var(--primary);font-weight:700;white-space:nowrap;display:none" class="bar-tip">${v}</div></div>`;
-    }).join('');
-
-    document.getElementById('dash-bar-labels').innerHTML = (dashPeriod === 7 ? bd.labels : bd.labels).map(l => `<span>${l}</span>`).join('');
-
-    // Channels
-    const channels = [
-        { name: '<i class="ph ph-target"></i> Meta Ads', spend: 40, roas: '5.2x', leads: 148 },
-        { name: '<i class="ph ph-magnifying-glass"></i> Google Ads', spend: 35, roas: '4.8x', leads: 112 },
-        { name: '<i class="ph ph-play-circle"></i> YouTube', spend: 15, roas: '3.9x', leads: 38 },
-        { name: '<i class="ph ph-envelope"></i> Email', spend: 10, roas: '7.1x', leads: 64 },
-    ];
-
-    document.getElementById('dash-channels').innerHTML = channels.map(c => `
-        <div>
-            <div style="display:flex;justify-content:space-between;margin-bottom:6px;font-size:0.88rem;">
-                <span>${c.name}</span>
-                <span style="color:var(--primary);font-weight:700;">${c.roas} ROAS</span>
-            </div>
-            <div class="lp-progress"><div class="lp-fill" style="width:0%" data-w="${c.spend}%"></div></div>
-            <div style="font-size:0.78rem;color:var(--text-secondary);margin-top:4px;">${c.spend}% budget · ${c.leads} leads</div>
-        </div>
-    `).join('');
-
-    setTimeout(() => {
-        document.querySelectorAll('#dash-channels .lp-fill').forEach(el => { el.style.width = el.dataset.w; });
-    }, 100);
-}
-
-// =========================================
-// INIT
-// =========================================
-document.addEventListener('DOMContentLoaded', () => {
-    calcBudget();
-    initDashboard();
-    renderCalendar();
-});
-</script>
 
 
     <!-- Footer -->

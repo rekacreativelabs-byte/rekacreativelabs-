@@ -1057,17 +1057,72 @@ Please contact me.`;
             });
         }
 
-        // 4. Function to close the popup
+        // 4. Minimized FAB Toggle Logic
+        const showMinimizedFAB = () => {
+            if (document.getElementById('leadFAB')) return;
+            
+            const fab = document.createElement('div');
+            fab.id = 'leadFAB';
+            fab.className = 'lead-fab';
+            fab.innerHTML = '<i class="ph ph-chat-centered-text"></i>';
+            fab.setAttribute('title', 'Claim Free Strategy Call');
+            document.body.appendChild(fab);
+
+            // Animate it in
+            setTimeout(() => {
+                fab.classList.add('active');
+            }, 100);
+
+            fab.addEventListener('click', () => {
+                sessionStorage.removeItem('leadPopupDismissed');
+                
+                // Hide FAB
+                fab.classList.remove('active');
+                setTimeout(() => fab.remove(), 500);
+
+                // Slide Lead Popup back up
+                if (leadToast) {
+                    leadToast.style.display = 'block';
+                    setTimeout(() => {
+                        leadToast.classList.add('active');
+                        
+                        // Hardware reset of the 60s laser progress bar countdown
+                        if (leadProgress) {
+                            leadProgress.style.transition = 'none';
+                            leadProgress.style.width = '100%';
+                            setTimeout(() => {
+                                leadProgress.style.transition = 'width 60s linear';
+                                leadProgress.style.width = '0%';
+                            }, 50);
+                        }
+
+                        // Re-trigger auto dismiss timer
+                        clearTimeout(autoDismissTimer);
+                        autoDismissTimer = setTimeout(() => {
+                            closePopup(false);
+                        }, 60000);
+                    }, 50);
+                }
+            });
+        };
+
+        // 5. Function to close/minimize the popup
         const closePopup = (dismissedByUser = false) => {
             if (!leadToast) return;
             leadToast.classList.remove('active');
+            
             if (dismissedByUser) {
                 sessionStorage.setItem('leadPopupDismissed', 'true');
+                showMinimizedFAB();
             }
+            
             clearTimeout(autoDismissTimer);
-            // Remove from DOM after transition finishes
+            
+            // Retain in DOM but set display to none to support minimizing/maximizing
             setTimeout(() => {
-                leadToast.remove();
+                if (!leadToast.classList.contains('active')) {
+                    leadToast.style.display = 'none';
+                }
             }, 600);
         };
 
@@ -1077,30 +1132,39 @@ Please contact me.`;
 
         // Close on Escape key
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && document.getElementById('leadToast')) {
+            if (e.key === 'Escape' && document.getElementById('leadToast') && leadToast.classList.contains('active')) {
                 closePopup(true);
             }
         });
 
-        // 5. Trigger popup after 3 seconds
-        setTimeout(() => {
-            if (!leadToast) return;
-            leadToast.classList.add('active');
-
-            // Trigger CSS transition for the 60s progress bar
+        // 6. Handle initial session load state
+        if (isDismissed) {
+            // If they dismissed in this session, show the pulsing FAB immediately
             setTimeout(() => {
-                if (leadProgress) {
-                    leadProgress.style.width = '0%';
-                }
-            }, 50);
+                showMinimizedFAB();
+            }, 1000);
+            leadToast.style.display = 'none';
+        } else {
+            // Trigger popup after 3 seconds
+            setTimeout(() => {
+                if (!leadToast) return;
+                leadToast.classList.add('active');
 
-            // Auto dismiss after 60 seconds (60000ms)
-            autoDismissTimer = setTimeout(() => {
-                closePopup(false);
-            }, 60000);
-        }, 3000);
+                // Trigger CSS transition for the 60s progress bar
+                setTimeout(() => {
+                    if (leadProgress) {
+                        leadProgress.style.width = '0%';
+                    }
+                }, 50);
 
-        // 6. Submit handling with WhatsApp compilation
+                // Auto dismiss after 60 seconds (60000ms)
+                autoDismissTimer = setTimeout(() => {
+                    closePopup(false);
+                }, 60000);
+            }, 3000);
+        }
+
+        // 7. Submit handling with WhatsApp compilation
         if (form) {
             form.addEventListener('submit', (e) => {
                 e.preventDefault();
@@ -1139,6 +1203,267 @@ Please connect with me.`;
                 // Close and destroy popup
                 closePopup(false);
             });
+        }
+    });
+})();
+
+/* ═══════════════════════════════════════════════════
+   ADVANCED INTERACTIVE BRAND CARD SPOTLIGHTS & FILTERS
+   ═══════════════════════════════════════════════════ */
+(function () {
+    document.addEventListener('DOMContentLoaded', () => {
+        const brandCards = document.querySelectorAll('.brand-card');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+
+        if (brandCards.length === 0) return;
+
+        // 1. 3D Card Hover & Border Spotlight Tracking
+        brandCards.forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                // Track mouse coordinates for spotlights
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+
+                // Calculate tilt angles based on mouse position relative to card center
+                const cardWidth = rect.width;
+                const cardHeight = rect.height;
+                const centerX = cardWidth / 2;
+                const centerY = cardHeight / 2;
+                
+                // Max rotation: 12 degrees
+                const rotateX = ((centerY - y) / centerY) * 12;
+                const rotateY = ((x - centerX) / centerX) * 12;
+
+                card.style.setProperty('--rotate-x', `${rotateX}deg`);
+                card.style.setProperty('--rotate-y', `${rotateY}deg`);
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.setProperty('--rotate-x', '0deg');
+                card.style.setProperty('--rotate-y', '0deg');
+                // Center coordinates on leave
+                const rect = card.getBoundingClientRect();
+                card.style.setProperty('--mouse-x', `${rect.width / 2}px`);
+                card.style.setProperty('--mouse-y', `${rect.height / 2}px`);
+            });
+
+            // Initial center
+            const rect = card.getBoundingClientRect();
+            card.style.setProperty('--mouse-x', `${rect.width > 0 ? rect.width / 2 : 90}px`);
+            card.style.setProperty('--mouse-y', `${rect.height > 0 ? rect.height / 2 : 40}px`);
+        });
+
+        // 2. Interactive Marquee Country Filter & Laser Sweep
+        if (filterBtns.length === 0) return;
+
+        const scanner = document.getElementById('partnersLaserScanner');
+
+        // Dynamic helper to map flag emoji to region code
+        const getCardRegion = (card) => {
+            const flagSpan = card.querySelector('.brand-flag');
+            if (!flagSpan) return 'ROW';
+            const flag = flagSpan.textContent.trim();
+            
+            if (flag === '🇮🇳') return 'IN';
+            if (flag === '🇺🇸') return 'US';
+            if (['🇬🇧', '🇵🇹', '🇩🇪'].includes(flag)) return 'EU';
+            return 'ROW';
+        };
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.getAttribute('data-filter');
+
+                // Trigger laser scan animation
+                if (scanner) {
+                    scanner.classList.remove('active');
+                    void scanner.offsetWidth; // Trigger reflow to restart animation
+                    scanner.classList.add('active');
+                    
+                    // Remove active class after animation finishes (1.2s)
+                    setTimeout(() => {
+                        scanner.classList.remove('active');
+                    }, 1200);
+                }
+
+                // Toggle active button class
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Apply filter states to all cards with animated transitions
+                brandCards.forEach(card => {
+                    const region = getCardRegion(card);
+
+                    if (filter === 'all') {
+                        card.classList.remove('highlighted', 'dimmed');
+                    } else if (region === filter) {
+                        card.classList.add('highlighted');
+                        card.classList.remove('dimmed');
+                    } else {
+                        card.classList.add('dimmed');
+                        card.classList.remove('highlighted');
+                    }
+                });
+            });
+        });
+
+        // 3. Stats Count-Up Observer
+        const countStats = document.querySelectorAll('.count-stat');
+        if (countStats.length > 0) {
+            const countObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        const targetVal = parseInt(target.getAttribute('data-val'), 10);
+                        if (isNaN(targetVal)) return;
+
+                        let start = 0;
+                        const duration = 1500; // 1.5s
+                        const startTime = performance.now();
+
+                        const updateCount = (currentTime) => {
+                            const elapsed = currentTime - startTime;
+                            const progress = Math.min(elapsed / duration, 1);
+                            
+                            // Ease out quad
+                            const easeProgress = progress * (2 - progress);
+                            const currentVal = Math.floor(easeProgress * targetVal);
+
+                            target.textContent = currentVal + (targetVal === 30 ? '+' : '');
+                            
+                            if (progress < 1) {
+                                requestAnimationFrame(updateCount);
+                            } else {
+                                target.textContent = targetVal + (targetVal === 30 ? '+' : '');
+                            }
+                        };
+
+                        requestAnimationFrame(updateCount);
+                        observer.unobserve(target);
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            countStats.forEach(stat => countObserver.observe(stat));
+        }
+    });
+})();
+
+/* ═══════════════════════════════════════════════════
+   SITE-WIDE SOCIAL PROOF NOTIFICATIONS
+   ═══════════════════════════════════════════════════ */
+(function() {
+    // Array of random social proof items
+    const baseProofData = [
+        { icon: '<i class="ph ph-tray-arrow-down"></i>', msg: '<strong>Vikram R.</strong> just booked a strategy call', time: '2 min ago' },
+        { icon: '<i class="ph ph-trophy"></i>', msg: '<strong>Priya M.</strong> got a <strong>4.7x ROAS</strong> this month', time: '8 min ago' },
+        { icon: '<i class="ph ph-star"></i>', msg: '<strong>Rahul S.</strong> left a 5-star review', time: '12 min ago' },
+        { icon: '<i class="ph ph-target"></i>', msg: '<strong>UrbanKart</strong> generated <strong>247 leads</strong> this week', time: '18 min ago' },
+        { icon: '<i class="ph ph-tray-arrow-down"></i>', msg: '<strong>Ananya T.</strong> just ran a site audit', time: '23 min ago' },
+        { icon: '<i class="ph ph-rocket"></i>', msg: '<strong>StartupX</strong> launched campaign — <strong>+312% reach</strong>', time: '31 min ago' },
+        { icon: '<i class="ph ph-briefcase"></i>', msg: '<strong>Neha K.</strong> from Mumbai booked a call', time: '45 min ago' },
+        { icon: '<i class="ph ph-chart-bar"></i>', msg: '<strong>EduTech India</strong> scored <strong>89/100</strong> on audit', time: '1 hr ago' },
+        { icon: '<i class="ph ph-star"></i>', msg: '<strong>Karan D.</strong> rated us 5 stars for Web Dev', time: '1 hr ago' },
+        { icon: '<i class="ph ph-lightning"></i>', msg: '<strong>FreshBite</strong> saw <strong>+180% organic traffic</strong>', time: '2 hrs ago' },
+        { icon: '<i class="ph ph-chat-circle"></i>', msg: '<strong>Sneha P.</strong> started a conversation', time: '3 hrs ago' },
+        { icon: '<i class="ph ph-fire"></i>', msg: '<strong>FitLife Gym</strong> sold out their program', time: '5 hrs ago' }
+    ];
+
+    // Mix in any user-generated events from localStorage
+    let localEvents = JSON.parse(localStorage.getItem('userProofEvents')) || [];
+    let combinedProofData = [...localEvents, ...baseProofData];
+    
+    // Shuffle the array to make it feel random
+    combinedProofData.sort(() => 0.5 - Math.random());
+
+    let proofIndex = 0;
+    
+    function showProofToast() {
+        const proofBar = document.getElementById('socialProofBar');
+        if (!proofBar) return;
+        
+        // Refresh local events in case another tab updated them
+        localEvents = JSON.parse(localStorage.getItem('userProofEvents')) || [];
+        combinedProofData = [...localEvents, ...baseProofData];
+
+        const item = combinedProofData[proofIndex % combinedProofData.length];
+        proofIndex++;
+        
+        const toast = document.createElement('div');
+        toast.className = 'proof-toast';
+        toast.innerHTML = `<span class="proof-dot"></span><span class="toast-icon">${item.icon}</span><div><div>${item.msg}</div><div style="font-size:0.75rem;opacity:0.6;margin-top:2px;">${item.time}</div></div>`;
+        
+        proofBar.prepend(toast);
+        
+        // Remove after 6 seconds with a leaving animation
+        setTimeout(() => {
+            toast.classList.add('leaving');
+            setTimeout(() => toast.remove(), 600); // wait for animation to finish
+        }, 6000);
+    }
+
+    // Start showing toasts after a slight delay
+    setTimeout(() => {
+        showProofToast();
+        // Show a new toast randomly between 6 and 14 seconds
+        setInterval(() => {
+            if(Math.random() > 0.3) { // 70% chance to show to prevent spamming
+                showProofToast();
+            }
+        }, 8000);
+    }, 2000);
+
+    // Track user form submissions to create live local events
+    document.addEventListener('submit', (e) => {
+        let name = '';
+        let action = 'interacted with a form';
+        let icon = '<i class="ph ph-check-circle"></i>';
+
+        // Check which form was submitted
+        if (e.target.id === 'quoteForm') {
+            name = document.getElementById('quoteName')?.value || 'Someone';
+            action = 'requested a custom quote';
+            icon = '<i class="ph ph-file-text"></i>';
+        } else if (e.target.id === 'leadToastForm') {
+            name = document.getElementById('leadName')?.value || 'Someone';
+            action = 'claimed a free strategy call';
+            icon = '<i class="ph ph-phone-call"></i>';
+        } else {
+            // Find any name input in the form
+            const nameInput = e.target.querySelector('input[name*="name" i], input[id*="name" i]');
+            if (nameInput) {
+                name = nameInput.value;
+                action = 'just submitted their details';
+            }
+        }
+
+        if (name) {
+            // Get just the first name and initial (e.g. Abhinash S.)
+            const nameParts = name.trim().split(' ');
+            const displayName = nameParts.length > 1 ? `${nameParts[0]} ${nameParts[1].charAt(0)}.` : nameParts[0];
+            
+            const newEvent = {
+                icon: icon,
+                msg: `<strong>${displayName}</strong> ${action}`,
+                time: 'Just now'
+            };
+
+            // Save to localStorage
+            let currentEvents = JSON.parse(localStorage.getItem('userProofEvents')) || [];
+            currentEvents.unshift(newEvent); // Add to beginning
+            if(currentEvents.length > 3) currentEvents.pop(); // Keep only last 3
+            localStorage.setItem('userProofEvents', JSON.stringify(currentEvents));
+            
+            // Show immediately
+            setTimeout(() => {
+                combinedProofData.unshift(newEvent);
+                proofIndex = 0; // reset to show the new one next
+                showProofToast();
+            }, 1500);
         }
     });
 })();

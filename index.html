@@ -14,6 +14,7 @@
 <body>
     <div class="cursor-follower"></div>
     <div class="noise-overlay"></div>
+    <div class="social-proof-bar" id="socialProofBar"></div>
 
     <!-- Navigation -->
     <nav id="navbar" class="navbar">
@@ -115,10 +116,18 @@
              BRANDS / PARTNERS MARQUEE SECTION
         ══════════════════════════════════════════ -->
         <section class="partners-section" id="partners">
+            <div class="partners-laser-scanner" id="partnersLaserScanner"></div>
             <div class="partners-header">
                 <span class="section-tag">OUR PORTFOLIO</span>
                 <h2>Brands We've <span class="gradient-text animated-gradient">Worked With</span></h2>
                 <p>Trusted by 30+ wellness & consumer startups across India, USA, UK, Europe & beyond</p>
+                <div class="partners-filters glass-effect">
+                    <button class="filter-btn active" data-filter="all">All Brands</button>
+                    <button class="filter-btn" data-filter="IN">India 🇮🇳</button>
+                    <button class="filter-btn" data-filter="US">United States 🇺🇸</button>
+                    <button class="filter-btn" data-filter="EU">UK & Europe 🇬🇧🇵🇹🇩🇪</button>
+                    <button class="filter-btn" data-filter="ROW">Rest of World 🇦🇺🇨🇦🇦🇪</button>
+                </div>
             </div>
 
             <!-- Marquee Row 1 – left scroll -->
@@ -205,13 +214,13 @@
 
             <!-- Global stats strip -->
             <div class="partners-stats-strip">
-                <div class="pstat"><span class="pstat-num">30+</span><span class="pstat-lbl">Brands</span></div>
+                <div class="pstat"><span class="pstat-num count-stat" data-val="30">0</span><span class="pstat-lbl">Brands</span></div>
                 <div class="pstat-div"></div>
-                <div class="pstat"><span class="pstat-num">8</span><span class="pstat-lbl">Countries</span></div>
+                <div class="pstat"><span class="pstat-num count-stat" data-val="8">0</span><span class="pstat-lbl">Countries</span></div>
                 <div class="pstat-div"></div>
-                <div class="pstat"><span class="pstat-num">6</span><span class="pstat-lbl">Categories</span></div>
+                <div class="pstat"><span class="pstat-num count-stat" data-val="6">0</span><span class="pstat-lbl">Categories</span></div>
                 <div class="pstat-div"></div>
-                <div class="pstat"><span class="pstat-num">Global</span><span class="pstat-lbl">Reach</span></div>
+                <div class="pstat"><span class="pstat-num"><span class="live-radar-dot"></span>Global</span><span class="pstat-lbl">Reach</span></div>
             </div>
         </section>
 
@@ -773,5 +782,25 @@
         });
     })();
     </script>
+
+<!-- Floating AI Assistant Button (links to tools page chatbot) -->
+<a href="tools.html#chatbot" class="reka-ai-fab" id="rekaAiFab" aria-label="Open AI Growth Agent">
+    <div class="reka-ai-fab-ring"></div>
+    <div class="reka-ai-fab-ring reka-ai-fab-ring--2"></div>
+    <i class="ph ph-robot"></i>
+    <span class="reka-ai-fab-label">AI Agent</span>
+</a>
+
+<style>
+/* ======= Floating AI FAB — Home Page ======= */
+.reka-ai-fab{position:fixed;bottom:28px;right:28px;z-index:9999;width:62px;height:62px;border-radius:50%;background:linear-gradient(135deg,#0f1b15 0%,#1a2f22 100%);border:2px solid rgba(140,246,101,0.5);color:#8CF665;font-size:1.6rem;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 0 25px rgba(140,246,101,0.25),0 8px 32px rgba(0,0,0,0.5);transition:all 0.4s cubic-bezier(0.16,1,0.3,1);text-decoration:none;overflow:visible}
+.reka-ai-fab:hover{transform:scale(1.12);box-shadow:0 0 40px rgba(140,246,101,0.45),0 12px 40px rgba(0,0,0,0.6);border-color:#8CF665}
+.reka-ai-fab-ring{position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(140,246,101,0.3);animation:fabPulseRing 2.5s ease-in-out infinite;pointer-events:none}
+.reka-ai-fab-ring--2{animation-delay:1.25s}
+@keyframes fabPulseRing{0%,100%{transform:scale(1);opacity:0.4}50%{transform:scale(1.3);opacity:0}}
+.reka-ai-fab-label{position:absolute;right:calc(100% + 14px);white-space:nowrap;background:rgba(15,27,21,0.95);border:1px solid rgba(140,246,101,0.3);color:#8CF665;font-size:0.78rem;font-weight:700;padding:6px 14px;border-radius:8px;pointer-events:none;opacity:0;transform:translateX(8px);transition:all 0.3s ease;backdrop-filter:blur(8px);font-family:'Inter','Segoe UI',sans-serif}
+.reka-ai-fab:hover .reka-ai-fab-label{opacity:1;transform:translateX(0)}
+</style>
+
 </body>
 </html>

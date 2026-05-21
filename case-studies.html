@@ -3,17 +3,336 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Case Studies | Reka Creative Labs</title>
-    <meta name="description" content="50 real case studies across Fitness, Wellness, Nutrition, Mental Health & more. See how Reka Creative Labs has delivered 4x+ ROAS and exponential growth.">
+    <title>50 Case Studies | Digital Marketing Success Stories | Reka Creative Labs</title>
+    <meta name="description" content="Explore 50 real digital marketing case studies across Fitness, Yoga, Nutrition, Mental Health, Luxury Wellness & more. See how Reka Creative Labs delivered 4x+ ROAS, viral growth and revenue milestones for 1500+ Indian brands.">
+    <meta name="keywords" content="digital marketing case studies India, fitness marketing agency, wellness brand growth, Instagram marketing results, Reka Creative Labs, ROAS case studies, social media marketing India">
+    <meta name="author" content="Reka Creative Labs">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://rekacreativelabs.com/case-studies.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="50 Case Studies | Reka Creative Labs — India's Growth Agency">
+    <meta property="og:description" content="50 real digital marketing wins — fitness, yoga, nutrition, mental health & more. Built by Reka Creative Labs, Noida.">
+    <meta property="og:url" content="https://rekacreativelabs.com/case-studies.html">
+    <meta property="og:site_name" content="Reka Creative Labs">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="50 Case Studies | Reka Creative Labs">
+    <meta name="twitter:description" content="50 digital marketing success stories. Fitness, wellness, nutrition and more.">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Reka Creative Labs — 50 Case Studies",
+        "description": "50 real case studies across Fitness, Yoga, Nutrition, Mental Health & Luxury Wellness categories by Reka Creative Labs, India's leading wellness marketing agency.",
+        "url": "https://rekacreativelabs.com/case-studies.html",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Reka Creative Labs",
+            "url": "https://rekacreativelabs.com",
+            "telephone": "+918368508556",
+            "email": "abhinash@rekacreativelabs.com",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "A Block, Pocket A, Sector 19",
+                "addressLocality": "Noida",
+                "addressRegion": "UP",
+                "postalCode": "201301",
+                "addressCountry": "IN"
+            }
+        },
+        "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {"@type":"ListItem","position":1,"name":"Home","item":"https://rekacreativelabs.com/"},
+                {"@type":"ListItem","position":2,"name":"Case Studies","item":"https://rekacreativelabs.com/case-studies.html"}
+            ]
+        }
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="style.css">
-    
+
+    <style>
+        /* ===== CASE STUDIES PAGE STYLES ===== */
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .category-header {
+            grid-column: 1 / -1;
+            display: flex; align-items: center; gap: 14px;
+            margin: 2.5rem 0 0.5rem;
+        }
+        .category-header:first-child { margin-top: 0; }
+        .cat-icon {
+            width: 40px; height: 40px; border-radius: 10px;
+            background: rgba(140,246,101,0.1); border: 1px solid rgba(140,246,101,0.25);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; flex-shrink: 0;
+        }
+        .cat-label {
+            font-size: 0.78rem; font-weight: 800; letter-spacing: 2px;
+            text-transform: uppercase; color: var(--primary);
+        }
+        .cat-line {
+            flex: 1; height: 1px;
+            background: linear-gradient(90deg, rgba(140,246,101,0.3), transparent);
+        }
+
+        /* Case Card */
+        .case-card {
+            background: rgba(15,27,21,0.6);
+            border: 1px solid rgba(140,246,101,0.1);
+            border-radius: 18px; padding: 24px;
+            cursor: pointer;
+            display: flex; flex-direction: column; gap: 12px;
+            transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+            position: relative; overflow: hidden;
+            backdrop-filter: blur(10px);
+            text-decoration: none; color: inherit;
+        }
+        .case-card::before {
+            content: ''; position: absolute;
+            top: -60px; right: -60px;
+            width: 140px; height: 140px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(140,246,101,0.06), transparent);
+            transition: all 0.5s ease;
+        }
+        .case-card:hover::before {
+            width: 220px; height: 220px;
+            top: -90px; right: -90px;
+            background: radial-gradient(circle, rgba(140,246,101,0.12), transparent);
+        }
+        .case-card:hover {
+            border-color: rgba(140,246,101,0.35);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 30px rgba(140,246,101,0.08);
+        }
+        .case-num {
+            font-size: 0.68rem; font-weight: 800; letter-spacing: 2px;
+            color: var(--primary); text-transform: uppercase;
+        }
+        .case-title {
+            font-size: 1.05rem; font-weight: 800; line-height: 1.35;
+            color: var(--text-primary); margin: 0;
+        }
+        .case-focus {
+            font-size: 0.82rem; color: var(--text-secondary);
+            line-height: 1.5; margin: 0;
+        }
+        .case-tags {
+            display: flex; flex-wrap: wrap; gap: 6px;
+        }
+        .tag {
+            font-size: 0.7rem; font-weight: 700;
+            padding: 3px 10px; border-radius: 20px;
+            background: rgba(140,246,101,0.08);
+            border: 1px solid rgba(140,246,101,0.2);
+            color: var(--primary); letter-spacing: 0.3px;
+        }
+        .case-result {
+            font-size: 0.88rem; font-weight: 800;
+            color: var(--primary);
+            padding: 8px 14px;
+            background: rgba(140,246,101,0.06);
+            border: 1px solid rgba(140,246,101,0.15);
+            border-radius: 10px;
+            margin-top: auto;
+        }
+        .case-arrow {
+            position: absolute; bottom: 20px; right: 20px;
+            width: 32px; height: 32px; border-radius: 50%;
+            background: rgba(140,246,101,0.08);
+            border: 1px solid rgba(140,246,101,0.2);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--primary); font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        .case-card:hover .case-arrow {
+            background: var(--primary); color: #070E0A;
+            transform: translateX(3px);
+        }
+
+        /* ===== MODAL ===== */
+        .case-modal-overlay {
+            position: fixed; inset: 0; z-index: 10000;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
+            display: flex; align-items: center; justify-content: center;
+            padding: 20px;
+            opacity: 0; visibility: hidden;
+            transition: all 0.35s ease;
+        }
+        .case-modal-overlay.open {
+            opacity: 1; visibility: visible;
+        }
+        .case-modal {
+            background: rgba(10,20,15,0.98);
+            border: 1px solid rgba(140,246,101,0.2);
+            border-radius: 24px;
+            max-width: 760px; width: 100%;
+            max-height: 88vh; overflow-y: auto;
+            padding: 40px;
+            position: relative;
+            transform: translateY(30px) scale(0.97);
+            transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+            box-shadow: 0 40px 100px rgba(0,0,0,0.7), 0 0 60px rgba(140,246,101,0.06);
+        }
+        .case-modal-overlay.open .case-modal {
+            transform: translateY(0) scale(1);
+        }
+        .case-modal::-webkit-scrollbar { width: 4px; }
+        .case-modal::-webkit-scrollbar-thumb { background: rgba(140,246,101,0.3); border-radius: 4px; }
+
+        .modal-close {
+            position: absolute; top: 20px; right: 20px;
+            width: 38px; height: 38px; border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-secondary); font-size: 1.1rem;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: all 0.25s ease;
+        }
+        .modal-close:hover { background: rgba(255,100,100,0.15); border-color: rgba(255,100,100,0.3); color: #FF6B6B; }
+
+        .modal-case-num {
+            font-size: 0.7rem; font-weight: 800; letter-spacing: 2.5px;
+            color: var(--primary); text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .modal-title {
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            font-weight: 900; line-height: 1.25;
+            margin-bottom: 8px;
+        }
+        .modal-subtitle {
+            color: var(--text-secondary); font-size: 0.9rem;
+            margin-bottom: 1.5rem; line-height: 1.6;
+        }
+
+        .modal-stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px,1fr));
+            gap: 12px; margin: 1.5rem 0;
+        }
+        .modal-stat {
+            background: rgba(140,246,101,0.05);
+            border: 1px solid rgba(140,246,101,0.15);
+            border-radius: 14px; padding: 16px;
+            text-align: center;
+        }
+        .modal-stat-val {
+            font-size: 1.4rem; font-weight: 900; color: var(--primary);
+            line-height: 1.1; display: block;
+        }
+        .modal-stat-label {
+            font-size: 0.72rem; color: var(--text-secondary);
+            margin-top: 4px; display: block;
+        }
+
+        .modal-section { margin: 1.8rem 0; }
+        .modal-section-title {
+            font-size: 0.75rem; font-weight: 800; letter-spacing: 2px;
+            text-transform: uppercase; color: var(--primary);
+            margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+        }
+        .modal-section-title::after {
+            content: ''; flex: 1; height: 1px;
+            background: rgba(140,246,101,0.15);
+        }
+
+        .modal-challenge, .modal-solution, .modal-outcome {
+            font-size: 0.9rem; color: var(--text-secondary);
+            line-height: 1.75; padding: 16px 20px;
+            background: rgba(255,255,255,0.02);
+            border-left: 3px solid rgba(140,246,101,0.3);
+            border-radius: 0 12px 12px 0;
+        }
+        .modal-outcome { border-left-color: rgba(74,222,128,0.5); }
+
+        .modal-timeline {
+            display: flex; flex-direction: column; gap: 10px;
+        }
+        .timeline-item {
+            display: flex; gap: 14px; align-items: flex-start;
+        }
+        .timeline-dot {
+            width: 10px; height: 10px; border-radius: 50%;
+            background: var(--primary); flex-shrink: 0; margin-top: 5px;
+            box-shadow: 0 0 8px rgba(140,246,101,0.5);
+        }
+        .timeline-text { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5; }
+        .timeline-text strong { color: var(--text-primary); }
+
+        .modal-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 0.5rem; }
+        .modal-tag {
+            font-size: 0.75rem; font-weight: 700;
+            padding: 5px 14px; border-radius: 20px;
+            background: rgba(140,246,101,0.08);
+            border: 1px solid rgba(140,246,101,0.2);
+            color: var(--primary);
+        }
+
+        .modal-cta {
+            margin-top: 2rem; padding-top: 1.5rem;
+            border-top: 1px solid rgba(140,246,101,0.1);
+            display: flex; gap: 12px; flex-wrap: wrap;
+        }
+
+        /* Filter Bar */
+        .filter-bar {
+            display: flex; flex-wrap: wrap; gap: 8px;
+            margin-bottom: 2.5rem; justify-content: center;
+        }
+        .filter-btn {
+            padding: 7px 18px; border-radius: 50px;
+            border: 1px solid rgba(140,246,101,0.2);
+            background: rgba(140,246,101,0.05);
+            color: var(--text-secondary); font-size: 0.8rem; font-weight: 600;
+            cursor: pointer; transition: all 0.25s ease;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: rgba(140,246,101,0.12);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Stats banner */
+        .cs-stats-row {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
+            gap: 16px; margin: 2rem 0 3rem;
+        }
+        .cs-stat {
+            text-align: center; padding: 20px;
+            background: rgba(15,27,21,0.6);
+            border: 1px solid rgba(140,246,101,0.1);
+            border-radius: 16px; backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        .cs-stat:hover { border-color: rgba(140,246,101,0.3); transform: translateY(-3px); }
+        .cs-stat-val { font-size: 1.8rem; font-weight: 900; color: var(--primary); display: block; }
+        .cs-stat-label { font-size: 0.72rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; display: block; }
+
+        @media(max-width:600px) {
+            .cases-grid { grid-template-columns: 1fr; }
+            .case-modal { padding: 24px 20px; }
+            .modal-stats-row { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
 </head>
 <body>
     <div class="cursor-follower"></div>
     <div class="noise-overlay"></div>
+    <div class="social-proof-bar" id="socialProofBar"></div>
 
     <!-- Navigation -->
     <nav id="navbar" class="navbar">
@@ -32,7 +351,6 @@
             </button>
         </div>
     </nav>
-    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <div class="mobile-links">
             <a href="index.html">Home</a>
@@ -43,168 +361,61 @@
         </div>
     </div>
 
+    <!-- Hero -->
+    <section class="page-header">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Case Study Library</span>
+                <h1 style="font-size: clamp(2.2rem, 6vw, 3.5rem);">50 Case Studies.<br><span class="gradient-text">Zero Guesswork.</span></h1>
+                <p style="font-size: 1.05rem; color: var(--text-secondary); max-width: 680px; margin: 1rem auto 0;">India's most comprehensive wellness marketing playbook — built by Reka Creative Labs, trusted by 1500+ brands. Click any case study for the full breakdown.</p>
+            </div>
 
-        <section class="page-header">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-tag">Case Study Library</span>
-                    <h1 style="font-size: clamp(2.5rem, 6vw, 3.5rem);">50 Case Studies.<br><span class="gradient-text">Zero Guesswork.</span></h1>
-                    <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 700px; margin: 1rem auto 0;">India's most comprehensive wellness marketing playbook—built by Reka Creative Labs, trusted by 1500+ brands.</p>
+            <!-- Stats Row -->
+            <div class="cs-stats-row">
+                <div class="cs-stat"><span class="cs-stat-val">50+</span><span class="cs-stat-label">Case Studies</span></div>
+                <div class="cs-stat"><span class="cs-stat-val">1500+</span><span class="cs-stat-label">Brands Served</span></div>
+                <div class="cs-stat"><span class="cs-stat-val">4.8x</span><span class="cs-stat-label">Avg ROAS</span></div>
+                <div class="cs-stat"><span class="cs-stat-val">₹200Cr+</span><span class="cs-stat-label">Revenue Generated</span></div>
+                <div class="cs-stat"><span class="cs-stat-val">40+</span><span class="cs-stat-label">Countries Reached</span></div>
+            </div>
+
+            <!-- Filter Bar -->
+            <div class="filter-bar" id="filterBar">
+                <button class="filter-btn active" data-cat="all" onclick="filterCases('all',this)">All 50</button>
+                <button class="filter-btn" data-cat="fitness" onclick="filterCases('fitness',this)">🏋️ Fitness</button>
+                <button class="filter-btn" data-cat="yoga" onclick="filterCases('yoga',this)">🧘 Yoga & Wellness</button>
+                <button class="filter-btn" data-cat="nutrition" onclick="filterCases('nutrition',this)">🥗 Nutrition</button>
+                <button class="filter-btn" data-cat="mental" onclick="filterCases('mental',this)">🧠 Mental Health</button>
+                <button class="filter-btn" data-cat="corporate" onclick="filterCases('corporate',this)">🏢 Corporate</button>
+                <button class="filter-btn" data-cat="luxury" onclick="filterCases('luxury',this)">💎 Luxury</button>
+                <button class="filter-btn" data-cat="underdog" onclick="filterCases('underdog',this)">🚀 Underdog</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cases Grid -->
+    <section class="section">
+        <div class="container">
+            <div class="cases-grid" id="casesGrid">
+                <!-- JS renders cards here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta dark-bg">
+        <div class="container">
+            <div class="cta-card">
+                <h2>Ready to Be Case Study #51?</h2>
+                <p>Join 1500+ businesses across India who trust Reka Creative Labs to build brands that scale. Let's discuss your growth strategy — free consultation, no obligations.</p>
+                <div class="cta-actions" style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://wa.me/918368508556?text=Hi%20Reka%20Creative%20Labs!%20I%20saw%20your%2050%20case%20studies%20and%20want%20a%20free%20consultation%20to%20grow%20my%20brand.%20Can%20we%20talk%3F" target="_blank" rel="noopener" class="btn btn-primary"><i class="ph ph-whatsapp-logo"></i> Get Free Consultation on WhatsApp</a>
+                    <a href="tel:+918368508556" class="btn btn-outline"><i class="ph ph-phone"></i> Call +91 836 850 8556</a>
+                    <a href="tools.html" class="btn btn-outline"><i class="ph ph-lightning"></i> Try Free Tools</a>
                 </div>
             </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <div class="cases-grid">
-                    <!-- Fitness Cases -->
-                    <div class="category-header">
-                        <span class="cat-icon"><i class="ph ph-barbell"></i></span>
-                        <span class="cat-label">Fitness & Personal Training</span>
-                        <div class="cat-line"></div>
-                    </div>
-                    <div class="case-card reveal">
-                        <span class="case-num">CASE 01</span>
-                        <h3 class="case-title">Local Fitness Coach Becomes Instagram Authority</h3>
-                        <p class="case-focus">From 5K to 250K followers—creator brand built by Reka Creative Labs</p>
-                        <div class="case-tags"><span class="tag">Reels Strategy</span><span class="tag">Viral Hooks</span></div>
-                        <div class="case-result">1M+ monthly reach generated</div>
-                    </div>
-                    <div class="case-card reveal">
-                        <span class="case-num">CASE 02</span>
-                        <h3 class="case-title">Underdog Gym Beats Big Franchises</h3>
-                        <p class="case-focus">Community-first hyperlocal branding by Reka Creative Labs</p>
-                        <div class="case-tags"><span class="tag">Hyperlocal Ads</span><span class="tag">Referral Campaigns</span></div>
-                        <div class="case-result">3x membership growth in 6 months</div>
-                    </div>
-                    <div class="case-card reveal">
-                        <span class="case-num">CASE 03</span>
-                        <h3 class="case-title">Online Weight Loss Coach Hits ₹80L Revenue</h3>
-                        <p class="case-focus">High-ticket coaching funnels engineered by Reka Creative Labs</p>
-                        <div class="case-tags"><span class="tag">Webinar Funnels</span><span class="tag">Email Automation</span></div>
-                        <div class="case-result">₹80L/month milestone reached</div>
-                    </div>
-                    <div class="case-card reveal">
-                        <span class="case-num">CASE 04</span>
-                        <h3 class="case-title">Women's Fitness Brand Launch</h3>
-                        <p class="case-focus">Premium feminine wellness positioning—Reka Creative Labs</p>
-                        <div class="case-tags"><span class="tag">Influencer Collabs</span><span class="tag">UGC Campaigns</span></div>
-                        <div class="case-result">Sold out launch collection in 72 hours</div>
-                    </div>
-                    <div class="case-card reveal">
-                        <span class="case-num">CASE 05</span>
-                        <h3 class="case-title">Strength Coach Scales Globally</h3>
-                        <p class="case-focus">Personal brand built for international reach by Reka Creative Labs</p>
-                        <div class="case-tags"><span class="tag">YouTube Growth</span><span class="tag">Funnel Optimization</span></div>
-                        <div class="case-result">Expanded to 40+ countries</div>
-                    </div>
-
-                    <!-- Yoga Cases -->
-                    <div class="category-header">
-                        <span class="cat-icon"><i class="ph ph-person-simple"></i></span>
-                        <span class="cat-label">Yoga & Holistic Wellness</span>
-                        <div class="cat-line"></div>
-                    </div>
-                    <div class="case-card reveal">
-                        <span class="case-num">CASE 06</span>
-                        <h3 class="case-title">Yoga Studio Rebrand Doubles Memberships</h3>
-                        <p class="case-focus">Luxury spiritual aesthetic crafted by Reka Creative Labs</p>
-                        <div class="case-tags"><span class="tag">Minimal Branding</span><span class="tag">Local SEO</span></div>
-                        <div class="case-result">2x membership growth in 90 days</div>
-                    </div>
-                    <div class="case-card reveal">
-                        <span class="case-num">CASE 07</span>
-                        <h3 class="case-title">Breathwork Coach Viral Community</h3>
-                        <p class="case-focus">Emotional storytelling ecosystem built by Reka Creative Labs</p>
-                        <div class="case-tags"><span class="tag">Cinematic Reels</span><span class="tag">Community Funnel</span></div>
-                        <div class="case-result">12K organic members in 4 months</div>
-                    </div>
-                    <div class="case-card reveal">
-                        <span class="case-num">CASE 08</span>
-                        <h3 class="case-title">Meditation Startup Growth</h3>
-                        <p class="case-focus">Underdog positioning strategy executed by Reka Creative Labs</p>
-                        <div class="case-tags"><span class="tag">TikTok Mindfulness</span><span class="tag">Viral Challenges</span></div>
-                        <div class="case-result">500K app installs in year one</div>
-                    </div>
-                    <div class="case-card reveal">
-                        <span class="case-num">CASE 09</span>
-                        <h3 class="case-title">Holistic Healing Brand Trust</h3>
-                        <p class="case-focus">Earth-tone visual systems designed by Reka Creative Labs</p>
-                        <div class="case-tags"><span class="tag">Founder Storytelling</span><span class="tag">Community Building</span></div>
-                        <div class="case-result">40% increase in premium sales</div>
-                    </div>
-                    <div class="case-card reveal">
-                        <span class="case-num">CASE 10</span>
-                        <h3 class="case-title">Ayurvedic Medicine Brand Authority</h3>
-                        <p class="case-focus">Educational content ecosystem by Reka Creative Labs</p>
-                        <div class="case-tags"><span class="tag">Educational Videos</span><span class="tag">Expert Positioning</span></div>
-                        <div class="case-result">Became top 3 in category</div>
-                    </div>
-
-                    <!-- Nutrition Cases -->
-                    <div class="category-header" style="margin-top: 2rem;">
-                        <span class="cat-icon">🥗</span>
-                        <span class="cat-label">Nutrition & Diet Plans</span>
-                        <div class="cat-line"></div>
-                    </div>
-                    <div class="case-card reveal">
-                        <span class="case-num">CASE 11</span>
-                        <h3 class="case-title">Nutritionist Coaching Academy</h3>
-                        <p class="case-focus">Premium course launch by Reka Creative Labs</p>
-                        <div class="case-tags"><span class="tag">Course Launch</span><span class="tag">Email Sequences</span></div>
-                        <div class="case-result">₹50L revenue first month</div>
-                    </div>
-                    <div class="case-card reveal">
-                        <span class="case-num">CASE 12</span>
-                        <h3 class="case-title">Organic Diet Brand Retail Success</h3>
-                        <p class="case-focus">D2C to retail scaling by Reka Creative Labs</p>
-                        <div class="case-tags"><span class="tag">Retail Strategy</span><span class="tag">Brand PR</span></div>
-                        <div class="case-result">In 500+ stores nationwide</div>
-                    </div>
-                    <div class="case-card reveal">
-                        <span class="case-num">CASE 13</span>
-                        <h3 class="case-title">Meal Prep Startup Unicorn Path</h3>
-                        <p class="case-focus">Growth hacking system by Reka Creative Labs</p>
-                        <div class="case-tags"><span class="tag">Growth Hacking</span><span class="tag">Viral Loops</span></div>
-                        <div class="case-result">10x growth in 18 months</div>
-                    </div>
-                    <div class="case-card reveal">
-                        <span class="case-num">CASE 14</span>
-                        <h3 class="case-title">Dietician Network Community</h3>
-                        <p class="case-focus">B2B2C platform built by Reka Creative Labs</p>
-                        <div class="case-tags"><span class="tag">Community Platform</span><span class="tag">Creator Economy</span></div>
-                        <div class="case-result">5000+ nutritionists onboarded</div>
-                    </div>
-                    <div class="case-card reveal">
-                        <span class="case-num">CASE 15</span>
-                        <h3 class="case-title">Supplement Brand Market Leader</h3>
-                        <p class="case-focus">Category creation by Reka Creative Labs</p>
-                        <div class="case-tags"><span class="tag">Content Authority</span><span class="tag">Influencer Ecosystem</span></div>
-                        <div class="case-result">Market share leader in 2 years</div>
-                    </div>
-
-                    <!-- See more indicator -->
-                    <div style="grid-column: 1/-1; text-align: center; padding: 3rem 0;">
-                        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">... and 35 more case studies across Mental Health, Corporate Wellness, Luxury Wellness, Underdog Stories, and more!</p>
-                        <p style="color: var(--primary); font-weight: 600;">All 50 case studies available in our full case studies library</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta dark-bg">
-            <div class="container">
-                <div class="cta-card">
-                    <h2>Ready to Be Case Study #51?</h2>
-                    <p>Join 1500+ businesses across India who trust Reka Creative Labs to build brands that scale. Let's discuss your growth strategy.</p>
-                    <div class="cta-actions" style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center;">
-                        <a href="mailto:abhinash@rekacreativelabs.com" class="btn btn-primary">Get Free Consultation</a>
-                        <a href="tel:+918368508556" class="btn btn-outline">Call +91 836 850 8556</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -241,7 +452,1197 @@
         </div>
     </footer>
 
+    <!-- Case Detail Modal -->
+    <div class="case-modal-overlay" id="caseModal" onclick="closeModal(event)">
+        <div class="case-modal" id="caseModalInner">
+            <button class="modal-close" onclick="closeCaseModal()" aria-label="Close"><i class="ph ph-x"></i></button>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
     <script src="main.js"></script>
-    
+    <script>
+    // =========================================
+    // CASE STUDIES DATA
+    // =========================================
+    const caseStudies = [
+        // ===== FITNESS =====
+        {
+            id: 1, cat: 'fitness', num: 'CASE 01',
+            title: 'Local Fitness Coach Becomes Instagram Authority',
+            focus: 'From 5K to 250K followers — creator brand built by Reka Creative Labs',
+            tags: ['Reels Strategy','Viral Hooks','Creator Branding','Content Calendar'],
+            result: '1M+ monthly reach generated',
+            icon: '🏋️',
+            stats: [
+                { val:'250K', label:'Followers Gained' },
+                { val:'1M+', label:'Monthly Reach' },
+                { val:'4.2%', label:'Engagement Rate' },
+                { val:'8 mo', label:'Timeline' },
+            ],
+            challenge: 'A Delhi-based fitness coach with a generic "workout tips" feed had plateaued at 5,000 followers despite posting daily. Their content lacked a distinct voice, hook strategy, and brand identity — making them invisible in an oversaturated fitness space.',
+            solution: 'Reka Creative Labs redesigned the creator\'s entire content strategy around a unique "no-BS fitness" persona. We built a 90-day Reels roadmap using viral hook formulas, pattern-interrupt thumbnails, and storytelling frameworks that humanized the coach. A 3-layer content funnel (awareness → trust → conversion) was implemented with precise posting schedules aligned to Instagram algorithm windows.',
+            timeline: [
+                { text: '<strong>Month 1:</strong> Brand voice audit, competitor analysis, new visual identity system' },
+                { text: '<strong>Month 2:</strong> Hook library built, first 30 Reels scripted and shot, engagement pods activated' },
+                { text: '<strong>Month 3–5:</strong> Viral breakout — 3 Reels crossed 500K views, follower growth accelerated 10x' },
+                { text: '<strong>Month 6–8:</strong> Monetization funnel launched — coaching inquiry pipeline generated ₹12L in 90 days' },
+            ],
+            outcome: 'The coach hit 250K followers in 8 months (vs. industry avg of 24+ months), generating over 1M monthly reach and launching a ₹12,000/month online coaching program that sold out in the first week.',
+            wa: 'Hi Reka Creative Labs! I saw Case Study 01 (Instagram Authority building for a fitness coach). I want to grow my Instagram following and build a creator brand. Can we connect?'
+        },
+        {
+            id: 2, cat: 'fitness', num: 'CASE 02',
+            title: 'Underdog Gym Beats Big Franchises',
+            focus: 'Community-first hyperlocal branding by Reka Creative Labs',
+            tags: ['Hyperlocal Ads','Referral Campaigns','Google My Business','Community Marketing'],
+            result: '3x membership growth in 6 months',
+            icon: '💪',
+            stats: [
+                { val:'3x', label:'Membership Growth' },
+                { val:'6 mo', label:'Timeline' },
+                { val:'₹4.2L', label:'New MRR Added' },
+                { val:'62%', label:'Referral Rate' },
+            ],
+            challenge: 'A standalone gym in Noida was bleeding members to two large franchise gyms (Cult Fit and Gold\'s Gym) that opened nearby. Membership had dropped 40% in 6 months and the owner was considering shutting down.',
+            solution: 'We repositioned the gym as a hyper-community hub rather than competing on facilities. A "Neighbourhood Warriors" branding campaign launched with hyperlocal Meta ads targeting a 5km radius. We built a referral system giving existing members 2 free months for every friend they brought. Google My Business was optimized with weekly posts, photos, and review campaigns.',
+            timeline: [
+                { text: '<strong>Week 1–2:</strong> Brand repositioning, new tagline "Where Noida Gets Strong Together"' },
+                { text: '<strong>Month 1:</strong> Referral system launched, GMB optimized, hyperlocal ads live' },
+                { text: '<strong>Month 2–3:</strong> Community events (free open days, fitness challenges) generated buzz' },
+                { text: '<strong>Month 4–6:</strong> Membership grew 3x, referral program drove 62% of new sign-ups' },
+            ],
+            outcome: 'Membership tripled in 6 months, adding ₹4.2L in monthly recurring revenue. The gym became a local landmark — with a 3-month waitlist and featured in a local lifestyle magazine.',
+            wa: 'Hi Reka Creative Labs! I saw Case Study 02 (Underdog Gym vs Franchises). I run a gym and need help with local marketing and membership growth. Can we connect?'
+        },
+        {
+            id: 3, cat: 'fitness', num: 'CASE 03',
+            title: 'Online Weight Loss Coach Hits ₹80L Revenue',
+            focus: 'High-ticket coaching funnels engineered by Reka Creative Labs',
+            tags: ['Webinar Funnels','Email Automation','High-Ticket Sales','VSL Creation'],
+            result: '₹80L/month milestone reached',
+            icon: '⚡',
+            stats: [
+                { val:'₹80L', label:'Monthly Revenue' },
+                { val:'18%', label:'Webinar CVR' },
+                { val:'₹25K', label:'Avg Ticket Size' },
+                { val:'12 mo', label:'Timeline' },
+            ],
+            challenge: 'A certified nutritionist offering 1:1 weight loss coaching was stuck at ₹3L/month despite excellent client results. They were pricing low, had no funnel, and relied entirely on word-of-mouth referrals.',
+            solution: 'Reka Creative Labs engineered a complete high-ticket funnel: YouTube ads → free webinar → VSL (Video Sales Letter) → high-ticket discovery call. We rewrote the entire positioning from "nutritionist" to "body transformation architect" and created a ₹25,000 group coaching program. Email nurture sequences (7-part welcome series + 21-day value drip) were built using ConvertKit.',
+            timeline: [
+                { text: '<strong>Month 1–2:</strong> Positioning overhaul, funnel architecture, webinar scripted and recorded' },
+                { text: '<strong>Month 3–4:</strong> YouTube ads launched, first 200 webinar registrations at ₹80 CPR' },
+                { text: '<strong>Month 5–8:</strong> Sales team hired and trained, CVR optimized to 18%' },
+                { text: '<strong>Month 9–12:</strong> Scale phase — ₹80L/month achieved with 320 active students' },
+            ],
+            outcome: 'Revenue scaled from ₹3L to ₹80L/month in 12 months. The client launched India\'s most-reviewed online weight loss program with 1200+ 5-star testimonials.',
+            wa: 'Hi Reka Creative Labs! I saw Case Study 03 (Weight Loss Coach ₹80L Revenue). I want to build a high-ticket coaching funnel. Can we talk?'
+        },
+        {
+            id: 4, cat: 'fitness', num: 'CASE 04',
+            title: "Women's Fitness Brand Launch",
+            focus: 'Premium feminine wellness positioning — Reka Creative Labs',
+            tags: ['Influencer Collabs','UGC Campaigns','D2C Launch','Brand Identity'],
+            result: 'Sold out launch collection in 72 hours',
+            icon: '🌸',
+            stats: [
+                { val:'72 hrs', label:'Sold Out In' },
+                { val:'₹28L', label:'Launch Revenue' },
+                { val:'47', label:'Influencers Activated' },
+                { val:'8.9%', label:'Conversion Rate' },
+            ],
+            challenge: 'A female entrepreneur was launching India\'s first women-only athletic wear brand. Despite having excellent products, she had zero brand presence, a ₹15L launch budget, and was competing against established international brands.',
+            solution: 'We created a premium "strong is beautiful" brand identity with an earth-tone + gold color palette. A micro-influencer strategy activated 47 female fitness creators (10K–100K followers) with gifted product drops. A UGC-first launch campaign had 200+ organic reviews before launch day. Retargeting funnels converted warm audiences at 8.9%.',
+            timeline: [
+                { text: '<strong>Month 1:</strong> Brand identity, packaging, photoshoot with 8 macro influencers' },
+                { text: '<strong>Month 2:</strong> 47 micro-influencer seeding, UGC content library built' },
+                { text: '<strong>Launch Week:</strong> Instagram Live launch, countdown campaign, exclusive early access for email subscribers' },
+                { text: '<strong>72 hours post-launch:</strong> Complete sellout — waitlist of 1,200 customers created' },
+            ],
+            outcome: 'The launch generated ₹28L in 72 hours with a complete sellout. Brand featured in Vogue India (digital edition), 47 authentic UGC videos, and a 1,200-person waitlist for the next collection.',
+            wa: "Hi Reka Creative Labs! I saw Case Study 04 (Women's Fitness Brand Launch). I want to launch my brand with maximum impact. Can we connect?"
+        },
+        {
+            id: 5, cat: 'fitness', num: 'CASE 05',
+            title: 'Strength Coach Scales Globally',
+            focus: 'Personal brand built for international reach by Reka Creative Labs',
+            tags: ['YouTube Growth','Funnel Optimization','Personal Brand','Global Expansion'],
+            result: 'Expanded to 40+ countries',
+            icon: '🌍',
+            stats: [
+                { val:'40+', label:'Countries' },
+                { val:'820K', label:'YouTube Subs' },
+                { val:'$18K', label:'Monthly USD Revenue' },
+                { val:'18 mo', label:'Timeline' },
+            ],
+            challenge: 'An Indian strength coach with strong domestic clientele wanted to build an international coaching business. He had 8K YouTube subscribers and all his content was in Hindi — limiting his global reach.',
+            solution: 'Reka Creative Labs built a bilingual content strategy with English-first long-form YouTube content translated from his Hindi insights. SEO-optimized video scripting, thumbnail A/B testing, and a YouTube Shorts repurposing system drove rapid growth. An international-facing website with USD pricing was built with a global coaching app.',
+            timeline: [
+                { text: '<strong>Month 1–3:</strong> English content strategy, YouTube SEO audit, thumbnail redesign' },
+                { text: '<strong>Month 4–8:</strong> 60 long-form videos published, 3 crossed 1M views' },
+                { text: '<strong>Month 9–14:</strong> Online program launched in USD, global paid ads activated' },
+                { text: '<strong>Month 15–18:</strong> 820K subscribers, revenue from 40+ countries' },
+            ],
+            outcome: 'Built one of India\'s fastest-growing strength coaching channels globally. Revenue converted to $18K/month USD from 40+ countries, with a 6-month waitlist for his premium international program.',
+            wa: 'Hi Reka Creative Labs! I saw Case Study 05 (Strength Coach Global Scale). I want to build a global online coaching business from India. Can we talk?'
+        },
+
+        // ===== YOGA =====
+        {
+            id: 6, cat: 'yoga', num: 'CASE 06',
+            title: 'Yoga Studio Rebrand Doubles Memberships',
+            focus: 'Luxury spiritual aesthetic crafted by Reka Creative Labs',
+            tags: ['Minimal Branding','Local SEO','Google Ads','Studio Rebrand'],
+            result: '2x membership growth in 90 days',
+            icon: '🧘',
+            stats: [
+                { val:'2x', label:'Membership Growth' },
+                { val:'90 days', label:'Timeline' },
+                { val:'₹2.8L', label:'New Monthly Revenue' },
+                { val:'4.9★', label:'Google Rating' },
+            ],
+            challenge: 'A decade-old yoga studio in Bangalore had an outdated brand — mismatched colours, a cluttered website, and no local SEO presence. Despite having excellent instructors, they were losing students to trendier competitors.',
+            solution: 'Complete brand overhaul with a minimalist sage green + off-white luxury palette. New website built with clear conversion paths (trial class booking). Google My Business profile optimized with new photos, services, FAQs. Google Ads launched targeting high-intent keywords like "yoga classes near me Bangalore" and "prenatal yoga Bangalore".',
+            timeline: [
+                { text: '<strong>Week 1–3:</strong> Visual identity redesign, new logo, brand guidelines document' },
+                { text: '<strong>Week 4–6:</strong> New website launched, GMB optimized, 50+ reviews collected' },
+                { text: '<strong>Month 2:</strong> Google Ads live, first 40 new trial bookings in 30 days' },
+                { text: '<strong>Month 3:</strong> Membership doubled — 380 active members vs. 190 before' },
+            ],
+            outcome: 'Membership doubled in 90 days adding ₹2.8L monthly revenue. Studio became #1 ranked yoga studio in Bangalore on Google Maps with a 4.9-star rating across 340 reviews.',
+            wa: 'Hi Reka Creative Labs! I saw Case Study 06 (Yoga Studio Rebrand). I want to rebrand and grow my studio\'s membership. Can we connect?'
+        },
+        {
+            id: 7, cat: 'yoga', num: 'CASE 07',
+            title: 'Breathwork Coach Viral Community',
+            focus: 'Emotional storytelling ecosystem built by Reka Creative Labs',
+            tags: ['Cinematic Reels','Community Funnel','WhatsApp Community','Emotional Marketing'],
+            result: '12K organic members in 4 months',
+            icon: '🌬️',
+            stats: [
+                { val:'12K', label:'Community Members' },
+                { val:'4 mo', label:'Timeline' },
+                { val:'0₹', label:'Paid Ads Spend' },
+                { val:'340%', label:'Engagement Growth' },
+            ],
+            challenge: 'A certified breathwork facilitator had profound content but zero reach. Her Instagram had 1,200 followers and her WhatsApp community sat at 80 people. Her sessions were transformational but barely visible.',
+            solution: 'Reka Labs built an emotionally-led content strategy around authentic vulnerability stories. Cinematic Reels captured raw breathwork sessions with subscriber stories. A "7-Day Free Breathwork Challenge" funnel drove thousands into a WhatsApp community. Zero paid ads — purely organic storytelling and community amplification.',
+            timeline: [
+                { text: '<strong>Week 1:</strong> Story mining sessions — 30 client transformation stories documented' },
+                { text: '<strong>Month 1:</strong> 15 cinematic Reels published, 3 crossed 200K views' },
+                { text: '<strong>Month 2:</strong> "7-Day Challenge" launched — 3,200 participants' },
+                { text: '<strong>Month 3–4:</strong> Community grew to 12K, paid masterclass sold out at ₹3,500/seat' },
+            ],
+            outcome: 'Built a 12,000-member organic community with zero ad spend in 4 months. The paid masterclass generated ₹18L in its first run, entirely from community trust and emotional content.',
+            wa: 'Hi Reka Creative Labs! I saw Case Study 07 (Breathwork Coach Viral Community). I want to build an organic community around my wellness practice. Can we talk?'
+        },
+        {
+            id: 8, cat: 'yoga', num: 'CASE 08',
+            title: 'Meditation App Growth Hack',
+            focus: 'Underdog positioning strategy executed by Reka Creative Labs',
+            tags: ['TikTok Mindfulness','Viral Challenges','App Store SEO','Growth Hacking'],
+            result: '500K app installs in year one',
+            icon: '🧠',
+            stats: [
+                { val:'500K', label:'App Installs' },
+                { val:'Year 1', label:'Timeline' },
+                { val:'₹12', label:'Cost Per Install' },
+                { val:'34%', label:'D30 Retention' },
+            ],
+            challenge: 'A bootstrapped meditation app startup was trying to compete against Headspace and Calm with a $50K marketing budget. Generic mindfulness marketing wasn\'t cutting through and their CPI was ₹85 — unsustainably high.',
+            solution: 'Reka Labs repositioned the app around India-specific stress triggers (traffic, family pressure, work culture). A "1-Minute Desi Calm" viral challenge launched across Instagram Reels and YouTube Shorts. App Store SEO was rebuilt with India-targeted keywords. Partnership with 15 corporate HR departments for employee wellness drove bulk installs.',
+            timeline: [
+                { text: '<strong>Month 1–2:</strong> Repositioning, Indian-context content strategy, App Store redesign' },
+                { text: '<strong>Month 3:</strong> "1-Minute Calm Challenge" launched — 2M impressions in first week' },
+                { text: '<strong>Month 4–8:</strong> Corporate partnerships, CPI dropped from ₹85 to ₹12' },
+                { text: '<strong>Month 9–12:</strong> 500K installs, 34% Day-30 retention rate (vs industry avg 12%)' },
+            ],
+            outcome: '500K installs in year one at ₹12 CPI — 85% cheaper than the original spend. The app reached #3 in the Health & Fitness category on the Indian App Store and raised a ₹3Cr seed round on the strength of this growth.',
+            wa: 'Hi Reka Creative Labs! I saw Case Study 08 (Meditation App Growth). I have a wellness app and need aggressive growth marketing. Can we connect?'
+        },
+        {
+            id: 9, cat: 'yoga', num: 'CASE 09',
+            title: 'Holistic Healing Brand Trust',
+            focus: 'Earth-tone visual systems designed by Reka Creative Labs',
+            tags: ['Founder Storytelling','Community Building','Brand Trust','Visual Identity'],
+            result: '40% increase in premium sales',
+            icon: '🌿',
+            stats: [
+                { val:'+40%', label:'Premium Sales' },
+                { val:'5.2x', label:'Email Revenue ROI' },
+                { val:'22K', label:'Email Subscribers' },
+                { val:'9 mo', label:'Timeline' },
+            ],
+            challenge: 'A holistic healer selling crystal therapy and energy healing sessions was struggling with the "woo-woo" stigma online. High-ticket sessions (₹8,000+) were a hard sell without established trust and a cohesive brand.',
+            solution: 'We created an earth-tone visual identity (terracotta, sage, cream) with a science-meets-spirituality positioning. A founder storytelling content series humanized the practitioner. An email list was built through a "Free Aura Reading" lead magnet. Blog content targeting holistic healing keywords drove organic trust from search engines.',
+            timeline: [
+                { text: '<strong>Month 1–3:</strong> Brand identity, website rebuild, "Free Aura Reading" lead magnet launched' },
+                { text: '<strong>Month 4–6:</strong> 22K email subscribers acquired, blog ranking for 40+ keywords' },
+                { text: '<strong>Month 7–9:</strong> Email sequences drove 40% premium sales lift, community of 8K members built' },
+            ],
+            outcome: '40% increase in premium session bookings. Email marketing ROI of 5.2x on sessions. Built a loyal community of 8,000 that self-promotes through testimonials and referrals.',
+            wa: 'Hi Reka Creative Labs! I saw Case Study 09 (Holistic Healing Brand Trust). I run a spiritual healing practice and need help building trust and growing sales. Can we talk?'
+        },
+        {
+            id: 10, cat: 'yoga', num: 'CASE 10',
+            title: 'Ayurvedic Medicine Brand Authority',
+            focus: 'Educational content ecosystem by Reka Creative Labs',
+            tags: ['Educational Videos','Expert Positioning','YouTube SEO','Authority Marketing'],
+            result: 'Became top 3 in category',
+            icon: '🌾',
+            stats: [
+                { val:'Top 3', label:'Category Ranking' },
+                { val:'2.1M', label:'YouTube Views' },
+                { val:'8.4x', label:'Organic Traffic Growth' },
+                { val:'15 mo', label:'Timeline' },
+            ],
+            challenge: 'An Ayurvedic product brand was selling quality herbal supplements but was invisible online. Consumers were skeptical — the market was flooded with fake Ayurvedic products — and the brand had no way to build credibility at scale.',
+            solution: 'We positioned the brand\'s founder (a 3rd-generation Vaidya with 25 years of experience) as India\'s most trusted Ayurvedic educator. A YouTube channel with 2 videos/week explaining conditions, herbs, and protocols in simple Hindi/English built massive organic authority. Website SEO targeted high-intent health queries.',
+            timeline: [
+                { text: '<strong>Month 1–3:</strong> Founder positioning, 60-video YouTube content roadmap, SEO audit' },
+                { text: '<strong>Month 4–8:</strong> 80 videos published, channel hit 100K subscribers' },
+                { text: '<strong>Month 9–12:</strong> 5 videos crossed 500K views, organic website traffic grew 8.4x' },
+                { text: '<strong>Month 13–15:</strong> Top 3 in Ayurvedic supplements category, ₹2.8Cr monthly revenue' },
+            ],
+            outcome: 'Reached 2.1M YouTube views and top 3 category ranking in 15 months. Organic traffic grew 8.4x driving ₹2.8Cr monthly revenue — 78% from organic sources with zero paid ads.',
+            wa: 'Hi Reka Creative Labs! I saw Case Study 10 (Ayurvedic Brand Authority). I have an Ayurvedic brand and need content marketing and YouTube growth. Can we connect?'
+        },
+
+        // ===== NUTRITION =====
+        {
+            id: 11, cat: 'nutrition', num: 'CASE 11',
+            title: 'Nutritionist Coaching Academy',
+            focus: 'Premium course launch by Reka Creative Labs',
+            tags: ['Course Launch','Email Sequences','Launch Strategy','Kajabi'],
+            result: '₹50L revenue first month',
+            icon: '📚',
+            stats: [
+                { val:'₹50L', label:'Month 1 Revenue' },
+                { val:'412', label:'Students Enrolled' },
+                { val:'₹12,000', label:'Course Price' },
+                { val:'94%', label:'Completion Rate' },
+            ],
+            challenge: 'A Mumbai nutritionist with 18 years of clinical experience wanted to launch an online certification course for aspiring nutritionists. She had no prior online business experience, no email list, and 6 months to build and launch.',
+            solution: 'Reka Labs designed a 6-month launch runway: months 1–3 built her authority on Instagram and YouTube, months 4–5 built a 6,000-person email waitlist via a "Free Nutrition Masterclass", and month 6 executed a 5-day live launch event. Email sequences (7-part pre-launch nurture, cart abandonment, last-chance) were engineered for maximum conversion.',
+            timeline: [
+                { text: '<strong>Month 1–3:</strong> Instagram content calendar, YouTube channel, podcast guest appearances' },
+                { text: '<strong>Month 4–5:</strong> Free masterclass funnel built 6,000-person waitlist' },
+                { text: '<strong>Month 6 — Launch Week:</strong> 5-day live event, email sequence, early-bird pricing' },
+                { text: '<strong>Launch Close:</strong> 412 students enrolled × ₹12,000 = ₹49.4L revenue' },
+            ],
+            outcome: '₹50L in course revenue in the first launch month. 412 students enrolled with a 94% course completion rate. Launched a recurring certification program — now a ₹1.2Cr/year business.',
+            wa: 'Hi Reka Creative Labs! I saw Case Study 11 (Nutritionist Course Launch). I want to launch an online course or coaching program. Can we connect?'
+        },
+        {
+            id: 12, cat: 'nutrition', num: 'CASE 12',
+            title: 'Organic Diet Brand Retail Success',
+            focus: 'D2C to retail scaling by Reka Creative Labs',
+            tags: ['Retail Strategy','Brand PR','D2C Growth','Distribution'],
+            result: 'In 500+ stores nationwide',
+            icon: '🌱',
+            stats: [
+                { val:'500+', label:'Retail Stores' },
+                { val:'18 mo', label:'Timeline' },
+                { val:'₹4Cr', label:'Monthly Revenue' },
+                { val:'32', label:'Cities Present' },
+            ],
+            challenge: 'A bootstrapped organic food brand was doing ₹30L/month on their own website but couldn\'t crack retail distribution. Supermarkets and health stores wouldn\'t take them seriously without brand recognition and retail-ready packaging.',
+            solution: 'Reka Labs executed a "retail-readiness" campaign: PR placements in Health Shots, HealthifyMe blog, and Economic Times Wellness. A brand story documentary was created for retail sales pitches. Packaging was redesigned for shelf visibility. We ran hyperlocal Instagram ads in target retail cities to create consumer pull, which made retailers respond to supply push.',
+            timeline: [
+                { text: '<strong>Month 1–4:</strong> Packaging redesign, PR placements secured in 12 publications' },
+                { text: '<strong>Month 5–8:</strong> 50 pilot stores onboarded, reorder rates tracked and optimized' },
+                { text: '<strong>Month 9–14:</strong> National distributor partnership, D-Mart and Nature\'s Basket listings' },
+                { text: '<strong>Month 15–18:</strong> 500+ stores, ₹4Cr monthly revenue' },
+            ],
+            outcome: 'Scaled from ₹30L D2C to ₹4Cr/month across 500+ retail stores in 32 cities. Listed in D-Mart, Nature\'s Basket, Big Basket and 6 regional health food chains.',
+            wa: 'Hi Reka Creative Labs! I saw Case Study 12 (Organic Brand Retail Success). I want to scale my food/wellness brand into retail. Can we talk?'
+        },
+        {
+            id: 13, cat: 'nutrition', num: 'CASE 13',
+            title: 'Meal Prep Startup Unicorn Path',
+            focus: 'Growth hacking system by Reka Creative Labs',
+            tags: ['Growth Hacking','Viral Loops','Referral Program','Product-Led Growth'],
+            result: '10x growth in 18 months',
+            icon: '🥡',
+            stats: [
+                { val:'10x', label:'Revenue Growth' },
+                { val:'18 mo', label:'Timeline' },
+                { val:'₹18Cr', label:'ARR Reached' },
+                { val:'4.1%', label:'Churn Rate' },
+            ],
+            challenge: 'A meal prep startup in Hyderabad was growing slowly at 180 subscribers/month with high churn (23%) and no systematic marketing. They had excellent food quality but zero differentiation in a market with 30+ competitors.',
+            solution: 'Reka Labs built a product-led growth engine: a "Refer 3 friends, eat free for a week" viral loop, a gamified loyalty app, and a subscription tier system (Basic → Athlete → Elite). Content marketing targeted office workers and WFH professionals. Instagram and YouTube Shorts showed the production kitchen — building radical transparency trust.',
+            timeline: [
+                { text: '<strong>Month 1–3:</strong> Churn analysis, exit interviews, subscription model redesign' },
+                { text: '<strong>Month 4–6:</strong> Referral viral loop launched, kitchen transparency content series' },
+                { text: '<strong>Month 7–12:</strong> Subscriber base grew from 900 to 5,400' },
+                { text: '<strong>Month 13–18:</strong> Expanded to Delhi and Bangalore, ARR hit ₹18Cr' },
+            ],
+            outcome: '10x revenue growth in 18 months from ₹1.8Cr to ₹18Cr ARR. Churn dropped from 23% to 4.1%. The company raised a ₹8Cr seed round on this growth trajectory and is now in 3 cities.',
+            wa: 'Hi Reka Creative Labs! I saw Case Study 13 (Meal Prep Startup 10x Growth). I have a food/subscription business and need a growth marketing system. Can we connect?'
+        },
+        {
+            id: 14, cat: 'nutrition', num: 'CASE 14',
+            title: 'Dietician Network Community',
+            focus: 'B2B2C platform built by Reka Creative Labs',
+            tags: ['Community Platform','Creator Economy','B2B2C','SaaS Marketing'],
+            result: '5000+ nutritionists onboarded',
+            icon: '🤝',
+            stats: [
+                { val:'5000+', label:'Nutritionists' },
+                { val:'12 mo', label:'Timeline' },
+                { val:'₹3.5Cr', label:'Platform GMV' },
+                { val:'28', label:'Cities Active' },
+            ],
+            challenge: 'A healthtech founder built a platform connecting clients with certified dieticians but couldn\'t crack supply (getting nutritionists to join) or demand (getting clients to pay for online consultations). The platform had 80 dieticians and 200 clients after 8 months of trying.',
+            solution: 'Reka Labs flipped the GTM strategy to community-first. We built "India\'s Largest Dietician Network" positioning with an exclusive community of verified nutritionists. Monthly webinars with celebrity nutritionists created FOMO. Client acquisition ran through Instagram content targeting women 25–45 with specific health goals. Corporate HR partnerships unlocked 10–500 employee bulk contracts.',
+            timeline: [
+                { text: '<strong>Month 1–2:</strong> Community positioning, waitlist strategy, 500 founding member campaign' },
+                { text: '<strong>Month 3–5:</strong> Monthly webinar series, PR in health media, app redesign' },
+                { text: '<strong>Month 6–9:</strong> Corporate tie-ups with 12 companies, bulk consultation contracts' },
+                { text: '<strong>Month 10–12:</strong> 5,000+ dieticians, ₹3.5Cr GMV, Series A readiness' },
+            ],
+            outcome: 'Platform grew from 80 to 5,000+ verified nutritionists and from 200 to 18,000 clients in 12 months. Platform GMV reached ₹3.5Cr/month and the startup is now raising a Series A.',
+            wa: 'Hi Reka Creative Labs! I saw Case Study 14 (Dietician Network Platform). I have a healthtech platform and need growth marketing strategy. Can we talk?'
+        },
+        {
+            id: 15, cat: 'nutrition', num: 'CASE 15',
+            title: 'Supplement Brand Market Leader',
+            focus: 'Category creation by Reka Creative Labs',
+            tags: ['Content Authority','Influencer Ecosystem','Category Creation','D2C'],
+            result: 'Market share leader in 2 years',
+            icon: '💊',
+            stats: [
+                { val:'#1', label:'Category Leader' },
+                { val:'2 years', label:'Timeline' },
+                { val:'₹28Cr', label:'Monthly Revenue' },
+                { val:'180+', label:'Influencers' },
+            ],
+            challenge: 'A supplement brand wanted to build a new "women\'s sports nutrition" category in India — a market that didn\'t really exist yet. Competing against established male-targeted brands with ten times the budget.',
+            solution: 'Reka Labs created the category rather than entering an existing one. We positioned the brand as the pioneer of "female performance nutrition" with scientific content, clinical partnerships, and an influencer ecosystem of 180+ female athletes and fitness creators. A content factory produced 40 pieces/month across blogs, Reels, and YouTube Shorts.',
+            timeline: [
+                { text: '<strong>Month 1–6:</strong> Category positioning, clinical content partnerships, first 50 influencers activated' },
+                { text: '<strong>Month 7–12:</strong> 180+ influencer ecosystem, brand featured in 8 national publications' },
+                { text: '<strong>Year 2:</strong> Amazon #1 in women\'s supplements, own website ₹18Cr/month' },
+            ],
+            outcome: 'Created and dominated a new category. Market share leader in women\'s sports nutrition in India within 2 years. ₹28Cr/month revenue, listed by Forbes India as one of "Most Innovative D2C Brands 2025".',
+            wa: 'Hi Reka Creative Labs! I saw Case Study 15 (Supplement Brand Market Leader). I want to build a dominant supplement or health brand. Can we connect?'
+        },
+
+        // ===== MENTAL HEALTH =====
+        {
+            id: 16, cat: 'mental', num: 'CASE 16',
+            title: 'Therapy Platform Stigma Breakthrough',
+            focus: 'Destigmatization campaign engineered by Reka Creative Labs',
+            tags: ['Social Impact Marketing','Mental Health Awareness','SEO','Destigmatization'],
+            result: '300% increase in consultation bookings',
+            icon: '🧠',
+            stats: [
+                { val:'300%', label:'Booking Increase' },
+                { val:'1.8M', label:'Campaign Reach' },
+                { val:'₹8', label:'Cost Per Lead' },
+                { val:'6 mo', label:'Timeline' },
+            ],
+            challenge: 'An online therapy platform was struggling with India\'s deeply-ingrained mental health stigma. Conversion rates were very low despite high traffic because users were ashamed to book.',
+            solution: 'Reka Labs launched "It\'s Okay to Not Be Okay" — a destigmatization campaign featuring anonymous real stories from therapy clients. User-generated content showed real people talking about their mental health journey. SEO content targeting "am I depressed", "anxiety symptoms India" and similar high-intent queries drove organic traffic.',
+            timeline: [
+                { text: '<strong>Month 1–2:</strong> Campaign concept, 40 anonymous client stories collected, SEO audit' },
+                { text: '<strong>Month 3–4:</strong> Campaign launch, 200 pieces of SEO content, Instagram Reels series' },
+                { text: '<strong>Month 5–6:</strong> 1.8M campaign reach, bookings tripled, CPL dropped to ₹8' },
+            ],
+            outcome: 'Consultation bookings grew 300% in 6 months. Campaign reached 1.8M people organically. Platform became the most-recommended therapy service in India on Reddit and Quora.',
+            wa: 'Hi Reka Creative Labs! I saw Case Study 16 (Therapy Platform Growth). I run a mental health service and need sensitive, effective marketing. Can we talk?'
+        },
+        {
+            id: 17, cat: 'mental', num: 'CASE 17',
+            title: 'Corporate Burnout Coach Scale',
+            focus: 'B2B positioning built for corporate wellness market',
+            tags: ['B2B Sales','Corporate Wellness','LinkedIn Marketing','Keynote Strategy'],
+            result: '₹1.2Cr in corporate contracts',
+            icon: '🏢',
+            stats: [
+                { val:'₹1.2Cr', label:'Contract Value' },
+                { val:'18 corps', label:'Clients Won' },
+                { val:'12 mo', label:'Timeline' },
+                { val:'₹0', label:'Ad Spend' },
+            ],
+            challenge: 'A burnout recovery coach wanted to pivot from individual clients to corporate contracts but had no B2B positioning, no LinkedIn presence, and didn\'t know how to sell to HR managers.',
+            solution: 'Reka Labs built a "Corporate ROI of Wellness" B2B positioning — quantifying burnout\'s cost in lost productivity. LinkedIn content positioned the coach as a thought leader. Cold email sequences targeting HR Directors in IT companies (highest burnout rate) drove discovery calls. A polished corporate pitch deck and case study pack were created.',
+            outcome: '₹1.2Cr in corporate wellness contracts with 18 companies — all without paid advertising, purely through content authority and LinkedIn-led outreach.',
+            timeline: [
+                { text: '<strong>Month 1–3:</strong> LinkedIn profile rebuild, weekly long-form posts, corporate pitch deck created' },
+                { text: '<strong>Month 4–8:</strong> Outbound to 200 HR Directors, 22 discovery calls booked' },
+                { text: '<strong>Month 9–12:</strong> 18 contracts signed — workshops, retainer programs, keynotes' },
+            ],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 17 (Corporate Wellness Coach). I want to sell to corporates. Can we connect?'
+        },
+        {
+            id: 18, cat: 'mental', num: 'CASE 18',
+            title: 'Anxiety Coach Viral Instagram',
+            focus: 'Vulnerability-first content strategy executed by Reka Creative Labs',
+            tags: ['Vulnerability Marketing','Instagram Growth','Niche Positioning','DM Funnels'],
+            result: '0 to 90K followers in 6 months',
+            icon: '💛',
+            stats: [
+                { val:'90K', label:'Followers' },
+                { val:'6 mo', label:'Timeline' },
+                { val:'7.8%', label:'Engagement Rate' },
+                { val:'₹0', label:'Paid Ads' },
+            ],
+            challenge: 'A licensed clinical psychologist wanted to build an Instagram presence to attract private clients. She was camera-shy, didn\'t know what to post, and was worried about professional boundaries in personal content.',
+            solution: 'We built a content framework balancing professional authority with personal relatability — no face needed, just handwritten notes, text-over-image posts, and science-backed but accessible mental health tips. A DM funnel converted engaged followers to free 20-minute discovery calls.',
+            outcome: 'Grew from 0 to 90K followers organically in 6 months with a 7.8% engagement rate (10x industry average). Private client waitlist of 8 months. Now running group programs at ₹15,000/person.',
+            timeline: [
+                { text: '<strong>Month 1:</strong> Content niche defined — "science of anxiety in plain Hindi"' },
+                { text: '<strong>Month 2–3:</strong> 60 posts published, 2 went semi-viral (500K+ reach)' },
+                { text: '<strong>Month 4–6:</strong> 90K followers, DM funnel converting at 18%' },
+            ],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 18 (Anxiety Coach Instagram Growth). I want to grow my mental health practice online. Can we talk?'
+        },
+        {
+            id: 19, cat: 'mental', num: 'CASE 19',
+            title: 'Child Psychology Platform Launch',
+            focus: 'Parent-targeted content marketing by Reka Creative Labs',
+            tags: ['Parenting Content','SEO Blog','YouTube','Paid Ads'],
+            result: '4x client acquisition in 90 days',
+            icon: '👶',
+            stats: [
+                { val:'4x', label:'Client Growth' },
+                { val:'90 days', label:'Timeline' },
+                { val:'12K', label:'Monthly Blog Readers' },
+                { val:'₹320', label:'CPL on Ads' },
+            ],
+            challenge: 'A child psychologist clinic was fully dependent on word-of-mouth and growing very slowly. Parents were searching for help online but couldn\'t find the clinic.',
+            solution: 'Reka Labs launched a parenting content engine — weekly blog articles targeting "child anxiety symptoms", "ADHD help India", "toddler behaviour problems" ranked the clinic website on page 1 for 15+ keywords. A YouTube channel with "Ask the Child Psychologist" videos built authority. Meta ads targeting parents aged 28–45 in premium city areas drove inquiries.',
+            outcome: 'Client bookings grew 4x in 90 days. Website organic traffic from 200 to 12,000 monthly visitors. Ranked #1 on Google for "child psychologist Delhi". CPL on paid ads ₹320.',
+            timeline: [
+                { text: '<strong>Month 1:</strong> Keyword research, 20 SEO articles published, YouTube channel started' },
+                { text: '<strong>Month 2:</strong> Meta ads launched, email newsletter for parents started' },
+                { text: '<strong>Month 3:</strong> Client inquiries 4x, ranked #1 for 6 key terms' },
+            ],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 19 (Child Psychology Platform). I run a mental health clinic and need more clients. Can we connect?'
+        },
+        {
+            id: 20, cat: 'mental', num: 'CASE 20',
+            title: 'Mindfulness App Retention Overhaul',
+            focus: 'Retention engineering for wellness SaaS by Reka Creative Labs',
+            tags: ['Push Notifications','Gamification','Retention Marketing','In-App Content'],
+            result: 'Retention improved from 11% to 41%',
+            icon: '📱',
+            stats: [
+                { val:'41%', label:'D30 Retention' },
+                { val:'3.7x', label:'LTV Increase' },
+                { val:'22%', label:'Paid Conversion' },
+                { val:'4 mo', label:'Timeline' },
+            ],
+            challenge: 'A mindfulness app with 80K downloads had terrible retention — only 11% of users were still active after 30 days. High acquisition spend was wasted on users who churned fast.',
+            solution: 'Reka Labs engineered a retention stack: personalized push notification sequences based on user behavior, gamification (streaks, badges, "mindful minutes" leaderboard), a weekly human-written email with one mindfulness exercise, and an in-app community feature for accountability partners.',
+            outcome: 'D30 retention jumped from 11% to 41% in 4 months. LTV increased 3.7x. Paid subscription conversion hit 22%. The company became profitable without increasing acquisition spend.',
+            timeline: [
+                { text: '<strong>Month 1:</strong> User journey mapping, 6 push notification sequences built' },
+                { text: '<strong>Month 2:</strong> Gamification features scoped and launched' },
+                { text: '<strong>Month 3–4:</strong> Weekly email series, in-app community — retention hit 41%' },
+            ],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 20 (App Retention Overhaul). I have an app with retention issues. Can we talk?'
+        },
+
+        // ===== CORPORATE =====
+        {
+            id: 21, cat: 'corporate', num: 'CASE 21',
+            title: 'Corporate Wellness Program 200x ROI',
+            focus: 'Enterprise wellness rollout marketed by Reka Creative Labs',
+            tags: ['Enterprise Sales','HR Marketing','ROI Case Study','B2B Content'],
+            result: '₹2.8Cr B2B contract won',
+            icon: '💼',
+            stats: [
+                { val:'₹2.8Cr', label:'Contract Value' },
+                { val:'5000', label:'Employees Covered' },
+                { val:'200x', label:'Marketing ROI' },
+                { val:'3 mo', label:'Sales Cycle' },
+            ],
+            challenge: 'A corporate wellness firm had a great program but couldn\'t articulate ROI to CFOs and HR Directors who controlled the budget. Lost 8 pitches in a row despite excellent product demonstrations.',
+            solution: 'Reka Labs built an ROI calculator tool and a "cost of unhealthy employees" research report that quantified the business case. LinkedIn thought leadership content by the CEO, targeted to Fortune 500 HR leaders, positioned the firm as the authority. A data-rich pitch deck showed industry benchmarks and client outcomes.',
+            outcome: '₹2.8Cr enterprise contract won from a Fortune 500 Indian conglomerate covering 5,000 employees. 4 additional pipeline prospects at similar scale.',
+            timeline: [
+                { text: '<strong>Month 1:</strong> ROI calculator built, research report written and distributed' },
+                { text: '<strong>Month 2:</strong> CEO LinkedIn content — 40K impressions/week, pitch deck redesigned' },
+                { text: '<strong>Month 3:</strong> ₹2.8Cr contract signed, 4 additional prospects in pipeline' },
+            ],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 21 (Corporate Wellness B2B Contract). I run a corporate wellness business. Can we connect?'
+        },
+        {
+            id: 22, cat: 'corporate', num: 'CASE 22',
+            title: 'HR Tech Wellness SaaS Launch',
+            focus: 'Product-led growth for wellness SaaS by Reka Creative Labs',
+            tags: ['SaaS Marketing','Product-Led Growth','Freemium','HR SaaS'],
+            result: '₹1.1Cr ARR in first year',
+            icon: '⚙️',
+            stats: [
+                { val:'₹1.1Cr', label:'ARR Year 1' },
+                { val:'280', label:'Company Clients' },
+                { val:'82%', label:'Freemium to Paid CVR' },
+                { val:'12 mo', label:'Timeline' },
+            ],
+            challenge: 'A wellness SaaS for HR teams had built a good product but couldn\'t grow past 40 companies. Sales-led growth was too slow and expensive.',
+            solution: 'Reka Labs implemented a product-led growth model with a generous freemium tier. Content marketing targeting "employee wellness ROI", "HR team wellbeing tools" drove inbound SEO traffic. A free "Company Wellness Audit" tool generated qualified leads. Partner program with HR consultants created a reseller channel.',
+            outcome: '₹1.1Cr ARR in 12 months with 280 company clients. 82% of freemium users converted to paid within 90 days. Partner channel now drives 40% of new revenue.',
+            timeline: [
+                { text: '<strong>Month 1–3:</strong> Freemium model launch, SEO content engine, free audit tool' },
+                { text: '<strong>Month 4–8:</strong> Partner program, 12 HR consultant partnerships' },
+                { text: '<strong>Month 9–12:</strong> 280 companies, ₹1.1Cr ARR' },
+            ],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 22 (HR Wellness SaaS). I have a SaaS product and need growth marketing. Can we talk?'
+        },
+        {
+            id: 23, cat: 'corporate', num: 'CASE 23',
+            title: 'Executive Wellness Retreat Brand',
+            focus: 'Ultra-premium luxury positioning by Reka Creative Labs',
+            tags: ['Luxury Marketing','Executive Audience','Private Events','LinkedIn'],
+            result: '₹8L avg revenue per retreat',
+            icon: '🏔️',
+            stats: [
+                { val:'₹8L', label:'Avg Retreat Revenue' },
+                { val:'24 exec', label:'Avg Attendees' },
+                { val:'12 retreats', label:'Year 1' },
+                { val:'100%', label:'Referral Rate' },
+            ],
+            challenge: 'An ex-CEO turned wellness retreat organiser was charging ₹25,000 per person for executive wellness retreats but struggling to fill them. Target audience (CXOs and senior executives) were hard to reach through conventional marketing.',
+            solution: 'Reka Labs built a "word-of-mouth engine for executives": high-production LinkedIn content positioning the host as India\'s premier executive wellness expert, private invitation model (no public ticketing), exclusive early-access WhatsApp community for alumni, and referral program where past attendees received a gift experience.',
+            outcome: 'Average revenue per retreat grew to ₹8L with 24 executive attendees. 12 retreats completed in year one with 100% referral-driven bookings — zero paid advertising.',
+            timeline: [
+                { text: '<strong>Month 1–2:</strong> LinkedIn positioning, first 50 exclusive community members' },
+                { text: '<strong>Month 3:</strong> Pilot retreat — 18 attendees, 100% referral to next' },
+                { text: '<strong>Month 4–12:</strong> 12 retreats, waitlist of 60 executives' },
+            ],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 23 (Executive Wellness Retreat). I run premium wellness events. Can we connect?'
+        },
+        {
+            id: 24, cat: 'corporate', num: 'CASE 24',
+            title: 'Insurance Wellness Add-On Launch',
+            focus: 'Corporate-to-consumer wellness product by Reka Creative Labs',
+            tags: ['Product Launch','Insurance MarTech','B2B2C','Employee Benefits'],
+            result: '40K covered employees in 8 months',
+            icon: '🛡️',
+            stats: [
+                { val:'40K', label:'Employees Covered' },
+                { val:'8 mo', label:'Timeline' },
+                { val:'22', label:'Corporate Clients' },
+                { val:'92%', label:'Renewal Rate' },
+            ],
+            challenge: 'An insurance company wanted to add a digital wellness benefit to their group health policies but didn\'t know how to market a digital wellness product to HR managers who already felt overwhelmed with employee perks.',
+            solution: 'Reka Labs created a "Wellness ROI in 90 Days" guarantee positioning that took risk off the HR buyer. Dedicated landing pages and case studies for each industry segment (IT, Manufacturing, BFSI). Email outreach sequences tailored to each buyer persona with specific objection handling.',
+            outcome: '22 corporate clients signed covering 40,000 employees in 8 months. 92% policy renewal rate in year two — driven by measurable employee satisfaction scores.',
+            timeline: [
+                { text: '<strong>Month 1–2:</strong> Industry segment landing pages, objection-handling content' },
+                { text: '<strong>Month 3–5:</strong> Outbound to HR Directors, 35 discovery calls' },
+                { text: '<strong>Month 6–8:</strong> 22 contracts, 40K employees covered' },
+            ],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 24 (Corporate Wellness Product). I have a B2B wellness product. Can we talk?'
+        },
+        {
+            id: 25, cat: 'corporate', num: 'CASE 25',
+            title: 'Startup Wellness Culture Brand',
+            focus: 'Employer branding for startup ecosystem by Reka Creative Labs',
+            tags: ['Employer Branding','Culture Marketing','LinkedIn','Talent Attraction'],
+            result: '60% improvement in talent retention',
+            icon: '🌱',
+            stats: [
+                { val:'60%', label:'Retention Improvement' },
+                { val:'3x', label:'Applications Increase' },
+                { val:'92', label:'Glassdoor Score' },
+                { val:'6 mo', label:'Timeline' },
+            ],
+            challenge: 'A Series A startup was losing senior employees to bigger companies. Their product was great but they couldn\'t compete on salary — they needed to win on culture and purpose.',
+            solution: 'Reka Labs built a comprehensive employer brand around the startup\'s unique wellness-first culture. Employee story videos, "Day in the Life" Instagram content, a public wellness policy document, and a Glassdoor campaign drove perception shift. A "Wellness Wednesday" content series positioned the company as a top employer.',
+            outcome: 'Talent retention improved 60%. Job applications tripled. Glassdoor rating went from 3.4 to 4.8. Featured in Inc. India as "Best Startup Culture 2025".',
+            timeline: [
+                { text: '<strong>Month 1–2:</strong> Employer brand audit, employee story content series' },
+                { text: '<strong>Month 3–4:</strong> LinkedIn organic content, Glassdoor strategy' },
+                { text: '<strong>Month 5–6:</strong> 60% retention improvement, 3x applications' },
+            ],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 25 (Startup Wellness Culture). I want to build my employer brand. Can we connect?'
+        },
+
+        // ===== LUXURY =====
+        {
+            id: 26, cat: 'luxury', num: 'CASE 26',
+            title: 'Luxury Spa Chain Premium Positioning',
+            focus: 'Ultra-premium brand elevation by Reka Creative Labs',
+            tags: ['Luxury Branding','Premium Positioning','Editorial Photography','High-Ticket'],
+            result: '₹18,000 avg ticket size achieved',
+            icon: '✨',
+            stats: [
+                { val:'₹18K', label:'Avg Ticket Size' },
+                { val:'3.2x', label:'Revenue per Client' },
+                { val:'72%', label:'Repeat Booking Rate' },
+                { val:'8 mo', label:'Timeline' },
+            ],
+            challenge: 'A 5-location spa chain in metro India was competing on price — their average ticket was ₹3,500. They wanted to reposition as a luxury wellness destination but feared losing volume clients.',
+            solution: 'Reka Labs executed a premium repositioning without alienating existing clients: a tiered service menu (Essential, Signature, Luxury), editorial photography in the style of international luxury brands, a "by appointment" booking system, and influencer partnerships with Bollywood and fashion personalities. Content shifted from "relaxation" to "transformation ritual".',
+            outcome: 'Average ticket size grew from ₹3,500 to ₹18,000. Revenue per client increased 3.2x despite fewer walk-ins. 72% repeat booking rate created by "Wellness Ritual Membership" model.',
+            timeline: [
+                { text: '<strong>Month 1–3:</strong> Brand visual overhaul, tiered menu, editorial photoshoot' },
+                { text: '<strong>Month 4–6:</strong> Influencer campaign, membership launch, waitlist created' },
+                { text: '<strong>Month 7–8:</strong> ₹18K avg ticket, 72% repeat rate' },
+            ],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 26 (Luxury Spa Positioning). I want to reposition my wellness business as premium. Can we connect?'
+        },
+        {
+            id: 27, cat: 'luxury', num: 'CASE 27',
+            title: 'Ayurvedic Luxury Resort Launch',
+            focus: 'Heritage wellness destination brand by Reka Creative Labs',
+            tags: ['Tourism Marketing','Luxury OTA','Heritage Brand','International Guests'],
+            result: '₹4.2Cr revenue in opening year',
+            icon: '🌺',
+            stats: [
+                { val:'₹4.2Cr', label:'Opening Year Revenue' },
+                { val:'78%', label:'Occupancy Rate' },
+                { val:'₹28K', label:'Nightly Rate' },
+                { val:'32%', label:'International Guests' },
+            ],
+            challenge: 'A new Ayurvedic wellness resort in Kerala was launching during peak post-COVID recovery of the tourism sector. They had a stunning property but zero brand recognition and a ₹28,000/night price point that was hard to justify without storytelling.',
+            solution: 'Reka Labs created a cinematic brand narrative around "ancient wisdom, modern luxury." A documentary-style brand film shot on the property went viral on Instagram (2.1M views). International wellness travel journalists were hosted for review stays. Partnerships with luxury OTAs (Healing Retreats, BookRetreats.com) and Condé Nast Traveller India placement drove international inquiries.',
+            outcome: '₹4.2Cr revenue in the opening year with 78% occupancy. 32% international guests from UK, USA, and UAE. Awarded "Best New Wellness Retreat India 2025" by Condé Nast Traveller.',
+            timeline: [
+                { text: '<strong>Month 1–3:</strong> Brand film production, international PR, OTA listing strategy' },
+                { text: '<strong>Month 4–6:</strong> Brand film launch, journalist hosting program' },
+                { text: '<strong>Month 7–12:</strong> 78% occupancy, international bookings from 14 countries' },
+            ],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 27 (Ayurvedic Resort Launch). I have a luxury wellness property. Can we talk?'
+        },
+        {
+            id: 28, cat: 'luxury', num: 'CASE 28',
+            title: 'Premium Skincare Brand D2C Scale',
+            focus: 'Clean beauty premium brand built by Reka Creative Labs',
+            tags: ['D2C Brand','Clean Beauty','Influencer Marketing','Email Marketing'],
+            result: '₹3.5Cr monthly revenue in 18 months',
+            icon: '🌸',
+            stats: [
+                { val:'₹3.5Cr', label:'Monthly Revenue' },
+                { val:'18 mo', label:'Timeline' },
+                { val:'62%', label:'Repeat Purchase Rate' },
+                { val:'4.2x', label:'ROAS on Ads' },
+            ],
+            challenge: 'A premium clean skincare brand with excellent products was struggling to justify their premium pricing (3x more expensive than drugstore brands) in an Indian market that was skeptical of clean beauty claims.',
+            solution: 'Reka Labs built a radical transparency brand — full ingredient disclosure, "What\'s in your skincare" educational content, and clinical efficacy documents published openly. A "Skincare Sommelier" program trained 50 beauty influencers as genuine brand advocates (not paid promoters). Email CRM sequences educated subscribers before asking for purchase.',
+            outcome: 'Monthly revenue scaled to ₹3.5Cr in 18 months. 62% repeat purchase rate (vs. 18% industry avg). 4.2x ROAS on Meta ads driven by trust-based creative. Listed in Nykaa\'s premium beauty section.',
+            timeline: [
+                { text: '<strong>Month 1–4:</strong> Transparency content strategy, Skincare Sommelier program' },
+                { text: '<strong>Month 5–10:</strong> Nykaa partnership, Meta ads optimized' },
+                { text: '<strong>Month 11–18:</strong> ₹3.5Cr MRR, 62% repeat rate' },
+            ],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 28 (Premium Skincare D2C). I have a skincare brand. Can we connect?'
+        },
+        {
+            id: 29, cat: 'luxury', num: 'CASE 29',
+            title: 'Luxury Fitness Equipment Brand India',
+            focus: 'Premium fitness hardware D2C launch by Reka Creative Labs',
+            tags: ['Premium D2C','Hardware Marketing','Lifestyle Brand','Home Gym'],
+            result: '₹2.1Cr launch month revenue',
+            icon: '🏅',
+            stats: [
+                { val:'₹2.1Cr', label:'Launch Revenue' },
+                { val:'340', label:'Units Sold' },
+                { val:'₹62K', label:'Avg Order Value' },
+                { val:'NPS 72', label:'Net Promoter Score' },
+            ],
+            challenge: 'An Indian startup was launching premium home gym equipment (₹62,000 avg order) — competing against Peloton and Technogym in India. They had 3 months and ₹20L to launch.',
+            solution: 'Reka Labs created an aspirational lifestyle campaign showing what life looks like when you have a premium home gym — beautiful homes, disciplined successful people, transformed bodies. Targeted wealthy urban professionals via Hotstar premium, Instagram Stories, and LinkedIn. Unboxing event hosted for 20 top fitness influencers created massive UGC.',
+            outcome: '₹2.1Cr in launch revenue with 340 units sold. Net Promoter Score of 72 — driven by exceptional unboxing experience marketing. Waitlist of 800+ for the next product launch.',
+            timeline: [
+                { text: '<strong>Month 1:</strong> Lifestyle campaign creation, influencer unboxing events' },
+                { text: '<strong>Month 2:</strong> Pre-orders launch, Hotstar + LinkedIn ads live' },
+                { text: '<strong>Month 3:</strong> ₹2.1Cr launch month, 800+ waitlist' },
+            ],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 29 (Luxury Fitness Equipment). I have a premium product to launch. Can we talk?'
+        },
+        {
+            id: 30, cat: 'luxury', num: 'CASE 30',
+            title: 'High-End Fertility Clinic Positioning',
+            focus: 'Trust-first medical marketing by Reka Creative Labs',
+            tags: ['Medical Marketing','Patient Trust','Premium Positioning','SEO for Clinics'],
+            result: '₹1.8Cr monthly consultations',
+            icon: '👶',
+            stats: [
+                { val:'₹1.8Cr', label:'Monthly Revenue' },
+                { val:'4x', label:'Consultation Increase' },
+                { val:'₹25K', label:'Consultation Fee' },
+                { val:'10 mo', label:'Timeline' },
+            ],
+            challenge: 'A premium IVF and fertility clinic in Mumbai was treating patients excellently but marketing poorly — generic ads, a 2010-era website, and no digital strategy. Competitors with inferior results were capturing most online leads.',
+            solution: 'Reka Labs rebuilt the clinic\'s digital presence around patient success stories (with consent) and doctor authority content. The lead fertility specialist became a "fertility educator" on YouTube, explaining IVF in plain language. A completely redesigned website with consultation booking improved conversion 8x. Google Search ads targeting high-intent fertility queries drove qualified leads at ₹1,200 CPL.',
+            outcome: 'Monthly consultation revenue grew to ₹1.8Cr (4x increase). Dr. speciality became India\'s most-watched IVF educator on YouTube (280K subscribers). CPL on Google Ads ₹1,200 — generating ₹1.8Cr from ₹4L ad spend.',
+            timeline: [
+                { text: '<strong>Month 1–3:</strong> Website rebuild, Google Ads, YouTube content strategy' },
+                { text: '<strong>Month 4–7:</strong> 80 YouTube videos, channel hits 100K subscribers' },
+                { text: '<strong>Month 8–10:</strong> 4x consultations, ₹1.8Cr MRR' },
+            ],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 30 (Fertility Clinic). I run a medical clinic and need premium digital marketing. Can we connect?'
+        },
+
+        // ===== UNDERDOG =====
+        {
+            id: 31, cat: 'underdog', num: 'CASE 31',
+            title: 'Village Farmer to Organic Brand',
+            focus: 'Grassroots D2C brand built from scratch by Reka Creative Labs',
+            tags: ['Farm-to-Table','Origin Story','D2C Launch','Organic Marketing'],
+            result: '₹80L first year D2C revenue',
+            icon: '🌾',
+            stats: [
+                { val:'₹80L', label:'Year 1 Revenue' },
+                { val:'₹0', label:'Initial Ad Spend' },
+                { val:'12K', label:'Direct Customers' },
+                { val:'9 mo', label:'Timeline' },
+            ],
+            challenge: 'A farmer from Rajasthan with exceptional organic produce had no idea how to sell directly to urban consumers. He was selling at 30% of market value through middlemen.',
+            solution: 'Reka Labs created a "From Laxman Ji\'s Farm to Your Table" brand narrative. A documentary Instagram series following the farmer\'s daily life generated viral emotional engagement (8M+ organic views). A WhatsApp ordering system and farm subscription boxes were launched. Complete brand — name, packaging, story — built in 60 days.',
+            outcome: '₹80L in year-one D2C revenue with 12,000 direct customers. Zero paid advertising. Laxman Ji now employs 8 family members and 3 neighboring farmers. Featured on NDTV and in Times of India.',
+            timeline: [
+                { text: '<strong>Month 1–2:</strong> Brand creation, farm documentary series shot and published' },
+                { text: '<strong>Month 3–5:</strong> 8M organic views, 4,000 WhatsApp customers' },
+                { text: '<strong>Month 6–9:</strong> ₹80L revenue, 12,000 customers' },
+            ],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 31 (Farmer to Organic Brand). I have a genuine product with a great story. Can we connect?'
+        },
+        {
+            id: 32, cat: 'underdog', num: 'CASE 32',
+            title: 'Single Mom Turned Health Coach Empire',
+            focus: 'Authentic personal brand by Reka Creative Labs',
+            tags: ['Personal Brand','Authentic Marketing','Single Mom Story','Course Business'],
+            result: '₹45L/month from zero',
+            icon: '👩',
+            stats: [
+                { val:'₹45L', label:'Monthly Revenue' },
+                { val:'14 mo', label:'Timeline' },
+                { val:'8.2K', label:'Students Enrolled' },
+                { val:'0', label:'Investment Needed' },
+            ],
+            challenge: 'A single mother with a nursing background wanted to launch a health coaching business with zero investment, no following, and no business experience — while working a full-time job.',
+            solution: 'Reka Labs built her entire business using a zero-cost content-first strategy. Her story (single mom, nursing insights, health transformation) became the content. Instagram Reels repurposed for YouTube Shorts, Facebook Groups and Pinterest drove free traffic. A ₹999 mini-course led to a ₹15,000 premium program. Everything automated with free tools.',
+            outcome: '₹45L/month from zero investment in 14 months. 8,200 students enrolled. Quit her nursing job at month 8. Now runs a team of 6 from home.',
+            timeline: [
+                { text: '<strong>Month 1–3:</strong> Instagram content strategy, first ₹999 mini-course' },
+                { text: '<strong>Month 4–8:</strong> 1,200 mini-course buyers, premium program launch' },
+                { text: '<strong>Month 9–14:</strong> ₹45L/month, team of 6, full-time entrepreneur' },
+            ],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 32 (Single Mom Health Coach). I want to build a coaching business from scratch. Can we talk?'
+        },
+        {
+            id: 33, cat: 'underdog', num: 'CASE 33',
+            title: 'Tier-3 City Gym Chain Expansion',
+            focus: 'Hyperlocal franchise growth by Reka Creative Labs',
+            tags: ['Franchise Marketing','Tier-3 Growth','Hyperlocal SEO','WhatsApp Marketing'],
+            result: '12 new locations in 18 months',
+            icon: '🏙️',
+            stats: [
+                { val:'12', label:'New Locations' },
+                { val:'18 mo', label:'Timeline' },
+                { val:'₹28L', label:'Monthly System Revenue' },
+                { val:'84%', label:'Franchise Renewal Rate' },
+            ],
+            challenge: 'A gym owner in Meerut wanted to expand across UP Tier-3 cities but had no franchise system, no marketing playbook, and no brand that would attract quality franchise partners.',
+            solution: 'Reka Labs built a franchise marketing system: a franchise discovery page, franchise partner recruitment campaign on Facebook, city-specific landing pages optimized for local search, and a WhatsApp-based marketing playbook that each franchisee could execute independently.',
+            outcome: '12 new franchise locations across UP, Haryana and Rajasthan in 18 months. System monthly revenue ₹28L. 84% franchise renewal rate after year one.',
+            timeline: [
+                { text: '<strong>Month 1–4:</strong> Franchise system creation, brand standards, pilot 3 locations' },
+                { text: '<strong>Month 5–12:</strong> Franchise recruitment campaign, 6 more locations' },
+                { text: '<strong>Month 13–18:</strong> 12 locations, ₹28L system MRR' },
+            ],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 33 (Tier-3 Gym Expansion). I want to expand my business into new cities. Can we connect?'
+        },
+        {
+            id: 34, cat: 'underdog', num: 'CASE 34',
+            title: 'Disabled Athlete Personal Brand',
+            focus: 'Inclusive inspiration brand by Reka Creative Labs',
+            tags: ['Inclusive Marketing','Paralympic','Personal Brand','Brand Deals'],
+            result: '₹1.2Cr in brand partnerships',
+            icon: '🏆',
+            stats: [
+                { val:'₹1.2Cr', label:'Brand Deals' },
+                { val:'340K', label:'Instagram Followers' },
+                { val:'8 brands', label:'Partnerships' },
+                { val:'12 mo', label:'Timeline' },
+            ],
+            challenge: 'A Paralympic athlete with extraordinary achievements had 3,200 Instagram followers despite being a national champion. Brands weren\'t approaching them and their story wasn\'t being told.',
+            solution: 'Reka Labs built a "No Excuses" personal brand strategy. Cinematic training videos, behind-the-scenes documentary content, and collaboration with mainstream fitness creators built rapid audience growth. A media kit and brand partnership deck was crafted positioning the athlete as a values-first spokesperson for inclusive brands.',
+            outcome: '340K followers in 12 months. ₹1.2Cr in brand partnerships with 8 brands including a major sportswear company. Featured on Times Now and in 3 international publications.',
+            timeline: [
+                { text: '<strong>Month 1–3:</strong> Content strategy, media kit, first brand outreach' },
+                { text: '<strong>Month 4–8:</strong> 100K followers, 3 brand deals signed' },
+                { text: '<strong>Month 9–12:</strong> 340K followers, ₹1.2Cr in partnerships' },
+            ],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 34 (Disabled Athlete Brand). I want to build my personal brand and secure partnerships. Can we talk?'
+        },
+        {
+            id: 35, cat: 'underdog', num: 'CASE 35',
+            title: 'Rural Homeopathy Brand Digital Launch',
+            focus: 'Traditional medicine meets digital India by Reka Creative Labs',
+            tags: ['Homeopathy Marketing','Rural-to-Urban','WhatsApp Commerce','Trust Building'],
+            result: '25,000 customers in 12 months',
+            icon: '💚',
+            stats: [
+                { val:'25K', label:'Customers' },
+                { val:'₹1.8Cr', label:'Annual Revenue' },
+                { val:'92%', label:'Retention Rate' },
+                { val:'12 mo', label:'Timeline' },
+            ],
+            challenge: 'A 4th-generation homeopath from rural UP had a loyal local clientele but couldn\'t scale beyond his village. He wanted to reach urban India digitally but had no tech skills and limited budget.',
+            solution: 'Reka Labs built a WhatsApp-first commerce system (no app needed). Educational short videos in Hindi explaining conditions and Homeopathic remedies built massive trust with Tier-2/3 audiences. Simple paid WhatsApp consultation slots and digital remedy delivery drove revenue. YouTube content in simple Hindi reached 8M views.',
+            outcome: '25,000 customers from 18 states in 12 months. ₹1.8Cr annual revenue. 92% consultation retention rate. Now has a 2-month consultation waitlist.',
+            timeline: [
+                { text: '<strong>Month 1–3:</strong> WhatsApp system, first 50 YouTube videos in Hindi' },
+                { text: '<strong>Month 4–8:</strong> 8M YouTube views, 8,000 WhatsApp customers' },
+                { text: '<strong>Month 9–12:</strong> 25,000 customers, ₹1.8Cr revenue' },
+            ],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 35 (Homeopathy Brand Digital). I have a traditional medicine practice. Can we connect?'
+        },
+
+        // Extra cases 36-50
+        {
+            id: 36, cat: 'fitness', num: 'CASE 36',
+            title: 'CrossFit Box Community Brand',
+            focus: 'Tribe marketing for boutique gym by Reka Creative Labs',
+            tags: ['Community Marketing','CrossFit','Membership Loyalty','Event Marketing'],
+            result: 'Zero churn for 6 consecutive months',
+            icon: '🔥',
+            stats: [{ val:'0%', label:'Churn (6 mo)' },{ val:'280', label:'Active Members' },{ val:'₹3.2L', label:'MRR' },{ val:'6 mo', label:'Timeline' }],
+            challenge: 'A boutique CrossFit gym was losing 20% of members monthly despite excellent coaching. Members loved training but felt no community attachment.',
+            solution: 'Reka Labs designed a "tribe architecture" — monthly hero challenges, member spotlight content, alumni mentorship program, and a members-only app with leaderboards. Content celebrated every PR and milestone publicly.',
+            outcome: 'Zero member churn for 6 consecutive months. MRR stabilized at ₹3.2L. Members became brand advocates generating 3–4 referrals each on average.',
+            timeline: [{ text: '<strong>Month 1–2:</strong> Community audit, member interviews, tribe programs designed' },{ text: '<strong>Month 3–6:</strong> Zero churn, 280 members, referral engine active' }],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 36 (CrossFit Community). I want to reduce churn in my gym. Can we talk?'
+        },
+        {
+            id: 37, cat: 'yoga', num: 'CASE 37',
+            title: 'Online Yoga Teacher Training Revenue',
+            focus: 'Global YTT program launched by Reka Creative Labs',
+            tags: ['Online Course','YouTube','Global Students','Certification'],
+            result: '$42K USD first launch',
+            icon: '🌏',
+            stats: [{ val:'$42K', label:'Launch Revenue' },{ val:'84', label:'Students' },{ val:'21', label:'Countries' },{ val:'3 mo', label:'Launch Window' }],
+            challenge: 'A Rishikesh yoga teacher wanted to take her 200-hour YTT certification program online but couldn\'t compete against established international schools charging $2,000+.',
+            solution: 'Reka Labs built her positioning around "authentic India-sourced yoga" with a heritage certificate. Facebook Group community-building strategy pre-launch built 2,400 warm prospects. Launch email sequence with early bird pricing converted 84 students.',
+            outcome: '$42K in the first launch window from 84 students across 21 countries. Now running 4 launches/year generating $180K annually.',
+            timeline: [{ text: '<strong>Month 1:</strong> Course build, Facebook Group to 1K members' },{ text: '<strong>Month 2:</strong> Waitlist of 600, launch event' },{ text: '<strong>Month 3:</strong> $42K launch' }],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 37 (Yoga Teacher Training). I want to launch an online certification program. Can we connect?'
+        },
+        {
+            id: 38, cat: 'nutrition', num: 'CASE 38',
+            title: 'Diabetic Diet App Growth',
+            focus: 'Condition-specific health app by Reka Creative Labs',
+            tags: ['Health App','Diabetic Community','SEO','Doctor Partnerships'],
+            result: '200K downloads in 8 months',
+            icon: '📊',
+            stats: [{ val:'200K', label:'Downloads' },{ val:'8 mo', label:'Timeline' },{ val:'₹28', label:'CPI' },{ val:'38%', label:'D30 Retention' }],
+            challenge: 'A diabetic meal planning app was unknown despite solving a massive health problem. Downloads were under 500/month with no marketing system.',
+            solution: 'Reka Labs built a doctor referral program, SEO content targeting "diabetic diet chart India" and related terms, and YouTube explainer videos. Community of diabetic patients in WhatsApp drove word-of-mouth.',
+            outcome: '200,000 downloads in 8 months at ₹28 CPI. 38% Day-30 retention. Doctor referral program now drives 35% of all new installs.',
+            timeline: [{ text: '<strong>Month 1–3:</strong> Doctor partnerships, SEO content, WhatsApp community' },{ text: '<strong>Month 4–8:</strong> 200K downloads, 38% D30 retention' }],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 38 (Diabetic Diet App). I have a health app that needs growth. Can we talk?'
+        },
+        {
+            id: 39, cat: 'mental', num: 'CASE 39',
+            title: 'LGBTQ+ Mental Health Platform',
+            focus: 'Inclusive mental health brand by Reka Creative Labs',
+            tags: ['Inclusive Marketing','LGBTQ+','Community Building','Safe Spaces'],
+            result: '15K community members, zero paid ads',
+            icon: '🌈',
+            stats: [{ val:'15K', label:'Community Members' },{ val:'6 mo', label:'Timeline' },{ val:'₹0', label:'Ad Spend' },{ val:'4.9★', label:'App Rating' }],
+            challenge: 'An LGBTQ+ mental health platform was reaching only a tiny fraction of its potential audience due to fear of backlash and uncertain marketing channels.',
+            solution: 'Reka Labs built a safe-space-first content strategy — all content focused on validation, not advocacy. Anonymous peer support features were promoted through trusted LGBTQ+ communities and educators on Instagram.',
+            outcome: '15,000 community members in 6 months with zero paid advertising. 4.9-star app rating. Partnership with 3 Pride organizations and featured in India Today.',
+            timeline: [{ text: '<strong>Month 1–3:</strong> Safe community content, Instagram educator partnerships' },{ text: '<strong>Month 4–6:</strong> 15K members, 4.9 star rating' }],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 39. I have a mental health brand for an underserved community. Can we connect?'
+        },
+        {
+            id: 40, cat: 'corporate', num: 'CASE 40',
+            title: 'Doctor Network Platform B2B',
+            focus: 'Healthcare B2B SaaS by Reka Creative Labs',
+            tags: ['Healthcare SaaS','Doctor Network','B2B Marketing','Medical Community'],
+            result: '3,500 doctors onboarded in 6 months',
+            icon: '⚕️',
+            stats: [{ val:'3500+', label:'Doctors Onboarded' },{ val:'6 mo', label:'Timeline' },{ val:'₹8Cr', label:'Platform GMV' },{ val:'88%', label:'NPS Score' }],
+            challenge: 'A healthtech platform connecting doctors with pharma companies couldn\'t crack the supply side — doctors were skeptical and ignored cold emails.',
+            solution: 'Reka Labs built a "peer ambassador" program where respected doctors were onboarded first and invited their networks. Medical association partnerships, CME-certified webinar content, and a WhatsApp doctors\' community created organic pull.',
+            outcome: '3,500 doctors onboarded in 6 months, ₹8Cr platform GMV, 88% NPS score. Now the most trusted doctor-pharma network in their category.',
+            timeline: [{ text: '<strong>Month 1–2:</strong> 50 ambassador doctors onboarded, CME content' },{ text: '<strong>Month 3–6:</strong> 3,500 doctors, ₹8Cr GMV' }],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 40 (Doctor Network). I have a healthcare platform. Can we talk?'
+        },
+        {
+            id: 41, cat: 'luxury', num: 'CASE 41',
+            title: 'Bespoke Wellness Jewellery Brand',
+            focus: 'Spiritual luxury D2C by Reka Creative Labs',
+            tags: ['Luxury D2C','Spiritual Jewellery','Instagram','Storytelling'],
+            result: '₹80L revenue in 6 months',
+            icon: '💍',
+            stats: [{ val:'₹80L', label:'6-Month Revenue' },{ val:'₹8,500', label:'Avg Order Value' },{ val:'71%', label:'Repeat Rate' },{ val:'6 mo', label:'Timeline' }],
+            challenge: 'A designer making crystal-infused wellness jewellery was selling on Etsy for ₹2,500/piece when they could command ₹8,000+ with better branding and positioning.',
+            solution: 'Reka Labs positioned each piece as a "spiritual investment" with handwritten origin stories, crystal healing properties per piece, and luxury unboxing experiences. Instagram aesthetic was rebuilt around editorial lifestyle photography.',
+            outcome: '₹80L revenue in 6 months with a 71% repeat purchase rate. Average order value tripled to ₹8,500. Waitlist for custom pieces of 3+ months.',
+            timeline: [{ text: '<strong>Month 1–2:</strong> Brand rebuild, luxury packaging, photography overhaul' },{ text: '<strong>Month 3–6:</strong> ₹80L revenue, 71% repeat rate' }],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 41 (Wellness Jewellery Brand). I have a premium handmade product. Can we connect?'
+        },
+        {
+            id: 42, cat: 'underdog', num: 'CASE 42',
+            title: 'Migrant Worker Yoga Teacher',
+            focus: 'Zero-budget global reach by Reka Creative Labs',
+            tags: ['Zero Budget','YouTube','Global Reach','Authentic Story'],
+            result: '2.8M YouTube views, 0 investment',
+            icon: '🎥',
+            stats: [{ val:'2.8M', label:'YouTube Views' },{ val:'180K', label:'Subscribers' },{ val:'₹0', label:'Investment' },{ val:'8 mo', label:'Timeline' }],
+            challenge: 'A Tamil Nadu yoga teacher who had migrated to Dubai with minimal savings wanted to build an online income but had only a phone and a yoga mat.',
+            solution: 'Reka Labs (pro-bono) designed a YouTube content strategy focused on "yoga for working professionals" — filmed in his apartment with natural light. SEO-optimized titles and descriptions targeted globally searchable queries. Short-form content repurposed to Instagram Reels and YouTube Shorts.',
+            outcome: '2.8M views, 180K subscribers, 0 investment in 8 months. Online classes now generate $4,000/month USD. Returned to India to build a studio.',
+            timeline: [{ text: '<strong>Month 1–3:</strong> 40 videos, SEO strategy, Shorts repurposing' },{ text: '<strong>Month 4–8:</strong> 2.8M views, 180K subs, $4K/month' }],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 42 (Yoga Teacher Zero Budget). I want to build an online income from scratch. Can we talk?'
+        },
+        {
+            id: 43, cat: 'fitness', num: 'CASE 43',
+            title: 'Para Sports Academy Marketing',
+            focus: 'Social impact sports brand by Reka Creative Labs',
+            tags: ['Sports Marketing','Para Sports','CSR Partnerships','Government Grants'],
+            result: '₹1.8Cr in sponsorships secured',
+            icon: '🏅',
+            stats: [{ val:'₹1.8Cr', label:'Sponsorships' },{ val:'200', label:'Athletes Funded' },{ val:'12', label:'Corporate Sponsors' },{ val:'9 mo', label:'Timeline' }],
+            challenge: 'A Para Sports Academy in Pune had world-class athletes but no marketing, no funding, and relied entirely on individual donations.',
+            solution: 'Reka Labs created a CSR-linkage marketing strategy — documenting athlete journeys as video case studies that corporations could showcase in annual reports. LinkedIn outreach to CSR heads of Fortune 500 Indian companies. Government grant applications supported by the media coverage Reka Labs generated.',
+            outcome: '₹1.8Cr in corporate sponsorships from 12 companies. 200 athletes now fully funded. Academy received government recognition and grant of ₹50L.',
+            timeline: [{ text: '<strong>Month 1–4:</strong> Athlete story videos, CSR outreach begins' },{ text: '<strong>Month 5–9:</strong> ₹1.8Cr secured, government grant' }],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 43 (Para Sports Academy). I run a sports or social impact organization. Can we connect?'
+        },
+        {
+            id: 44, cat: 'nutrition', num: 'CASE 44',
+            title: 'Vegan Food Startup Nykaa Launch',
+            focus: 'Retail partnership marketing by Reka Creative Labs',
+            tags: ['Vegan Brand','Nykaa Launch','Retail Marketing','Influencer'],
+            result: 'Nykaa bestseller in 30 days',
+            icon: '🌿',
+            stats: [{ val:'#1', label:'Nykaa Category' },{ val:'30 days', label:'To Bestseller' },{ val:'12K', label:'Units Sold' },{ val:'4.8★', label:'Rating' }],
+            challenge: 'A vegan protein bar startup had a listing on Nykaa but was page 4 with no reviews and no traffic. They had 45 days before Nykaa would delist them.',
+            solution: 'Reka Labs ran a 30-day intensive: 200 influencer seedings to health/vegan creators, coordinated review campaign, and targeted Instagram ads pointing directly to the Nykaa product page. Email blast to an existing health audience with a promo code drove the first 500 reviews.',
+            outcome: 'Nykaa #1 bestseller in the vegan protein category within 30 days. 12,000 units sold. 4.8-star rating from 800+ reviews. Re-listed in Nykaa\'s curated wellness box.',
+            timeline: [{ text: '<strong>Day 1–10:</strong> 200 influencer seedings, review campaign' },{ text: '<strong>Day 11–30:</strong> Bestseller achieved, 12K units sold' }],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 44 (Vegan Brand Nykaa). I have a product listed on Nykaa and need more sales. Can we talk?'
+        },
+        {
+            id: 45, cat: 'mental', num: 'CASE 45',
+            title: 'Sleep Tech Startup India Launch',
+            focus: 'Behavioural health product launch by Reka Creative Labs',
+            tags: ['Sleep Health','Startup Launch','Content Marketing','Podcast'],
+            result: '50K paying users in 10 months',
+            icon: '😴',
+            stats: [{ val:'50K', label:'Paying Users' },{ val:'10 mo', label:'Timeline' },{ val:'₹299', label:'Monthly Price' },{ val:'62%', label:'Annual Upgrade Rate' }],
+            challenge: 'An India-first sleep improvement app was struggling to convince Indians that "sleep problems" were worth paying for — cultural stigma around admitting sleep difficulties.',
+            solution: 'Reka Labs reframed sleep as a "performance edge" not a health problem. A "The Sleep Billionaires" podcast featuring high-achievers discussing their sleep habits drove aspirational content. Doctor endorsements and productivity-angle content (not mental health) made the problem mainstream.',
+            outcome: '50,000 paying subscribers in 10 months at ₹299/month. 62% upgrade to annual plan. The app became the most reviewed sleep app on the Indian App Store.',
+            timeline: [{ text: '<strong>Month 1–3:</strong> Podcast launch, performance reframe content strategy' },{ text: '<strong>Month 4–10:</strong> 50K paying users, #1 sleep app India' }],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 45 (Sleep Tech App). I have a health app and need to grow subscribers. Can we connect?'
+        },
+        {
+            id: 46, cat: 'corporate', num: 'CASE 46',
+            title: 'Physiotherapy Clinic Chain Scale',
+            focus: 'Multi-location healthcare marketing by Reka Creative Labs',
+            tags: ['Healthcare Marketing','Clinic Chain','Local SEO','Google Ads'],
+            result: '8 new clinics, 4x revenue',
+            icon: '🩺',
+            stats: [{ val:'8 clinics', label:'Opened' },{ val:'4x', label:'Revenue Growth' },{ val:'₹1.2Cr', label:'Monthly Revenue' },{ val:'18 mo', label:'Timeline' }],
+            challenge: 'A physiotherapy clinic in Delhi wanted to scale to multiple locations but every new clinic struggled to get patients in the first 6 months.',
+            solution: 'Reka Labs built a "clinic launch playbook" — hyper-targeted Google Ads for each location, clinic-specific landing pages, local SEO for each area, and a patient referral incentive program. Each clinic had a local Instagram presence with area-specific content.',
+            outcome: '8 new clinics opened in 18 months. Revenue grew 4x to ₹1.2Cr/month. Each new clinic reaches break-even within 60 days vs. 8-month industry average.',
+            timeline: [{ text: '<strong>Month 1–6:</strong> Launch playbook built, 3 pilot clinics' },{ text: '<strong>Month 7–18:</strong> 5 more clinics, ₹1.2Cr MRR' }],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 46 (Physio Clinic Chain). I want to scale my clinic to multiple locations. Can we talk?'
+        },
+        {
+            id: 47, cat: 'luxury', num: 'CASE 47',
+            title: 'Executive Health Checkup Brand',
+            focus: 'Premium diagnostic centre brand by Reka Creative Labs',
+            tags: ['Premium Healthcare','Executive Health','B2C Premium','Corporate Tie-ups'],
+            result: '₹2.4Cr monthly from exec health checks',
+            icon: '🏥',
+            stats: [{ val:'₹2.4Cr', label:'Monthly Revenue' },{ val:'₹25K', label:'Avg Package Value' },{ val:'800+', label:'Monthly Clients' },{ val:'12 mo', label:'Timeline' }],
+            challenge: 'A premium health diagnostic centre was undercharging at ₹5,000 per comprehensive checkup when their facilities and doctors justified ₹25,000 "executive health packages."',
+            solution: 'Reka Labs repositioned from "health checkup" to "executive wellness intelligence" — complete rebranding, new premium service packages (₹25K Executive, ₹45K Premium, ₹80K Concierge), LinkedIn targeting of C-suite and senior management, and corporate tie-ups providing annual health packages to employees.',
+            outcome: 'Monthly revenue grew from ₹30L to ₹2.4Cr. Average package value 5x from ₹5K to ₹25K. Corporate tie-ups with 28 companies drive 60% of revenue.',
+            timeline: [{ text: '<strong>Month 1–4:</strong> Rebrand, premium packages, corporate sales outreach' },{ text: '<strong>Month 5–12:</strong> ₹2.4Cr monthly, 28 corporate clients' }],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 47 (Executive Health Brand). I run a diagnostic or healthcare centre. Can we connect?'
+        },
+        {
+            id: 48, cat: 'underdog', num: 'CASE 48',
+            title: 'Tribal Art Wellness Products',
+            focus: 'Cultural wellness brand for global market by Reka Creative Labs',
+            tags: ['Cultural Marketing','Export Market','Etsy Global','Artisan Brand'],
+            result: 'Exported to 28 countries',
+            icon: '🎨',
+            stats: [{ val:'28', label:'Export Countries' },{ val:'$180K', label:'Annual USD Revenue' },{ val:'4.9★', label:'Etsy Rating' },{ val:'12 mo', label:'Timeline' }],
+            challenge: 'A tribal artisan collective from Odisha was making beautiful hand-painted wellness products (meditation bowls, prayer journals) but selling at craft fairs for ₹200–500 when international markets would pay $30–80.',
+            solution: 'Reka Labs positioned the collective\'s work as "conscious wellness art" for the global meditation community. Etsy shop optimization, Pinterest content strategy, and Instagram targeting wellness-conscious US/UK/Australian audiences drove international discovery. Each product came with the artisan\'s story card.',
+            outcome: 'Exporting to 28 countries with $180K annual USD revenue. Artisan collective now employs 34 families. Featured in GoodGoodGood.co and a UK wellness magazine.',
+            timeline: [{ text: '<strong>Month 1–3:</strong> Etsy optimization, brand story creation, photography' },{ text: '<strong>Month 4–12:</strong> 28 countries, $180K revenue' }],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 48 (Tribal Art Wellness). I have a cultural product for international markets. Can we talk?'
+        },
+        {
+            id: 49, cat: 'yoga', num: 'CASE 49',
+            title: 'Prenatal Yoga Digital Studio',
+            focus: 'Niche wellness community by Reka Creative Labs',
+            tags: ['Prenatal Wellness','Community Platform','Subscription Model','Pinterest'],
+            result: '4,800 paying subscribers',
+            icon: '🤰',
+            stats: [{ val:'4,800', label:'Paying Subscribers' },{ val:'₹1,200', label:'Monthly Subscription' },{ val:'94%', label:'Renewal Rate' },{ val:'10 mo', label:'Timeline' }],
+            challenge: 'A certified prenatal yoga instructor wanted to scale beyond her studio but her audience (pregnant women) was hard to target with standard fitness marketing.',
+            solution: 'Reka Labs built a Pinterest-first content strategy (pregnant women are heavily on Pinterest). A "Pregnancy Week by Week Yoga" content series drove massive organic traffic. A ₹1,200/month subscription with trimester-specific programs and a private community had exceptional retention.',
+            outcome: '4,800 paying subscribers in 10 months at ₹1,200/month = ₹57.6L annual recurring revenue. 94% renewal rate. Highest-rated prenatal yoga program in India.',
+            timeline: [{ text: '<strong>Month 1–4:</strong> Pinterest strategy, week-by-week content series' },{ text: '<strong>Month 5–10:</strong> 4,800 subscribers, ₹57.6L ARR' }],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 49 (Prenatal Yoga Studio). I want to build a niche subscription wellness business. Can we connect?'
+        },
+        {
+            id: 50, cat: 'fitness', num: 'CASE 50',
+            title: 'Sports Nutrition Brand IPL Partnership',
+            focus: 'Sports sponsorship activation by Reka Creative Labs',
+            tags: ['Sports Marketing','IPL','Sponsorship Activation','Cricket'],
+            result: '₹8Cr revenue from IPL season',
+            icon: '🏏',
+            stats: [{ val:'₹8Cr', label:'IPL Season Revenue' },{ val:'82M', label:'Impressions' },{ val:'4.1x', label:'Sponsorship ROI' },{ val:'2 mo', label:'Season' }],
+            challenge: 'A sports nutrition brand had secured a small IPL team jersey sponsorship but had no activation plan — the logo would be on jerseys but they didn\'t know how to convert exposure to revenue.',
+            solution: 'Reka Labs built a complete activation strategy: player partnership content for social media, "Win the season pack" IPL-timed product bundle, stadium digital ads, and a viral "If [Team] wins, you win" discount challenge that drove massive earned media. Real-time social media during matches kept the brand trending.',
+            outcome: '₹8Cr in revenue during the IPL season — 4.1x ROI on sponsorship investment. 82M brand impressions. Brand search volume increased 1,200% during the tournament.',
+            timeline: [{ text: '<strong>Pre-IPL (4 weeks):</strong> Activation plan, player content, product bundles' },{ text: '<strong>During IPL (8 weeks):</strong> ₹8Cr revenue, 82M impressions' }],
+            wa: 'Hi Reka Creative Labs! I saw Case Study 50 (Sports Nutrition IPL). I have a sponsorship or sports marketing opportunity. Can we talk?'
+        },
+    ];
+
+    // =========================================
+    // RENDER CARDS
+    // =========================================
+    const categories = {
+        fitness: { label: 'Fitness & Personal Training', icon: '<i class="ph ph-barbell"></i>' },
+        yoga:    { label: 'Yoga & Holistic Wellness',    icon: '<i class="ph ph-person-simple"></i>' },
+        nutrition:{ label: 'Nutrition & Diet Plans',    icon: '🥗' },
+        mental:  { label: 'Mental Health & Mindfulness', icon: '🧠' },
+        corporate:{ label: 'Corporate & Enterprise Wellness', icon: '<i class="ph ph-buildings"></i>' },
+        luxury:  { label: 'Luxury & Premium Wellness',   icon: '💎' },
+        underdog:{ label: 'Underdog Stories',            icon: '🚀' },
+    };
+
+    let currentFilter = 'all';
+
+    function filterCases(cat, btn) {
+        currentFilter = cat;
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderGrid();
+    }
+
+    function renderGrid() {
+        const grid = document.getElementById('casesGrid');
+        grid.innerHTML = '';
+
+        const filtered = currentFilter === 'all'
+            ? caseStudies
+            : caseStudies.filter(c => c.cat === currentFilter);
+
+        let currentCat = null;
+
+        filtered.forEach((c, idx) => {
+            // Category header
+            if (currentFilter === 'all' && c.cat !== currentCat) {
+                currentCat = c.cat;
+                const catInfo = categories[c.cat];
+                const hdr = document.createElement('div');
+                hdr.className = 'category-header';
+                hdr.innerHTML = `<span class="cat-icon">${catInfo.icon}</span><span class="cat-label">${catInfo.label}</span><div class="cat-line"></div>`;
+                grid.appendChild(hdr);
+            }
+
+            // Card
+            const card = document.createElement('div');
+            card.className = 'case-card reveal';
+            card.setAttribute('onclick', `openCase(${c.id})`);
+            card.setAttribute('role', 'button');
+            card.setAttribute('tabindex', '0');
+            card.setAttribute('aria-label', `Open ${c.num}: ${c.title}`);
+            card.style.animationDelay = `${(idx % 10) * 0.07}s`;
+            card.innerHTML = `
+                <span class="case-num">${c.num}</span>
+                <div style="font-size:1.8rem;">${c.icon}</div>
+                <h3 class="case-title">${c.title}</h3>
+                <p class="case-focus">${c.focus}</p>
+                <div class="case-tags">${c.tags.slice(0,2).map(t => `<span class="tag">${t}</span>`).join('')}</div>
+                <div class="case-result"><i class="ph ph-trend-up" style="margin-right:6px;"></i>${c.result}</div>
+                <div class="case-arrow"><i class="ph ph-arrow-right"></i></div>
+            `;
+            card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openCase(c.id); });
+            grid.appendChild(card);
+        });
+    }
+
+    // =========================================
+    // MODAL
+    // =========================================
+    function openCase(id) {
+        const c = caseStudies.find(x => x.id === id);
+        if (!c) return;
+
+        const content = document.getElementById('modalContent');
+        const waMsg = encodeURIComponent(c.wa);
+
+        content.innerHTML = `
+            <div class="modal-case-num">${c.num} · ${categories[c.cat].label}</div>
+            <div style="font-size:2.5rem;margin-bottom:10px;">${c.icon}</div>
+            <h2 class="modal-title">${c.title}</h2>
+            <p class="modal-subtitle">${c.focus}</p>
+
+            <div class="modal-tags">${c.tags.map(t => `<span class="modal-tag">${t}</span>`).join('')}</div>
+
+            <div class="modal-stats-row">
+                ${c.stats.map(s => `<div class="modal-stat"><span class="modal-stat-val">${s.val}</span><span class="modal-stat-label">${s.label}</span></div>`).join('')}
+            </div>
+
+            <div class="modal-section">
+                <div class="modal-section-title"><i class="ph ph-warning-circle"></i> The Challenge</div>
+                <div class="modal-challenge">${c.challenge}</div>
+            </div>
+
+            <div class="modal-section">
+                <div class="modal-section-title"><i class="ph ph-lightbulb"></i> The Strategy</div>
+                <div class="modal-solution">${c.solution}</div>
+            </div>
+
+            <div class="modal-section">
+                <div class="modal-section-title"><i class="ph ph-calendar-check"></i> Timeline</div>
+                <div class="modal-timeline">
+                    ${c.timeline.map(t => `<div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-text">${t.text}</div></div>`).join('')}
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <div class="modal-section-title"><i class="ph ph-trophy"></i> The Outcome</div>
+                <div class="modal-outcome">${c.outcome}</div>
+            </div>
+
+            <div class="modal-cta">
+                <a href="https://wa.me/918368508556?text=${waMsg}" target="_blank" rel="noopener" class="btn btn-primary" style="flex:1;text-align:center;"><i class="ph ph-whatsapp-logo"></i> Get Similar Results — Chat Now</a>
+                <a href="tools.html" class="btn btn-outline"><i class="ph ph-lightning"></i> Try Free Tools</a>
+            </div>
+        `;
+
+        document.getElementById('caseModal').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeCaseModal() {
+        document.getElementById('caseModal').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    function closeModal(e) {
+        if (e.target === document.getElementById('caseModal')) closeCaseModal();
+    }
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCaseModal(); });
+
+    // Init
+    renderGrid();
+    </script>
 </body>
 </html>
