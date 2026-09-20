@@ -1,27 +1,16 @@
 
         :root {
-            --primary: #8CF665;
-            --primary-dark: #036A3A;
-            --bg-dark: #070E0A;
-            --bg-card: #0F1B15;
-            --text-primary: #FFFFFF;
-            --text-secondary: #A0A9A0;
-            --border-color: rgba(140, 246, 101, 0.1);
-            --shadow-sm: 0 4px 15px rgba(140, 246, 101, 0.05);
-            --shadow-md: 0 10px 40px rgba(0, 0, 0, 0.3);
-            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.4);
-            --transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-primary);
-            overflow-x: hidden;
-            line-height: 1.6;
+            --primary: #57e3c4;
+            --primary-dark: #0f4c3a;
+            --bg-dark: #090c12;
+            --bg-card: rgba(255, 255, 255, 0.055);
+            --text-primary: #f2f4f8;
+            --text-secondary: rgba(242, 244, 248, 0.65);
+            --border-color: rgba(255, 255, 255, 0.12);
+            --shadow-sm: 0 4px 15px rgba(87, 227, 196, 0.08);
+            --shadow-md: 0 10px 40px rgba(0, 0, 0, 0.5);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.7);
+            --transition: all 0.25s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
         /* PARTICLES CANVAS */
@@ -46,44 +35,6 @@
             transition: opacity 0.3s;
         }
         body:hover .cursor-follower { opacity: 1; }
-
-
-
-        /* NAVBAR */
-        .navbar {
-            position: fixed; top: 0; left: 0; right: 0;
-            z-index: 1000;
-            background: rgba(7, 14, 10, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
-            padding: 1rem 0;
-        }
-
-        .nav-container {
-            max-width: 1200px; margin: 0 auto; padding: 0 20px;
-            display: flex; justify-content: space-between; align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem; font-weight: 800;
-            text-decoration: none; letter-spacing: -2px;
-        }
-
-        .logo-text {
-            background: linear-gradient(135deg, var(--primary), #4ADE80);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-links { display: flex; gap: 2rem; align-items: center; }
-
-        .nav-link {
-            color: var(--text-secondary); text-decoration: none;
-            transition: var(--transition); position: relative;
-        }
-
-        .nav-link:hover { color: var(--primary); }
 
         .btn {
             display: inline-block; padding: 10px 24px;
@@ -1742,4 +1693,24 @@
 .channel-bar-track { background:rgba(255,255,255,0.06); border-radius:50px; height:7px; overflow:hidden; margin-top:6px; }
 .channel-bar-fill { height:100%; border-radius:50px; transition:width 1.2s cubic-bezier(0.16,1,0.3,1); }
 
-
+/* CAC Calculator Styles */
+.currency-toggle {
+    display: inline-flex;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 2px;
+}
+.curr-btn {
+    transition: var(--transition);
+}
+.curr-btn:hover:not(.active) {
+    color: var(--text-primary) !important;
+}
+#panel-cac .result-card {
+    transition: var(--transition);
+}
+#panel-cac .result-card:hover {
+    border-color: rgba(87, 227, 196, 0.35);
+    transform: translateY(-2px);
+}

@@ -65,6 +65,13 @@ if (canvas) {
 // TOOL SWITCHER — Full Sidebar + State Engine
 // =========================================
 function switchTool(id) {
+    // Stop live dashboard timer if leaving dashboard to save CPU/battery
+    if (id !== 'dashboard' && liveDashInterval) {
+        clearInterval(liveDashInterval);
+        liveDashInterval = null;
+        liveDashRunning = false;
+    }
+
     // Hide all panels
     document.querySelectorAll('.tool-panel').forEach(p => p.classList.remove('active'));
 
@@ -97,15 +104,13 @@ function switchTool(id) {
         if (sidebar) sidebar.classList.remove('open');
     }
 
-    // Scroll to top removed to prevent page jump
-    // window.scrollTo({ top: 0, behavior: 'smooth' });
-
     // Init tool-specific logic
     if (id === 'chatbot' && !chatInitialized) initChat();
     if (id === 'dashboard') initDashboard();
     if (id === 'social') initSocialFeed();
     if (id === 'booking') renderCalendar();
     if (id === 'adbudget') calcBudget();
+    if (id === 'cac') calcCAC();
 }
 
 // =========================================
@@ -138,8 +143,12 @@ document.addEventListener('DOMContentLoaded', () => {
 // WEBSITE AUDIT
 // =========================================
 function runAudit() {
-    const url = document.getElementById('audit-url').value.trim();
-    if (!url) { alert('Please enter a URL'); return; }
+    let url = document.getElementById('audit-url').value.trim();
+    if (!url) { alert('Please enter a website URL'); return; }
+    if (!url.startsWith('http://') && !url.startsWith('https://')) {
+        url = 'https://' + url;
+        document.getElementById('audit-url').value = url;
+    }
 
     document.getElementById('audit-placeholder').style.display = 'none';
     document.getElementById('audit-results').style.display = 'none';
@@ -371,10 +380,10 @@ function startChatTool(tool) {
                 addBotMsg(`<i class="ph ph-star"></i> <strong>Social Proof Dashboard</strong>
                 <div class="chat-widget" style="padding:12px;">
                     <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:12px;">
-                        <div class="chat-stat-box"><span class="lbl">Clients</span><span class="val">247+</span></div>
-                        <div class="chat-stat-box"><span class="lbl">Avg ROAS</span><span class="val">4.8x</span></div>
-                        <div class="chat-stat-box"><span class="lbl">Leads</span><span class="val">1.2M+</span></div>
-                        <div class="chat-stat-box"><span class="lbl">Reviews</span><span class="val">⭐ 4.9</span></div>
+                        <div class="chat-stat-box"><span class="lbl">Brands</span><span class="val">750+</span></div>
+                        <div class="chat-stat-box"><span class="lbl">Avg ROAS</span><span class="val">4.2x</span></div>
+                        <div class="chat-stat-box"><span class="lbl">Revenue</span><span class="val">₹27Cr+</span></div>
+                        <div class="chat-stat-box"><span class="lbl">Sprint</span><span class="val">24–48h</span></div>
                     </div>
                     <div style="display:flex;flex-direction:column;gap:8px;">${feedHtml}</div>
                     <button class="chat-widget-btn" onclick="startChatTool('booking')"><i class="ph ph-calendar"></i> Book a Strategy Call</button>
@@ -842,10 +851,12 @@ let selectedOpt = null;
 
 function selectQ(step, val) {
     document.querySelectorAll(`#qs${step} .quiz-option`).forEach(o => o.classList.remove('selected'));
-    event.currentTarget.classList.add('selected');
+    const target = (typeof event !== 'undefined' && event) ? (event.currentTarget || event.target?.closest('.quiz-option')) : null;
+    if (target) target.classList.add('selected');
     quizAnswers[step] = val;
     selectedOpt = val;
-    document.getElementById('quizNextBtn').style.display = 'inline-block';
+    const nextBtn = document.getElementById('quizNextBtn');
+    if (nextBtn) nextBtn.style.display = 'inline-block';
 }
 
 function nextQuiz() {
@@ -905,6 +916,124 @@ function resetQuiz() {
 }
 
 // =========================================
+// CUSTOMER ACQUISITION COST (CAC) CALCULATOR
+// =========================================
+let cacCurrency = 'INR';
+
+function setCACCurrency(curr) {
+    cacCurrency = curr;
+    const inrBtn = document.getElementById('cac-curr-inr');
+    const usdBtn = document.getElementById('cac-curr-usd');
+    const syms = document.querySelectorAll('.cac-curr-sym');
+    const sym = curr === 'USD' ? '$' : '₹';
+
+    if (curr === 'USD') {
+        if (inrBtn) { inrBtn.classList.remove('active'); inrBtn.style.background = 'transparent'; inrBtn.style.color = 'var(--text-secondary)'; }
+        if (usdBtn) { usdBtn.classList.add('active'); usdBtn.style.background = 'var(--primary)'; usdBtn.style.color = 'var(--bg-dark)'; }
+        const adSpendEl = document.getElementById('cac-adspend');
+        const overheadEl = document.getElementById('cac-overhead');
+        const ltvEl = document.getElementById('cac-ltv');
+        if (adSpendEl && adSpendEl.value === '150000') adSpendEl.value = '4000';
+        if (overheadEl && overheadEl.value === '50000') overheadEl.value = '1500';
+        if (ltvEl && ltvEl.value === '12000') ltvEl.value = '350';
+    } else {
+        if (inrBtn) { inrBtn.classList.add('active'); inrBtn.style.background = 'var(--primary)'; inrBtn.style.color = 'var(--bg-dark)'; }
+        if (usdBtn) { usdBtn.classList.remove('active'); usdBtn.style.background = 'transparent'; usdBtn.style.color = 'var(--text-secondary)'; }
+        const adSpendEl = document.getElementById('cac-adspend');
+        const overheadEl = document.getElementById('cac-overhead');
+        const ltvEl = document.getElementById('cac-ltv');
+        if (adSpendEl && adSpendEl.value === '4000') adSpendEl.value = '150000';
+        if (overheadEl && overheadEl.value === '1500') overheadEl.value = '50000';
+        if (ltvEl && ltvEl.value === '350') ltvEl.value = '12000';
+    }
+
+    syms.forEach(s => s.textContent = sym);
+    calcCAC();
+}
+
+function fmtCurrency(val) {
+    const sym = cacCurrency === 'USD' ? '$' : '₹';
+    const locale = cacCurrency === 'USD' ? 'en-US' : 'en-IN';
+    return sym + Math.round(val).toLocaleString(locale);
+}
+
+function calcCAC() {
+    const adSpendEl = document.getElementById('cac-adspend');
+    if (!adSpendEl) return;
+
+    const adSpend = Math.max(0, parseFloat(adSpendEl.value) || 0);
+    const overhead = Math.max(0, parseFloat(document.getElementById('cac-overhead').value) || 0);
+    const customers = Math.max(1, parseFloat(document.getElementById('cac-customers').value) || 1);
+    const ltv = Math.max(0, parseFloat(document.getElementById('cac-ltv').value) || 0);
+    const marginPct = Math.min(100, Math.max(1, parseFloat(document.getElementById('cac-margin').value) || 70)) / 100;
+    const cycleDays = Math.max(1, parseFloat(document.getElementById('cac-cycle').value) || 30);
+
+    const totalSpend = adSpend + overhead;
+    const cac = totalSpend / customers;
+    const ratio = cac > 0 ? (ltv / cac) : 0;
+    const maxAllowableCAC = ltv * marginPct;
+    const netProfitPerCustomer = (ltv * marginPct) - cac;
+    
+    const paybackMonths = ltv > 0 && cac > 0 ? ((cac / (ltv * marginPct)) * (cycleDays / 30)).toFixed(1) : '—';
+
+    const cacOut = document.getElementById('cac-out-cac');
+    const ratioOut = document.getElementById('cac-out-ratio');
+    const paybackOut = document.getElementById('cac-out-payback');
+    const maxCacOut = document.getElementById('cac-out-maxcac');
+    const profitOut = document.getElementById('cac-out-netprofit');
+    const totalSpendOut = document.getElementById('cac-out-totalspend');
+    const badge = document.getElementById('cac-health-badge');
+    const diagTitle = document.getElementById('cac-diagnosis-title');
+    const diagText = document.getElementById('cac-diagnosis-text');
+
+    if (cacOut) cacOut.textContent = fmtCurrency(cac);
+    if (ratioOut) ratioOut.textContent = ratio.toFixed(2) + 'x';
+    if (paybackOut) paybackOut.textContent = paybackMonths !== '—' ? paybackMonths + ' mos' : '—';
+    if (maxCacOut) maxCacOut.textContent = fmtCurrency(maxAllowableCAC);
+    if (profitOut) {
+        profitOut.textContent = (netProfitPerCustomer < 0 ? '-' : '') + fmtCurrency(Math.abs(netProfitPerCustomer));
+        profitOut.style.color = netProfitPerCustomer >= 0 ? '#4ADE80' : '#ff6b6b';
+    }
+    if (totalSpendOut) totalSpendOut.textContent = fmtCurrency(totalSpend);
+
+    if (badge && diagTitle && diagText) {
+        if (ratio < 1.0) {
+            badge.textContent = 'Critical Alert: Negative Unit Economics';
+            badge.style.background = 'rgba(255, 70, 70, 0.15)';
+            badge.style.color = '#ff6b6b';
+            badge.style.borderColor = 'rgba(255, 70, 70, 0.4)';
+            diagTitle.textContent = 'Unit Economics Status: Unsustainable';
+            diagTitle.parentElement.style.color = '#ff6b6b';
+            diagText.textContent = `You are losing ${fmtCurrency(Math.abs(netProfitPerCustomer))} per acquired customer. Scaling ad spend will accelerate cash depletion. Focus immediately on fixing landing page conversion rates, increasing initial order value, and reducing unoptimized ad spend.`;
+        } else if (ratio < 3.0) {
+            badge.textContent = 'Marginal Zone (1.0x - 2.9x)';
+            badge.style.background = 'rgba(255, 200, 50, 0.15)';
+            badge.style.color = '#FFC832';
+            badge.style.borderColor = 'rgba(255, 200, 50, 0.4)';
+            diagTitle.textContent = 'Unit Economics Status: Break-Even / Thin Margin';
+            diagTitle.parentElement.style.color = '#FFC832';
+            diagText.textContent = `Your acquisition is profitable but cash flows may be constrained by payback velocity (${paybackMonths} months). Recommend implementing upsells or deploying WhatsApp automation to increase close rates without increasing ad budget.`;
+        } else if (ratio < 5.0) {
+            badge.textContent = 'Healthy Scaling Zone (3.0x - 4.9x)';
+            badge.style.background = 'rgba(74, 222, 128, 0.15)';
+            badge.style.color = '#4ADE80';
+            badge.style.borderColor = 'rgba(74, 222, 128, 0.4)';
+            diagTitle.textContent = 'Unit Economics Status: Highly Scalable';
+            diagTitle.parentElement.style.color = '#4ADE80';
+            diagText.textContent = `Your LTV:CAC ratio is optimal. Every unit of capital invested yields predictable gross margin and rapid cash recycling (${paybackMonths} mos). You have strong leverage to scale Meta ad budgets aggressively.`;
+        } else {
+            badge.textContent = 'Exceptional / Under-Invested (5.0x+)';
+            badge.style.background = 'rgba(87, 227, 196, 0.15)';
+            badge.style.color = 'var(--primary)';
+            badge.style.borderColor = 'rgba(87, 227, 196, 0.4)';
+            diagTitle.textContent = 'Unit Economics Status: Supercharged / Aggressive Scaling';
+            diagTitle.parentElement.style.color = 'var(--primary)';
+            diagText.textContent = `Outstanding unit economics! With an LTV:CAC of ${ratio.toFixed(2)}x, you are likely leaving revenue on the table by being too conservative. Scaling your monthly ad spend by 2x to 4x will multiply bottom-line profit.`;
+        }
+    }
+}
+
+// =========================================
 // AD BUDGET PLANNER
 // =========================================
 function fmt(n) { return '₹' + Math.round(n).toLocaleString('en-IN'); }
@@ -959,8 +1088,12 @@ function calcBudget() {
 // LANDING PAGE ANALYZER
 // =========================================
 function analyzeLanding() {
-    const url = document.getElementById('lp-url').value.trim();
+    let url = document.getElementById('lp-url').value.trim();
     if (!url) { alert('Please enter your landing page URL'); return; }
+    if (!url.startsWith('http://') && !url.startsWith('https://')) {
+        url = 'https://' + url;
+        document.getElementById('lp-url').value = url;
+    }
 
     document.getElementById('lp-placeholder').style.display = 'none';
     document.getElementById('lp-results').style.display = 'none';
@@ -1100,7 +1233,7 @@ function initSocialFeed() {
     });
 
     const reviewList = document.getElementById('reviews-list');
-    if (!reviewList) return;
+    if (!reviewList || reviewList.children.length > 0) return;
     reviews.forEach(r => {
         const el = document.createElement('div');
         el.style.cssText = 'padding:1rem;background:rgba(255,255,255,0.02);border-radius:10px;border:1px solid var(--border-color);';
@@ -1629,6 +1762,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // INIT
 // =========================================
 document.addEventListener('DOMContentLoaded', () => {
+    calcCAC();
     calcBudget();
     initDashboard();
     renderCalendar();
