@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroProgressFill = document.getElementById('heroProgressFill');
 
     if (heroVideo) {
-        // Complete playlist of all real client ad creatives
+        // Complete playlist of all 22 real client ad creatives & reviews
         const videoPlaylist = [
             {
                 src: 'rev/AQOTgmeLVUqSyI--kXy5uuvmUms6by_c7jWnXN9vzYLWkFDmVAlmmWLAarOoZyM-sJHgqJM-NCIZwt11NzXr_ugWicHnKoHNggEgOUo.mp4',
@@ -128,11 +128,59 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             {
                 src: 'rev/AQOIhcaG4iBc5vb2JnM6rgU8ChK6WfDcHIkx5SJeGIvDZdd2l1lYeFy1ur5pfldbmbeOXWyByavfKXmIiqzdmZDNqv9KaVBLP1YmZPo.mp4',
-                title: 'Performance Creative #09'
+                title: 'Performance Creative Sprint'
             },
             {
                 src: 'rev/AQPmvvhUyKPvraAx6qXnKgZ0if5J6IIFttmC5KKm7Eyz-UBCEkTu75h1yeMIg57U8Q2ZV992zAb-V1KzUmOVx-rsqqKlCjRD5gt_P2Y.mp4',
-                title: 'AI Creative Variant #10'
+                title: 'AI Scale Creative #10'
+            },
+            {
+                src: 'rev/Over the past year, we’ve had the opportunity to work with 800+ Wellness Coaches and help them b.mp4',
+                title: '800+ Wellness Coaches Scale'
+            },
+            {
+                src: 'rev/Podcast shootsYouTube videosProfessional photoshootsHigh-quality video editingYour content deser.mp4',
+                title: 'Studio & High-Quality Production'
+            },
+            {
+                src: 'rev/Trusted by 750+ Wellness & Business ProfessionalsFor more than 1.5 years, we’ve been helping bus.mp4',
+                title: '750+ Business Leaders Trust'
+            },
+            {
+                src: 'rev/We’re grateful for the trust, collaboration, and positive feedback that inspire us to keep creat.mp4',
+                title: 'Client Trust & Review'
+            },
+            {
+                src: 'rev/We’re proud to be working with Shyan Health, helping them strengthen their digital presence thro.mp4',
+                title: 'Shyan Health Brand Growth'
+            },
+            {
+                src: 'rev/Why Choose REKA Creative LabsWe don’t just create content — we build brands that get noticed.Pro.mp4',
+                title: 'Why Choose Reka Creative Labs'
+            },
+            {
+                src: 'rev/export-1790101553073.mp4',
+                title: 'Performance Ad Showcase #01'
+            },
+            {
+                src: 'rev/export-1790101937506.mp4',
+                title: 'Creative Sprint Velocity #02'
+            },
+            {
+                src: 'rev/export-1790102609272.mp4',
+                title: 'Direct-Response Angle #03'
+            },
+            {
+                src: 'rev/export-1790102691908.mp4',
+                title: 'High-Converting Hook #04'
+            },
+            {
+                src: 'rev/export-1790102786376.mp4',
+                title: 'Retention Engine Spotlight #05'
+            },
+            {
+                src: 'rev/final ad - reka.mp4',
+                title: 'Reka Signature Performance Ad'
             }
         ];
 
