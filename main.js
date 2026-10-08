@@ -92,39 +92,59 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroProgressFill = document.getElementById('heroProgressFill');
 
     if (heroVideo) {
-        // Complete playlist of all 22 real client ad creatives & reviews
+        // Complete playlist of all 22 real client video reviews & founder stories
         const videoPlaylist = [
-            {
-                src: 'rev/AQOTgmeLVUqSyI--kXy5uuvmUms6by_c7jWnXN9vzYLWkFDmVAlmmWLAarOoZyM-sJHgqJM-NCIZwt11NzXr_ugWicHnKoHNggEgOUo.mp4',
-                title: 'E-Commerce Scaling Hook'
-            },
             {
                 src: 'rev/SaveClip.App_AQOJrc2k0cX-Tlh_6h0trb_1AYlPZTdTeqK_d0qzWbZ5O_nKc0WPTWuvqatvmcOa2Xn10vRjv7oxP_QkF98qBtyMAjqSY5jXji0Dnuw.mp4',
                 title: 'Founder Brand Story'
             },
             {
+                src: 'rev/AQOTgmeLVUqSyI--kXy5uuvmUms6by_c7jWnXN9vzYLWkFDmVAlmmWLAarOoZyM-sJHgqJM-NCIZwt11NzXr_ugWicHnKoHNggEgOUo.mp4',
+                title: 'Client Review: E-Commerce Scale'
+            },
+            {
+                src: 'rev/Trusted by 750+ Wellness & Business ProfessionalsFor more than 1.5 years, we’ve been helping bus.mp4',
+                title: '750+ Leaders Trust Review'
+            },
+            {
+                src: 'rev/We’re grateful for the trust, collaboration, and positive feedback that inspire us to keep creat.mp4',
+                title: 'Client Trust & Growth Feedback'
+            },
+            {
+                src: 'rev/We’re proud to be working with Shyan Health, helping them strengthen their digital presence thro.mp4',
+                title: 'Shyan Health: Brand Scale Story'
+            },
+            {
+                src: 'rev/Over the past year, we’ve had the opportunity to work with 800+ Wellness Coaches and help them b.mp4',
+                title: '800+ Coaches Scale Review'
+            },
+            {
+                src: 'rev/Why Choose REKA Creative LabsWe don’t just create content — we build brands that get noticed.Pro.mp4',
+                title: 'Why Founders Choose Reka'
+            },
+            {
                 src: 'rev/AQO_EnVBTiqbx6h-qpT8OLKZ1GIyVt0TYd5yCQs36W2VWotQiz4S9vT84tq5YBkmY-2aa42yGj8kPh6KrMsCqMUB-BDa41vaoUsox_Q.mp4',
-                title: 'Product Demonstration Ad'
+                title: 'Client Showcase: Product Scale'
             },
             {
                 src: 'rev/SaveClip.App_AQM3FdvL9wlrzoztCJ9zraoNJq35JpxRwWqaFt0TH5g3b6EM1x5QIsYMZXb1oUK-8E7b2rQgjBhbUHJqdXHGDD7jnIms79DnD-dRYIg.mp4',
-                title: 'High-ROAS Direct Response'
+                title: 'Direct Response ROAS Case'
             },
             {
                 src: 'rev/SaveClip.App_AQMmwG59-OkswBTdG0JNXddWGCBFNWT49jeJ8HNXJknnOnA-DxnGsAxIsnVJw6WXWp-IJe3CfPXbTcqRbFUvVIKz6I38e_S_MDVlUNs.mp4',
-                title: 'Viral UGC Creative'
+                title: 'Viral UGC Growth Story'
             },
             {
                 src: 'rev/AQOjVd47tqxs6dg1qR9audu2HKzV-m2m1JGWwNu8fh6MmNKGR5UxOEcw_yk0OVmNXG951JL-e2nIYmfm1nrZ4hdD5fWqkD28iVMcgp0.mp4',
-                title: 'D2C Retention Sprint'
+                title: 'D2C Retention Sprint Review'
             },
             {
                 src: 'rev/SaveClip.App_AQPlY1vGs7TR0Wi0afKHfFVWDP6jTLTfT2o3YUtMuV_1QS97seLFxpz9vEZxFrIQ56QkS4XGLMzssvQeq_q7TFF1lZ1u-0CTt6wUI6o.mp4',
-                title: 'Omnichannel Funnel Test'
+                title: 'Full-Funnel Client Case'
             },
             {
                 src: 'rev/AQO0DYvdfi0_GCWgMV5PjaN4z7on28WIbI7p_jK-fXB63EPQqO_KRZulExHz-JF1el4r1mVHJ9cCPrFAZgNL0NjenCAYBeFjY4JifsQ.mp4',
-                title: 'B2B Founder Authority'
+                title: 'B2B Founder Authority Review'
             },
             {
                 src: 'rev/AQOIhcaG4iBc5vb2JnM6rgU8ChK6WfDcHIkx5SJeGIvDZdd2l1lYeFy1ur5pfldbmbeOXWyByavfKXmIiqzdmZDNqv9KaVBLP1YmZPo.mp4',
@@ -132,39 +152,19 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             {
                 src: 'rev/AQPmvvhUyKPvraAx6qXnKgZ0if5J6IIFttmC5KKm7Eyz-UBCEkTu75h1yeMIg57U8Q2ZV992zAb-V1KzUmOVx-rsqqKlCjRD5gt_P2Y.mp4',
-                title: 'AI Scale Creative #10'
-            },
-            {
-                src: 'rev/Over the past year, we’ve had the opportunity to work with 800+ Wellness Coaches and help them b.mp4',
-                title: '800+ Wellness Coaches Scale'
+                title: 'AI Scale Story #10'
             },
             {
                 src: 'rev/Podcast shootsYouTube videosProfessional photoshootsHigh-quality video editingYour content deser.mp4',
-                title: 'Studio & High-Quality Production'
-            },
-            {
-                src: 'rev/Trusted by 750+ Wellness & Business ProfessionalsFor more than 1.5 years, we’ve been helping bus.mp4',
-                title: '750+ Business Leaders Trust'
-            },
-            {
-                src: 'rev/We’re grateful for the trust, collaboration, and positive feedback that inspire us to keep creat.mp4',
-                title: 'Client Trust & Review'
-            },
-            {
-                src: 'rev/We’re proud to be working with Shyan Health, helping them strengthen their digital presence thro.mp4',
-                title: 'Shyan Health Brand Growth'
-            },
-            {
-                src: 'rev/Why Choose REKA Creative LabsWe don’t just create content — we build brands that get noticed.Pro.mp4',
-                title: 'Why Choose Reka Creative Labs'
+                title: 'Studio Production Review'
             },
             {
                 src: 'rev/export-1790101553073.mp4',
-                title: 'Performance Ad Showcase #01'
+                title: 'Client Sprint Showcase #01'
             },
             {
                 src: 'rev/export-1790101937506.mp4',
-                title: 'Creative Sprint Velocity #02'
+                title: 'Velocity Growth Case #02'
             },
             {
                 src: 'rev/export-1790102609272.mp4',
@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             {
                 src: 'rev/export-1790102691908.mp4',
-                title: 'High-Converting Hook #04'
+                title: 'High-Converting Creative #04'
             },
             {
                 src: 'rev/export-1790102786376.mp4',
@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             {
                 src: 'rev/final ad - reka.mp4',
-                title: 'Reka Signature Performance Ad'
+                title: 'Reka Signature Client Showcase'
             }
         ];
 
@@ -236,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (heroAmbient) heroAmbient.src = item.src;
 
             if (heroCounter) {
-                heroCounter.textContent = 'Ad ' + String(currentIdx + 1).padStart(2, '0') + ' / ' + String(videoPlaylist.length).padStart(2, '0');
+                heroCounter.textContent = 'Review ' + String(currentIdx + 1).padStart(2, '0') + ' / ' + String(videoPlaylist.length).padStart(2, '0');
             }
             if (heroTitle) {
                 heroTitle.textContent = item.title;
@@ -689,6 +689,17 @@ document.addEventListener('DOMContentLoaded', () => {
             msg += `\nPlease connect with me.`;
 
             const whatsappUrl = `https://wa.me/918368508556?text=${encodeURIComponent(msg)}`;
+            
+            // Track Meta Pixel Lead event
+            if (typeof fbq === 'function') {
+                fbq('track', 'Lead', {
+                    content_name: service,
+                    content_category: 'Quote Form',
+                    value: 0,
+                    currency: 'INR'
+                });
+            }
+
             window.open(whatsappUrl, '_blank');
             closeModal();
         });
@@ -1013,6 +1024,16 @@ Please connect with me and share my growth plan!`;
                 // WhatsApp link encoding
                 const whatsappUrl = `https://wa.me/918368508556?text=${encodeURIComponent(formattedMessage)}`;
 
+                // Track Meta Pixel Lead event
+                if (typeof fbq === 'function') {
+                    fbq('track', 'Lead', {
+                        content_name: service,
+                        content_category: 'Growth Plan Toast Form',
+                        value: 0,
+                        currency: 'INR'
+                    });
+                }
+
                 // Open in a new tab
                 window.open(whatsappUrl, '_blank');
 
@@ -1021,6 +1042,17 @@ Please connect with me and share my growth plan!`;
 
                 // Close and restore floating button
                 closePopup(false);
+            });
+        }
+    });
+
+    // Global Meta Pixel click tracking for WhatsApp links
+    document.addEventListener('click', (e) => {
+        const waLink = e.target.closest && e.target.closest('a[href*="wa.me"]');
+        if (waLink && typeof fbq === 'function') {
+            fbq('track', 'Contact', {
+                content_category: 'WhatsApp Click',
+                link_url: waLink.href
             });
         }
     });

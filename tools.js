@@ -545,6 +545,14 @@ function runChatBudget() {
 }
 
 function chatBudgetWA(budget, roas, platform, industry) {
+    if (typeof fbq === 'function') {
+        fbq('track', 'Contact', {
+            content_name: 'Ad Budget Strategy',
+            platform: platform,
+            budget: budget,
+            currency: 'INR'
+        });
+    }
     const msg = `Hello Reka Creative Labs!\n\n📊 I used your Ad Budget Planner.\n\nBudget: ₹${budget.toLocaleString('en-IN')}/month\nTarget ROAS: ${roas}x\nPlatform: ${platform}\nIndustry: ${industry}\n\nPlease help me build a custom paid ad strategy for my business!\n\nThank you!`;
     window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
 }
@@ -1338,6 +1346,14 @@ function confirmBooking() {
     if (bookingEl) bookingEl.textContent = dateStr;
 
     const msg = `Hello Reka Creative Labs! 👋\n\n📅 New Strategy Call Booking\n\nName: ${fname} ${lname}\nEmail: ${email}\nPhone: ${phone || 'N/A'}\nWebsite: ${website || 'N/A'}\nDate: ${dateStr}\nTopic: ${topic}\n\nPlease confirm my booking. Thank you!`;
+    
+    if (typeof fbq === 'function') {
+        fbq('track', 'Schedule', {
+            content_name: topic,
+            content_category: 'Strategy Call Booking'
+        });
+    }
+
     window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
 
     const formWrap = document.getElementById('booking-form-wrap');
