@@ -199,6 +199,11 @@
       display:flex;
       flex-direction:column;
       justify-content:flex-end;
+      transform:translateZ(0);
+      -webkit-transform:translateZ(0);
+      backface-visibility:hidden;
+      -webkit-backface-visibility:hidden;
+      contain:paint layout;
     }
     .phone-screen video{
       position:absolute;
@@ -208,7 +213,11 @@
       object-fit:cover;
       display:block;
       transform:translateZ(0);
+      -webkit-transform:translateZ(0);
+      backface-visibility:hidden;
+      -webkit-backface-visibility:hidden;
       will-change:transform;
+      pointer-events:none;
     }
     .reel-overlay{
       position:relative;
@@ -726,6 +735,9 @@
       scrollbar-width:thin;
       scrollbar-color:var(--line) transparent;
       -webkit-overflow-scrolling:touch;
+      transform:translateZ(0);
+      -webkit-transform:translateZ(0);
+      contain:paint layout;
     }
     .video-track::-webkit-scrollbar{height:6px}
     .video-track::-webkit-scrollbar-thumb{background:var(--line);border-radius:999px}
@@ -1641,7 +1653,7 @@
               <!-- Phone Video Screen Container -->
               <div class="phone-screen" id="heroPhoneScreen">
                 <!-- Video Element -->
-                <video id="heroPhoneVideo" src="rev/export-1790102786376.mp4" autoplay loop playsinline preload="auto"></video>
+                <video id="heroPhoneVideo" src="rev/export-1790102786376.mp4" autoplay loop muted playsinline webkit-playsinline preload="auto"></video>
 
                 <!-- Center Tap to Play / Pause Indicator -->
                 <button class="hero-play-center-btn" id="heroCenterPlayBtn" aria-label="Play or Pause Video">
@@ -1888,7 +1900,7 @@
                 <span class="stars" style="color:var(--accent-gold); font-size:0.75rem;">⭐⭐⭐⭐⭐</span>
               </div>
               <div class="phone-review-screen">
-                <video src="rev/export-1790102786376.mp4" loop playsinline preload="metadata" muted></video>
+                <video src="rev/export-1790102786376.mp4" loop playsinline preload="none" muted></video>
                 <div class="phone-review-overlay">
                   <span class="phone-review-badge">Herbalife Coach Review</span>
                   <div class="phone-review-title">Daily Inbound Leads &amp; Direct DMs</div>
@@ -1910,7 +1922,7 @@
                 <span class="stars" style="color:var(--accent-gold); font-size:0.75rem;">⭐⭐⭐⭐⭐</span>
               </div>
               <div class="phone-review-screen">
-                <video src="rev/export-1790102691908.mp4" loop playsinline preload="metadata" muted></video>
+                <video src="rev/export-1790102691908.mp4" loop playsinline preload="none" muted></video>
                 <div class="phone-review-overlay">
                   <span class="phone-review-badge">Weight Loss Coach</span>
                   <div class="phone-review-title">WhatsApp Funnel That Converts</div>
@@ -1932,7 +1944,7 @@
                 <span class="stars" style="color:var(--accent-gold); font-size:0.75rem;">⭐⭐⭐⭐⭐</span>
               </div>
               <div class="phone-review-screen">
-                <video src="rev/export-1790102609272.mp4" loop playsinline preload="metadata" muted></video>
+                <video src="rev/export-1790102609272.mp4" loop playsinline preload="none" muted></video>
                 <div class="phone-review-overlay">
                   <span class="phone-review-badge">Meta Ads Funnel</span>
                   <div class="phone-review-title">Predictable Client Growth System</div>
@@ -1954,7 +1966,7 @@
                 <span class="stars" style="color:var(--accent-gold); font-size:0.75rem;">⭐⭐⭐⭐⭐</span>
               </div>
               <div class="phone-review-screen">
-                <video src="rev/review_750_coaches_trust.mp4" loop playsinline preload="metadata" muted></video>
+                <video src="rev/review_750_coaches_trust.mp4" loop playsinline preload="none" muted></video>
                 <div class="phone-review-overlay">
                   <span class="phone-review-badge">750+ Coaches Trust</span>
                   <div class="phone-review-title">Herbalife &amp; Wellness Mentors</div>
@@ -1976,7 +1988,7 @@
                 <span class="stars" style="color:var(--accent-gold); font-size:0.75rem;">⭐⭐⭐⭐⭐</span>
               </div>
               <div class="phone-review-screen">
-                <video src="rev/review_podcast_shoots.mp4" loop playsinline preload="metadata" muted></video>
+                <video src="rev/review_podcast_shoots.mp4" loop playsinline preload="none" muted></video>
                 <div class="phone-review-overlay">
                   <span class="phone-review-badge">High Retention Edits</span>
                   <div class="phone-review-title">Video Reels with Hook + Action</div>
@@ -1998,7 +2010,7 @@
                 <span class="stars" style="color:var(--accent-gold); font-size:0.75rem;">⭐⭐⭐⭐⭐</span>
               </div>
               <div class="phone-review-screen">
-                <video src="rev/review_why_choose_reka.mp4" loop playsinline preload="metadata" muted></video>
+                <video src="rev/review_why_choose_reka.mp4" loop playsinline preload="none" muted></video>
                 <div class="phone-review-overlay">
                   <span class="phone-review-badge">Why Coaches Choose REKA</span>
                   <div class="phone-review-title">Brand Authority That Sells</div>
@@ -2020,7 +2032,7 @@
                 <span class="stars" style="color:var(--accent-gold); font-size:0.75rem;">⭐⭐⭐⭐⭐</span>
               </div>
               <div class="phone-review-screen">
-                <video src="rev/review_shyan_health.mp4" loop playsinline preload="metadata" muted></video>
+                <video src="rev/review_shyan_health.mp4" loop playsinline preload="none" muted></video>
                 <div class="phone-review-overlay">
                   <span class="phone-review-badge">Health Brand Case Study</span>
                   <div class="phone-review-title">Shyan Health Patient Funnel</div>
@@ -2042,7 +2054,7 @@
                 <span class="stars" style="color:var(--accent-gold); font-size:0.75rem;">⭐⭐⭐⭐⭐</span>
               </div>
               <div class="phone-review-screen">
-                <video src="rev/review_client_gratitude.mp4" loop playsinline preload="metadata" muted></video>
+                <video src="rev/review_client_gratitude.mp4" loop playsinline preload="none" muted></video>
                 <div class="phone-review-overlay">
                   <span class="phone-review-badge">Client Trust</span>
                   <div class="phone-review-title">Partnership &amp; Result Review</div>
@@ -2064,7 +2076,7 @@
                 <span class="stars" style="color:var(--accent-gold); font-size:0.75rem;">⭐⭐⭐⭐⭐</span>
               </div>
               <div class="phone-review-screen">
-                <video src="rev/review_800_wellness_coaches.mp4" loop playsinline preload="metadata" muted></video>
+                <video src="rev/review_800_wellness_coaches.mp4" loop playsinline preload="none" muted></video>
                 <div class="phone-review-overlay">
                   <span class="phone-review-badge">800+ Coaches</span>
                   <div class="phone-review-title">Over 800+ Coaches Scaled</div>
@@ -2086,7 +2098,7 @@
                 <span class="stars" style="color:var(--accent-gold); font-size:0.75rem;">⭐⭐⭐⭐⭐</span>
               </div>
               <div class="phone-review-screen">
-                <video src="rev/export-1790101937506.mp4" loop playsinline preload="metadata" muted></video>
+                <video src="rev/export-1790101937506.mp4" loop playsinline preload="none" muted></video>
                 <div class="phone-review-overlay">
                   <span class="phone-review-badge">Performance Audit</span>
                   <div class="phone-review-title">Cost Per Lead Benchmark</div>
@@ -2108,7 +2120,7 @@
                 <span class="stars" style="color:var(--accent-gold); font-size:0.75rem;">⭐⭐⭐⭐⭐</span>
               </div>
               <div class="phone-review-screen">
-                <video src="rev/export-1790101553073.mp4" loop playsinline preload="metadata" muted></video>
+                <video src="rev/export-1790101553073.mp4" loop playsinline preload="none" muted></video>
                 <div class="phone-review-overlay">
                   <span class="phone-review-badge">Ad Creative Test</span>
                   <div class="phone-review-title">Dynamic Hook Variations</div>
@@ -2132,7 +2144,7 @@
                 <span class="stars" style="color:var(--accent-gold); font-size:0.75rem;">⭐⭐⭐⭐⭐</span>
               </div>
               <div class="phone-review-screen">
-                <video src="rev/AQO_EnVBTiqbx6h-qpT8OLKZ1GIyVt0TYd5yCQs36W2VWotQiz4S9vT84tq5YBkmY-2aa42yGj8kPh6KrMsCqMUB-BDa41vaoUsox_Q.mp4" loop playsinline preload="metadata" muted></video>
+                <video src="rev/AQO_EnVBTiqbx6h-qpT8OLKZ1GIyVt0TYd5yCQs36W2VWotQiz4S9vT84tq5YBkmY-2aa42yGj8kPh6KrMsCqMUB-BDa41vaoUsox_Q.mp4" loop playsinline preload="none" muted></video>
                 <div class="phone-review-overlay">
                   <span class="phone-review-badge">Nutritionist Review</span>
                   <div class="phone-review-title">Doctor &amp; Nutrition Authority</div>
@@ -2154,7 +2166,7 @@
                 <span class="stars" style="color:var(--accent-gold); font-size:0.75rem;">⭐⭐⭐⭐⭐</span>
               </div>
               <div class="phone-review-screen">
-                <video src="rev/SaveClip.App_AQPlY1vGs7TR0Wi0afKHfFVWDP6jTLTfT2o3YUtMuV_1QS97seLFxpz9vEZxFrIQ56QkS4XGLMzssvQeq_q7TFF1lZ1u-0CTt6wUI6o.mp4" loop playsinline preload="metadata" muted></video>
+                <video src="rev/SaveClip.App_AQPlY1vGs7TR0Wi0afKHfFVWDP6jTLTfT2o3YUtMuV_1QS97seLFxpz9vEZxFrIQ56QkS4XGLMzssvQeq_q7TFF1lZ1u-0CTt6wUI6o.mp4" loop playsinline preload="none" muted></video>
                 <div class="phone-review-overlay">
                   <span class="phone-review-badge">Weight Loss Coach</span>
                   <div class="phone-review-title">Fat Loss Client Transformations</div>
@@ -2176,7 +2188,7 @@
                 <span class="stars" style="color:var(--accent-gold); font-size:0.75rem;">⭐⭐⭐⭐⭐</span>
               </div>
               <div class="phone-review-screen">
-                <video src="rev/SaveClip.App_AQOJrc2k0cX-Tlh_6h0trb_1AYlPZTdTeqK_d0qzWbZ5O_nKc0WPTWuvqatvmcOa2Xn10vRjv7oxP_QkF98qBtyMAjqSY5jXji0Dnuw.mp4" loop playsinline preload="metadata" muted></video>
+                <video src="rev/SaveClip.App_AQOJrc2k0cX-Tlh_6h0trb_1AYlPZTdTeqK_d0qzWbZ5O_nKc0WPTWuvqatvmcOa2Xn10vRjv7oxP_QkF98qBtyMAjqSY5jXji0Dnuw.mp4" loop playsinline preload="none" muted></video>
                 <div class="phone-review-overlay">
                   <span class="phone-review-badge">Founder Brand Story</span>
                   <div class="phone-review-title">Personal Brand Growth System</div>
@@ -2198,7 +2210,7 @@
                 <span class="stars" style="color:var(--accent-gold); font-size:0.75rem;">⭐⭐⭐⭐⭐</span>
               </div>
               <div class="phone-review-screen">
-                <video src="rev/SaveClip.App_AQMmwG59-OkswBTdG0JNXddWGCBFNWT49jeJ8HNXJknnOnA-DxnGsAxIsnVJw6WXWp-IJe3CfPXbTcqRbFUvVIKz6I38e_S_MDVlUNs.mp4" loop playsinline preload="metadata" muted></video>
+                <video src="rev/SaveClip.App_AQMmwG59-OkswBTdG0JNXddWGCBFNWT49jeJ8HNXJknnOnA-DxnGsAxIsnVJw6WXWp-IJe3CfPXbTcqRbFUvVIKz6I38e_S_MDVlUNs.mp4" loop playsinline preload="none" muted></video>
                 <div class="phone-review-overlay">
                   <span class="phone-review-badge">Fitness Coach</span>
                   <div class="phone-review-title">Personal Training Lead Flow</div>
@@ -2220,7 +2232,7 @@
                 <span class="stars" style="color:var(--accent-gold); font-size:0.75rem;">⭐⭐⭐⭐⭐</span>
               </div>
               <div class="phone-review-screen">
-                <video src="rev/SaveClip.App_AQM3FdvL9wlrzoztCJ9zraoNJq35JpxRwWqaFt0TH5g3b6EM1x5QIsYMZXb1oUK-8E7b2rQgjBhbUHJqdXHGDD7jnIms79DnD-dRYIg.mp4" loop playsinline preload="metadata" muted></video>
+                <video src="rev/SaveClip.App_AQM3FdvL9wlrzoztCJ9zraoNJq35JpxRwWqaFt0TH5g3b6EM1x5QIsYMZXb1oUK-8E7b2rQgjBhbUHJqdXHGDD7jnIms79DnD-dRYIg.mp4" loop playsinline preload="none" muted></video>
                 <div class="phone-review-overlay">
                   <span class="phone-review-badge">Dietitian Retainer</span>
                   <div class="phone-review-title">Consistent Meal Plan Signups</div>
@@ -2242,7 +2254,7 @@
                 <span class="stars" style="color:var(--accent-gold); font-size:0.75rem;">⭐⭐⭐⭐⭐</span>
               </div>
               <div class="phone-review-screen">
-                <video src="rev/AQO0DYvdfi0_GCWgMV5PjaN4z7on28WIbI7p_jK-fXB63EPQqO_KRZulExHz-JF1el4r1mVHJ9cCPrFAZgNL0NjenCAYBeFjY4JifsQ.mp4" loop playsinline preload="metadata" muted></video>
+                <video src="rev/AQO0DYvdfi0_GCWgMV5PjaN4z7on28WIbI7p_jK-fXB63EPQqO_KRZulExHz-JF1el4r1mVHJ9cCPrFAZgNL0NjenCAYBeFjY4JifsQ.mp4" loop playsinline preload="none" muted></video>
                 <div class="phone-review-overlay">
                   <span class="phone-review-badge">Reel Hook Testing</span>
                   <div class="phone-review-title">High Click-Through Video Ads</div>
@@ -2264,7 +2276,7 @@
                 <span class="stars" style="color:var(--accent-gold); font-size:0.75rem;">⭐⭐⭐⭐⭐</span>
               </div>
               <div class="phone-review-screen">
-                <video src="rev/AQPmvvhUyKPvraAx6qXnKgZ0if5J6IIFttmC5KKm7Eyz-UBCEkTu75h1yeMIg57U8Q2ZV992zAb-V1KzUmOVx-rsqqKlCjRD5gt_P2Y.mp4" loop playsinline preload="metadata" muted></video>
+                <video src="rev/AQPmvvhUyKPvraAx6qXnKgZ0if5J6IIFttmC5KKm7Eyz-UBCEkTu75h1yeMIg57U8Q2ZV992zAb-V1KzUmOVx-rsqqKlCjRD5gt_P2Y.mp4" loop playsinline preload="none" muted></video>
                 <div class="phone-review-overlay">
                   <span class="phone-review-badge">Organic to Paid</span>
                   <div class="phone-review-title">Replacing Cold Calling Forever</div>
@@ -2286,7 +2298,7 @@
                 <span class="stars" style="color:var(--accent-gold); font-size:0.75rem;">⭐⭐⭐⭐⭐</span>
               </div>
               <div class="phone-review-screen">
-                <video src="rev/AQOjVd47tqxs6dg1qR9audu2HKzV-m2m1JGWwNu8fh6MmNKGR5UxOEcw_yk0OVmNXG951JL-e2nIYmfm1nrZ4hdD5fWqkD28iVMcgp0.mp4" loop playsinline preload="metadata" muted></video>
+                <video src="rev/AQOjVd47tqxs6dg1qR9audu2HKzV-m2m1JGWwNu8fh6MmNKGR5UxOEcw_yk0OVmNXG951JL-e2nIYmfm1nrZ4hdD5fWqkD28iVMcgp0.mp4" loop playsinline preload="none" muted></video>
                 <div class="phone-review-overlay">
                   <span class="phone-review-badge">Fitness Mentor</span>
                   <div class="phone-review-title">High-Ticket Client Closures</div>
@@ -2308,7 +2320,7 @@
                 <span class="stars" style="color:var(--accent-gold); font-size:0.75rem;">⭐⭐⭐⭐⭐</span>
               </div>
               <div class="phone-review-screen">
-                <video src="rev/AQOTgmeLVUqSyI--kXy5uuvmUms6by_c7jWnXN9vzYLWkFDmVAlmmWLAarOoZyM-sJHgqJM-NCIZwt11NzXr_ugWicHnKoHNggEgOUo.mp4" loop playsinline preload="metadata" muted></video>
+                <video src="rev/AQOTgmeLVUqSyI--kXy5uuvmUms6by_c7jWnXN9vzYLWkFDmVAlmmWLAarOoZyM-sJHgqJM-NCIZwt11NzXr_ugWicHnKoHNggEgOUo.mp4" loop playsinline preload="none" muted></video>
                 <div class="phone-review-overlay">
                   <span class="phone-review-badge">Herbalife Associate</span>
                   <div class="phone-review-title">Club &amp; Online Nutrition Leads</div>
@@ -2330,7 +2342,7 @@
                 <span class="stars" style="color:var(--accent-gold); font-size:0.75rem;">⭐⭐⭐⭐⭐</span>
               </div>
               <div class="phone-review-screen">
-                <video src="rev/AQOIhcaG4iBc5vb2JnM6rgU8ChK6WfDcHIkx5SJeGIvDZdd2l1lYeFy1ur5pfldbmbeOXWyByavfKXmIiqzdmZDNqv9KaVBLP1YmZPo.mp4" loop playsinline preload="metadata" muted></video>
+                <video src="rev/AQOIhcaG4iBc5vb2JnM6rgU8ChK6WfDcHIkx5SJeGIvDZdd2l1lYeFy1ur5pfldbmbeOXWyByavfKXmIiqzdmZDNqv9KaVBLP1YmZPo.mp4" loop playsinline preload="none" muted></video>
                 <div class="phone-review-overlay">
                   <span class="phone-review-badge">Nutrition Retainer</span>
                   <div class="phone-review-title">Automated Lead Nurturing System</div>
@@ -2352,7 +2364,7 @@
                 <span class="stars" style="color:var(--accent-gold); font-size:0.75rem;">⭐⭐⭐⭐⭐</span>
               </div>
               <div class="phone-review-screen">
-                <video src="rev/review_final_ad_reka.mp4" loop playsinline preload="metadata" muted></video>
+                <video src="rev/review_final_ad_reka.mp4" loop playsinline preload="none" muted></video>
                 <div class="phone-review-overlay">
                   <span class="phone-review-badge">Performance System</span>
                   <div class="phone-review-title">AI Growth Engine in Live Action</div>
@@ -2546,26 +2558,38 @@
 
       if (heroVideo) {
         heroVideo.src = data.src;
+        try { heroVideo.load(); } catch(e) {}
+
         if (playWithAudio && !userMutedExplicitly) {
           heroVideo.muted = false;
-        } else if (userMutedExplicitly) {
+        } else {
           heroVideo.muted = true;
         }
         updateSoundButtonState();
 
-        heroVideo.play().then(() => {
-          if (heroScreen) heroScreen.classList.remove('paused');
-          if (heroCenterPlayBtn) heroCenterPlayBtn.querySelector('i').className = 'ph-fill ph-pause';
-          if (heroBottomPlayBtn) {
-            heroBottomPlayBtn.querySelector('i').className = 'ph-fill ph-pause';
-            if (heroPlayBtnText) heroPlayBtnText.textContent = 'Pause';
-          }
-        }).catch(() => {
-          // If browser restricts initial autoplay with sound prior to user gesture:
-          heroVideo.muted = true;
-          updateSoundButtonState();
-          heroVideo.play().catch(e => console.log('Autoplay deferred:', e));
-        });
+        const playPromise = heroVideo.play();
+        if (playPromise !== undefined) {
+          playPromise.then(() => {
+            if (heroScreen) heroScreen.classList.remove('paused');
+            if (heroCenterPlayBtn) heroCenterPlayBtn.querySelector('i').className = 'ph-fill ph-pause';
+            if (heroBottomPlayBtn) {
+              heroBottomPlayBtn.querySelector('i').className = 'ph-fill ph-pause';
+              if (heroPlayBtnText) heroPlayBtnText.textContent = 'Pause';
+            }
+          }).catch((err) => {
+            console.log('Audio autoplay blocked, falling back to muted playback:', err);
+            heroVideo.muted = true;
+            updateSoundButtonState();
+            heroVideo.play().then(() => {
+              if (heroScreen) heroScreen.classList.remove('paused');
+              if (heroCenterPlayBtn) heroCenterPlayBtn.querySelector('i').className = 'ph-fill ph-pause';
+              if (heroBottomPlayBtn) {
+                heroBottomPlayBtn.querySelector('i').className = 'ph-fill ph-pause';
+                if (heroPlayBtnText) heroPlayBtnText.textContent = 'Pause';
+              }
+            }).catch(e => console.log('Playback error:', e));
+          });
+        }
       }
     }
 
@@ -2589,6 +2613,9 @@
         heroVideo.muted = !heroVideo.muted;
         userMutedExplicitly = heroVideo.muted;
         updateSoundButtonState();
+        if (!heroVideo.muted && heroVideo.paused) {
+          heroVideo.play().catch(() => {});
+        }
       });
     }
 
@@ -2599,9 +2626,35 @@
         updateSoundButtonState();
       }
     };
-    ['pointerdown', 'touchstart', 'click', 'keydown'].forEach(evt => {
+    ['pointerdown', 'touchstart', 'click', 'keydown', 'scroll'].forEach(evt => {
       window.addEventListener(evt, enableAudioOnUserGesture, { once: true, passive: true });
     });
+
+    // 2A. Instant Start on Page Load (Mobile-first 100% Guaranteed Autoplay on entering Herbalife tab)
+    function startHeroVideoImmediately() {
+      if (!heroVideo) return;
+      heroVideo.muted = true; // Mobile browsers require initial muted autoplay
+      updateSoundButtonState();
+      
+      const p = heroVideo.play();
+      if (p !== undefined) {
+        p.then(() => {
+          if (heroScreen) heroScreen.classList.remove('paused');
+          if (heroCenterPlayBtn) heroCenterPlayBtn.querySelector('i').className = 'ph-fill ph-pause';
+          if (heroBottomPlayBtn) {
+            heroBottomPlayBtn.querySelector('i').className = 'ph-fill ph-pause';
+            if (heroPlayBtnText) heroPlayBtnText.textContent = 'Pause';
+          }
+        }).catch((err) => {
+          console.log('Mobile initial autoplay retry:', err);
+          heroVideo.muted = true;
+          heroVideo.play().catch(() => {});
+        });
+      }
+    }
+    startHeroVideoImmediately();
+    document.addEventListener('DOMContentLoaded', startHeroVideoImmediately);
+    window.addEventListener('load', startHeroVideoImmediately);
 
     // 2B. 5 CRORE+ SEARCH OPPORTUNITY ANIMATED STAGE CONTROLLER
     (function(){
@@ -2698,7 +2751,7 @@
     // Prev Video Buttons (On-screen + Bottom bar)
     const handlePrev = (e) => {
       if (e) e.stopPropagation();
-      updateHeroVideo(heroCurrentIndex - 1);
+      updateHeroVideo(heroCurrentIndex - 1, true);
     };
     if (heroPrevBtn) heroPrevBtn.addEventListener('click', handlePrev);
     if (heroBottomPrevBtn) heroBottomPrevBtn.addEventListener('click', handlePrev);
@@ -2706,7 +2759,7 @@
     // Next Video Buttons (On-screen + Bottom bar)
     const handleNext = (e) => {
       if (e) e.stopPropagation();
-      updateHeroVideo(heroCurrentIndex + 1);
+      updateHeroVideo(heroCurrentIndex + 1, true);
     };
     if (heroNextBtn) heroNextBtn.addEventListener('click', handleNext);
     if (heroBottomNextBtn) heroBottomNextBtn.addEventListener('click', handleNext);
@@ -2925,6 +2978,10 @@
           if (cardIndex !== -1 && typeof updateHeroVideo === 'function') {
             // Also sync and play directly in the hero player on top!
             updateHeroVideo(cardIndex, true);
+            const playerCard = document.getElementById('heroPhoneScreen');
+            if (playerCard && window.innerWidth <= 768) {
+              playerCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
           }
 
           if (video.paused) {
