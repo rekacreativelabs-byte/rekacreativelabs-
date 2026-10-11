@@ -11,3 +11,8 @@ Thumbs.db
 
 # Large media files over GitHub limit (100MB)
 rev/final ad - reka.mp4
+rev/review_final_ad_reka.mp4
+
+# Node & Environment
+node_modules/
+.env

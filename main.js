@@ -700,8 +700,67 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
 
-            window.open(whatsappUrl, '_blank');
+            // Send via Nodemailer backend (Supports both http:// and file://)
+            const apiEndpoint = (window.location.protocol === 'file:') 
+                ? 'http://localhost:5000/api/send-lead' 
+                : '/api/send-lead';
+
+            fetch(apiEndpoint, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: name,
+                    phone: phone,
+                    need: `${service} (${business}) - Goal: ${goal}`,
+                    source: 'Quote Modal Form'
+                })
+            }).catch(err => console.error('Email error:', err));
+
+            alert(`Thank you, ${name}! Your growth quote request has been received. Our team will contact you shortly.`);
+            if (form) form.reset();
             closeModal();
+        });
+    }
+
+    // Handle Inline Audit Form on Home page
+    const inlineAuditForm = document.getElementById('inlineAuditForm');
+    if (inlineAuditForm) {
+        inlineAuditForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('auditName')?.value.trim() || '';
+            const phone = document.getElementById('auditPhone')?.value.trim() || '';
+            const business = document.getElementById('auditBusiness')?.value.trim() || '';
+            const service = document.getElementById('auditService')?.value || 'AI Growth Audit';
+
+            // Track Meta Pixel Lead event
+            if (typeof fbq === 'function') {
+                fbq('track', 'Lead', {
+                    content_name: service,
+                    content_category: 'Audit Form',
+                    value: 0,
+                    currency: 'INR'
+                });
+            }
+
+            // Send via Nodemailer backend
+            const apiEndpoint = (window.location.protocol === 'file:') 
+                ? 'http://localhost:5000/api/send-lead' 
+                : '/api/send-lead';
+
+            fetch(apiEndpoint, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: name,
+                    phone: phone,
+                    need: `${service} (${business})`,
+                    source: 'Home Page Inline Audit Form'
+                })
+            }).catch(err => console.error('Email error:', err));
+
+            alert(`Thank you, ${name}! Your free growth audit has been reserved. Our team will review your brand and get back to you.`);
+            inlineAuditForm.reset();
         });
     }
 });
@@ -1034,8 +1093,23 @@ Please connect with me and share my growth plan!`;
                     });
                 }
 
-                // Open in a new tab
-                window.open(whatsappUrl, '_blank');
+                // Send via Nodemailer backend (Supports both http:// and file://)
+                const apiEndpoint = (window.location.protocol === 'file:') 
+                    ? 'http://localhost:5000/api/send-lead' 
+                    : '/api/send-lead';
+
+                fetch(apiEndpoint, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: name,
+                        phone: phone,
+                        need: `${service}${customQuestionLine ? ' - ' + customQuestionLine.trim() : ''}`,
+                        source: 'Growth Plan Toast Form'
+                    })
+                }).catch(err => console.error('Email error:', err));
+
+                alert(`Thank you, ${name}! Your growth plan request has been received. Our team will contact you shortly.`);
 
                 // Set session storage state so they aren't prompted again
                 sessionStorage.setItem('leadPopupSubmitted', 'true');
