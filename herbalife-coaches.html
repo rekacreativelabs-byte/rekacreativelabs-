@@ -42,7 +42,7 @@
   <link rel="icon" href="data:," />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
   <title>Daily Leads for Coaches | Reka Creative Labs</title>
   <link rel="stylesheet" href="style.css">
@@ -946,7 +946,183 @@
     .reveal{opacity:1;transform:none}
     .problem,.step,.name,details{transition:background-color .25s ease,border-color .25s ease}
     .problem:hover,.step:hover,details:hover{background:color-mix(in srgb,var(--acid) 5%,transparent)}
-
+    /* 5 Crore+ Weight Loss Searches Animated Stage */
+    .stage-container{
+      width:100%;
+      max-width:760px;
+      margin:22px auto 26px;
+      background:#ffffff;
+      color:#2b0a10;
+      border-radius:24px;
+      padding:clamp(20px, 4vw, 36px);
+      box-shadow:0 24px 60px rgba(0,0,0,0.35), 0 0 40px rgba(217,4,41,0.12);
+      border:1px solid rgba(217,4,41,0.22);
+      text-align:left;
+      position:relative;
+      overflow:hidden;
+      font-family:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+    }
+    .stage{
+      width:100%;
+      --white:#ffffff;
+      --red:#d90429;
+      --red-dark:#a30220;
+      --ink:#2b0a10;
+      --green:#0a9d3f;
+    }
+    .stage .intro{
+      font-size:clamp(18px, 3.2vw, 30px);
+      font-weight:600;
+      color:var(--red);
+      margin:0 0 4px;
+      line-height:1.2;
+    }
+    .stage .big{
+      font-size:clamp(52px, 13vw, 130px);
+      font-weight:800;
+      line-height:.95;
+      letter-spacing:-.04em;
+      color:var(--red);
+      display:flex;
+      align-items:baseline;
+      flex-wrap:wrap;
+      gap:.08em;
+      margin:4px 0 10px;
+    }
+    .stage .big .plus{
+      opacity:0;
+      transform:scale(.3) rotate(-30deg);
+      display:inline-block;
+    }
+    .stage .big.done .plus{
+      animation:stagePop .6s cubic-bezier(.2,1.6,.4,1) forwards;
+    }
+    @keyframes stagePop{
+      to{opacity:1;transform:none}
+    }
+    .stage .line{
+      font-size:clamp(19px, 3.2vw, 32px);
+      font-weight:800;
+      line-height:1.25;
+      letter-spacing:-.01em;
+      max-width:28ch;
+      color:var(--ink);
+      margin:0;
+    }
+    .stage .line.wide{
+      max-width:none;
+    }
+    .stage .w{
+      display:inline-block;
+      overflow:hidden;
+      vertical-align:bottom;
+      margin-right:.28em;
+    }
+    .stage .w>span{
+      display:inline-block;
+      transform:translateY(110%);
+      transition:transform .6s cubic-bezier(.2,.8,.2,1);
+    }
+    .stage .show .w>span{
+      transform:none;
+    }
+    .stage .hl{
+      color:var(--red);
+    }
+    .stage .panel{
+      position:relative;
+      margin-top:24px;
+      padding:clamp(18px, 3.5vw, 36px);
+      background:var(--red);
+      color:var(--white);
+      border-radius:18px;
+      clip-path:inset(0 100% 0 0);
+      transition:clip-path .9s cubic-bezier(.7,0,.2,1);
+      box-shadow:0 12px 30px rgba(217,4,41,0.25);
+    }
+    .stage .panel.open{
+      clip-path:inset(0 0 0 0);
+    }
+    .stage .panel .line{
+      font-size:clamp(17px, 2.6vw, 26px);
+      max-width:none;
+      color:var(--white);
+      line-height:1.35;
+    }
+    .stage .panel .hl{
+      color:var(--white);
+      box-shadow:inset 0 -.35em 0 var(--red-dark);
+    }
+    .stage .panel .gr{
+      color:var(--green);
+      background:var(--white);
+      padding:2px 7px;
+      border-radius:6px;
+    }
+    .stage .bottom{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      margin-top:20px;
+      flex-wrap:wrap;
+    }
+    .stage .pulse{
+      width:14px;
+      height:14px;
+      border-radius:50%;
+      background:var(--red);
+      animation:stagePing 1.4s infinite;
+      display:inline-block;
+    }
+    @keyframes stagePing{
+      0%{box-shadow:0 0 0 0 rgba(217,4,41,.55)}
+      100%{box-shadow:0 0 0 16px rgba(217,4,41,0)}
+    }
+    .stage .tag{
+      font-weight:800;
+      color:var(--red);
+      font-size:clamp(15px, 2.2vw, 20px);
+      opacity:0;
+      transition:opacity .6s;
+    }
+    .stage .tag.on{
+      opacity:1;
+    }
+    .stage button#replay{
+      margin-left:auto;
+      font:inherit;
+      font-weight:800;
+      cursor:pointer;
+      border:2px solid var(--red);
+      color:var(--red);
+      background:var(--white);
+      padding:8px 18px;
+      border-radius:999px;
+      transition:all .2s ease;
+      font-size:0.9rem;
+    }
+    .stage button#replay:hover{
+      background:var(--red);
+      color:var(--white);
+      transform:scale(1.04);
+    }
+    .stage button#replay:focus-visible{
+      outline:3px solid var(--ink);
+      outline-offset:3px;
+    }
+    @media (prefers-reduced-motion:reduce){
+      .stage .w>span{transform:none;transition:none}
+      .stage .panel{clip-path:none;transition:none}
+      .stage .big .plus{opacity:1;transform:none;animation:none}
+      .stage .tag{opacity:1;transition:none}
+      .stage .pulse{animation:none}
+    }
+    @media (max-width:480px){
+      .stage-container{padding:16px 14px;border-radius:20px;margin:18px auto 22px}
+      .stage .panel{margin-top:16px;padding:16px 12px;border-radius:14px}
+      .stage .bottom{margin-top:16px;gap:10px}
+      .stage button#replay{padding:6px 14px;font-size:0.82rem}
+    }
 
     @media (max-width:960px){
       nav ul{display:none}
@@ -1412,7 +1588,24 @@
         <div class="reveal hero-copy-wrap">
           <div class="kicker">Trusted by 750+ Wellness Coaches across India</div>
           <h1>Coach ho. Par <span class="strike">leads</span> sirf referral se?</h1>
-          <p class="lead">India mein <strong>5 Crore+ log Google aur Instagram par Weight Loss search kar rahe hain.</strong> Hamari Meta ad systems un sabhi needy logon ko aapki profile &amp; ads dikhayegi — <strong>aap unka weight loss karao, system aapko daily qualified leads laa kar dega!</strong></p>
+          <!-- 5 Crore+ Weight Loss Searches Animated Stage -->
+          <div class="stage-container" aria-label="5 Crore+ Weight Loss Searches Opportunity">
+            <div class="stage" id="stage">
+              <p class="intro" id="intro">India mein</p>
+              <div class="big" id="big"><span id="num">0</span><span>Crore</span><span class="plus">+</span></div>
+              <p class="line" id="l1" data-hl="Weight Loss">log Google aur Instagram par Weight Loss search kar rahe hain.</p>
+             
+              <section class="panel" id="panel">
+                <p class="line wide" id="l2" data-green="Meta ad systems|weight loss|daily qualified leads">Hamari Meta ad systems un sabhi needy logon ko aapki profile &amp; ads dikhayegi — aap unka weight loss karao, system aapko daily qualified leads laa kar dega!</p>
+              </section>
+             
+              <div class="bottom">
+                <span class="pulse" aria-hidden="true"></span>
+                <span class="tag" id="tag">Aaj hi start karein</span>
+                <button id="replay" type="button" aria-label="Replay 5 Crore Animation">Replay</button>
+              </div>
+            </div>
+          </div>
           <div class="cta-row">
             <a class="btn" href="#firstPageForm" aria-label="Claim Free Coach Growth Plan"><i class="ph-bold ph-lightning" style="font-size:1.2rem;"></i> Free Coach Growth Plan</a>
             <a class="btn ghost" href="#problems">Pehle problem dekho ↓</a>
@@ -1438,9 +1631,9 @@
                   <i class="ph-fill ph-film-strip"></i> <span id="heroCurrentIndex">1</span> / 22
                 </div>
                 <div class="player-top-actions">
-                  <button class="player-action-btn" id="heroSoundToggle" aria-label="Sound Toggle">
-                    <i class="ph ph-speaker-slash"></i>
-                    <span id="heroSoundText">Sound OFF</span>
+                  <button class="player-action-btn active" id="heroSoundToggle" aria-label="Sound Toggle">
+                    <i class="ph ph-speaker-high"></i>
+                    <span id="heroSoundText">Sound ON</span>
                   </button>
                 </div>
               </div>
@@ -1448,7 +1641,7 @@
               <!-- Phone Video Screen Container -->
               <div class="phone-screen" id="heroPhoneScreen">
                 <!-- Video Element -->
-                <video id="heroPhoneVideo" src="rev/export-1790102786376.mp4" autoplay loop muted playsinline preload="auto"></video>
+                <video id="heroPhoneVideo" src="rev/export-1790102786376.mp4" autoplay loop playsinline preload="auto"></video>
 
                 <!-- Center Tap to Play / Pause Indicator -->
                 <button class="hero-play-center-btn" id="heroCenterPlayBtn" aria-label="Play or Pause Video">
@@ -2338,7 +2531,9 @@
     const heroBottomPlayBtn = document.getElementById('heroBottomPlayBtn');
     const heroPlayBtnText = document.getElementById('heroPlayBtnText');
 
-    function updateHeroVideo(index, playWithAudio = false) {
+    let userMutedExplicitly = false;
+
+    function updateHeroVideo(index, playWithAudio = true) {
       if (index < 0) index = heroReviewsData.length - 1;
       if (index >= heroReviewsData.length) index = 0;
       heroCurrentIndex = index;
@@ -2351,8 +2546,10 @@
 
       if (heroVideo) {
         heroVideo.src = data.src;
-        if (playWithAudio) {
+        if (playWithAudio && !userMutedExplicitly) {
           heroVideo.muted = false;
+        } else if (userMutedExplicitly) {
+          heroVideo.muted = true;
         }
         updateSoundButtonState();
 
@@ -2364,6 +2561,7 @@
             if (heroPlayBtnText) heroPlayBtnText.textContent = 'Pause';
           }
         }).catch(() => {
+          // If browser restricts initial autoplay with sound prior to user gesture:
           heroVideo.muted = true;
           updateSoundButtonState();
           heroVideo.play().catch(e => console.log('Autoplay deferred:', e));
@@ -2389,9 +2587,113 @@
       heroSoundBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         heroVideo.muted = !heroVideo.muted;
+        userMutedExplicitly = heroVideo.muted;
         updateSoundButtonState();
       });
     }
+
+    // Auto-unmute on first user touch/click/scroll if not explicitly turned off by user:
+    const enableAudioOnUserGesture = () => {
+      if (!userMutedExplicitly && heroVideo && heroVideo.muted) {
+        heroVideo.muted = false;
+        updateSoundButtonState();
+      }
+    };
+    ['pointerdown', 'touchstart', 'click', 'keydown'].forEach(evt => {
+      window.addEventListener(evt, enableAudioOnUserGesture, { once: true, passive: true });
+    });
+
+    // 2B. 5 CRORE+ SEARCH OPPORTUNITY ANIMATED STAGE CONTROLLER
+    (function(){
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const l1 = document.getElementById("l1");
+      const l2 = document.getElementById("l2");
+      const panel = document.getElementById("panel");
+      const big = document.getElementById("big");
+      const num = document.getElementById("num");
+      const tag = document.getElementById("tag");
+      const replayBtn = document.getElementById("replay");
+
+      if (!l1 || !l2 || !panel || !big || !num) return;
+
+      // split a line into word spans (keeps highlighted phrase styled)
+      function ranges(text, list){
+        const out = [];
+        (list || "").split("|").forEach(function(ph){
+          if(!ph) return;
+          const needle = ph.trim().toLowerCase();
+          let idx = text.toLowerCase().indexOf(needle);
+          while (idx > -1) {
+            out.push([idx, idx + needle.length]);
+            idx = text.toLowerCase().indexOf(needle, idx + needle.length);
+          }
+        });
+        return out;
+      }
+      function inside(r, pos){ return r.some(function(x){ return pos >= x[0] && pos < x[1]; }); }
+
+      function split(el){
+        const text = el.textContent.trim();
+        let pos = 0, html = "";
+        const hl = ranges(text, el.dataset.hl);
+        const gr = ranges(text, el.dataset.green);
+        text.split(" ").forEach(function(word, i){
+          const cls = "w" + (inside(gr, pos) ? " gr" : inside(hl, pos) ? " hl" : "");
+          html += '<span class="' + cls + '"><span style="transition-delay:' + (i*60) + 'ms">' + word + '</span></span> ';
+          pos += word.length + 1;
+        });
+        el.innerHTML = html;
+      }
+
+      split(l1);
+      split(l2);
+
+      let timers = [];
+      let activeInterval = null;
+      function later(fn, ms){ timers.push(setTimeout(fn, ms)); }
+
+      function playStage(){
+        timers.forEach(clearTimeout);
+        timers = [];
+        if (activeInterval) clearInterval(activeInterval);
+        l1.classList.remove("show");
+        l2.classList.remove("show");
+        panel.classList.remove("open");
+        big.classList.remove("done");
+        if (tag) tag.classList.remove("on");
+        num.textContent = "0";
+
+        // 1) count up 0 -> 5 (Rock-solid high frequency timer)
+        const startTime = Date.now();
+        const dur = reduce ? 1 : 900;
+        activeInterval = setInterval(() => {
+          const elapsed = Date.now() - startTime;
+          const p = Math.min(elapsed / dur, 1);
+          num.textContent = Math.round(5 * (1 - Math.pow(1 - p, 3)));
+          if (p >= 1) {
+            clearInterval(activeInterval);
+            num.textContent = "5";
+            big.classList.add("done");
+          }
+        }, 25);
+
+        // 2) sentence words slide up
+        later(function(){ l1.classList.add("show"); }, reduce ? 0 : 800);
+        // 3) red panel wipes in, then its words
+        later(function(){ panel.classList.add("open"); }, reduce ? 0 : 1400);
+        later(function(){ l2.classList.add("show"); }, reduce ? 0 : 1900);
+        // 4) tag
+        later(function(){ if (tag) tag.classList.add("on"); }, reduce ? 0 : 2600);
+      }
+
+      if (replayBtn) {
+        replayBtn.addEventListener("click", playStage);
+      }
+
+      // Initial play once DOM is ready
+      setTimeout(playStage, 200);
+    })();
+
 
     // Prev Video Buttons (On-screen + Bottom bar)
     const handlePrev = (e) => {
@@ -2639,11 +2941,24 @@
               }
             });
 
+            video.muted = false;
+            const cardMuteIcon = muteBtn ? muteBtn.querySelector('i') : null;
+            if (cardMuteIcon && muteBtn) {
+              cardMuteIcon.className = 'ph ph-speaker-high';
+              muteBtn.style.background = 'var(--acid)';
+              muteBtn.style.color = 'var(--acid-ink)';
+            }
+
             video.play().then(() => {
               card.classList.add('playing');
               if (playBtn) playBtn.querySelector('i').className = 'ph-fill ph-pause';
             }).catch(() => {
               video.muted = true;
+              if (cardMuteIcon && muteBtn) {
+                cardMuteIcon.className = 'ph ph-speaker-slash';
+                muteBtn.style.background = 'rgba(11, 13, 12, 0.75)';
+                muteBtn.style.color = 'var(--text)';
+              }
               video.play().then(() => {
                 card.classList.add('playing');
                 if (playBtn) playBtn.querySelector('i').className = 'ph-fill ph-pause';
