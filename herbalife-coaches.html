@@ -4081,21 +4081,107 @@
       }
     }
 
+    
+    // Main In-Page Webinar Form Submission
+    function handleWebinarSubmit(e) {
+      e.preventDefault();
+      var nameInput = document.getElementById('wbName');
+      var phoneInput = document.getElementById('wbPhone');
+      var emailInput = document.getElementById('wbEmail');
+      var vp = document.getElementById('wbVP') ? document.getElementById('wbVP').value : '500 se kam';
+
+      var phone = phoneInput.value.trim().replace(/[^0-9]/g, '');
+      if (phone.length === 12 && phone.startsWith('91')) phone = phone.slice(2);
+      if (phone.length === 11 && phone.startsWith('0')) phone = phone.slice(1);
+
+      var errEl = document.getElementById('wbPhoneError');
+      if (!/^[6-9][0-9]{9}$/.test(phone)) {
+        phoneInput.classList.add('error-field');
+        if (errEl) {
+          errEl.innerText = 'Kripya sahi 10-digit mobile number dalein';
+          errEl.style.display = 'block';
+        }
+        phoneInput.focus();
+        return;
+      }
+      phoneInput.classList.remove('error-field');
+      if (errEl) errEl.style.display = 'none';
+
+      var btn = document.getElementById('btnPayWebinar');
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = '<span>Creating Secure Order... ⏳</span>';
+      }
+
+      var pFill = document.getElementById('webinarProgressFill');
+      if (pFill) pFill.style.width = '80%';
+
+      if (typeof fbq === 'function') {
+        fbq('track', 'InitiateCheckout', {
+          content_name: 'Daily Live Webinar (Rs. 59)',
+          value: 59,
+          currency: 'INR'
+        });
+      }
+
+      fetch('/api/create-order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          product: 'webinar',
+          name: nameInput.value.trim(),
+          phone: phone,
+          email: emailInput.value.trim(),
+          date: selectedWebinarDate,
+          slot: selectedWebinarSlot,
+          current_vp: vp
+        })
+      })
+      .then(function(res){ return res.json(); })
+      .then(function(data){
+        if (btn) {
+          btn.disabled = false;
+          btn.innerHTML = '<span>Rs. 59 Pay Karke Seat Confirm Karo →</span>';
+        }
+        if (!data.success) {
+          showPaymentError(data.message || 'Order create nahi ho paya.');
+          return;
+        }
+        launchCashfreeCheckout(data);
+      })
+      .catch(function(err){
+        if (btn) {
+          btn.disabled = false;
+          btn.innerHTML = '<span>Rs. 59 Pay Karke Seat Confirm Karo →</span>';
+        }
+        showPaymentError('Server connection error. Kripya check karein.');
+      });
+    }
+
     function handleModalWebinarSubmit(e) {
       e.preventDefault();
       var name = document.getElementById('mbName').value.trim();
       var phoneInput = document.getElementById('mbPhone');
       var email = document.getElementById('mbEmail').value.trim();
-      var vp = document.getElementById('mbVP').value;
+      var vp = document.getElementById('mbVP') ? document.getElementById('mbVP').value : '500 se kam';
 
-      var phone = phoneInput.value.trim();
-      if (!/^[6-9]d{9}$/.test(phone)) {
+      // Clean phone: strip any non-digit chars, country code +91 or leading 0
+      var phone = phoneInput.value.trim().replace(/[^0-9]/g, '');
+      if (phone.length === 12 && phone.startsWith('91')) phone = phone.slice(2);
+      if (phone.length === 11 && phone.startsWith('0')) phone = phone.slice(1);
+
+      var errEl = document.getElementById('mbPhoneError');
+      if (!/^[6-9][0-9]{9}$/.test(phone)) {
         phoneInput.classList.add('error-field');
-        alert('Kripya valid 10-digit WhatsApp number dalein.');
+        if (errEl) {
+          errEl.innerText = 'Kripya sahi 10-digit mobile number dalein';
+          errEl.style.display = 'block';
+        }
         phoneInput.focus();
         return;
       }
       phoneInput.classList.remove('error-field');
+      if (errEl) errEl.style.display = 'none';
 
       var btn = document.getElementById('btnPayModal');
       btn.disabled = true;
@@ -4146,10 +4232,12 @@
       var phoneInput = document.getElementById('mtPhone');
       var email = document.getElementById('mtEmail').value.trim();
 
-      var phone = phoneInput.value.trim();
-      if (!/^[6-9]d{9}$/.test(phone)) {
+      var phone = phoneInput.value.trim().replace(/[^0-9]/g, '');
+      if (phone.length === 12 && phone.startsWith('91')) phone = phone.slice(2);
+      if (phone.length === 11 && phone.startsWith('0')) phone = phone.slice(1);
+
+      if (!/^[6-9][0-9]{9}$/.test(phone)) {
         phoneInput.classList.add('error-field');
-        alert('Kripya valid 10-digit mobile number dalein.');
         phoneInput.focus();
         return;
       }
@@ -4202,8 +4290,16 @@
       var btn = document.getElementById('erBtn');
       var resp = document.getElementById('erResponse');
 
-      if (!/^[6-9]d{9}$/.test(phone)) {
-        alert('Kripya valid 10-digit WhatsApp number dalein.');
+      phone = phone.replace(/[^0-9]/g, '');
+      if (phone.length === 12 && phone.startsWith('91')) phone = phone.slice(2);
+      if (phone.length === 11 && phone.startsWith('0')) phone = phone.slice(1);
+
+      if (!/^[6-9][0-9]{9}$/.test(phone)) {
+        if (resp) {
+          resp.style.display = 'block';
+          resp.style.color = 'var(--red)';
+          resp.innerText = 'Kripya valid 10-digit WhatsApp number dalein.';
+        }
         return;
       }
 
