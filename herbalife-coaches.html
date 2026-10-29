@@ -368,7 +368,7 @@
       width: 100%;
       max-width: 100%;
       /* Mobile portrait ratio 4:5 as requested in Rule 8 */
-      aspect-ratio: 4/5;
+      aspect-ratio: 16 / 9;
       margin: 14px 0 16px;
     }
     @media (min-width: 992px) {
@@ -377,32 +377,33 @@
     .hero-video-box video {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
+      background: #000;
     }
 
     /* Rule 8: Big thumb-friendly Sound ON Button */
     .hero-sound-btn {
       position: absolute;
-      bottom: 14px;
-      left: 14px;
-      right: 14px;
+      bottom: 12px;
+      right: 12px;
       background: rgba(7, 9, 12, 0.88);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border: 1.5px solid var(--primary);
       color: #fff;
-      font-size: 15px;
+      font-size: 13px;
       font-weight: 700;
-      padding: 12px 18px;
+      padding: 8px 14px;
       border-radius: var(--radius-full);
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 6px;
       cursor: pointer;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
       transition: all 0.2s ease;
+      touch-action: manipulation;
       z-index: 5;
     }
     @media (min-width: 600px) {
@@ -2044,7 +2045,7 @@
           </div>
           <h1>Abhi bhi 500 VP se neeche atke ho, jabki dusre coaches aage nikal gaye?</h1>
 
-          <!-- Rule 8: Mobile Hero Video Directly Below H1, 4:5 Portrait Ratio -->
+          <!-- Mobile Hero Video Directly Below H1, Original 16:9 Aspect Ratio -->
           <div class="mobile-hero-video-wrapper">
             <div class="hero-video-box">
               <video id="heroVideoMobile" src="assets/hero-video.mp4" poster="assets/hero-poster.jpg" autoplay muted loop playsinline preload="metadata"></video>
