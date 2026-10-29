@@ -17,7 +17,9 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(express.static(__dirname));
 
 // Configuration settings
-const ZOOM_LINK = process.env.ZOOM_LINK || 'https://us02web.zoom.us/j/rekacreativelabs';
+const ZOOM_LINK = process.env.ZOOM_LINK || 'https://us05web.zoom.us/j/83569102164?pwd=UAnFjOXHxA1hoLxEpZHca3awc4dP6o.1';
+const ZOOM_MEETING_ID = '835 6910 2164';
+const ZOOM_PASSCODE = '0123';
 const CALENDLY_URL = process.env.CALENDLY_URL || 'https://calendly.com/rekacreativelabs/30min';
 const META_PIXEL_ID = process.env.META_PIXEL_ID || '1095990819739700';
 

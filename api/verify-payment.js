@@ -1,5 +1,6 @@
 const cashfree = require('../cashfree');
 const db = require('../data/db');
+const mailer = require('../mailer');
 
 module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -31,12 +32,28 @@ module.exports = async function handler(req, res) {
         verified_at: new Date().toISOString()
       });
 
+      const finalBooking = updated || db.getBooking(order_id) || {
+        order_id: order_id,
+        product: order_id.startsWith('MTG') ? 'meeting' : 'webinar',
+        amount: order_id.startsWith('MTG') ? 49 : 59
+      };
+
+      // Deliver Zoom Meeting Details to Customer & Alert to Founder
+      mailer.sendBookingConfirmation(finalBooking).then(mRes => {
+        console.log('[Verification Email Sent]', mRes);
+      }).catch(err => {
+        console.error('[Verification Email Error]', err.message);
+      });
+
       return res.json({
         success: true,
         is_paid: true,
         order_id: verification.order_id,
-        booking: updated || db.getBooking(order_id),
-        message: 'Payment safalta-purvak confirm ho gaya!'
+        booking: finalBooking,
+        zoom_link: mailer.ZOOM_LINK,
+        zoom_meeting_id: mailer.ZOOM_MEETING_ID,
+        zoom_passcode: mailer.ZOOM_PASSCODE,
+        message: 'Payment safalta-purvak confirm ho gaya! Zoom link email par bhej di gayi hai.'
       });
     }
 

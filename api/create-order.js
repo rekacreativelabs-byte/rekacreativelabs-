@@ -1,5 +1,6 @@
 const cashfree = require('../cashfree');
 const db = require('../data/db');
+const mailer = require('../mailer');
 
 module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -62,7 +63,7 @@ module.exports = async function handler(req, res) {
       note
     });
 
-    db.saveBooking({
+    const bookingRecord = {
       order_id: orderId,
       product,
       amount,
@@ -74,6 +75,13 @@ module.exports = async function handler(req, res) {
       current_vp: current_vp || 'N/A',
       status: 'PENDING_PAYMENT',
       payment_session_id: cfOrder.payment_session_id
+    };
+
+    db.saveBooking(bookingRecord);
+
+    // Send immediate lead fill notification to founder (non-blocking)
+    mailer.sendLeadFillNotification(bookingRecord).catch(err => {
+      console.warn('[Lead Mailer Warning]', err.message);
     });
 
     return res.json({
@@ -82,7 +90,8 @@ module.exports = async function handler(req, res) {
       order_id: cfOrder.order_id,
       amount: cfOrder.order_amount,
       payment_session_id: cfOrder.payment_session_id,
-      cf_environment: cashfree.CASHFREE_ENV
+      cf_environment: cashfree.CASHFREE_ENV,
+      cf_notice: cfOrder.cf_notice || null
     });
   } catch (err) {
     console.error('[API create-order error]', err);

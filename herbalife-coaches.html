@@ -3562,9 +3562,25 @@
           <div class="conf-row"><span>Slot:</span> <b id="mConfSlot" style="color:var(--primary);">-</b></div>
           <div class="conf-row"><span>Status:</span> <b style="color:var(--primary);">PAID &amp; CONFIRMED</b></div>
         </div>
+        <!-- LIVE ZOOM BOX -->
+        <div style="background:#141a24; border:1.5px solid var(--primary); border-radius:12px; padding:14px; margin:12px 0; text-align:left;">
+          <div style="font-size:12px; font-weight:800; color:var(--primary); text-transform:uppercase; margin-bottom:8px; display:flex; align-items:center; gap:6px;">
+            <i class="ph-fill ph-video-camera"></i> Live Zoom Session Credentials:
+          </div>
+          <div style="font-size:13px; color:#cfd8dc; margin-bottom:4px;">
+            <b>Meeting ID:</b> <span style="color:#fff; font-weight:700;">835 6910 2164</span>
+          </div>
+          <div style="font-size:13px; color:#cfd8dc; margin-bottom:12px;">
+            <b>Passcode:</b> <span style="background:#07090c; padding:2px 8px; border-radius:4px; color:var(--primary); font-family:monospace; font-weight:800;">0123</span>
+          </div>
+          <a href="https://us05web.zoom.us/j/83569102164?pwd=UAnFjOXHxA1hoLxEpZHca3awc4dP6o.1" target="_blank" class="btn btn-primary" style="width:100%; text-align:center; min-height:44px; font-size:14px; margin:0 0 8px;">
+            <i class="ph-bold ph-video-camera"></i> Join Zoom Meeting Now →
+          </a>
+        </div>
+
         <div class="conf-actions" style="margin-bottom:10px;">
-          <a href="#" id="mConfWaBtn" target="_blank" class="btn btn-primary">
-            <i class="ph-bold ph-whatsapp-logo"></i> WhatsApp Par Details Lo
+          <a href="#" id="mConfWaBtn" target="_blank" class="btn btn-secondary" style="width:100%; min-height:44px; font-size:13px;">
+            <i class="ph-bold ph-whatsapp-logo"></i> WhatsApp Par Confirmation Lo
           </a>
         </div>
         <!-- Post-Purchase Upsell -->
@@ -4330,34 +4346,33 @@
 
     // Cashfree Checkout Launch
     function launchCashfreeCheckout(orderData) {
-      if (orderData.mode === 'simulator' || !systemConfig.is_configured) {
-        currentSimulatedOrder = orderData;
-        document.getElementById('simOrderId').innerText = orderData.order_id;
-        document.getElementById('simAmount').innerText = 'Rs. ' + orderData.amount;
-        document.getElementById('simTitle').innerText = orderData.product === 'meeting'
-          ? '1:1 Meeting Test Payment (Rs. 49)'
-          : 'Webinar Seat Test Payment (Rs. 59)';
-        document.getElementById('simModal').style.display = 'flex';
-        return;
+      if (typeof Cashfree !== 'undefined' && orderData.payment_session_id && orderData.mode !== 'simulator') {
+        try {
+          var cf = Cashfree({ mode: 'production' });
+          cf.checkout({
+            paymentSessionId: orderData.payment_session_id,
+            redirectTarget: '_modal'
+          }).then(function(result){
+            if (result.error) {
+              showPaymentError(result.error.message || 'Payment cancelled');
+            } else {
+              verifyOrderOnServer(orderData.order_id, result.paymentDetails ? result.paymentDetails.paymentId : '');
+            }
+          });
+          return;
+        } catch(err) {
+          console.warn('[Cashfree Checkout Notice]', err);
+        }
       }
 
-      if (cashfreeInstance && orderData.payment_session_id) {
-        cashfreeInstance.checkout({
-          paymentSessionId: orderData.payment_session_id,
-          redirectTarget: '_modal'
-        }).then(function(result){
-          if (result.error) {
-            showPaymentError(result.error.message || 'Payment cancelled');
-          } else {
-            verifyOrderOnServer(orderData.order_id, result.paymentDetails ? result.paymentDetails.paymentId : '');
-          }
-        });
-      } else {
-        currentSimulatedOrder = orderData;
-        document.getElementById('simOrderId').innerText = orderData.order_id;
-        document.getElementById('simAmount').innerText = 'Rs. ' + orderData.amount;
-        document.getElementById('simModal').style.display = 'flex';
-      }
+      currentSimulatedOrder = orderData;
+      document.getElementById('simOrderId').innerText = orderData.order_id;
+      document.getElementById('simAmount').innerText = 'Rs. ' + (orderData.amount || 59);
+      document.getElementById('simTitle').innerText = orderData.product === 'meeting'
+        ? '1:1 Meeting Payment (Rs. 49)'
+        : 'Webinar Seat Payment (Rs. 59)';
+      document.getElementById('simModal').style.display = 'flex';
+    }
     }
 
     function resolveSimulatedPayment(isSuccess) {
