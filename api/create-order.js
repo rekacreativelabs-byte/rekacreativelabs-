@@ -1,4 +1,3 @@
-const cashfree = require('../cashfree');
 const db = require('../data/db');
 const mailer = require('../mailer');
 
@@ -16,88 +15,51 @@ module.exports = async function handler(req, res) {
   }
 
   try {
-    const { product, name, phone, email, date, slot, current_vp } = req.body || {};
+    const { product = 'webinar', name, phone, email, date, slot, current_vp } = req.body || {};
 
-    if (!product || !name || !phone || !email) {
+    if (!name || !phone || !email) {
       return res.status(400).json({ success: false, message: 'Sabhi jaruri details bharein' });
     }
 
-    let amount = 59;
-    let orderPrefix = 'WEB';
-    let note = 'Reka Creative Labs - Daily Live Webinar Seat';
-
-    if (product === 'meeting') {
-      amount = 49;
-      orderPrefix = 'MTG';
-      note = 'Reka Creative Labs - 1:1 Strategy Meeting with Abhinash Singh';
-    } else {
-      // Check slot availability for webinar (Cap 20)
-      if (date && slot) {
-        const avail = db.getSlotAvailability(date, slot);
-        if (!avail.is_available) {
-          return res.status(400).json({
-            success: false,
-            message: `Maaf kijiye, ${slot} slot ki sabhi 20 seats full ho chuki hain. Kripya dusra slot chunein.`
-          });
-        }
-      }
-    }
-
     const cleanPhone = phone.replace(/[^0-9]/g, '').slice(-10);
-    const orderId = `${orderPrefix}_${Date.now()}_${cleanPhone.slice(-4)}`;
-
-    const host = req.headers['x-forwarded-host'] || req.headers.host || 'www.rekacreativelabs.com';
-    const proto = req.headers['x-forwarded-proto'] || 'https';
-    const returnUrl = `${proto}://${host}/herbalife-coaches.html?order_id={order_id}`;
-
-    const cfOrder = await cashfree.createOrder({
-      orderId,
-      amount,
-      currency: 'INR',
-      customer: {
-        name,
-        email,
-        phone: cleanPhone
-      },
-      returnUrl,
-      note
-    });
+    const orderId = `FREE_${Date.now()}_${cleanPhone.slice(-4)}`;
 
     const bookingRecord = {
       order_id: orderId,
-      product,
-      amount,
-      name,
+      product: product || 'free_webinar',
+      amount: 0,
+      name: name.trim(),
       phone: cleanPhone,
-      email,
-      date: date || 'N/A',
-      slot: slot || 'N/A',
+      email: email.trim(),
+      date: date || 'Aaj',
+      slot: slot || '11:00 AM',
       current_vp: current_vp || 'N/A',
-      status: 'PENDING_PAYMENT',
-      payment_session_id: cfOrder.payment_session_id
+      status: 'CONFIRMED',
+      created_at: new Date().toISOString()
     };
 
     db.saveBooking(bookingRecord);
 
-    // Send immediate lead fill notification to founder (non-blocking)
-    mailer.sendLeadFillNotification(bookingRecord).catch(err => {
-      console.warn('[Lead Mailer Warning]', err.message);
+    // Deliver Zoom Meeting Details to Customer & Alert to Founder immediately
+    mailer.sendBookingConfirmation(bookingRecord).catch(err => {
+      console.warn('[Confirmation Mailer Notice]', err.message);
     });
 
     return res.json({
       success: true,
-      mode: cfOrder.mode,
-      order_id: cfOrder.order_id,
-      amount: cfOrder.order_amount,
-      payment_session_id: cfOrder.payment_session_id,
-      cf_environment: cashfree.CASHFREE_ENV,
-      cf_notice: cfOrder.cf_notice || null
+      is_confirmed: true,
+      order_id: orderId,
+      booking: bookingRecord,
+      zoom_link: mailer.ZOOM_LINK,
+      zoom_meeting_id: mailer.ZOOM_MEETING_ID,
+      zoom_passcode: mailer.ZOOM_PASSCODE,
+      message: 'Aapki Free Seat Confirm ho gayi hai! Zoom link aapke email par bhej di gayi hai.'
     });
   } catch (err) {
-    console.error('[API create-order error]', err);
+    console.error('[API Free Booking Error]', err);
     return res.status(500).json({
       success: false,
-      message: err.message || 'Order creation failed'
+      message: 'Booking failed: ' + err.message
     });
   }
 };
