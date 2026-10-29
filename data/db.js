@@ -1,34 +1,47 @@
 const fs = require('fs');
 const path = require('path');
 
-const DB_DIR = path.join(__dirname);
+// In serverless (Vercel/AWS Lambda), filesystem outside /tmp is read-only
+const isServerless = !!(process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME);
+const DB_DIR = isServerless ? '/tmp' : path.join(__dirname);
 const DB_FILE = path.join(DB_DIR, 'bookings.json');
 
-// Ensure DB directory and file exist
-if (!fs.existsSync(DB_DIR)) {
-  fs.mkdirSync(DB_DIR, { recursive: true });
-}
-if (!fs.existsSync(DB_FILE)) {
-  fs.writeFileSync(DB_FILE, JSON.stringify([], null, 2), 'utf8');
+// In-memory cache fallback to ensure zero runtime errors
+let memoryBookings = [];
+
+try {
+  if (!fs.existsSync(DB_DIR)) {
+    fs.mkdirSync(DB_DIR, { recursive: true });
+  }
+  if (!fs.existsSync(DB_FILE)) {
+    fs.writeFileSync(DB_FILE, JSON.stringify([], null, 2), 'utf8');
+  }
+} catch (e) {
+  console.warn('[DB] Warning: Filesystem initialization fallback to memory:', e.message);
 }
 
 function readBookings() {
   try {
-    const raw = fs.readFileSync(DB_FILE, 'utf8');
-    return JSON.parse(raw || '[]');
+    if (fs.existsSync(DB_FILE)) {
+      const raw = fs.readFileSync(DB_FILE, 'utf8');
+      const parsed = JSON.parse(raw || '[]');
+      memoryBookings = parsed;
+      return parsed;
+    }
   } catch (err) {
-    console.error('Error reading bookings DB:', err);
-    return [];
+    console.error('[DB] Error reading bookings DB, using memory cache:', err.message);
   }
+  return memoryBookings;
 }
 
 function writeBookings(bookings) {
+  memoryBookings = bookings;
   try {
     const tempFile = DB_FILE + '.tmp';
     fs.writeFileSync(tempFile, JSON.stringify(bookings, null, 2), 'utf8');
     fs.renameSync(tempFile, DB_FILE);
   } catch (err) {
-    console.error('Error writing bookings DB:', err);
+    console.warn('[DB] Could not persist to disk, stored in memory:', err.message);
   }
 }
 
@@ -58,52 +71,44 @@ function updateBookingStatus(orderId, status, paymentDetails = {}) {
   const booking = bookings.find(b => b.order_id === orderId);
   if (!booking) return null;
   booking.status = status;
-  if (paymentDetails.payment_id) booking.payment_id = paymentDetails.payment_id;
-  if (paymentDetails.payment_method) booking.payment_method = paymentDetails.payment_method;
-  if (paymentDetails.raw) booking.payment_raw = paymentDetails.raw;
+  booking.payment = {
+    ...booking.payment,
+    ...paymentDetails,
+    verified_at: new Date().toISOString()
+  };
   booking.updated_at = new Date().toISOString();
   writeBookings(bookings);
   return booking;
 }
 
-function listBookings() {
-  return readBookings();
-}
-
+// User-specified capacity: exactly 20 people per slot
 const MAX_SEATS_PER_SLOT = 20;
 
-function getSlotBookingCount(date, slot) {
+function getSlotAvailability(date, slot) {
   const bookings = readBookings();
-  // Count confirmed bookings for that date & slot
-  return bookings.filter(b =>
+  const confirmed = bookings.filter(b =>
     b.product === 'webinar' &&
     b.date === date &&
     b.slot === slot &&
-    b.status === 'CONFIRMED'
-  ).length;
-}
-
-function getSlotAvailability(date) {
-  const slots = ['11:00 AM', '02:00 PM', '03:00 PM'];
-  const result = {};
-  slots.forEach(slot => {
-    const booked = getSlotBookingCount(date, slot);
-    result[slot] = {
-      max_seats: MAX_SEATS_PER_SLOT,
-      booked_seats: booked,
-      available_seats: Math.max(0, MAX_SEATS_PER_SLOT - booked),
-      is_full: booked >= MAX_SEATS_PER_SLOT
-    };
-  });
-  return result;
+    (b.status === 'PAID' || b.status === 'CONFIRMED')
+  );
+  const booked = confirmed.length;
+  const remaining = Math.max(0, MAX_SEATS_PER_SLOT - booked);
+  return {
+    date,
+    slot,
+    max_seats: MAX_SEATS_PER_SLOT,
+    booked_seats: booked,
+    remaining_seats: remaining,
+    is_available: remaining > 0
+  };
 }
 
 module.exports = {
+  MAX_SEATS_PER_SLOT,
+  readBookings,
   saveBooking,
   getBooking,
   updateBookingStatus,
-  listBookings,
-  MAX_SEATS_PER_SLOT,
-  getSlotBookingCount,
   getSlotAvailability
 };

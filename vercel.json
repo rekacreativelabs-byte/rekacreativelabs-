@@ -1,4 +1,5 @@
 {
+  "cleanUrls": true,
   "redirects": [
     {
       "source": "/",
@@ -21,6 +22,16 @@
       ],
       "destination": "https://www.rekacreativelabs.com/:path*",
       "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/herbalife-coaches",
+      "destination": "/herbalife-coaches.html"
+    },
+    {
+      "source": "/herbalife-coaches.html",
+      "destination": "/herbalife-coaches.html"
     }
   ],
   "headers": [
