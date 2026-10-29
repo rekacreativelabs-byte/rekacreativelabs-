@@ -386,6 +386,41 @@
         align-items: center;
       }
     }
+    
+    /* Floating Sound ON Button */
+    .hero-unmute-banner {
+      position: absolute;
+      bottom: 14px;
+      right: 14px;
+      background: rgba(7, 9, 12, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1.5px solid var(--primary);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 9px 16px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      z-index: 10;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 200, 83, 0.35);
+      transition: all 0.2s ease;
+      touch-action: manipulation;
+    }
+    .hero-unmute-banner:hover, .hero-unmute-banner:active {
+      transform: scale(1.05);
+      background: var(--primary);
+      color: #07090c;
+    }
+    .hero-unmute-banner.is-active {
+      border-color: rgba(255, 255, 255, 0.4);
+      background: rgba(7, 9, 12, 0.85);
+      color: #00c853;
+    }
+
     .hero-video-box video {
       width: 100%;
       height: 100%;
@@ -2136,7 +2171,7 @@
 
           <!-- Mobile Hero Video Directly Below H1, Original 16:9 Aspect Ratio -->
           <div class="mobile-hero-video-wrapper">
-            <div class="hero-video-box" id="ytBoxMobile" onclick="handleYtPlay('heroVideoMobile', this)">
+            <div class="hero-video-box" id="ytBoxMobile">
               <!-- YouTube Top Bar -->
               <div class="yt-header-bar">
                 <div class="yt-header-left">
@@ -2155,15 +2190,20 @@
               <video id="heroVideoMobile" src="assets/hero-video.mp4" poster="assets/hero-poster.jpg" autoplay muted loop playsinline controls preload="metadata"></video>
 
               <!-- YouTube Big Red Play Button -->
-              <div class="yt-play-btn-wrap" id="ytPlayWrap-heroVideoMobile">
+              <div class="yt-play-btn-wrap" id="ytPlayWrap-heroVideoMobile" onclick="unmuteHeroVideo('heroVideoMobile')">
                 <div class="yt-play-btn">
                   <svg viewBox="0 0 68 48" width="68" height="48">
                     <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
                     <path d="M 45,24 27,14 27,34" fill="#fff"></path>
                   </svg>
                 </div>
-                <div class="yt-play-prompt">🔊 Tap Karke Sound ON Karein</div>
+                <div class="yt-play-prompt">🔊 Awaz Chalu Karein (Tap for Sound)</div>
               </div>
+
+              <!-- Direct Sound ON Floating Button -->
+              <button type="button" class="hero-unmute-banner" id="unmuteBtn-heroVideoMobile" onclick="toggleHeroAudio('heroVideoMobile', this)">
+                <i class="ph-fill ph-speaker-high"></i> <span>🔊 Sound ON (Awaz Sunne Ke Liye Tap Karein)</span>
+              </button>
             </div>
           </div>
 
@@ -2214,7 +2254,7 @@
 
         <!-- Desktop Only Video Layout -->
         <div class="desktop-hero-video">
-          <div class="hero-video-box" id="ytBoxDesktop" onclick="handleYtPlay('heroVideoDesktop', this)">
+          <div class="hero-video-box" id="ytBoxDesktop">
             <!-- YouTube Top Bar -->
             <div class="yt-header-bar">
               <div class="yt-header-left">
@@ -2233,15 +2273,20 @@
             <video id="heroVideoDesktop" src="assets/hero-video.mp4" poster="assets/hero-poster.jpg" autoplay muted loop playsinline controls preload="metadata"></video>
 
             <!-- YouTube Big Red Play Button -->
-            <div class="yt-play-btn-wrap" id="ytPlayWrap-heroVideoDesktop">
+            <div class="yt-play-btn-wrap" id="ytPlayWrap-heroVideoDesktop" onclick="unmuteHeroVideo('heroVideoDesktop')">
               <div class="yt-play-btn">
                 <svg viewBox="0 0 68 48" width="68" height="48">
                   <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
                   <path d="M 45,24 27,14 27,34" fill="#fff"></path>
                 </svg>
               </div>
-              <div class="yt-play-prompt">🔊 Click Karke Sound ON Karein</div>
+              <div class="yt-play-prompt">🔊 Awaz Chalu Karein (Click for Sound)</div>
             </div>
+
+            <!-- Direct Sound ON Floating Button -->
+            <button type="button" class="hero-unmute-banner" id="unmuteBtn-heroVideoDesktop" onclick="toggleHeroAudio('heroVideoDesktop', this)">
+              <i class="ph-fill ph-speaker-high"></i> <span>🔊 Sound ON (Awaz Sunne Ke Liye Click Karein)</span>
+            </button>
           </div>
         </div>
       </div>
@@ -3640,43 +3685,77 @@
       .catch(function(e){ console.warn('Config fetch notice:', e); });
 
     // Hero sound toggle
-    function handleYtPlay(videoId, container) {
+    function unmuteHeroVideo(videoId) {
       var vid = document.getElementById(videoId);
       if (!vid) return;
 
-      if (vid.muted || vid.paused) {
-        vid.muted = false;
-        vid.play().then(function(){
-          if (container) container.classList.add('is-playing');
-        }).catch(function(){
+      // Unmute sequence
+      vid.removeAttribute('muted');
+      vid.defaultMuted = false;
+      vid.muted = false;
+      vid.volume = 1.0;
+
+      if (vid.paused) {
+        vid.currentTime = 0;
+      }
+
+      var p = vid.play();
+      if (p !== undefined) {
+        p.then(function(){
+          var box = vid.closest('.hero-video-box');
+          if (box) box.classList.add('is-playing');
+          updateSoundStatus(videoId, true);
+        }).catch(function(e){
+          console.warn('Playback error:', e);
           vid.play();
         });
       } else {
-        vid.pause();
-        if (container) container.classList.remove('is-playing');
+        updateSoundStatus(videoId, true);
       }
     }
 
-    // Attach listeners to update playing state on native controls interaction
-    document.addEventListener('DOMContentLoaded', function(){
-      ['heroVideoMobile', 'heroVideoDesktop'].forEach(function(id){
-        var v = document.getElementById(id);
-        if (!v) return;
-        v.addEventListener('play', function(){
-          if (!v.muted) {
-            var box = v.closest('.hero-video-box');
-            if (box) box.classList.add('is-playing');
-          }
-        });
-        v.addEventListener('pause', function(){
-          var box = v.closest('.hero-video-box');
-          if (box) box.classList.remove('is-playing');
-        });
-      });
-    });
+    function toggleHeroAudio(videoId, btn) {
+      var vid = document.getElementById(videoId);
+      if (!vid) return;
+
+      if (vid.muted || vid.volume === 0) {
+        unmuteHeroVideo(videoId);
+      } else {
+        vid.muted = true;
+        updateSoundStatus(videoId, false);
+      }
+    }
+
+    function updateSoundStatus(videoId, isSoundOn) {
+      var btn = document.getElementById('unmuteBtn-' + videoId);
+      if (btn) {
+        if (isSoundOn) {
+          btn.classList.add('is-active');
+          btn.innerHTML = '<i class="ph-fill ph-speaker-high"></i> <span>🔊 Awaz Chalu Hai (Mute)</span>';
+        } else {
+          btn.classList.remove('is-active');
+          btn.innerHTML = '<i class="ph-fill ph-speaker-slash"></i> <span>🔊 Sound ON (Awaz Sunne Ke Liye Tap Karein)</span>';
+        }
+      }
+
+      var wrap = document.getElementById('ytPlayWrap-' + videoId);
+      if (wrap) {
+        if (isSoundOn) {
+          wrap.style.opacity = '0';
+          wrap.style.pointerEvents = 'none';
+        } else {
+          wrap.style.opacity = '1';
+          wrap.style.pointerEvents = 'auto';
+        }
+      }
+    }
+
+    function handleYtPlay(videoId, container) {
+      unmuteHeroVideo(videoId);
+    }
 
     function toggleHeroSound(videoId, btn) {
-      handleYtPlay(videoId, document.getElementById(videoId ? videoId.replace('heroVideo', 'ytBox') : ''));
+      toggleHeroAudio(videoId, btn);
     }
 
     // Rule 3 & 4 (Part B): Real Countdown + Next Slot Defaulting
