@@ -387,7 +387,7 @@
       }
     }
     
-    /* Clean Video Player Box & Floating Quick Controls */
+    /* Clean Video Player Box */
     .hero-video-box {
       position: relative;
       width: 100%;
@@ -406,49 +406,6 @@
       display: block;
       background: #000;
       border-radius: inherit;
-    }
-
-    .video-action-bar {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      z-index: 10;
-      pointer-events: auto;
-    }
-
-    .video-btn-pill {
-      background: rgba(7, 9, 12, 0.88);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      color: #ffffff;
-      padding: 7px 14px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
-      transition: all 0.2s ease;
-      touch-action: manipulation;
-    }
-
-    .video-btn-pill:hover, .video-btn-pill:active {
-      background: var(--primary);
-      color: #07090c;
-      border-color: var(--primary);
-      transform: scale(1.05);
-    }
-
-    .video-btn-pill.is-active {
-      border-color: var(--primary);
-      color: var(--primary);
-      background: rgba(7, 9, 12, 0.92);
     }
 
     .hero-sub {
@@ -2088,14 +2045,6 @@
           <div class="mobile-hero-video-wrapper">
             <div class="hero-video-box" id="heroBoxMobile">
               <video id="heroVideoMobile" src="assets/hero-video.mp4" poster="assets/hero-poster.jpg" autoplay loop playsinline controls preload="metadata"></video>
-              <div class="video-action-bar">
-                <button type="button" class="video-btn-pill" id="playBtn-heroVideoMobile" onclick="toggleHeroPlay('heroVideoMobile')">
-                  <i class="ph-fill ph-pause" id="playIcon-heroVideoMobile"></i> <span id="playText-heroVideoMobile">Pause</span>
-                </button>
-                <button type="button" class="video-btn-pill" id="soundBtn-heroVideoMobile" onclick="toggleHeroSound('heroVideoMobile')">
-                  <i class="ph-fill ph-speaker-high" id="soundIcon-heroVideoMobile"></i> <span id="soundText-heroVideoMobile">Sound ON</span>
-                </button>
-              </div>
             </div>
           </div>
 
@@ -2148,14 +2097,6 @@
         <div class="desktop-hero-video">
           <div class="hero-video-box" id="heroBoxDesktop">
             <video id="heroVideoDesktop" src="assets/hero-video.mp4" poster="assets/hero-poster.jpg" autoplay loop playsinline controls preload="metadata"></video>
-            <div class="video-action-bar">
-              <button type="button" class="video-btn-pill" id="playBtn-heroVideoDesktop" onclick="toggleHeroPlay('heroVideoDesktop')">
-                <i class="ph-fill ph-pause" id="playIcon-heroVideoDesktop"></i> <span id="playText-heroVideoDesktop">Pause</span>
-              </button>
-              <button type="button" class="video-btn-pill" id="soundBtn-heroVideoDesktop" onclick="toggleHeroSound('heroVideoDesktop')">
-                <i class="ph-fill ph-speaker-high" id="soundIcon-heroVideoDesktop"></i> <span id="soundText-heroVideoDesktop">Sound ON</span>
-              </button>
-            </div>
           </div>
         </div>
       </div>
@@ -3554,83 +3495,9 @@
       .catch(function(e){ console.warn('Config fetch notice:', e); });
 
     // ====================================================================
-    // NORMAL HERO VIDEO PLAYER CONTROLS (PLAY/PAUSE & SOUND ON/OFF)
+    // HERO VIDEO AUTOPLAY & AUDIO UNMUTE
     // ====================================================================
     var hasUnmutedGlobally = false;
-
-    function updateVideoButtons(videoId) {
-      var vid = document.getElementById(videoId);
-      if (!vid) return;
-
-      var isPaused = vid.paused;
-      var isMuted = vid.muted || vid.volume === 0;
-
-      // Play button state
-      var playBtn = document.getElementById('playBtn-' + videoId);
-      var playIcon = document.getElementById('playIcon-' + videoId);
-      var playText = document.getElementById('playText-' + videoId);
-      if (playBtn) {
-        if (isPaused) {
-          if (playIcon) playIcon.className = 'ph-fill ph-play';
-          if (playText) playText.textContent = 'Play';
-          playBtn.classList.remove('is-active');
-        } else {
-          if (playIcon) playIcon.className = 'ph-fill ph-pause';
-          if (playText) playText.textContent = 'Pause';
-          playBtn.classList.add('is-active');
-        }
-      }
-
-      // Sound button state
-      var soundBtn = document.getElementById('soundBtn-' + videoId);
-      var soundIcon = document.getElementById('soundIcon-' + videoId);
-      var soundText = document.getElementById('soundText-' + videoId);
-      if (soundBtn) {
-        if (isMuted) {
-          if (soundIcon) soundIcon.className = 'ph-fill ph-speaker-slash';
-          if (soundText) soundText.textContent = 'Sound OFF';
-          soundBtn.classList.remove('is-active');
-        } else {
-          if (soundIcon) soundIcon.className = 'ph-fill ph-speaker-high';
-          if (soundText) soundText.textContent = 'Sound ON';
-          soundBtn.classList.add('is-active');
-        }
-      }
-    }
-
-    function toggleHeroPlay(videoId) {
-      var vid = document.getElementById(videoId);
-      if (!vid) return;
-      if (vid.paused) {
-        vid.muted = false;
-        vid.volume = 1.0;
-        var p = vid.play();
-        if (p !== undefined) {
-          p.then(function() {
-            updateVideoButtons(videoId);
-          }).catch(function() {
-            vid.play().catch(function(){});
-            updateVideoButtons(videoId);
-          });
-        }
-      } else {
-        vid.pause();
-        updateVideoButtons(videoId);
-      }
-    }
-
-    function toggleHeroSound(videoId) {
-      var vid = document.getElementById(videoId);
-      if (!vid) return;
-      if (vid.muted || vid.volume === 0) {
-        vid.muted = false;
-        vid.volume = 1.0;
-        if (vid.paused) vid.play().catch(function(){});
-      } else {
-        vid.muted = true;
-      }
-      updateVideoButtons(videoId);
-    }
 
     // Auto-unmute on first user touch anywhere on page if browser restricted autoplay sound
     function armGlobalAudioUnmute() {
@@ -3646,7 +3513,6 @@
             v.muted = false;
             v.volume = 1.0;
             v.play().catch(function(){});
-            updateVideoButtons(id);
           }
         });
 
@@ -3666,22 +3532,15 @@
       var vid = document.getElementById(videoId);
       if (!vid) return;
 
-      vid.addEventListener('play', function() { updateVideoButtons(videoId); });
-      vid.addEventListener('pause', function() { updateVideoButtons(videoId); });
-      vid.addEventListener('volumechange', function() { updateVideoButtons(videoId); });
-
       // Immediate play attempt with sound on refresh / page entry
       vid.muted = false;
       vid.volume = 1.0;
       var p = vid.play();
       if (p !== undefined) {
-        p.then(function() {
-          updateVideoButtons(videoId);
-        }).catch(function() {
+        p.catch(function() {
           // If browser policy restricts sound without gesture:
           vid.muted = true;
           vid.play().catch(function(){});
-          updateVideoButtons(videoId);
           armGlobalAudioUnmute();
         });
       }
