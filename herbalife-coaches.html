@@ -358,7 +358,7 @@
 
     /* Rule 8: Hero Video on Mobile (Portrait 4:5 Ratio for Massive Clarity) */
     /* ====================================================================
-       YOUTUBE SIZE & STYLE HERO VIDEO PLAYER
+       HERO VIDEO PLAYER
     ==================================================================== */
     .hero-video-box {
       position: relative;
@@ -369,34 +369,20 @@
       box-shadow: 0 16px 50px rgba(0, 0, 0, 0.9), 0 0 40px rgba(0, 200, 83, 0.12);
       width: 100%;
       max-width: 100%;
-      aspect-ratio: 16 / 9; /* Standard YouTube 16:9 Widescreen */
+      aspect-ratio: 16 / 9;
       margin: 14px 0 16px;
-      cursor: pointer;
     }
     @media (min-width: 992px) {
       .hero-video-box {
-        aspect-ratio: 16 / 9;
         margin: 0;
         border-radius: 16px;
       }
       .hero-grid {
         display: grid;
-        grid-template-columns: 1fr 1.25fr !important; /* YouTube Cinema Size on PC */
+        grid-template-columns: 1fr 1.25fr !important;
         gap: 40px;
         align-items: center;
       }
-    }
-    
-    /* Clean Video Player Box */
-    .hero-video-box {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      background: #000;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.14);
     }
 
     .hero-video-box video {
@@ -2041,12 +2027,8 @@
           </div>
           <h1>Abhi bhi 500 VP se neeche atke ho, jabki dusre coaches aage nikal gaye?</h1>
 
-          <!-- Mobile Hero Video Directly Below H1, Original 16:9 Aspect Ratio -->
-          <div class="mobile-hero-video-wrapper">
-            <div class="hero-video-box" id="heroBoxMobile">
-              <video id="heroVideoMobile" src="assets/hero-video.mp4" poster="assets/hero-poster.jpg" autoplay loop playsinline controls preload="metadata"></video>
-            </div>
-          </div>
+          <!-- Mobile Hero Video Slot Directly Below H1 -->
+          <div class="mobile-hero-video-wrapper" id="heroVideoSlotMobile"></div>
 
           <p class="hero-sub">
             Problem coaching mein nahi hai. Aap result dena jaante ho. Problem system mein hai — leads aaj bhi referral, offline meetings aur random reels ke bharose aati hain.
@@ -2094,13 +2076,25 @@
         </div>
 
         <!-- Desktop Only Video Layout -->
-        <div class="desktop-hero-video">
-          <div class="hero-video-box" id="heroBoxDesktop">
-            <video id="heroVideoDesktop" src="assets/hero-video.mp4" poster="assets/hero-poster.jpg" autoplay loop playsinline controls preload="metadata"></video>
+        <div class="desktop-hero-video" id="heroVideoSlotDesktop">
+          <div class="hero-video-box" id="heroBoxMain">
+            <video id="heroVideo" src="assets/hero-video.mp4" poster="assets/hero-poster.jpg" autoplay loop playsinline controls preload="metadata"></video>
           </div>
         </div>
       </div>
     </section>
+    <script>
+      (function(){
+        try {
+          var b = document.getElementById('heroBoxMain');
+          var m = document.getElementById('heroVideoSlotMobile');
+          var d = document.getElementById('heroVideoSlotDesktop');
+          if (b && m && d && window.innerWidth < 992) {
+            m.appendChild(b);
+          }
+        } catch(e){}
+      })();
+    </script>
 
     <!-- SECTION 3: LIVE SLOT PICKER + REAL COUNTDOWN (Rules 2, 3, 4 Part B) -->
     <section class="slot-section" id="slots">
@@ -3495,9 +3489,22 @@
       .catch(function(e){ console.warn('Config fetch notice:', e); });
 
     // ====================================================================
-    // HERO VIDEO AUTOPLAY & AUDIO UNMUTE
+    // HERO VIDEO AUTOPLAY & AUDIO UNMUTE (SINGLE VIDEO INSTANCE)
     // ====================================================================
     var hasUnmutedGlobally = false;
+
+    function relocateHeroVideo() {
+      var videoBox = document.getElementById('heroBoxMain');
+      var slotMobile = document.getElementById('heroVideoSlotMobile');
+      var slotDesktop = document.getElementById('heroVideoSlotDesktop');
+      if (!videoBox || !slotMobile || !slotDesktop) return;
+
+      var isMobile = window.innerWidth < 992;
+      var target = isMobile ? slotMobile : slotDesktop;
+      if (videoBox.parentElement !== target) {
+        target.appendChild(videoBox);
+      }
+    }
 
     // Auto-unmute on first user touch anywhere on page if browser restricted autoplay sound
     function armGlobalAudioUnmute() {
@@ -3507,14 +3514,12 @@
         if (hasUnmutedGlobally) return;
         hasUnmutedGlobally = true;
 
-        ['heroVideoMobile', 'heroVideoDesktop'].forEach(function(id) {
-          var v = document.getElementById(id);
-          if (v && v.muted) {
-            v.muted = false;
-            v.volume = 1.0;
-            v.play().catch(function(){});
-          }
-        });
+        var v = document.getElementById('heroVideo');
+        // Only unmute if currently playing. NEVER unpause if user paused it!
+        if (v && !v.paused && v.muted) {
+          v.muted = false;
+          v.volume = 1.0;
+        }
 
         ['click', 'touchstart', 'touchend', 'scroll', 'pointerdown'].forEach(function(evt) {
           window.removeEventListener(evt, onFirstUserGesture, { capture: true });
@@ -3528,8 +3533,9 @@
       });
     }
 
-    function initHeroVideo(videoId) {
-      var vid = document.getElementById(videoId);
+    function initHeroVideo() {
+      relocateHeroVideo();
+      var vid = document.getElementById('heroVideo');
       if (!vid) return;
 
       // Immediate play attempt with sound on refresh / page entry
@@ -3546,11 +3552,11 @@
       }
     }
 
-    document.addEventListener('DOMContentLoaded', function() {
-      ['heroVideoMobile', 'heroVideoDesktop'].forEach(initHeroVideo);
-    });
+    window.addEventListener('resize', relocateHeroVideo);
+
+    document.addEventListener('DOMContentLoaded', initHeroVideo);
     if (document.readyState === 'interactive' || document.readyState === 'complete') {
-      ['heroVideoMobile', 'heroVideoDesktop'].forEach(initHeroVideo);
+      initHeroVideo();
     }
 
     // Rule 3 & 4 (Part B): Real Countdown + Next Slot Defaulting
