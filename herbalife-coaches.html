@@ -1822,22 +1822,71 @@
       position: absolute;
       top: 14px;
       right: 14px;
-      width: 32px;
-      height: 32px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       color: #fff;
-      font-size: 20px;
+      font-size: 24px;
+      line-height: 1;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      z-index: 10;
-      transition: background 0.15s;
+      z-index: 20;
+      transition: all 0.2s ease;
     }
     .modal-close-btn:hover {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 59, 48, 0.85);
+      border-color: rgba(255, 59, 48, 1);
+      color: #fff;
+      transform: scale(1.08);
+    }
+    .modal-slot-pills-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .modal-slot-pill {
+      background: #141a24;
+      border: 1.5px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      padding: 10px 4px;
+      color: #cfd8dc;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      text-align: center;
+      font-family: inherit;
+    }
+    .modal-slot-pill:hover {
+      border-color: rgba(0, 200, 83, 0.5);
+      background: #192230;
+    }
+    .modal-slot-pill.active {
+      background: rgba(0, 200, 83, 0.16);
+      border-color: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 0 12px rgba(0, 200, 83, 0.25);
+    }
+    .modal-slot-pill .msp-time {
+      font-size: 13px;
+      font-weight: 800;
+      color: #fff;
+    }
+    .modal-slot-pill.active .msp-time {
+      color: var(--primary);
+    }
+    .modal-slot-pill .msp-sub {
+      font-size: 10px;
+      color: #90a4ae;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-top: 2px;
     }
 
     /* Modal Step 1: Small Zoom Time Picker */
@@ -3340,90 +3389,50 @@
     </a>
   </div>
 
-  <!-- Phone-Sized Modal: Step 1 (Time Selector) -> Step 2 (Full Info & Pay) -->
+  <!-- Phone & PC Optimized Modal -->
   <div class="booking-modal-overlay" id="quickBookingModal" onclick="closeBookingModalOnBackdrop(event)">
     <div class="booking-modal-card">
       <div class="modal-drag-handle"></div>
       <button type="button" class="modal-close-btn" onclick="closeBookingModal()" aria-label="Close modal">×</button>
 
-      <!-- STEP 1: Small Popup with Time for Zoom Meet -->
-      <div id="modalStepTime">
+      <!-- Step 1: Full Info & Slot Selection Form -->
+      <div id="modalStepForm">
         <div class="modal-zoom-header">
-          <span class="slot-badge"><i class="ph-fill ph-video-camera"></i> Daily Live · Max 20 Seats</span>
-          <h3>Zoom Meet Ka Time Chuno</h3>
-          <p>Direct Founder-Led Live Masterclass · 100% Free (Zero Fees)</p>
+          <span class="slot-badge"><i class="ph-fill ph-video-camera"></i> Daily Live · 100% Free Masterclass</span>
+          <h3 style="font-size:1.35rem; font-weight:800; margin:6px 0 4px; color:#fff;">Zoom Meet Seat Book Karein</h3>
+          <p style="font-size:13px; color:var(--muted); margin:0 0 12px;">Apni info bharein aur instant Zoom link &amp; passcode paayein</p>
         </div>
 
-        <div style="margin-bottom:14px;">
+        <!-- Date Selection -->
+        <div style="margin-bottom:12px;">
           <div class="modal-date-label">
-            <i class="ph-bold ph-calendar"></i> Step 1: Date Chunenge:
+            <i class="ph-bold ph-calendar"></i> Step 1: Date Chuno:
           </div>
           <div class="date-pills-track" id="modalDatePills"></div>
         </div>
 
-        <div style="margin-bottom:12px;">
+        <!-- Slot Selection -->
+        <div style="margin-bottom:14px;">
           <div class="modal-date-label">
-            <i class="ph-bold ph-clock"></i> Step 2: Time Chunenge (Tap to Continue):
+            <i class="ph-bold ph-clock"></i> Step 2: Time Slot Chuno:
           </div>
-          <div class="modal-time-cards">
-            <!-- 11:00 AM -->
-            <div class="modal-time-card" id="mtCard-11AM" onclick="onModalTimeSelect('11:00 AM')">
-              <div class="mtc-left">
-                <div class="mtc-time"><i class="ph-fill ph-sun"></i> 11:00 AM</div>
-                <div class="mtc-meta">Morning Live Session · Zoom</div>
-              </div>
-              <div class="mtc-btn">
-                <span>Select →</span>
-              </div>
-            </div>
-
-            <!-- 02:00 PM -->
-            <div class="modal-time-card" id="mtCard-2PM" onclick="onModalTimeSelect('02:00 PM')">
-              <div class="mtc-left">
-                <div class="mtc-time"><i class="ph-fill ph-sun-horizon"></i> 02:00 PM</div>
-                <div class="mtc-meta">Afternoon Live Session · Zoom</div>
-              </div>
-              <div class="mtc-btn">
-                <span>Select →</span>
-              </div>
-            </div>
-
-            <!-- 03:00 PM -->
-            <div class="modal-time-card" id="mtCard-3PM" onclick="onModalTimeSelect('03:00 PM')">
-              <div class="mtc-left">
-                <div class="mtc-time"><i class="ph-fill ph-moon"></i> 03:00 PM</div>
-                <div class="mtc-meta">Evening Live Session · Zoom</div>
-              </div>
-              <div class="mtc-btn">
-                <span>Select →</span>
-              </div>
-            </div>
+          <div class="modal-slot-pills-row">
+            <button type="button" class="modal-slot-pill active" id="mSlotPill-11AM" onclick="selectModalSlot('11:00 AM')">
+              <span class="msp-time">11:00 AM</span>
+              <span class="msp-sub">Morning</span>
+            </button>
+            <button type="button" class="modal-slot-pill" id="mSlotPill-2PM" onclick="selectModalSlot('02:00 PM')">
+              <span class="msp-time">02:00 PM</span>
+              <span class="msp-sub">Afternoon</span>
+            </button>
+            <button type="button" class="modal-slot-pill" id="mSlotPill-3PM" onclick="selectModalSlot('03:00 PM')">
+              <span class="msp-time">03:00 PM</span>
+              <span class="msp-sub">Evening</span>
+            </button>
           </div>
         </div>
 
-        <div class="modal-slot-hint">
-          ⚡ <b>Ek slot mein sirf 20 coaches allow hain.</b> Kisi bhi time par tap karke apni seat confirm karein.
-        </div>
-      </div>
-
-      <!-- STEP 2: Full Info Form & Pay (Reveals when user clicks on time) -->
-      <div id="modalStepForm" class="modal-step-form">
-        <div class="modal-form-topbar">
-          <button type="button" class="btn-change-time" onclick="goToModalStepTime()">
-            <i class="ph-bold ph-arrow-left"></i> Time Badlein
-          </button>
-          <div class="modal-chosen-pill" id="modalChosenPill">
-            <i class="ph-fill ph-video-camera"></i> Aaj · 11:00 AM (Zoom)
-          </div>
-        </div>
-
-        <div style="margin-bottom:12px;">
-          <h3 style="font-family:var(--font-heading); font-size:1.25rem; font-weight:800; margin:0 0 4px; color:#fff;">
-            Apni Info Bharein & Free Seat Lock Karein
-          </h3>
-          <p class="note-text" style="margin:0;">Instant Zoom link aapke WhatsApp par aayega</p>
-        </div>
-
+        <!-- Form Inputs -->
         <form id="modalBookingForm" onsubmit="handleModalWebinarSubmit(event)">
           <div class="form-grid" style="gap:10px; margin-bottom:12px;">
             <div class="form-group">
@@ -3452,25 +3461,21 @@
             </div>
           </div>
 
-          <div class="order-summary-card" style="padding:12px; margin-bottom:12px;">
-            <div class="order-summary-price-row">
+          <div class="order-summary-card" style="padding:10px 14px; margin-bottom:12px; background:rgba(0,200,83,0.06); border:1px solid rgba(0,200,83,0.25); border-radius:10px;">
+            <div class="order-summary-price-row" style="display:flex; justify-content:space-between; align-items:center;">
               <div>
-                <div class="order-summary-title">Daily Live Masterclass (Zoom)</div>
-                <div class="note-text" id="modalSummaryMeta">Date: Aaj · Slot: 11:00 AM (Zoom)</div>
+                <div class="order-summary-title" style="font-weight:700; color:#fff; font-size:13px;">Daily Live Masterclass (Zoom)</div>
+                <div class="note-text" id="modalSummaryMeta" style="font-size:12px; color:var(--muted);">Date: Aaj · Slot: 11:00 AM (Zoom)</div>
               </div>
-              <span class="price-current" style="font-size:20px; color:var(--primary); font-weight:800;">100% FREE</span>
+              <span class="price-current" style="font-size:18px; color:var(--primary); font-weight:800;">100% FREE</span>
             </div>
           </div>
 
-          <div class="pre-pay-upi" style="font-size:12px; margin-bottom:10px;">
-            ⚡ <b>Instant Confirmation</b> — Form bharte hi Zoom link screen aur Email par aayegi.
-          </div>
-
-          <button type="submit" class="btn btn-primary" id="btnPayModal" style="width:100%; min-height:52px; font-size:16px;">
-            <span>Free Seat Confirm Karo & Zoom Link Lo →</span>
+          <button type="submit" class="btn btn-primary" id="btnPayModal" style="width:100%; min-height:50px; font-size:15px; font-weight:800; justify-content:center;">
+            <span>Free Seat Confirm Karo &amp; Zoom Link Lo →</span>
           </button>
 
-          <div class="risk-reversal-note" style="font-size:12px; margin-top:10px; text-align:center;">
+          <div class="risk-reversal-note" style="font-size:11px; margin-top:8px; text-align:center; color:#90a4ae;">
             🔒 100% Free · Direct Founder-Led Live Session on Zoom
           </div>
         </form>
@@ -3920,20 +3925,47 @@
       btn.innerHTML = vid.muted ? '<i class="ph ph-speaker-slash"></i> <span>Sound ON</span>' : '<i class="ph-fill ph-speaker-high"></i> <span>Mute</span>';
     }
 
-    // Modal Booking Form Logic (Phone-Sized 2-Step Flow)
+    // Modal Booking Form Logic (Phone & PC Optimized Instant Flow)
     var selectedModalSlot = '11:00 AM';
+
+    function selectModalSlot(slotTime) {
+      selectedModalSlot = slotTime;
+      selectedWebinarSlot = slotTime;
+
+      ['11AM', '2PM', '3PM'].forEach(function(k){
+        var el = document.getElementById('mSlotPill-' + k);
+        if (el) el.classList.remove('active');
+      });
+      var key = slotTime.includes('11') ? '11AM' : (slotTime.includes('02') || slotTime.includes('2') ? '2PM' : '3PM');
+      var activeEl = document.getElementById('mSlotPill-' + key);
+      if (activeEl) activeEl.classList.add('active');
+
+      var meta = document.getElementById('modalSummaryMeta');
+      if (meta) {
+        meta.innerText = 'Date: ' + selectedWebinarDate + ' · Slot: ' + slotTime + ' (Zoom)';
+      }
+
+      // Sync with in-page slot pills
+      document.querySelectorAll('#webinarSlotsGroup .slot-pill').forEach(function(p){
+        if (p.dataset.slot === slotTime) p.classList.add('selected');
+        else p.classList.remove('selected');
+      });
+      updateSummary();
+    }
 
     function openBookingModal(slotTime) {
       var modal = document.getElementById('quickBookingModal');
       if (!modal) return;
       modal.style.display = 'flex';
+      modal.classList.add('active');
       document.body.style.overflow = 'hidden';
 
       initModalDatePills();
 
       if (slotTime) {
-        selectedModalSlot = slotTime;
-        selectedWebinarSlot = slotTime;
+        selectModalSlot(slotTime);
+      } else {
+        selectModalSlot(selectedModalSlot || '11:00 AM');
       }
 
       // Pre-fill fields from in-page form if already typed
@@ -3949,70 +3981,27 @@
       var mbEmail = document.getElementById('mbEmail');
       if (wbEmail && mbEmail && wbEmail.value) mbEmail.value = wbEmail.value;
 
-      // Always show Step 1: Small popup with time first
-      showModalStepTime();
-    }
-
-    function showModalStepTime() {
-      var sTime = document.getElementById('modalStepTime');
+      // Reset modal screens: show form, hide confirmation
       var sForm = document.getElementById('modalStepForm');
       var sConf = document.getElementById('modalConfirmationView');
-      if (sTime) sTime.style.display = 'block';
-      if (sForm) sForm.style.display = 'none';
-      if (sConf) sConf.style.display = 'none';
-
-      // Highlight active time card if matching
-      ['11AM', '2PM', '3PM'].forEach(function(k){
-        var el = document.getElementById('mtCard-' + k);
-        if (el) el.classList.remove('active-slot');
-      });
-      var key = selectedModalSlot.includes('11') ? '11AM' : (selectedModalSlot.includes('02') || selectedModalSlot.includes('2') ? '2PM' : '3PM');
-      var activeEl = document.getElementById('mtCard-' + key);
-      if (activeEl) activeEl.classList.add('active-slot');
-    }
-
-    // Step transition: When user clicks on ANY time slot in Step 1, reveal Step 2 (Full Info & Pay)
-    function onModalTimeSelect(slotTime) {
-      selectedModalSlot = slotTime;
-      selectedWebinarSlot = slotTime;
-
-      // Update Top Bar & Summary Meta in Step 2
-      var chosenPill = document.getElementById('modalChosenPill');
-      if (chosenPill) {
-        chosenPill.innerHTML = '<i class="ph-fill ph-video-camera"></i> ' + selectedWebinarDate + ' · ' + slotTime;
-      }
-      var meta = document.getElementById('modalSummaryMeta');
-      if (meta) {
-        meta.innerText = 'Date: ' + selectedWebinarDate + ' · Slot: ' + slotTime + ' (Zoom)';
-      }
-
-      // Sync with in-page slot pills
-      document.querySelectorAll('#webinarSlotsGroup .slot-pill').forEach(function(p){
-        if (p.dataset.slot === slotTime) p.classList.add('selected');
-        else p.classList.remove('selected');
-      });
-      updateSummary();
-
-      // Switch views: Hide time picker, show full info form
-      var sTime = document.getElementById('modalStepTime');
-      var sForm = document.getElementById('modalStepForm');
-      if (sTime) sTime.style.display = 'none';
+      var mForm = document.getElementById('modalBookingForm');
       if (sForm) sForm.style.display = 'block';
+      if (sConf) sConf.style.display = 'none';
+      if (mForm) mForm.style.display = 'block';
 
       // Auto-focus Name field
       setTimeout(function(){
-        var mbName = document.getElementById('mbName');
-        if (mbName) mbName.focus();
-      }, 120);
-    }
-
-    function goToModalStepTime() {
-      showModalStepTime();
+        var el = document.getElementById('mbName');
+        if (el) el.focus();
+      }, 150);
     }
 
     function closeBookingModal() {
       var modal = document.getElementById('quickBookingModal');
-      if (modal) modal.style.display = 'none';
+      if (modal) {
+        modal.style.display = 'none';
+        modal.classList.remove('active');
+      }
       document.body.style.overflow = '';
     }
 
@@ -4021,6 +4010,22 @@
         closeBookingModal();
       }
     }
+
+    // Auto-open modal after 5 seconds to invite user to free Live Zoom class
+    var autoPopupShown = false;
+    setTimeout(function() {
+      try {
+        var modal = document.getElementById('quickBookingModal');
+        var confView = document.getElementById('webinarConfirmationView');
+        var isConfVisible = confView && confView.style.display === 'block';
+        if (!autoPopupShown && !isConfVisible && modal && modal.style.display !== 'flex') {
+          autoPopupShown = true;
+          openBookingModal('11:00 AM');
+        }
+      } catch (err) {
+        console.warn('Auto modal notice:', err);
+      }
+    }, 5000);
 
     function initModalDatePills() {
       var container = document.getElementById('modalDatePills');

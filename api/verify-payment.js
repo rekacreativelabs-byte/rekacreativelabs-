@@ -39,11 +39,12 @@ module.exports = async function handler(req, res) {
       };
 
       // Deliver Zoom Meeting Details to Customer & Alert to Founder
-      mailer.sendBookingConfirmation(finalBooking).then(mRes => {
+      try {
+        const mRes = await mailer.sendBookingConfirmation(finalBooking);
         console.log('[Verification Email Sent]', mRes);
-      }).catch(err => {
+      } catch (err) {
         console.error('[Verification Email Error]', err.message);
-      });
+      }
 
       return res.json({
         success: true,

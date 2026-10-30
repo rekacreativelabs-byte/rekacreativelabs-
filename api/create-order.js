@@ -41,9 +41,13 @@ module.exports = async function handler(req, res) {
     db.saveBooking(bookingRecord);
 
     // Deliver Zoom Meeting Details to Customer & Alert to Founder immediately
-    mailer.sendBookingConfirmation(bookingRecord).catch(err => {
-      console.warn('[Confirmation Mailer Notice]', err.message);
-    });
+    let mailResult = { clientSent: false, adminSent: false };
+    try {
+      mailResult = await mailer.sendBookingConfirmation(bookingRecord);
+      console.log('[API Booking Mail Result]', mailResult);
+    } catch (mailErr) {
+      console.warn('[Confirmation Mailer Notice]', mailErr.message);
+    }
 
     return res.json({
       success: true,
